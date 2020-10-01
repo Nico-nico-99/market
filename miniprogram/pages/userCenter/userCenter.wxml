@@ -1,0 +1,8 @@
+<!--pages/userCenter/userCenter.wxml-->
+<text>头像</text>
+<text>点击登录/用户名</text>
+<text>订单记录</text>
+<text>待支付/进行中/已完成/已取消</text>
+<text>我的发布</text>
+<text>我的收藏</text>
+<text>评价记录</text>

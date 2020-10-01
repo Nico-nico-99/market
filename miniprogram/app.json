@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/addGood/addGood",
+    "pages/userCenter/userCenter",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -23,18 +26,25 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/icons/home.png",
-      "selectedIconPath": "images/icons/home_act.png"
-    },
-    {
-      "pagePath": "pages/userConsole/userConsole",
-      "text": "用户中心",
-      "iconPath": "images/icons/user.png",
-      "selectedIconPath": "images/icons/user_act.png"
-    }
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home_act.png"
+      },
+      {
+        "pagePath": "pages/addGood/addGood",
+        "text": "发布闲置",
+        "iconPath": "images/icons/add.png",
+        "selectedIconPath": "images/icons/add_act.png"
+      },
+      {
+        "pagePath": "pages/userCenter/userCenter",
+        "text": "用户中心",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user_act.png"
+      }
     ]
   },
   "sitemapLocation": "sitemap.json",

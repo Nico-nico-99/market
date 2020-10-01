@@ -1,0 +1,16 @@
+<!--pages/home/home.wxml-->
+<text>首先放一个轮播图</text>
+<!-- 轮播图开始 -->
+<view>
+  <swiper>
+    <swiper-item
+    wx:for="{{swiperList}}"
+    wx:key="img_id"
+    >
+      <navigator>
+        <image src="{{item.img_src}}"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 轮播图结束 -->
