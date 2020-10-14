@@ -1,0 +1,7 @@
+<!--miniprogram/pages/searchGoods/searchGoods.wxml-->
+<!-- 搜索框begin -->
+<view>
+<searchBox></searchBox>
+</view>
+<!-- 搜索框end -->
+

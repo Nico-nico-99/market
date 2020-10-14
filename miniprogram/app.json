@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/searchGoods/searchGoods",
+    "pages/try/try",
     "pages/addGood/addGood",
     "pages/userCenter/userCenter",
     "pages/index/index",

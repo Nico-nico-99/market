@@ -1,4 +1,4 @@
-/* pages/home/home.wxss */
+/* components/searchBox/searchBox.wxss */
 /*搜索框样式*/
 .searchBox {
   height: 30px;
@@ -19,12 +19,4 @@
   background-color: #fff;
   border-radius: 15rpx;
   color: #666;
-}
-/* 轮播图样式 */
-swiper {
-  width: 750rpx;
-  /*   height: 340rpx; */
-}
-.home_swiper swiper image {
-  width: 100%;
 }

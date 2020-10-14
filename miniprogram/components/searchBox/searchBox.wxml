@@ -1,0 +1,35 @@
+<!--components/searchBox/searchBox.wxml-->
+<!--搜索框组件-->
+<view class="searchBox">
+  <!-- 搜索类别begin -->
+  <view class="left_select">
+    <button class="left_btn" size="mini" plain="default"
+      hover-class="button-hover" hover-stop-propagation="false"
+       form-type="reset" open-type="contact|share|getUserInfo|openSetting|feedback" >
+    商品
+    </button>
+  </view>
+  <!-- 搜索类别end -->
+
+  <!-- 搜索输入框begin -->
+  <view class="centre_input">
+  <input type="text" placeholder="请输入想要搜索的内容"></input>
+
+  <!-- <navigator class="searchInput" url="/pages/searchGoods/searchGoods" open-type="navigate">
+  请输入想要搜索的内容
+  </navigator> -->
+
+  </view>
+  <!-- 搜索输入框end -->
+
+  <!-- 搜索按钮begin -->
+  <view class="right_btn">
+  <button class="default" size="mini"
+    hover-class="button-hover" hover-stop-propagation="false"
+     form-type="submit">
+    <cover-image class="" src="../../images/search.png">
+    </cover-image>
+  </button>
+  </view>
+  <!-- 搜索按钮end -->
+</view>
