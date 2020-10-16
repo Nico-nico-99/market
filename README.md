@@ -7,7 +7,7 @@
 - name：string, [1,16]
 - details：string, [1,16]
 - price：float
-- address：int, 0-大学城，1-五山，2-国际，3-其他
+- address：int, 0-其他，1-大学城，2-五山，3-国际
 - picture_url1 ：String, "https://..//..jpg"
 - picture_url2
 - picture_url3
