@@ -22,18 +22,32 @@
 
 <!-- 分类导航栏begin -->
 <view class="Classify_Nav">
-  <image src="../../images/classify/所有分类.png" mode="aspectFit"/> 
-  <image src="../../images/classify/书籍.png" mode="aspectFit"/>  
-  <image src="../../images/classify/文具.png" mode="aspectFit"/>
+  <image src="../../images/classify/所有分类.png" mode="aspectFit"/>
   <image src="../../images/classify/电子产品.png" mode="aspectFit"/> 
+  <image src="../../images/classify/讲座票.png" mode="aspectFit"/>     
+  <image src="../../images/classify/校园网.png" mode="aspectFit"/>
+  <image src="../../images/classify/日用品.png" mode="aspectFit"/>   
 </view>
 <view class="Classify_Nav">
-  <image src="../../images/classify/讲座票.png" mode="aspectFit"/>    
-  <image src="../../images/classify/日用品.png" mode="aspectFit"/> 
+  <text>所有分类</text>
+  <text>电子产品</text>
+  <text>讲座票</text>
+  <text>校园网</text>
+  <text>日用品</text>
+</view>
+<view class="Classify_Nav">
+  <image src="../../images/classify/书籍.png" mode="aspectFit"/> 
+  <image src="../../images/classify/文具.png" mode="aspectFit"/>
   <image src="../../images/classify/美妆.png" mode="aspectFit"/> 
   <image src="../../images/classify/零食.png" mode="aspectFit"/>
+  <image src="../../images/classify/其他.png" mode="aspectFit"/>
 </view>
-<view>
+<view class="Classify_Nav">
+  <text>书籍</text> 
+  <text>文具</text>
+  <text>美妆</text>
+  <text>零食</text>
+  <text>其他</text>
 </view>
 <!-- 分类导航栏end -->
   

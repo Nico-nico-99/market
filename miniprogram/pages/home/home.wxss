@@ -31,3 +31,10 @@ swiper {
   height: 50px;
   flex: 1;
 }
+.Classify_Nav text {
+  color: #66ccff;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
