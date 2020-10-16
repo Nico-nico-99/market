@@ -19,7 +19,7 @@ Page({
         img_id: 3,
         img_src:"http://img.dahepiao.com/uploads/allimg/191204/104Z4GB-0.jpg",
       }
-    ]
+    ],
   },
 
   /**

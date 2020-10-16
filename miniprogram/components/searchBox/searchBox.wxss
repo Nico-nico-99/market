@@ -10,11 +10,17 @@
   /*搜索按钮样式*/
 }
 .searchBox .left_select {
-  flex: 1.5;
+  flex: 1;
+  padding-right: 10rpx;
 }
-.searchBox .left_select .left_btn {
+.searchBox .left_select picker {
   background-color: #fff;
   color: #0082bf;
+  height: 30px;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .searchBox .centre_input {
   flex: 5;

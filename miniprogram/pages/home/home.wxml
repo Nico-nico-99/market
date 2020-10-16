@@ -1,7 +1,9 @@
 <!--pages/home/home.wxml-->
 <!-- 搜索框begin -->
-<view>
-  <searchBox></searchBox>
+<view class="searchBox">
+  <navigator class="searchNav" url="/pages/searchGoods/searchGoods" open-type="navigate">
+  请输入想要搜索的内容
+  </navigator>
 </view>
 <!-- 搜索框end -->
 
@@ -17,4 +19,21 @@
   </swiper>
 </view>
 <!-- 轮播图end -->
+
+<!-- 分类导航栏begin -->
+<view class="Classify_Nav">
+  <image src="../../images/classify/所有分类.png" mode="aspectFit"/> 
+  <image src="../../images/classify/书籍.png" mode="aspectFit"/>  
+  <image src="../../images/classify/文具.png" mode="aspectFit"/>
+  <image src="../../images/classify/电子产品.png" mode="aspectFit"/> 
+</view>
+<view class="Classify_Nav">
+  <image src="../../images/classify/讲座票.png" mode="aspectFit"/>    
+  <image src="../../images/classify/日用品.png" mode="aspectFit"/> 
+  <image src="../../images/classify/美妆.png" mode="aspectFit"/> 
+  <image src="../../images/classify/零食.png" mode="aspectFit"/>
+</view>
+<view>
+</view>
+<!-- 分类导航栏end -->
   
