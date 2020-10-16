@@ -28,7 +28,7 @@ Page({
         "name": "线性代数",
         "picture_url1": "https://api//image//good.jpg",
         "price": 25.00,
-        "address": "大学城",
+        "address": 1,
         "is_new": 0,
         "classify": 0
       },
@@ -37,7 +37,7 @@ Page({
         "name": "线性代数",
         "picture_url1": "https://api//image//good.jpg",
         "price": 25.00,
-        "address": "大学城",
+        "address": 2,
         "is_new": 0,
         "classify": 1
       },
@@ -46,7 +46,7 @@ Page({
         "name": "线性代数",
         "picture_url1": "https://api//image//good.jpg",
         "price": 25.00,
-        "address": "大学城",
+        "address": 3,
         "is_new": 1,
         "classify": 2
       }

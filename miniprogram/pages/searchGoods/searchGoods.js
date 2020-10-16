@@ -5,24 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: ['大学城', '五山', '国际', '其他'],
-    new:['全新','非全新'],
-    index1: 0,
-    index2: 0,
+    address: ['其他', '大学城', '五山', '国际'],
+    new:['非全新','全新'],
+    address_index: 0,
+    new_index: 0,
+
   },
 
   // 发货地选择器改变事件
   addressPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('发货地picker发生选择改变，携带值为', e.detail.value)
     this.setData({
-      index1: e.detail.value
+      address_index: e.detail.value
     })
   },
   // 新旧程度选择器改变事件
   newPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('新旧程度picker发生选择改变，携带值为', e.detail.value)
     this.setData({
-      index2: e.detail.value
+      new_index: e.detail.value
     })
   },
 

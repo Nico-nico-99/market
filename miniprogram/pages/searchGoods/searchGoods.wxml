@@ -19,15 +19,15 @@
   <view class="filter_area">
   <text>筛选</text>
     <!-- 发货地picker -->
-    <picker bindchange="addressPickerChange" value="{{index1}}" range="{{address}}" name="address">
+    <picker bindchange="addressPickerChange" value="{{address_index}}" range="{{address}}" name="address">
       <view>
-      {{address[index1]}}
+      {{address[address_index]}}
       </view>
     </picker>
     <!-- 新旧程度picker -->
-    <picker bindchange="newPickerChange" value="{{index2}}" range="{{new}}" name="new">
+    <picker bindchange="newPickerChange" value="{{new_index}}" range="{{new}}" name="new">
       <view>
-      {{new[index2]}}
+      {{new[new_index]}}
       </view>
     </picker>
   </view>
