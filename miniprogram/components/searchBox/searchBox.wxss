@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* components/searchBox/searchBox.wxss */
 /*搜索框样式*/
 .searchBox {
@@ -34,3 +35,35 @@
 .searchBox .right_btn {
   flex: 1;
 }
+=======
+/* components/searchBox/searchBox.wxss */
+/*搜索框样式*/
+.searchBox {
+  height: 30px;
+  padding: 10px;
+  background-color: #66ccff;
+  display: flex;
+  /*搜索类别样式*/
+  /*搜索输入框样式*/
+  /*搜索按钮样式*/
+}
+.searchBox .left_select {
+  flex: 1.5;
+}
+.searchBox .left_select .left_btn {
+  background-color: #fff;
+  color: #0082bf;
+}
+.searchBox .centre_input {
+  flex: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15rpx;
+  color: #666;
+}
+.searchBox .right_btn {
+  flex: 1;
+}
+>>>>>>> Stashed changes

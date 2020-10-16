@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--pages/home/home.wxml-->
 <!-- 搜索框begin -->
 <view class="searchBox">
@@ -50,4 +51,25 @@
   <text>其他</text>
 </view>
 <!-- 分类导航栏end -->
+=======
+<!--pages/home/home.wxml-->
+<!-- 搜索框begin -->
+<view>
+  <searchBox></searchBox>
+</view>
+<!-- 搜索框end -->
+
+<!-- 轮播图begin -->
+<view class="home_swiper">
+  <swiper autoplay="true">
+    <swiper-item
+    wx:for="{{swiperList}}"
+    wx:key="img_id"
+    >
+      <image mode="widthFix" src="{{item.img_src}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 轮播图end -->
+>>>>>>> Stashed changes
   

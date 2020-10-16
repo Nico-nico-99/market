@@ -1,2 +1,62 @@
 <!--pages/addGood/addGood.wxml-->
-<text>pages/addGood/addGood.wxml</text>
+
+<view class="pageContainer">
+<!-- 商品名 -->
+<view class="InputContainer">
+ <view class="TitleView">
+     <text>商品名</text>
+ </view>
+ <view class="InputView">
+ <input class="input" placeholder="输入商品名称"bindinput="listenerPhoneInput" />
+ </view>
+</view>
+
+<view class="gap"></view>
+<!-- 商品描述 -->
+<view class="detailInputContainer">
+
+ <view class="detailTitleView">
+     <text>描述</text>
+ </view>
+
+ <view class="detailInputView">
+ <textarea class="detailText" placeholder="输入商品描述"bindblur="bindTextAreaBlur"value="{{details}}"></textarea>
+ </view>
+</view> 
+
+<view class="gap"></view>
+
+<view class="InputContainer">
+ <view class="TitleView">
+     <text>价格</text>
+ </view>
+ <view class="InputView">
+ <input class="input" type="number" placeholder="输入商品价格"bindinput="listenerPhoneInput" />
+ </view>
+</view>
+
+<view class="gap"></view>
+
+<radio-group class="radio-group" bindchange="radioChange">
+    <view class="radioTitleView">
+     <text>是否全新</text>
+    </view>
+    <label class="radio" wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</radio-group>
+
+<view class="gap"></view>
+
+
+
+
+<!-- <view class="inputView">
+<input class="input" password="true" placeholder="请输入密码" placeholder-style="color: red" bindinput="listenerPasswordInput"/>
+</view> -->
+
+
+<button style="margin-left: 15rpx; margin-right: 15rpx; margin-top: 50rpx; border-radius: 40rpx" type="primary" bindtap="listenerLogin">登录</button>
+
+</view>
+
