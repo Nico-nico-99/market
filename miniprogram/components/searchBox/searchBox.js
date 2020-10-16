@@ -32,7 +32,9 @@ Component({
 
   // 搜索按钮表单提交事件
   formSubmit(e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    if(e.detail.value.searchInput!=""){
+      console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    }
   },
 
   }

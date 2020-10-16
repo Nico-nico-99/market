@@ -20,6 +20,37 @@ Page({
         img_src:"http://img.dahepiao.com/uploads/allimg/191204/104Z4GB-0.jpg",
       }
     ],
+
+    // 推荐商品列表
+    goodsList: [
+      {
+        "cm_id": 25,
+        "name": "线性代数",
+        "picture_url1": "https://api//image//good.jpg",
+        "price": 25.00,
+        "address": "大学城",
+        "is_new": 0,
+        "classify": 0
+      },
+      {
+        "cm_id": 26,
+        "name": "线性代数",
+        "picture_url1": "https://api//image//good.jpg",
+        "price": 25.00,
+        "address": "大学城",
+        "is_new": 0,
+        "classify": 1
+      },
+      {
+        "cm_id": 27,
+        "name": "线性代数",
+        "picture_url1": "https://api//image//good.jpg",
+        "price": 25.00,
+        "address": "大学城",
+        "is_new": 1,
+        "classify": 2
+      }
+    ]
   },
 
   /**
