@@ -5,3 +5,32 @@
 </view>
 <!-- 搜索框end -->
 
+<!-- 排序&筛选begin -->
+<view class="choice_area">
+  <!-- 排序=begin -->
+  <view class="sort_area">
+  <text>排序</text>
+  <button class="sort_btn" size="mini">价格</button>
+  <button class="sort_btn" size="mini">发布时间</button>
+  </view>
+  <!-- 排序end -->
+
+  <!-- 筛选begin -->
+  <view class="filter_area">
+  <text>筛选</text>
+    <!-- 发货地picker -->
+    <picker bindchange="addressPickerChange" value="{{index1}}" range="{{address}}" name="address">
+      <view>
+      {{address[index1]}}
+      </view>
+    </picker>
+    <!-- 新旧程度picker -->
+    <picker bindchange="newPickerChange" value="{{index2}}" range="{{new}}" name="new">
+      <view>
+      {{new[index2]}}
+      </view>
+    </picker>
+  </view>
+<!-- 筛选end -->
+</view>
+<!-- 排序&筛选end -->

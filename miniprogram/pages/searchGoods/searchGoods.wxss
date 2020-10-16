@@ -1,1 +1,38 @@
 /* miniprogram/pages/searchGoods/searchGoods.wxss */
+.choice_area {
+  background-color: #66ccff;
+  display: flex;
+  height: 35px;
+}
+.choice_area text {
+  padding: 5px;
+}
+.choice_area .sort_area {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.choice_area .sort_area .sort_btn {
+  background-color: #fff;
+  color: #0082bf;
+  height: 30px;
+  border-radius: 15rpx;
+  font-weight: 500;
+}
+.choice_area .filter_area {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.choice_area .filter_area picker {
+  background-color: #fff;
+  color: #0082bf;
+  height: 30px;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140rpx;
+}
