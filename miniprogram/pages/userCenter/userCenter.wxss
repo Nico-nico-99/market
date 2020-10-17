@@ -1,1 +1,207 @@
 /* pages/userCenter/userCenter.wxss */
+
+/*********************** 用户登陆样式 ***********************/
+/* 背景图 */
+.userLogin.background{
+  flex-direction: column;
+
+  height: 45vw;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #dfdfdf
+}
+/* 用户头像 */
+.userLogin.userImage{
+  height: 25vw;
+  width: 25vw;
+
+  position: relative;
+  bottom: 8px;
+
+  background-size: 25vw 25vw;
+  border-radius: 50%;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+}
+/* 用户昵称 */
+.userLogin.userName{
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+/***********************************************************/
+
+/*********************** 我的收藏样式 ***********************/
+/* 背景图 */
+.userFavors.background{
+  flex-direction: row;
+
+  position: relative;
+  top: 10px;
+
+  height: 15vw;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+
+  background-color: white;
+}
+/* icon */
+.userFavors.icon{
+  position: relative;
+  left: 4vw;
+  height: 9vw;
+  width: 9vw;
+}
+/* text */
+.userFavors.text{
+  position: relative;
+  left: 7.8vw;
+
+  font-size: 14px;
+}
+/* arrow */
+.userFavors.arrow{
+  position: relative;
+  left: 69.7vw;
+  height: 5vw;
+  width: 5vw;
+}
+/***********************************************************/
+
+/*********************** 我预订的样式 ***********************/
+/* 背景图 */
+.userBookings.background{
+  flex-direction: row;
+
+  position: relative;
+  top: 13px;
+
+  height: 15vw;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+
+  background-color: white;
+}
+/* icon */
+.userBookings.icon{
+  position: relative;
+  left: 5.2vw;
+  height: 7vw;
+  width: 7vw;
+}
+/* text */
+.userBookings.text{
+  position: relative;
+  left: 9.7vw;
+
+  font-size: 14px;
+}
+/* arrow */
+.userBookings.arrow{
+  position: relative;
+  left: 71.3vw;
+  height: 5vw;
+  width: 5vw;
+}
+/***********************************************************/
+
+/*********************** 我买到的样式 ***********************/
+/* 背景图 */
+.userBoughts.background{
+  flex-direction: row;
+
+  position: relative;
+  top: 16px;
+
+  height: 15vw;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+
+  background-color: white;
+}
+/* icon */
+.userBoughts.icon{
+  position: relative;
+  left: 4.5vw;
+  height: 8vw;
+  width: 8vw;
+}
+/* text */
+.userBoughts.text{
+  position: relative;
+  left: 8.5vw;
+
+  font-size: 14px;
+}
+/* arrow */
+.userBoughts.arrow{
+  position: relative;
+  left: 70vw;
+  height: 5vw;
+  width: 5vw;
+}
+/***********************************************************/
+
+/*********************** 个人信息样式 ***********************/
+/* 背景图 */
+.userInfo.background{
+  flex-direction: row;
+
+  position: relative;
+  top: 25px;
+
+  height: 15vw;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+
+  background-color: white;
+}
+/* icon */
+.userInfo.icon{
+  position: relative;
+  left: 5vw;
+  height: 7vw;
+  width: 7vw;
+}
+/* text */
+.userInfo.text{
+  position: relative;
+  left: 9.5vw;
+
+  font-size: 14px;
+}
+/* arrow */
+.userInfo.arrow{
+  position: relative;
+  left: 70.5vw;
+  height: 5vw;
+  width: 5vw;
+}
+/***********************************************************/
+
+/*********************** 退出按钮样式 ***********************/
+.exit.exitButton{
+  position: relative;
+  top: 45px;
+
+  color: white;
+
+  font-size: 16px;
+
+  background-color: #1296db;
+}
+/***********************************************************/

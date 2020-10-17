@@ -1,8 +1,101 @@
 <!--pages/userCenter/userCenter.wxml-->
-<text>头像</text>
-<text>点击登录/用户名</text>
-<text>订单记录</text>
-<text>待支付/进行中/已完成/已取消</text>
-<text>我的发布</text>
-<text>我的收藏</text>
-<text>评价记录</text>
+
+<!-- 用户登陆begin -->
+<view class="userLogin">
+  <!-- 背景图 -->
+  <view class="userLogin background">
+    <!-- 用户头像 -->
+    <!-- 未授权 -->
+    <button class="userLogin userImage" plain="true" 
+            wx:if="{{!hasUserInfo}}" style="background-image:url(../../images/userImage.png);"
+            bindtap="mpDialog">
+    </button>
+    <!-- 已授权 -->
+    <button class="userLogin userImage" plain="true" 
+            wx:if="{{hasUserInfo}}" style="background-image:url({{userInfo.avatarUrl}});">
+    </button>
+    <!-- 弹窗确定是否授权 -->
+    <mymodal type="getUserInfo" title='微信授权'
+             content='玛奇market申请获得以下权限：\n·获得你的公开信息(头像、昵称等)'
+             confirmText='允许授权' confirmColor="#1296db" cancelText="拒绝" 
+             showStatus='{{showModal}}' showCancel="true" bind:complete="onComplete">
+    </mymodal>
+    <!-- 用户昵称 -->
+    <view class="userLogin userName">
+        <text wx:if="{{!hasUserInfo}}" >点击头像授权登录</text>
+        <text wx:if="{{hasUserInfo}}">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+</view>
+<!-- 用户登陆部分end -->
+
+<!-- 我的收藏begin -->
+<view class="userFavors" bindtap="toFavors">
+  <!-- 背景图 -->
+  <view class="userFavors background">
+    <!-- icon -->
+    <image class="userFavors icon" src="../../images/icons/购买偏好.png"></image>
+    <!-- text -->
+    <view class="userFavors text">
+        <text>我的收藏</text>
+    </view>
+    <!-- arrow -->
+    <image class="userFavors arrow" src="../../images/icons/指示箭头.png"></image>
+  </view>
+</view>
+<!-- 我的收藏end -->
+
+<!-- 我预订的begin -->
+<view class="userBookings" bindtap="toBookings">
+  <!-- 背景图 -->
+  <view class="userBookings background">
+    <!-- icon -->
+    <image class="userBookings icon" src="../../images/icons/订单.png"></image>
+    <!-- text -->
+    <view class="userBookings text">
+        <text>我预订的</text>
+    </view>
+     <!-- arrow -->
+     <image class="userBookings arrow" src="../../images/icons/指示箭头.png"></image>
+  </view>
+</view>
+<!-- 我预订的end -->
+
+<!-- 我买到的begin -->
+<view class="userBoughts" bindtap="toBoughts">
+  <!-- 背景图 -->
+  <view class="userBoughts background">
+    <!-- icon -->
+    <image class="userBoughts icon" src="../../images/icons/购买记录.png"></image>
+    <!-- text -->
+    <view class="userBoughts text">
+        <text>我买到的</text>
+    </view>
+     <!-- arrow -->
+     <image class="userBoughts arrow" src="../../images/icons/指示箭头.png"></image>
+  </view>
+</view>
+<!-- 我买到的end -->
+
+<!-- 个人信息begin -->
+<view class="userInfo" bindtap="toUserInfo">
+  <!-- 背景图 -->
+  <view class="userInfo background">
+    <!-- icon -->
+    <image class="userInfo icon" src="../../images/icons/个人信息.png"></image>
+    <!-- text -->
+    <view class="userInfo text">
+        <text>个人信息</text>
+    </view>
+     <!-- arrow -->
+     <image class="userInfo arrow" src="../../images/icons/指示箭头.png"></image>
+  </view>
+</view>
+<!-- 个人信息end -->
+
+<!-- 退出账号begin -->
+<view class="exit">
+  <!-- 退出按钮 -->
+  <button class="exit exitButton" style="width: 100vw;" bindtap="logout">退出账号</button>
+</view>
+<!-- 退出账号end -->

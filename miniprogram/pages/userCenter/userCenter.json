@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-dialog": "../../components/dialog/dialog",
+    "mymodal": "../../components/modal/index"
+  }
 }
