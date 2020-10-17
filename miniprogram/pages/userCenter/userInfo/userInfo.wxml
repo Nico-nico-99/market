@@ -1,0 +1,139 @@
+<!--miniprogram/pages/userCenter/userInfo/userInfo.wxml-->
+
+<!-- 标题栏begin -->
+<view class="title">
+  <!-- 背景图 -->
+  <view class="title background">
+    <text class="title text">个人资料</text>
+  </view>
+</view>
+<!-- 标题栏end -->
+
+<!-- 用户头像begin -->
+<view class="userImage">
+  <!-- 背景图 -->
+  <view class="userImage background">
+    <!-- text -->
+    <text class="userImage text">头像</text>
+    <!-- image -->
+    <image class="userImage image" mode="aspectFit" src="{{userImageUrl}}"></image>
+  </view>
+</view>
+<!-- 用户头像部分end -->
+
+<!-- 用户昵称begin -->
+<view class="userName">
+  <!-- 背景图 -->
+  <view class="userName background">
+    <!-- text -->
+    <text class="userName text">昵称</text>
+    <!-- nickName -->
+    <text class="userName nickName">{{userName}}</text>
+  </view>
+</view>
+<!-- 用户昵称部分end -->
+
+<!-- 用户学校begin -->
+<view class="userSchool">
+  <!-- 背景图 -->
+  <view class="userSchool background">
+    <!-- text -->
+    <text class="userSchool symbol">*</text>
+    <text class="userSchool text">学校</text>
+    <!-- school -->
+    <picker class="userSchool schoolPicker" 
+            disabled="{{!change}}" 
+            bindchange="bindSchoolPickerChange" 
+            value="{{schoolIndex}}" range="{{schoolArray}}">
+      <!-- 非修改状态 -->
+      <view class="userSchool school"
+            wx:if="{{!change}}" style="color: darkgrey;">{{schoolArray[schoolIndex]}}</view>
+      <!-- 修改状态 -->
+      <view class="userSchool school"
+            wx:if="{{change}}" style="color: black;">{{schoolArray[schoolIndex]}}</view>
+    </picker>
+  </view>
+</view>
+<!-- 用户学校end -->
+
+<!-- 用户年级begin -->
+<view class="userGrade">
+  <!-- 背景图 -->
+  <view class="userGrade background">
+    <!-- text -->
+    <text class="userGrade symbol">*</text>
+    <text class="userGrade text">年级</text>
+    <!-- grade -->
+    <picker class="userGrade gradePicker" 
+            disabled="{{!change}}" 
+            bindchange="bindGradePickerChange" 
+            value="{{gradeIndex}}" range="{{gradeArray}}">
+      <!-- 非修改状态 -->
+      <view class="userGrade grade"
+            wx:if="{{!change}}" style="color: darkgrey;">{{gradeArray[gradeIndex]}}</view>
+      <!-- 修改状态 -->
+      <view class="userGrade grade"
+            wx:if="{{change}}" style="color: black;">{{gradeArray[gradeIndex]}}</view>
+    </picker>
+  </view>
+</view>
+<!-- 用户年级end -->
+
+<!-- 用户联系方式begin -->
+<view class="userContact">
+  <!-- 背景图 -->
+  <view class="userContact background">
+    <!-- text -->
+    <text class="userContact symbol">*</text>
+    <text class="userContact text">联系方式</text>
+    <!-- contact -->
+      <view class="userContact contact">
+        <!-- 非修改状态 -->
+        <input type="text" class="userContact contactInput" placeholder="{{contactInput}}"
+               wx:if="{{!change}}" disabled='{{true}}'
+                                   style="color: darkgrey;"/>
+        <!-- 修改状态 -->
+        <input type="text" class="userContact contactInput" placeholder="{{contactInput}}"
+               wx:if="{{change}}" disabled='{{false}}'
+                                  style="color: black;"
+                                  bindinput="bindContactInput"/>
+      </view>
+  </view>
+</view>
+<!-- 用户联系方式end -->
+
+<!-- 用户收货地址begin -->
+<view class="userAddress">
+  <!-- 背景图 -->
+  <view class="userAddress background">
+    <!-- text -->
+    <text class="userAddress symbol">*</text>
+    <text class="userAddress text">收货地址</text>
+    <!-- address -->
+      <view class="userAddress address">
+        <!-- 非修改状态 -->
+        <input type="text" class="userAddress addressInput" placeholder="{{addressInput}}"
+               wx:if="{{!change}}" disabled='{{true}}'
+                                   style="color: darkgrey;"/>
+        <!-- 修改状态 -->
+        <input type="text" class="userAddress addressInput" placeholder="{{addressInput}}"
+               wx:if="{{change}}" disabled='{{false}}'
+                                  style="color: black;"
+                                  bindinput="bindAddressInput"/>
+      </view>
+  </view>
+</view>
+<!-- 用户收货地址end -->
+
+
+<!-- 修改资料begin -->
+<view class="edit">
+  <!-- 修改按钮 -->
+  <!-- 非修改状态 -->
+  <button class="edit editButton" style="width: 90vw;" bindtap="gotoEdit"
+          wx:if="{{!change}}">修改资料</button>
+  <!-- 非修改状态 -->
+  <button class="edit editButton" style="width: 90vw;" bindtap="editFinish"
+          wx:if="{{change}}">完成修改</button>
+</view>
+<!-- 修改资料end -->

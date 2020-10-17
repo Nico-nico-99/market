@@ -1,0 +1,325 @@
+/* miniprogram/pages/userCenter/userInfo/userInfo.wxss */
+
+/************************* 标题样式 *************************/
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 背景图 */
+.title.background{
+  width: 100vw;
+  height: 13vw;
+
+  background-color: #1296db;
+}
+/* 标题 */
+.title.text{
+  color: white;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+/***********************************************************/
+
+/*********************** 用户头像样式 ***********************/
+.userImage{
+  position: relative;
+  top: 2.5vw;
+  left:2.5vw;
+
+  height: 15vw;
+  width: 90vw;
+}
+/* 背景图 */
+.userImage.background{
+  flex-direction: row;
+
+  height: 15vw;
+  width: 90vw;
+
+  display: flex;
+
+  background-color: white;
+}
+/* text */
+.userImage.text{
+  position: relative;
+  left: 3.5vw;
+  top: 5vw;
+
+  font-size: 14px;
+}
+/* image */
+.userImage.image{
+  position: relative;
+  left: -3.5vw;
+  top: 1vw;
+
+  width: 13vw;
+  height: 13vw;
+}
+/***********************************************************/
+
+/*********************** 用户昵称样式 ***********************/
+.userName{
+  position: relative;
+  top: 4vw;
+  left:2.5vw;
+
+  height: 15vw;
+  width: 90vw;
+}
+/* 背景图 */
+.userName.background{
+  flex-direction: row;
+
+  height: 15vw;
+  width: 90vw;
+
+  display: flex;
+
+  background-color: white;
+}
+/* text */
+.userName.text{
+  position: relative;
+  left: 3.5vw;
+  top: 5vw;
+
+  font-size: 14px;
+}
+/* nickName */
+.userName.nickName{
+  position: relative;
+  top: 5vw;
+  left: -3.5vw;
+
+  font-size: 14px;
+
+  text-align: right;
+
+  color: darkgray;
+}
+/***********************************************************/
+
+/*********************** 用户学校样式 ***********************/
+.userSchool{
+  position: relative;
+  top: 4.5vw;
+  left:2.5vw;
+
+  height: 15vw;
+  width: 90vw;
+}
+/* 背景图 */
+.userSchool.background{
+  flex-direction: row;
+
+  height: 15vw;
+  width: 90vw;
+
+  display: flex;
+
+  background-color: white;
+}
+/* text */
+.userSchool.symbol{
+  position: relative;
+  left: 3.5vw;
+  top: 5.5vw;
+
+  font-size: 14px;
+
+  color: red;
+}
+.userSchool.text{
+  position: relative;
+  left: -13.5vw;
+  top: 5vw;
+
+  font-size: 14px;
+}
+/* school */
+.userSchool.school{
+  position: relative;
+  top: 0vw;
+  left: -6vw;
+
+  width: 50vw;
+
+  font-size: 14px;
+
+  text-align: right;
+}
+/***********************************************************/
+
+/*********************** 用户年级样式 ***********************/
+.userGrade{
+  position: relative;
+  top: 5vw;
+  left:2.5vw;
+
+  height: 15vw;
+  width: 90vw;
+}
+/* 背景图 */
+.userGrade.background{
+  flex-direction: row;
+
+  height: 15vw;
+  width: 90vw;
+
+  display: flex;
+
+  background-color: white;
+}
+/* text */
+.userGrade.symbol{
+  position: relative;
+  left: 3.5vw;
+  top: 5.5vw;
+
+  font-size: 14px;
+
+  color: red;
+}
+.userGrade.text{
+  position: relative;
+  left: -13.5vw;
+  top: 5vw;
+
+  font-size: 14px;
+}
+/* grade */
+.userGrade.grade{
+  position: relative;
+  top: 0vw;
+  left: -6vw;
+
+  width: 50vw;
+
+  font-size: 14px;
+
+  text-align: right;
+}
+/***********************************************************/
+
+/********************* 用户联系方式样式 *********************/
+.userContact{
+  position: relative;
+  top: 5.5vw;
+  left:2.5vw;
+
+  height: 15vw;
+  width: 90vw;
+}
+/* 背景图 */
+.userContact.background{
+  flex-direction: row;
+
+  height: 15vw;
+  width: 90vw;
+
+  display: flex;
+
+  background-color: white;
+}
+/* text */
+.userContact.symbol{
+  position: relative;
+  left: 3.5vw;
+  top: 5.5vw;
+
+  font-size: 14px;
+
+  color: red;
+}
+.userContact.text{
+  position: relative;
+  left: -13.5vw;
+  top: 5vw;
+
+  font-size: 14px;
+}
+/* contact */
+.userContact.contactInput{
+  position: relative;
+  top: -1.5vw;
+  left: -6vw;
+
+  height: 28px;
+  width: 50vw;
+  line-height: 28px;
+
+  font-size: 14px;
+
+  text-align: right;
+}
+/***********************************************************/
+
+/********************* 用户收货地址样式 *********************/
+.userAddress{
+  position: relative;
+  top: 6vw;
+  left:2.5vw;
+
+  height: 15w;
+  width: 90vw;
+}
+/* 背景图 */
+.userAddress.background{
+  flex-direction: row;
+
+  height: 15vw;
+  width: 90vw;
+
+  display: flex;
+
+  background-color: white;
+}
+/* text */
+.userAddress.symbol{
+  position: relative;
+  left: 3.5vw;
+  top: 5.5vw;
+
+  font-size: 14px;
+
+  color: red;
+}
+.userAddress.text{
+  position: relative;
+  left: -13.5vw;
+  top: 5vw;
+
+  font-size: 14px;
+}
+/* address */
+.userAddress.addressInput{
+  position: relative;
+  top: -2vw;
+  left: -6vw;
+
+  height: 28px;
+  width: 50vw;
+  line-height: 28px;
+
+  font-size: 14px;
+
+  text-align: right;
+}
+/***********************************************************/
+
+/*********************** 修改按钮样式 ***********************/
+.edit.editButton{
+  position: relative;
+  top: 18vw;
+
+  color: white;
+
+  font-size: 16px;
+
+  background-color: #1296db;
+}
+/***********************************************************/
