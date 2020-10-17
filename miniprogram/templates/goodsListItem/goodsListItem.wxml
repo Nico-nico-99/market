@@ -1,0 +1,18 @@
+<!-- 用到的数据就是item -->
+<template name="goodsListItem">
+
+<view class="goods-box" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cm_id}}">
+
+      <view class="img-box">
+        <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+
+      <view class="goods-title">{{item.name}}</view>
+
+      <view style='display:flex;'>
+        <view  class="goods-price">¥<span>{{filters.toFix2(item.price)}}</span></view>
+        <!-- 保留两位小数显示 -->
+        <view class="goods-address">{{item.address}}</view>
+      </view>
+  </view>
+</template>

@@ -1,8 +1,15 @@
 {
   "pages": [
+    "pages/addGood/addGood",
+    "pages/myStore/myStore",
     "pages/home/home",
     "pages/searchGoods/searchGoods",
+<<<<<<< Updated upstream
     "pages/addGood/addGood",
+=======
+    "pages/try/try",
+    
+>>>>>>> Stashed changes
     "pages/userCenter/userCenter",
     "pages/index/index",
     "pages/userConsole/userConsole",
@@ -35,7 +42,7 @@
         "selectedIconPath": "images/icons/home_act.png"
       },
       {
-        "pagePath": "pages/addGood/addGood",
+        "pagePath": "pages/myStore/myStore",
         "text": "发布闲置",
         "iconPath": "images/icons/add.png",
         "selectedIconPath": "images/icons/add_act.png"

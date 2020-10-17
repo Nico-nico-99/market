@@ -1,1 +1,75 @@
 /* pages/addGood/addGood.wxss */
+
+.pageContainer,{
+   display: flex; 
+   flex-direction: column;
+ 
+}
+.InputContainer,radio-group{
+  display: flex; 
+  flex-direction: row;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  align-items: center;
+  height:60rpx;
+}
+.TitleView{
+  width:150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.InputView{
+    border:  2px solid #4d99c0;
+    border-radius: 20px;
+}
+.input{
+  background-color: white;
+  width:550rpx;
+  border-radius: 20px;
+  margin-left: 10rpx;
+}
+.gap{
+  height:20rpx;
+}
+
+.detailInputContainer{
+  display: flex; 
+  flex-direction: row;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  align-items: center;
+  /* height:200rpx; */
+  
+}
+.detailTitleView{
+  width:150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:200rpx;
+} 
+.detailInputView{
+    border:  2px solid #4d99c0;
+    border-radius: 20px;
+    width:550rpx;
+}
+.detailText{
+  background-color: white;
+  width:540rpx;
+  border-radius: 20px;
+  margin-left: 10rpx;
+}
+
+.radioTitleView{
+  width:250rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radio{
+  display: flex; 
+  flex-direction: row;
+  width:300rpx;
+  align-items: center;
+}

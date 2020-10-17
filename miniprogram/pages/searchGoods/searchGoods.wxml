@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--miniprogram/pages/searchGoods/searchGoods.wxml-->
 <!-- 搜索框begin -->
 <view>
@@ -34,3 +35,12 @@
 <!-- 筛选end -->
 </view>
 <!-- 排序&筛选end -->
+=======
+<!--miniprogram/pages/searchGoods/searchGoods.wxml-->
+<!-- 搜索框begin -->
+<view>
+<searchBox></searchBox>
+</view>
+<!-- 搜索框end -->
+
+>>>>>>> Stashed changes

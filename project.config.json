@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -10,6 +10,10 @@
 		"newFeature": true,
 		"coverView": true,
 		"autoAudits": false,
+<<<<<<< Updated upstream
+=======
+		"showShadowRootInWxmlPanel": true,
+>>>>>>> Stashed changes
 		"scopeDataCheck": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,

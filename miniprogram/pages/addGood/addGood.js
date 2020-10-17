@@ -5,8 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
+      items: [
+        { name: '全新', value: true },
+        { name: '非全新', value: false, checked: 'true' },
+      ]
+    },
+    radioChange: function (e) {
+      console.log('radio发生change事件，携带value值为：', e.detail.value)
+    },
 
-  },
+
+
+
+
+  
 
   /**
    * 生命周期函数--监听页面加载
