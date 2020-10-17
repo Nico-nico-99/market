@@ -1,17 +1,12 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/index/index",
     "pages/addGood/addGood",
     "pages/myStore/myStore",
-    "pages/home/home",
     "pages/searchGoods/searchGoods",
-<<<<<<< Updated upstream
-    "pages/addGood/addGood",
-=======
     "pages/try/try",
-    
->>>>>>> Stashed changes
     "pages/userCenter/userCenter",
-    "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
