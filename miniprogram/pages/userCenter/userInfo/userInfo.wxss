@@ -103,61 +103,10 @@
 }
 /***********************************************************/
 
-/*********************** 用户学校样式 ***********************/
-.userSchool{
-  position: relative;
-  top: 4.5vw;
-  left:2.5vw;
-
-  height: 15vw;
-  width: 90vw;
-}
-/* 背景图 */
-.userSchool.background{
-  flex-direction: row;
-
-  height: 15vw;
-  width: 90vw;
-
-  display: flex;
-
-  background-color: white;
-}
-/* text */
-.userSchool.symbol{
-  position: relative;
-  left: 3.5vw;
-  top: 5.5vw;
-
-  font-size: 14px;
-
-  color: red;
-}
-.userSchool.text{
-  position: relative;
-  left: -13.5vw;
-  top: 5vw;
-
-  font-size: 14px;
-}
-/* school */
-.userSchool.school{
-  position: relative;
-  top: 0vw;
-  left: -6vw;
-
-  width: 50vw;
-
-  font-size: 14px;
-
-  text-align: right;
-}
-/***********************************************************/
-
 /*********************** 用户年级样式 ***********************/
 .userGrade{
   position: relative;
-  top: 5vw;
+  top: 4.5vw;
   left:2.5vw;
 
   height: 15vw;
@@ -208,7 +157,7 @@
 /********************* 用户联系方式样式 *********************/
 .userContact{
   position: relative;
-  top: 5.5vw;
+  top: 5vw;
   left:2.5vw;
 
   height: 15vw;
@@ -261,7 +210,7 @@
 /********************* 用户收货地址样式 *********************/
 .userAddress{
   position: relative;
-  top: 6vw;
+  top: 5.5vw;
   left:2.5vw;
 
   height: 15w;
@@ -314,7 +263,7 @@
 /*********************** 修改按钮样式 ***********************/
 .edit.editButton{
   position: relative;
-  top: 18vw;
+  top: 17.5vw;
 
   color: white;
 

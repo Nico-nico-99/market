@@ -33,29 +33,6 @@
 </view>
 <!-- 用户昵称部分end -->
 
-<!-- 用户学校begin -->
-<view class="userSchool">
-  <!-- 背景图 -->
-  <view class="userSchool background">
-    <!-- text -->
-    <text class="userSchool symbol">*</text>
-    <text class="userSchool text">学校</text>
-    <!-- school -->
-    <picker class="userSchool schoolPicker" 
-            disabled="{{!change}}" 
-            bindchange="bindSchoolPickerChange" 
-            value="{{schoolIndex}}" range="{{schoolArray}}">
-      <!-- 非修改状态 -->
-      <view class="userSchool school"
-            wx:if="{{!change}}" style="color: darkgrey;">{{schoolArray[schoolIndex]}}</view>
-      <!-- 修改状态 -->
-      <view class="userSchool school"
-            wx:if="{{change}}" style="color: black;">{{schoolArray[schoolIndex]}}</view>
-    </picker>
-  </view>
-</view>
-<!-- 用户学校end -->
-
 <!-- 用户年级begin -->
 <view class="userGrade">
   <!-- 背景图 -->
