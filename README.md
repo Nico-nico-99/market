@@ -7,8 +7,8 @@
 - name：string, [1,16]
 - details：string, [1,16]
 - price：float
-- address：int, 0-其他，1-大学城，2-五山，3-国际
-- picture_url1 ：String, "https://..//..jpg"
+- ！！！address：int, 0-置空[不筛选地址]，1-大学城，2-五山，3-国际，4-其他
+- ！！！picture_url1 ：String, "https://../..jpg"
 - picture_url2
 - picture_url3
 - launch_time：YYYY-MM-DD HH:MM:SS
