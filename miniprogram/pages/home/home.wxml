@@ -1,4 +1,8 @@
 <!--pages/home/home.wxml-->
+
+<!-- 引入商品模板 -->
+<import src="../../templates/goodsListItem/goodsListItem.wxml"/>
+
 <!-- 搜索框begin -->
 <view class="searchBox">
   <navigator class="searchNav" url="/pages/searchGoods/searchGoods" open-type="navigate">
@@ -50,3 +54,11 @@
   <text>其他</text>
 </view>
 <!-- 分类导航栏end -->
+
+<!-- 推荐商品begin -->
+<view>
+  <block wx:for='{{goodsList}}' wx:key='this'>
+    <template is='goodsListItem' data='{{...item}}'></template>
+  </block>
+</view>
+<!-- 推荐商品end -->

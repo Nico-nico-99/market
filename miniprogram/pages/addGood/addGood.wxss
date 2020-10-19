@@ -1,9 +1,8 @@
 /* pages/addGood/addGood.wxss */
 
-.pageContainer,{
+.pageContainer{
    display: flex; 
    flex-direction: column;
- 
 }
 .InputContainer,radio-group{
   display: flex; 

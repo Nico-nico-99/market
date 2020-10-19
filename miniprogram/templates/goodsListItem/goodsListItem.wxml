@@ -1,18 +1,33 @@
 <!-- 用到的数据就是item -->
 <template name="goodsListItem">
 
-<view class="goods-box" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cm_id}}">
+<!-- 将导入数据列表放在模板外完成 -->
+<!-- <view class="goods-box" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cm_id}}"> -->
+<view class="goods-box">
+    <view class="img-box">
+      <image src="{{picture_url1}}" class="image" mode="aspectFill" lazy-load="true" />
+    </view>
 
-      <view class="img-box">
-        <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
+    <view class="goods-title">{{name}}</view>
+
+    <view style='display:flex;'>
+      <!-- 保留两位小数显示 -->
+      <!-- <view  class="goods-price">¥<span>{{filters.toFix2(price)}}</span></view> -->
+      <view  class="goods-price">¥<span>{{price}}</span></view>
+      <view class="goods-address" wx:if="{{address == 1 }}">
+      大学城
       </view>
-
-      <view class="goods-title">{{item.name}}</view>
-
-      <view style='display:flex;'>
-        <view  class="goods-price">¥<span>{{filters.toFix2(item.price)}}</span></view>
-        <!-- 保留两位小数显示 -->
-        <view class="goods-address">{{item.address}}</view>
+      <view class="goods-address" wx:if="{{address == 2 }}">
+      五山
       </view>
+      <view class="goods-address" wx:if="{{address == 3 }}">
+      国际
+      </view>
+      <view class="goods-address" wx:if="{{address == 0 }}">
+      其他
+      </view>
+    </view>
   </view>
 </template>
+
+<!-- 请调整伸缩盒子使一行显示两个，请调整"filters.toFix2(price)"的使用使保留两位整数[假设需要的话] -->

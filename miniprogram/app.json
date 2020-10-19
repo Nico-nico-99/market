@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/index/index",
     "pages/addGood/addGood",
     "pages/myStore/myStore",
     "pages/searchGoods/searchGoods",
     "pages/try/try",
+    "pages/index/index",
     "pages/userCenter/userCenter",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
