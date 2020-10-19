@@ -23,7 +23,7 @@
       <view class="goods-address" wx:if="{{address == 3 }}">
       国际
       </view>
-      <view class="goods-address" wx:if="{{address == 0 }}">
+      <view class="goods-address" wx:if="{{address == 4 }}">
       其他
       </view>
     </view>

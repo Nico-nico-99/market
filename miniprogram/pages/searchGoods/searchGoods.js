@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: ['其他', '大学城', '五山', '国际'],
+    address: ['全部', '大学城', '五山', '国际', '其他'],
     new:['非全新','全新'],
     address_index: 0,
     new_index: 0,
