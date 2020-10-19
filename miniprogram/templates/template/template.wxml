@@ -1,7 +1,0 @@
-<!--template/template.wxml-->
-<template name='headline'>
-  <view class='content-box'>
-  <!-- title：渲染的数据 -->
-    <view class='content-font'>{{title}}</view>
-  </view>
-</template>

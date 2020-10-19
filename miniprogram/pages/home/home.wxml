@@ -62,3 +62,9 @@
   </block>
 </view>
 <!-- 推荐商品end -->
+
+<!-- 提示语begin -->
+<view class="tipstext">
+- - 没有更多推荐商品，请尝试自己搜索关键词叭 - -
+</view>
+<!-- 提示语end -->
