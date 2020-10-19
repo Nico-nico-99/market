@@ -34,8 +34,9 @@ Page({
   bindGradePickerChange: function(e) {
     console.log('gradePicker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      gradeIndex: e.detail.value,
+      gradeIndex: e.detail.value
     })
+    this.gradeIndex = e.detail.value
   },
 
   /**
@@ -45,6 +46,7 @@ Page({
     this.setData({
       contactInput: e.detail.value
     })
+    this.contactInput = e.detail.value
   },
 
   /**
@@ -54,6 +56,7 @@ Page({
     this.setData({
       addressInput: e.detail.value
     })
+    this.addressInput = e.detail.value
   },
 
   /**
@@ -70,6 +73,10 @@ Page({
     this.setData({
      change: false,
    })
+
+      console.log("grade: ", this.gradeIndex)
+   console.log("contact: ", this.contactInput)
+   console.log("address: ", this.addressInput)
 
     wx.showToast({
       title: '修改成功',
