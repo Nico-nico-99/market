@@ -39,7 +39,7 @@ Page({
         console.log("允许授权")
         this.setData({
           userInfo: e.detail.userInfo,//获取用户信息
-          hasUserInfo: true,//表示已获取用户信息
+          hasUserInfo: true,//表示已获取用户信息  
         })
 
         /*

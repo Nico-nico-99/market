@@ -40,7 +40,7 @@
         <text>我的收藏</text>
     </view>
     <!-- arrow -->
-    <image class="userFavors arrow" src="../../images/icons/指示箭头.png"></image>
+    <image class="userFavors arrow" src="../../images/icons/指示箭头(右).png"></image>
   </view>
 </view>
 <!-- 我的收藏end -->
@@ -56,7 +56,7 @@
         <text>我预订的</text>
     </view>
      <!-- arrow -->
-     <image class="userBookings arrow" src="../../images/icons/指示箭头.png"></image>
+     <image class="userBookings arrow" src="../../images/icons/指示箭头(右).png"></image>
   </view>
 </view>
 <!-- 我预订的end -->
@@ -72,7 +72,7 @@
         <text>我买到的</text>
     </view>
      <!-- arrow -->
-     <image class="userBoughts arrow" src="../../images/icons/指示箭头.png"></image>
+     <image class="userBoughts arrow" src="../../images/icons/指示箭头(右).png"></image>
   </view>
 </view>
 <!-- 我买到的end -->
@@ -88,7 +88,7 @@
         <text>个人信息</text>
     </view>
      <!-- arrow -->
-     <image class="userInfo arrow" src="../../images/icons/指示箭头.png"></image>
+     <image class="userInfo arrow" src="../../images/icons/指示箭头(右).png"></image>
   </view>
 </view>
 <!-- 个人信息end -->
