@@ -1,36 +1,65 @@
 <!--miniprogram/pages/searchGoods/searchGoods.wxml-->
 <!-- 搜索框begin -->
-<view>
-<searchBox></searchBox>
-</view>
-<!-- 搜索框end -->
+<!-- 搜索框表单 -->
+<form catchsubmit="formSubmit" catchreset="formReset">
+<!--搜索框组件-->
+<view class="searchBox">
+  <!-- 搜索类别begin -->
+  <view class="left_select">
+    <picker bindchange="typePickerChange" value="{{searchType_index}}" range="{{searchType}}" name="searchType">
+      <view>
+      {{searchType[searchType_index]}}
+      </view>
+    </picker>
+  </view>
+  <!-- 搜索类别end -->
 
-<!-- 排序&筛选begin -->
-<view class="choice_area">
   <!-- 排序=begin -->
-  <view class="sort_area">
-  <text>排序</text>
-  <button class="sort_btn" size="mini">价格</button>
-  <button class="sort_btn" size="mini">发布时间</button>
+  <view class="left_select">
+    <picker bindchange="sortPickerChange" value="{{sortType_index}}" range="{{sortType}}" name="sortType">
+      <view>
+      {{sortType[sortType_index]}}
+      </view>
+    </picker>
   </view>
   <!-- 排序end -->
 
-  <!-- 筛选begin -->
-  <view class="filter_area">
-  <text>筛选</text>
-    <!-- 发货地picker -->
-    <picker bindchange="addressPickerChange" value="{{address_index}}" range="{{address}}" name="address">
-      <view>
-      {{address[address_index]}}
-      </view>
-    </picker>
-    <!-- 新旧程度picker -->
-    <picker bindchange="newPickerChange" value="{{new_index}}" range="{{new}}" name="new">
-      <view>
-      {{new[new_index]}}
-      </view>
-    </picker>
+  <!-- 搜索输入框begin -->
+  <view class="centre_input">
+  <input type="text" name="searchInput" placeholder="请输入想要搜索的内容"></input>
   </view>
-<!-- 筛选end -->
+  <!-- 搜索输入框end -->
+
+  <!-- 搜索按钮begin -->
+  <view class="right_btn">
+  <button class="default" size="mini" formType="submit"
+    hover-class="button-hover" hover-stop-propagation="false">
+    <cover-image class="" src="../../images/search.png">
+    </cover-image>
+  </button>
+  </view>
+  <!-- 搜索按钮end -->
 </view>
-<!-- 排序&筛选end -->
+<!-- 搜索框end -->
+</form>
+
+<!-- 筛选begin -->
+<view class="filter_area">
+<text class="title">筛选</text>
+  <!-- 发货地picker -->
+  <text>发货地</text>
+  <picker bindchange="addressPickerChange" value="{{address_index}}" range="{{address}}" name="address">
+    <view>
+    {{address[address_index]}}
+    </view>
+  </picker>
+  <!-- 新旧程度picker -->
+  <text>新旧程度</text>
+  <picker bindchange="newPickerChange" value="{{new_index}}" range="{{new}}" name="new">
+    <view>
+    {{new[new_index]}}
+    </view>
+  </picker>
+</view>
+<!-- 筛选end -->
+

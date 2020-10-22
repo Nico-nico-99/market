@@ -1,32 +1,56 @@
 /* miniprogram/pages/searchGoods/searchGoods.wxss */
-.choice_area {
+/*搜索框样式*/
+.searchBox {
+  height: 30px;
+  padding: 10px;
   background-color: #66ccff;
   display: flex;
-  height: 35px;
+  /*搜索类别样式*/
+  /*搜索输入框样式*/
+  /*搜索按钮样式*/
 }
-.choice_area text {
-  padding: 5px;
+.searchBox .left_select {
+  flex: 2;
+  padding-right: 10rpx;
 }
-.choice_area .sort_area {
-  flex: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.choice_area .sort_area .sort_btn {
+.searchBox .left_select picker {
   background-color: #fff;
   color: #0082bf;
   height: 30px;
   border-radius: 15rpx;
-  font-weight: 500;
-}
-.choice_area .filter_area {
-  flex: 4;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.choice_area .filter_area picker {
+.searchBox .centre_input {
+  flex: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15rpx;
+  color: #666;
+}
+.searchBox .right_btn {
+  flex: 1.5;
+}
+.filter_area {
+  float: right;
+  background-color: #79d3ff;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter_area .title {
+  padding: 10px;
+  color: #fff;
+  font-size: large;
+}
+.filter_area text {
+  padding: 5px;
+}
+.filter_area picker {
   background-color: #fff;
   color: #0082bf;
   height: 30px;
