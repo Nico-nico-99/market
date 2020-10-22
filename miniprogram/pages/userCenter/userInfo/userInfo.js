@@ -11,11 +11,6 @@ Page({
     //用户昵称
     userName: 'Aurora',
 
-    //schoolPicker
-    schoolArray: ['请选择学校', '广东工业大学', '广东外语外贸大学', '广东药科大学', '广州大学', '广州美术学院', '广州中医药大学', '华南理工大学', '华南农业大学', '华南师范大学', '暨南大学', '星海音乐学院', '中山大学', '其他'],
-    schoolIndex: 0,
-    school: '',
-
     //gradePicker
     gradeArray: ['请选择年级', '2017', '2018', '2019', '2020', '其他'],
     gradeIndex: 0,
@@ -34,23 +29,14 @@ Page({
   },
 
   /**
-   * 学校选择器
-   */
-  bindSchoolPickerChange: function(e) {
-    console.log('schoolPicker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      schoolIndex: e.detail.value,
-    })
-  },
-
-  /**
    * 年级选择器
    */
   bindGradePickerChange: function(e) {
     console.log('gradePicker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      gradeIndex: e.detail.value,
+      gradeIndex: e.detail.value
     })
+    this.gradeIndex = e.detail.value
   },
 
   /**
@@ -60,6 +46,7 @@ Page({
     this.setData({
       contactInput: e.detail.value
     })
+    this.contactInput = e.detail.value
   },
 
   /**
@@ -69,6 +56,7 @@ Page({
     this.setData({
       addressInput: e.detail.value
     })
+    this.addressInput = e.detail.value
   },
 
   /**
@@ -85,6 +73,10 @@ Page({
     this.setData({
      change: false,
    })
+
+      console.log("grade: ", this.gradeIndex)
+   console.log("contact: ", this.contactInput)
+   console.log("address: ", this.addressInput)
 
     wx.showToast({
       title: '修改成功',
