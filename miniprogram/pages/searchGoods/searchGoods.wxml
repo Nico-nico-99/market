@@ -1,4 +1,8 @@
 <!--miniprogram/pages/searchGoods/searchGoods.wxml-->
+
+<!-- 引入商品模板 -->
+<import src="../../templates/goodsListItem/goodsListItem.wxml"/>
+
 <!-- 搜索框begin -->
 <!-- 搜索框表单 -->
 <form catchsubmit="formSubmit" catchreset="formReset">
@@ -63,3 +67,15 @@
 </view>
 <!-- 筛选end -->
 
+<!-- 商品列表begin -->
+<view>
+  <block wx:for='{{goodsList}}' wx:key='this'>
+    <!-- 显示全部商品 -->
+    <view wx:if="{{new_index == 2}}">
+    <template is='goodsListItem' data='{{...item}}'></template>
+    </view>
+    <!-- 显示筛选新旧程度后的商品 -->
+    <template is="{{item.is_new == new_index ? 'goodsListItem' : ''}}" data='{{...item}}'></template>
+  </block>
+</view>
+<!-- 商品列表end -->
