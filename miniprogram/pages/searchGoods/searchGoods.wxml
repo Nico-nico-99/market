@@ -1,7 +1,7 @@
 <!--miniprogram/pages/searchGoods/searchGoods.wxml-->
 
 <!-- 引入商品模板 -->
-<import src="../../templates/goodsListItem/goodsListItem.wxml"/>
+<import src="../../templates/goodsListItem3/goodsListItem3.wxml"/>
 
 <!-- 搜索框begin -->
 <!-- 搜索框表单 -->
@@ -18,15 +18,15 @@
   </view>
   <!-- 搜索类别end -->
 
-  <!-- 排序=begin -->
-  <view class="left_select">
+  <!-- 排序方式begin -->
+  <view class="left_select" wx:if="{{searchType_index == 0}}">
     <picker bindchange="sortPickerChange" value="{{sortType_index}}" range="{{sortType}}" name="sortType">
       <view>
       {{sortType[sortType_index]}}
       </view>
     </picker>
   </view>
-  <!-- 排序end -->
+  <!-- 排序方式end -->
 
   <!-- 搜索输入框begin -->
   <view class="centre_input">
@@ -67,15 +67,17 @@
 </view>
 <!-- 筛选end -->
 
-<!-- 商品列表begin -->
-<view>
-  <block wx:for='{{goodsList}}' wx:key='this'>
-    <!-- 显示全部商品 -->
-    <view wx:if="{{new_index == 2}}">
-    <template is='goodsListItem' data='{{...item}}'></template>
-    </view>
+<!-- 商品列表begin --> 
+<view class="goods-container">
+  <block wx:for='{{goods}}' wx:key='this'> 
+    <!-- 显示全部商品 --> 
+    <view wx:if="{{new_index == 2}}"> 
+    <template is='goodsListItem3' data='{{...item}}'></template> 
+    </view> 
     <!-- 显示筛选新旧程度后的商品 -->
-    <template is="{{item.is_new == new_index ? 'goodsListItem' : ''}}" data='{{...item}}'></template>
-  </block>
-</view>
+    <view wx:if="{{item.is_new == new_index}}">
+      <template is='goodsListItem3' data='{{...item}}'></template>
+    </view>
+  </block> 
+</view> 
 <!-- 商品列表end -->

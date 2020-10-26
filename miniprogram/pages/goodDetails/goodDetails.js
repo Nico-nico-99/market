@@ -1,4 +1,4 @@
-// miniprogram/pages/myStore.js
+// miniprogram/pages/goodDetails/goodDetails.js
 Page({
 
   /**
@@ -6,20 +6,8 @@ Page({
    */
   data: {
     goods: []
-
   },
 
-  to_addGood: function () {//跳转到发布商品页面
-    wx.navigateTo({
-      url: '../addGood/addGood',
-    })
-  },
-
-  toDetailsTap: function (e) {//点击某个商品框，实现页面跳转，到商品详情页
-    wx.navigateTo({
-      url: '../goodDetails/goodDetails?goodsId=' + e.currentTarget.dataset.id//给商品详情页传递商品id
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

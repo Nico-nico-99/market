@@ -1,62 +1,123 @@
 <!--pages/addGood/addGood.wxml-->
 
 <view class="pageContainer">
-<!-- 商品名 -->
-<view class="InputContainer">
- <view class="TitleView">
-     <text>商品名</text>
- </view>
- <view class="InputView">
- <input class="input" placeholder="输入商品名称"bindinput="listenerPhoneInput" />
- </view>
-</view>
+  <!-- 商品名 -->
+  <view class="InputContainer">
+    <view class="TitleView">
+      <text>商品名</text>
+    </view>
+    <view class="InputView">
+      <input class="input" placeholder="输入商品名称" bindinput="listenerPhoneInput" />
+    </view>
+  </view>
 
-<view class="gap"></view>
-<!-- 商品描述 -->
-<view class="detailInputContainer">
+  <view class="gap"></view>
+  <!-- 商品描述 -->
+  <view class="detailInputContainer">
 
- <view class="detailTitleView">
-     <text>描述</text>
- </view>
+    <view class="detailTitleView">
+      <text>描述</text>
+    </view>
 
- <view class="detailInputView">
- <textarea class="detailText" placeholder="输入商品描述"bindblur="bindTextAreaBlur"value="{{details}}"></textarea>
- </view>
-</view> 
+    <view class="detailInputView">
+      <textarea class="detailText" placeholder="输入商品描述" bindblur="bindTextAreaBlur" value="{{details}}"></textarea>
+    </view>
+  </view>
 
-<view class="gap"></view>
+  <view class="gap"></view>
 
-<view class="InputContainer">
- <view class="TitleView">
-     <text>价格</text>
- </view>
- <view class="InputView">
- <input class="input" type="number" placeholder="输入商品价格"bindinput="listenerPhoneInput" />
- </view>
-</view>
+  <view class="InputContainer">
+    <view class="TitleView">
+      <text>价格</text>
+    </view>
+    <view class="InputView">
+      <input class="input" type="number" placeholder="输入商品价格" bindinput="listenerPhoneInput" />
+    </view>
+  </view>
 
-<view class="gap"></view>
+  <view class="gap"></view>
 
-<radio-group class="radio-group" bindchange="radioChange">
+  <radio-group class="radio-group" bindchange="radioChange">
     <view class="radioTitleView">
-     <text>是否全新</text>
+      <text>是否全新</text>
     </view>
     <label class="radio" wx:for="{{items}}">
-        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
     </label>
-</radio-group>
+  </radio-group>
 
-<view class="gap"></view>
+  <view class="gap"></view>
 
+  <view class="typeSelectContainer">
+    <view class="TitleView">
+      <text>类型</text>
+    </view>
+    <view class="selectBoxcontain">
+      <selectBox prop-array='{{selectArrayClassify}}' bind:select='select' />
+    </view>
+  </view>
+  <view class="gap"></view>
 
+  <view class="typeSelectContainer">
+    <view class="TitleView">
+      <text>发货地</text>
+    </view>
+    <view class="selectBoxcontain">
+      <selectBox prop-array='{{selectArray}}' bind:select='select' />
+    </view>
+  </view>
 
+  <view class="gap"></view>
 
-<!-- <view class="inputView">
-<input class="input" password="true" placeholder="请输入密码" placeholder-style="color: red" bindinput="listenerPasswordInput"/>
-</view> -->
+  <!-- <view class="connectContainer ">
+    <view class="ConnectTitleView">
+      <text>联系方式</text>
+    </view>
+    <view class="InputConnectView">
+      <input class="input" placeholder="输入联系方式" bindinput="listenerPhoneInput" />
+    </view>
+  </view> -->
 
-
-<button style="margin-left: 15rpx; margin-right: 15rpx; margin-top: 50rpx; border-radius: 40rpx" type="primary" bindtap="listenerLogin">登录</button>
+  <view class="gap"></view>
 
 </view>
 
+<!-- 加载图片 -->
+<view class="weui-uploader">
+  <!-- 图片展示区 -->
+  <view class="ImgsContainer">
+    <image class="imgShow" mode="aspectFill" src="{{imgs.length>=1?imgs[0]:'../../images/noImg.jpg'}}" bindtap="previewImg" data-index='0'>
+    </image>
+    <image class="imgShow" mode="aspectFill" src="{{imgs.length>=2?imgs[1]:'../../images/noImg.jpg'}}" bindtap="previewImg" data-index='1'>
+    </image>
+    <image class="imgShow" mode="aspectFill" src="{{imgs.length==3?imgs[2]:'../../images/noImg.jpg'}}" bindtap="previewImg" data-index='2'>
+    </image>
+  </view>
+  <!-- 图片删除按钮 -->
+  <view class="deleteContainer">
+
+    <view class="deleteBtn" data-index='0' catchtap="deleteImg">
+      <text>删除</text>
+    </view>
+    <view class="deleteBtn" data-index='1' catchtap="deleteImg">
+      <text>删除</text>
+    </view>
+    <view class="deleteBtn" data-index='2' catchtap="deleteImg">
+      <text>删除</text>
+    </view>
+
+  </view>
+  <view class="gap"></view>
+
+  <view class="uploadImgBtn" bindtap="chooseImg" type='primary'>
+    <text>上传图片</text>
+  </view>
+
+</view>
+
+<view class="gap"></view>
+
+<view class="uploadgood" bindtap="upload">
+  <text>发布商品</text>
+</view>
+<view class="gap"></view>

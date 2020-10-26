@@ -1,0 +1,18 @@
+<!--miniprogram/templates/goodsListsItem3/goodsListItem3.wxml-->
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+
+<template name="goodsListItem3">
+  <view class="goods-box">
+    <view class="img-box">
+      <image src="{{picture_url1}}" class="image" mode="aspectFill" lazy-load="true" />
+    </view>
+    <view class="goods-title">{{name}}</view>
+    <view style='display:flex;'>
+      <view  class="goods-price">¥<span>{{price}}</span></view>
+      <view class="goods-address" wx:if="{{address == 1 }}">大学城</view>
+      <view class="goods-address" wx:if="{{address == 2 }}">五山</view>
+      <view class="goods-address" wx:if="{{address == 3 }}">国际</view>
+      <view class="goods-address" wx:if="{{address == 4 }}">其他</view>
+    </view>
+  </view>
+</template>

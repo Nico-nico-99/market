@@ -2,7 +2,7 @@
 <wxs module="filters" src="../../utils/addmul.wxs"></wxs>
 <!-- 为了保留两位小数显示数字，引入文件 -->
 
- <view class="goods-container">
+ <view class="goods-container" >
     <view class="goods-box" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cm_id}}">
 
       <view class="img-box">
@@ -14,7 +14,10 @@
       <view style='display:flex;'>
         <view  class="goods-price">¥<span>{{filters.toFix2(item.price)}}</span></view>
         <!-- 保留两位小数显示 -->
-        <view class="goods-address">{{item.address}}</view>
+        <view class="goods-address" wx:if="{{item.address == 1 }}">大学城</view>
+        <view class="goods-address" wx:if="{{item.address == 2 }}">五山</view>
+        <view class="goods-address" wx:if="{{item.address == 3 }}">国际</view>
+        <view class="goods-address" wx:if="{{item.address == 4 }}">其他</view>
       </view>
     </view>
   </view>

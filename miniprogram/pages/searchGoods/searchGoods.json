@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "searchBox": "../../components/searchBox/searchBox"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "搜索商品"
 }

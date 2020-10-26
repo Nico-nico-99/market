@@ -12,6 +12,11 @@
   align-items: center;
   height:60rpx;
 }
+.typeSelectContainer{
+  display: flex; 
+  flex-direction: row;
+}
+
 .TitleView{
   width:150rpx;
   display: flex;
@@ -20,13 +25,13 @@
 }
 .InputView{
     border:  2px solid #4d99c0;
-    border-radius: 20px;
+    border-radius: 3rpx;
 }
 .input{
   background-color: white;
   width:550rpx;
-  border-radius: 20px;
-  margin-left: 10rpx;
+  border-radius: 5rpx;
+ 
 }
 .gap{
   height:20rpx;
@@ -50,14 +55,14 @@
 } 
 .detailInputView{
     border:  2px solid #4d99c0;
-    border-radius: 20px;
+    border-radius: 2rpx;
     width:550rpx;
 }
 .detailText{
   background-color: white;
   width:540rpx;
   border-radius: 20px;
-  margin-left: 10rpx;
+ 
 }
 
 .radioTitleView{
@@ -71,4 +76,83 @@
   flex-direction: row;
   width:300rpx;
   align-items: center;
+}
+
+.selectBoxcontain{
+  width:450rpx;
+}
+/* .connectContainer{
+  display: flex; 
+  flex-direction: row;
+  width:750rpx;
+  justify-content:space-between;
+}
+.InputConnectView{
+  margin-right: 10rpx;
+  border:  2px solid #4d99c0;
+  border-radius: 3rpx;
+}
+.ConnectTitleView{
+  margin-left: 10rpx;
+} */
+
+
+/* 上传图片相关 */
+.weui-uploader{
+  margin: 10rpx;
+}
+
+.ImgsContainer{
+  margin-left:10rpx;
+  margin-right:10rpx;
+  display: flex;
+  align-items: center;
+
+  justify-content:space-between;
+
+}
+.imgShow{
+  width:220rpx;
+  height:220rpx;
+  margin:10rpx;
+}
+.deleteContainer{
+  margin-left:50rpx;
+  margin-right:50rpx;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+.deleteBtn{
+  display: flex;
+  justify-content: center;
+  border:  4rpx solid #4d99c0;
+  border-radius: 10rpx;
+  background-color: #8fcdec;
+  width:120rpx;
+}
+.uploadImgBtn{
+  width:250rpx;
+  height:80rpx;
+  border-radius: 20rpx;
+  margin-right: 15rpx;
+  margin-left:440rpx;
+  background-color: #8fcdec;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  text-align: center；
+ 
+}
+
+.uploadgood{
+  width:500rpx;
+  height:80rpx;
+  border-radius: 20rpx;
+  margin-left:125rpx;
+  background-color: #8fcdec;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  text-align: center；
 }

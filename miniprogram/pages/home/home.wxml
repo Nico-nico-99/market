@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 
 <!-- 引入商品模板 -->
-<import src="../../templates/goodsListItem/goodsListItem.wxml"/>
+<import src="../../templates/goodsListItem3/goodsListItem3.wxml"/>
 
 <!-- 搜索框begin -->
 <view class="searchBox">
@@ -56,10 +56,10 @@
 <!-- 分类导航栏end -->
 
 <!-- 推荐商品begin -->
-<view>
-  <block wx:for='{{goodsList}}' wx:key='this'>
-    <template is='goodsListItem' data='{{...item}}'></template>
-  </block>
+<view class="goods-container">
+  <block wx:for='{{goods}}' wx:key='this'> 
+    <template is='goodsListItem3' data='{{...item}}'></template> 
+  </block> 
 </view>
 <!-- 推荐商品end -->
 
