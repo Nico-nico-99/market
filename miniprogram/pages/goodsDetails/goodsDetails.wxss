@@ -1,0 +1,4 @@
+/* pages/goodsDetails/goodsDetails.wxss */
+
+/* 引入商品样式 */
+@import "../../style/goodsDetails.wxss";

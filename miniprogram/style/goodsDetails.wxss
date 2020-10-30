@@ -1,0 +1,59 @@
+/* 商品图片样式 */
+.good-img{
+  background-color: #fff;
+}
+
+/* 商品价格及标签盒子样式 */
+.box{
+  height: 30px;
+  padding: 10px;
+  display: flex;
+}
+/* 商品价格样式 */
+.left_price{
+  flex: 1;
+  padding-right: 20rpx;
+  color: #66ccff;
+  align-items: center;
+  font-size: 50rpx;
+}
+/* 商品标签样式 */
+.right_tag{
+  padding: 5px;
+  margin-left: 10px;
+  width: auto;
+  text-align: center;
+  background-color: rgba(15, 1, 1, 0.205);
+}
+
+/* 商品标题样式 */
+.goodTitle{
+  margin: 20rpx;
+  font-size: 50rpx;
+}
+
+/* 商品详情样式 */
+.details{
+  margin: 0rpx 20rpx;
+  word-wrap:break-word;
+  word-break:normal;
+  text-align:justify;
+}
+
+/* 联系方式标题样式 */
+.detailsTitle{
+  margin: 20rpx;
+  font-size: 40rpx;
+}
+/* 联系方式样式 */
+.details{
+  margin: 20rpx;
+}
+
+/* 按钮样式 */
+.btn .collect_btn{
+  margin: 20rpx;
+  color: white;
+  font-size: 16px;
+  background-color: #1296db;
+}
