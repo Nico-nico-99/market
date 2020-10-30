@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/goodsDetails/goodsDetails",
     "pages/home/home",
     "pages/addGood/addGood",
     "pages/myStore/myStore",
     "pages/searchGoods/searchGoods",
-    "pages/index/index",
+    "pages/goodsDetails/goodsDetails",
     "pages/userCenter/userCenter",
     "pages/userConsole/userConsole",
+    "pages/index/index",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
