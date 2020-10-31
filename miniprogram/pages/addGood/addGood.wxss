@@ -55,13 +55,13 @@
 } 
 .detailInputView{
     border:  2px solid #4d99c0;
-    border-radius: 2rpx;
+
     width:550rpx;
 }
 .detailText{
   background-color: white;
   width:540rpx;
-  border-radius: 20px;
+
  
 }
 
