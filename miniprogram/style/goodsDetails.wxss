@@ -51,9 +51,13 @@
 }
 
 /* 按钮样式 */
-.btn .collect_btn{
+.btn-box{
   margin: 20rpx;
+  display: flex;
+}
+.btn-box .btn{
+  flex: 1;
+  background-color: #1296db;
   color: white;
   font-size: 16px;
-  background-color: #1296db;
 }

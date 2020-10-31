@@ -51,8 +51,10 @@
 <!-- 联系方式end -->
 
 <!-- 功能按钮begin -->
-<view class="btn">
+<view class="btn-box">
   <!-- 收藏按钮 -->
-  <button class="collect_btn" style="width: 100vw;" bindtap="collect">收藏</button>
+  <button class="btn" bindtap="collect">收藏</button>
+  <!-- 预订按钮 -->
+  <button class="btn" style="margin-left: 10px;" bindtap="reserve">预订</button>
 </view>
 <!-- 功能按钮end-->
