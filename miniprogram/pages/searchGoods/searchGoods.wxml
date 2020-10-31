@@ -71,11 +71,19 @@
 <view class="goods-container">
   <block wx:for='{{goods}}' wx:key='this'> 
     <!-- 显示全部商品 --> 
-    <view wx:if="{{new_index == 2}}"> 
+    <view wx:if="{{new_index == 2 && address_index == 0}}"> 
     <template is='goodsListItem3' data='{{...item}}'></template> 
     </view> 
     <!-- 显示筛选新旧程度后的商品 -->
-    <view wx:if="{{item.is_new == new_index}}">
+    <view wx:if="{{item.is_new == new_index && address_index == 0}}">
+      <template is='goodsListItem3' data='{{...item}}'></template>
+    </view>
+    <!-- 显示筛选发货地后的商品 -->
+    <view wx:if="{{new_index == 2  && item.address == address_index}}">
+      <template is='goodsListItem3' data='{{...item}}'></template>
+    </view>
+    <!-- 显示双重筛选后的商品 -->
+    <view wx:if="{{item.is_new == new_index && item.address == address_index}}">
       <template is='goodsListItem3' data='{{...item}}'></template>
     </view>
   </block> 
