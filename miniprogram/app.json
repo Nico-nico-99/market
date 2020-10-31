@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/goodsDetails/goodsDetails",
     "pages/home/home",
     "pages/addGood/addGood",
     "pages/myStore/myStore",
     "pages/searchGoods/searchGoods",
     "pages/userCenter/userCenter",
     "pages/userConsole/userConsole",
+    "pages/goodsDetails/goodsDetails",
     "pages/index/index",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -18,7 +18,8 @@
     "pages/openapi/callback/callback",
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
-    "pages/im/room/room"
+    "pages/im/room/room",
+    "pages/goodDetails/goodDetails"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

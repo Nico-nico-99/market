@@ -1,0 +1,6 @@
+<!--miniprogram/pages/goodDetails/goodDetails.wxml-->
+<import src="../../templates/goodsListItem/goodsListItem.wxml"/>
+<view>
+<template is="goodsListItem" data="{{goods}}" />
+</view>
+

@@ -24,4 +24,5 @@
 
   <view bindtap='to_addGood'>
     <image class="add_goods_btn" src='/images/add.png'></image>
+>>>>>>> master
   </view>

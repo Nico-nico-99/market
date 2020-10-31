@@ -1,0 +1,2 @@
+/* miniprogram/pages/goodDetails/goodDetails.wxss */
+@import "../../templates/goodsListItem/goodsListItem.wxss"
