@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/addGood/addGood",
+    
     "pages/myStore/myStore",
     "pages/searchGoods/searchGoods",
     "pages/userCenter/userCenter",
