@@ -1,0 +1,141 @@
+.goods{
+  position: relative;
+  left: 5vw;
+  top: 5vw;
+}
+.goods-box{
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  height: 30vw;
+
+  background-color: #fff;
+}
+/* image */
+.goods-box.image{
+  position: relative;
+  left: 2.5vw;
+  top: 2.5vw;
+  
+  width: 25vw;
+  height: 25vw;
+
+  border-radius: 10px;
+}
+/* info */
+.goods-box.info{
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  left: 0vw;
+  top: 2.5vw;
+  
+  width: 40vw;
+  height: 25vw;
+
+  background:rgba(1,1,1,0)
+}
+/* title */
+.goods-box.info.title{
+  text-align: left;  
+  display: inline-block;
+  
+  position: relative;
+  left: 9vw;
+  top: 4vw;
+
+  width: 70vw;
+  height: 12vw;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-size: 18px;
+
+  color:#000;
+}
+/* priceANDaddress */
+.goods-box.info.priceANDaddress{
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+  top: 1.5vw;
+  left: 4.5vw;
+
+  width: 65vw;
+  height: 10vw;
+}
+/* price */
+.goods-box.info.priceANDaddress.price{
+  overflow: hidden;
+  font-size: 15px;
+
+  align-items: center;
+
+  width: 25vw;
+  height: 7vw;
+
+  color:#1296db;
+}
+/* address */
+.goods-box.info.priceANDaddress.address{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  align-items: center;
+
+  position: relative;
+  left: -5vw;
+
+  width: 15vw;
+  height: 7vw;
+
+  overflow: hidden;
+  font-size: 15px;
+
+  color:black;
+  background-color: rgb(221, 221, 221);
+}
+/* buttons */
+.goods-box.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+  left: 3vw;
+  top: 2.5vw;
+
+  width: 16vw;
+  height: 20vw;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+}
+/*payment*/
+.goods-box.buttons.payment{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  height: 8vw;
+  
+  background-color: #1296db;
+}
+/*cancelOrder*/
+.goods-box.buttons.cancelOrder{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  height: 8vw;
+  
+  background-color: #1296db;
+}
