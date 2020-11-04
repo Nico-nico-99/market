@@ -1,0 +1,63 @@
+/* miniprogram/pages/adminCenter.wxss */
+
+/************************* 标题样式 *************************/
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 背景图 */
+.title.background{
+  width: 100vw;
+  height: 13vw;
+
+  background-color: #1296db;
+}
+/* 标题 */
+.title.text{
+  color: white;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+/***********************************************************/
+
+/*************************选项卡样式*************************/
+#tabs{
+  font-size: 28rpx;
+}
+.tabs-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center
+}
+.tabs-item.selected {
+  color:#1296db;
+  border-bottom:3.5rpx solid #1296db;
+}
+.tabs-item {
+    width: 50%;
+    color:black;
+    border-bottom:1rpx solid #e9e9e9;
+}
+/***********************************************************/
+
+/*********************** 商品模块样式 ***********************/
+@import "../../templates/goodsListItem1/goodsListItem1.wxss";
+/***********************************************************/
+
+/************************* 提示语样式 ***********************/
+.tipstext{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  top: 10vw;
+
+  font-size: 13px;
+  color: darkgray;
+}
+/***********************************************************/
