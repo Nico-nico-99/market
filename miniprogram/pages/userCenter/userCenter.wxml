@@ -93,6 +93,22 @@
 </view>
 <!-- 个人信息end -->
 
+<!-- 管理员端begin -->
+<view class="admin" bindtap="toAdmin" data-auth="{{isAdmin}}">
+  <!-- 背景图 -->
+  <view class="admin background">
+    <!-- icon -->
+    <image class="admin icon" src="../../images/icons/管理员.png"></image>
+    <!-- text -->
+    <view class="admin text">
+        <text>管理员端</text>
+    </view>
+     <!-- arrow -->
+     <image class="admin arrow" src="../../images/icons/指示箭头(右).png"></image>
+  </view>
+</view>
+<!-- 管理员端end -->
+
 <!-- 退出账号begin -->
 <view class="exit">
   <!-- 退出按钮 -->

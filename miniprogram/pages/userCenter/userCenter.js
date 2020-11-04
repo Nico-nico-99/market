@@ -8,6 +8,7 @@ Page({
     hasUserInfo: false,
     userInfo: {},
     showModal: false,
+    isAdmin: true,
   },
 
   /**
@@ -115,6 +116,25 @@ Page({
       url: '../../pages/userCenter/userInfo/userInfo',
     })
     console.log("----------------------------------个人信息---------------------------------")
+  },
+
+
+  /**
+   * 前往管理员端
+   */
+  toAdmin: function(e){
+    // 检测是否具备管理员资格
+    var authority = e.currentTarget.dataset.auth
+    if(authority == true){
+      console.log("前往管理员端")
+      wx.navigateTo({
+        url: '../../pages/adminCenter/adminCenter',
+      })
+      console.log("----------------------------------管理员端---------------------------------")  
+    }
+    else{
+      console.log("本帐号非管理员")  
+    }
   },
 
 

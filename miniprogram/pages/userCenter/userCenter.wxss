@@ -193,10 +193,49 @@
 }
 /***********************************************************/
 
+/*********************** 管理员端样式 ***********************/
+/* 背景图 */
+.admin.background{
+  flex-direction: row;
+
+  position: relative;
+  top: 34px;
+
+  height: 15vw;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+
+  background-color: white;
+}
+/* icon */
+.admin.icon{
+  position: relative;
+  left: 5vw;
+  height: 7vw;
+  width: 7vw;
+}
+/* text */
+.admin.text{
+  position: relative;
+  left: 9.5vw;
+
+  font-size: 14px;
+}
+/* arrow */
+.admin.arrow{
+  position: relative;
+  left: 70.5vw;
+  height: 5vw;
+  width: 5vw;
+}
+/***********************************************************/
+
 /*********************** 退出按钮样式 ***********************/
 .exit.exitButton{
   position: relative;
-  top: 45px;
+  top: 50px;
 
   color: white;
 
