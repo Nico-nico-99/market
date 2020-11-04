@@ -123,8 +123,13 @@ Page({
    * 前往管理员端
    */
   toAdmin: function(e){
+    wx.showLoading({
+      title: '切换至管理员端中',
+    })
     // 检测是否具备管理员资格
     var authority = e.currentTarget.dataset.auth
+
+    wx.hideLoading()
     if(authority == true){
       console.log("前往管理员端")
       wx.navigateTo({
@@ -134,6 +139,10 @@ Page({
     }
     else{
       console.log("本帐号非管理员")  
+      wx.showModal({
+        title: '提示',
+        content: '该账号非管理员，无法获取管理员权限。'
+      })
     }
   },
 
