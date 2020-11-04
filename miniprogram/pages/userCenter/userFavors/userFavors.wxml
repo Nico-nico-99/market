@@ -1,6 +1,6 @@
 <!--miniprogram/pages/userCenter/userFavors.wxml-->
 
-<!-- 引入商品模块2 -->
+<!-- 引入商品模块1 -->
 <import src="../../../templates/goodsListItem1/goodsListItem1.wxml"/>
 
 <!-- 标题栏begin -->
