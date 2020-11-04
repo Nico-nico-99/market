@@ -1,1 +1,54 @@
 /* miniprogram/pages/userCenter/userBookings/userBookings.wxss */
+
+/************************* 标题样式 *************************/
+.title{
+  align-items: center;
+}
+/* 背景图 */
+.title.background{
+  width: 100vw;
+  height: 13vw;
+
+  background-color: #1296db;
+}
+/* text */
+.title.text{
+  position: relative;
+  left:4vw;
+  top: 2.5vw;
+
+  height: 8vw;
+  width: 85vw;
+
+  background-color: white;
+  border-radius: 10rpx;
+}
+/* button */
+.title.button{
+  position: relative;
+  left: 59vw;
+  top: -6vw;
+}
+/* search */
+.title.search{
+  height: 5vw;
+  width: 5vw;
+}
+/***********************************************************/
+
+/*********************** 商品模块样式 ***********************/
+@import "../../../templates/goodsListItem2/goodsListItem2.wxss";
+/***********************************************************/
+
+/************************* 提示语样式 ***********************/
+.tipstext{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  top: 10vw;
+
+  font-size: 13px;
+  color: darkgray;
+}
+/***********************************************************/
