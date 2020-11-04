@@ -1,7 +1,5 @@
 // miniprogram/pages/userCenter/userBookings/userBookings.js
 
-import goodsListItem2 from '../../../templates/goodsListItem2/goodsListItem2'
-
 Page({
 
   /**
@@ -41,7 +39,7 @@ Page({
         "classify": 2
       }
     ],
-  },
+    },
 
   /**
    * 获取输入框内容
@@ -61,14 +59,14 @@ Page({
    * 用户付款
    */
   payment: function(e){
-    goodsListItem2.payment(e)
+    console.log("用户付款")
   },
 
   /**
    * 用户取消订单
    */
   cancelOrder: function(e){
-    goodsListItem2.cancelOrder(e)
+    console.log("用户取消订单")
   },
 
   /**
