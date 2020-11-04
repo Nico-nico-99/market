@@ -1,2 +1,32 @@
 <!--miniprogram/pages/userCenter/userBoughts/userBoughts.wxml-->
-<text>miniprogram/pages/userCenter/userBoughts/userBoughts.wxml</text>
+
+<!-- 引入商品模块1 -->
+<import src="../../../templates/goodsListItem1/goodsListItem1.wxml"/>
+
+<!-- 标题栏begin -->
+<view class="title">
+  <!-- 背景图 -->
+  <view class="title background">
+    <!-- text -->
+    <input class="title text" type="text" placeholder="请输入想要搜索的购买记录" bindinput="bindSearchInput"></input>
+    <!-- search -->
+    <button class="title button" bindtap="gotoSearch">
+      <cover-image class="title search" src="../../../images/search.png"></cover-image>
+    </button>
+  </view>
+</view>
+<!-- 标题栏begin -->
+
+<!-- 收藏夹商品begin -->
+<view class='goods'>
+  <block wx:for='{{goodsList}}' wx:key='this'>
+    <template is='goodsListItem1' data='{{...item}}'></template>
+  </block>
+</view>
+<!-- 收藏夹商品end -->
+
+<!-- 提示语begin -->
+<view class="tipstext">
+- - 没有更多购买记录，快去商店购买叭 - -
+</view>
+<!-- 提示语end -->
