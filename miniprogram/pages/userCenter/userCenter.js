@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hasUserInfo: false,
-    userInfo: {},
+    nickName: "",
+    userImageUrl: "",
     showModal: false,
-    isAdmin: true,
+    isAdmin: 1,
   },
 
   /**
@@ -22,6 +22,8 @@ Page({
   },
   //准备授权
   onComplete: function (e) {
+    var hasUserInfo = e.currentTarget.dataset.hasUserInfo
+
     //关闭弹窗
     this.setData({
       showModal: false,
@@ -36,33 +38,56 @@ Page({
         })
       }
       else{
-        //授权
-        console.log("允许授权")
-        this.setData({
-          userInfo: e.detail.userInfo,//获取用户信息
-          hasUserInfo: true,//表示已获取用户信息  
+        wx.showLoading({
+          title: '登录中',
         })
 
-        /*
-        //获取临时凭证以得到openid
+        //获取临时凭证，以得到openid获取用户信息
         wx.login({
-          success (res) {
-            if (res.code) {
-              //发起网络请求
-              wx.request({
-                url: 'https://test.com/onLogin',//服务器接口地址
-                data: {
-                  code: res.code
-                }
-              })
-              console.log(code)
-            } 
-            else {
-              console.log('登录失败！' + res.errMsg)
+          success: function (res) {
+            var code = res.code;//发送给服务器的code
+            if(!hasUserInfo){
+              if (code) {
+                wx.request({
+                  url: 'http://xx.com/api/userCenter/getUserInfo.html',//获取openid //要根据后端信息进行修改
+                  data: {
+                    code: code,
+                  },
+                  header: {
+                    'content-type': 'application/json'//要根据后端信息进行修改
+                  },
+                  success: function (res) {
+                    wx.hideLoading();
+                    console.log('成功从后端获取到用户信息');
+
+                    //授权
+                    console.log("允许授权")
+                    this.setData({
+                      hasUserInfo: true,//表示已获取用户信息  
+                      nickName: res.data.nickName,
+                      userImageUrl: res.data.userImageUrl,
+                    })
+
+                    //可以把用户id保存到本地缓存，方便以后调用
+                    wx.setStorageSync('userId', res.data.userId);
+                  },
+                  fail: function(error){
+                    wx.hideLoading();
+                    console.log("获取用户登录态失败！");
+                  },
+                })
+              }
+              else {
+                wx.hideLoading();
+                console.log("用户登陆失败");
+              }
             }
+          },
+          fail: function (error) {
+            wx.hideLoading();
+            console.log('login failed ' + error);
           }
-        })
-        */
+        })        
       }
     }
     else {
@@ -128,9 +153,27 @@ Page({
     })
     // 检测是否具备管理员资格
     var authority = e.currentTarget.dataset.auth
+    wx.request({
+      url: 'http://xx.com/api/userCenter/getIsAdmin.html',//获取用户id下的管理员权限 //要根据后端信息进行修改
+      data: {
+        userId: userId,
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        wx.hideLoading();
+        console.log('成功从后端获取到用户管理员权限');
 
-    wx.hideLoading()
-    if(authority == true){
+        authority = res.data.authority;
+      },
+      fail: function(error){
+        wx.hideLoading();
+        console.log("获取用户权限失败！");
+      },
+    })
+
+    if(authority == '1'){
       console.log("前往管理员端")
       wx.navigateTo({
         url: '../../pages/adminCenter/adminCenter',
@@ -151,15 +194,39 @@ Page({
    * 退出登录
    */
   logout: function(e){
-    console.log("退出登录")
-    wx.showLoading({
-      title: '退出登录中',
-    })
-    
-    /*
-    //成功退出登陆后
-    wx.hideLoading()
-    */
+    var hasUserInfo = e.currentTarget.dataset.hasUserInfo
+
+    if(hasUserInfo){
+      console.log("退出登录")
+      wx.showLoading({
+        title: '退出登录中',
+      })
+  
+      this.globalData.hasUserInfo = false
+      if(!hasUserInfo){
+        console.log("成功退出登录")
+        if(wx.removeStorageSync('userId')){
+          console.log("成功删除用户id缓存")
+          
+          //成功退出登陆后
+          wx.hideLoading()
+          refreshPageData()  
+        }
+        else{
+          console.log("删除用户id缓存失败")
+        }
+      }
+      else{
+        console.log("退出登录失败")
+      }  
+    }
+    else{
+      console.log('当前未登录，无法退出登录')
+      wx.showModal({
+        title: '提示',
+        content: '当前未登录，无法退出登录。'
+      })
+    }
   },
 
   /**
