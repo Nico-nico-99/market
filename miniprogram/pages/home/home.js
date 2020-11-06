@@ -45,66 +45,25 @@ Page({
     ],
   },
 
-  /* 分类icon事件*/
-  classifyAll: function(e){
+  // 分类icon事件
+  classify: function(e){
+    var classify = e.currentTarget.dataset.classify;
     this.setData({
-      classify_index: 0,
+      classify_index: classify,
     })
-    console.log("筛选商品分类为全部，筛选标识为" + this.data.classify_index)
+    console.log(`筛选商品分类为${classify}`)
   },
-  classify1: function(e){
-    this.setData({
-      classify_index: 1,
+
+  // 跳转至商品详情页面事件
+  toDetails: function(e){
+    var id = e.currentTarget.dataset.cmid;
+    console.log("前往商品详情" + "商品id为" + id)
+    wx.navigateTo({
+      url: '../../pages/goodsDetails/goodsDetails?id=' + id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
-    console.log("筛选商品分类为电子产品，筛选标识为" + this.data.classify_index)
-  },
-  classify2: function(e){
-    this.setData({
-      classify_index: 2,
-    })
-    console.log("筛选商品分类为讲座票" + "筛选标识为" + this.data.classify_index)
-  },
-  classify3: function(e){
-    this.setData({
-      classify_index: 3,
-    })
-    console.log("筛选商品分类为校园网" + "筛选标识为" + this.data.classify_index)
-  },
-  classify4: function(e){
-    this.setData({
-      classify_index: 4,
-    })
-    console.log("筛选商品分类为日用品" + "筛选标识为" + this.data.classify_index)
-  },
-  classify5: function(e){
-    this.setData({
-      classify_index: 5,
-    })
-    console.log("筛选商品分类为书籍" + "筛选标识为" + this.data.classify_index)
-  },
-  classify6: function(e){
-    this.setData({
-      classify_index: 6,
-    })
-    console.log("筛选商品分类为文具" + "筛选标识为" + this.data.classify_index)
-  },
-  classify7: function(e){
-    this.setData({
-      classify_index: 7,
-    })
-    console.log("筛选商品分类为美妆" + "筛选标识为" + this.data.classify_index)
-  },
-  classify8: function(e){
-    this.setData({
-      classify_index: 8,
-    })
-    console.log("筛选商品分类为零食" + "筛选标识为" + this.data.classify_index)
-  },
-  classify9: function(e){
-    this.setData({
-      classify_index: 9,
-    })
-    console.log("筛选商品分类为其他" + "筛选标识为" + this.data.classify_index)
   },
 
 

@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/goodsDetails-Admin/goodsDetails-Admin",
+    "pages/goodsDetails/goodsDetails",
     "pages/addGood/addGood",
     "pages/myStore/myStore",
     "pages/searchGoods/searchGoods",
     "pages/userCenter/userCenter",
     "pages/userConsole/userConsole",
-    "pages/goodsDetails/goodsDetails",
     "pages/index/index",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -19,7 +20,6 @@
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
     "pages/im/room/room",
-    "pages/goodDetails/goodDetails",
     "pages/adminCenter/adminCenter"
   ],
   "window": {

@@ -26,38 +26,38 @@
 
 <!-- 分类导航栏begin -->
 <view class="Classify_Nav">
-  <image src="../../images/classify/所有分类.png" mode="aspectFit"  bindtap="classifyAll"/>
-  <image src="../../images/classify/电子产品.png" mode="aspectFit" bindtap="classify1"/> 
-  <image src="../../images/classify/讲座票.png" mode="aspectFit" bindtap="classify2"/>     
-  <image src="../../images/classify/校园网.png" mode="aspectFit" bindtap="classify3"/>
-  <image src="../../images/classify/日用品.png" mode="aspectFit" bindtap="classify4"/>   
+  <image src="../../images/classify/所有分类.png" mode="aspectFit"  bindtap="classify" data-classify="0"/>
+  <image src="../../images/classify/电子产品.png" mode="aspectFit" bindtap="classify" data-classify="1"/> 
+  <image src="../../images/classify/讲座票.png" mode="aspectFit" bindtap="classify" data-classify="2"/>     
+  <image src="../../images/classify/校园网.png" mode="aspectFit" bindtap="classify" data-classify="3"/>
+  <image src="../../images/classify/日用品.png" mode="aspectFit" bindtap="classify" data-classify="4"/>   
 </view>
 <view class="Classify_Nav">
-  <text bindtap="classifyAll">所有分类</text>
-  <text bindtap="classify1">电子产品</text>
-  <text bindtap="classify2">讲座票</text>
-  <text bindtap="classify3">校园网</text>
-  <text bindtap="classify4">日用品</text>
+  <text bindtap="classify" data-classify="0">所有分类</text>
+  <text bindtap="classify" data-classify="1">电子产品</text>
+  <text bindtap="classify" data-classify="2">讲座票</text>
+  <text bindtap="classify" data-classify="3">校园网</text>
+  <text bindtap="classify" data-classify="4">日用品</text>
 </view>
 <view class="Classify_Nav">
-  <image src="../../images/classify/书籍.png" mode="aspectFit" bindtap="classify5"/> 
-  <image src="../../images/classify/文具.png" mode="aspectFit" bindtap="classify6"/>
-  <image src="../../images/classify/美妆.png" mode="aspectFit" bindtap="classify7"/> 
-  <image src="../../images/classify/零食.png" mode="aspectFit" bindtap="classify8"/>
-  <image src="../../images/classify/其他.png" mode="aspectFit" bindtap="classify9"/>
+  <image src="../../images/classify/书籍.png" mode="aspectFit" bindtap="classify" data-classify="5"/> 
+  <image src="../../images/classify/文具.png" mode="aspectFit" bindtap="classify" data-classify="6"/>
+  <image src="../../images/classify/美妆.png" mode="aspectFit" bindtap="classify" data-classify="7"/> 
+  <image src="../../images/classify/零食.png" mode="aspectFit" bindtap="classify" data-classify="8"/>
+  <image src="../../images/classify/其他.png" mode="aspectFit" bindtap="classify" data-classify="9"/>
 </view>
 <view class="Classify_Nav">
-  <text bindtap="classify5">书籍</text> 
-  <text bindtap="classify6">文具</text>
-  <text bindtap="classify7">美妆</text>
-  <text bindtap="classify8">零食</text>
-  <text bindtap="classify9">其他</text>
+  <text bindtap="classify" data-classify="5">书籍</text> 
+  <text bindtap="classify" data-classify="6">文具</text>
+  <text bindtap="classify" data-classify="7">美妆</text>
+  <text bindtap="classify" data-classify="8">零食</text>
+  <text bindtap="classify" data-classify="9">其他</text>
 </view>
 <!-- 分类导航栏end -->
 
 <!-- 推荐商品begin -->
 <view class="goods-container">
-  <block wx:for='{{goods}}' wx:key='this'>  
+  <block wx:for='{{goods}}' wx:key='this'> 
     <!-- 显示全部商品 --> 
     <view wx:if="{{classify_index == 0}}"> 
       <template is='goodsListItem3' data='{{...item}}'></template>

@@ -1,0 +1,60 @@
+<!--pages/goodsDetails/goodsDetails.wxml-->
+<!-- 图片begin -->
+<view class="good-img">
+  <image src="{{good.picture_url1}}" class="image" mode="aspectFit" lazy-load="true" />
+</view>
+<!-- 图片end -->
+
+<!-- 价格及标签栏begin -->
+<view class="box">
+  <text class="left_price">￥{{good.price}}</text>
+  <!-- 显示地址标签 -->
+  <view class="right_tag">
+    <view wx:if="{{good.address == 1 }}">大学城</view>
+    <view wx:if="{{good.address == 2 }}">五山</view>
+    <view wx:if="{{good.address == 3 }}">国际</view>
+    <view wx:if="{{good.address == 4 }}">其他</view>
+  </view>
+  <!-- 显示新旧程度标签 -->
+  <view class="right_tag">
+    <view wx:if="{{good.is_new == 0 }}">非全新</view>
+    <view wx:if="{{good.is_new == 1 }}">全新</view>
+  </view>
+  <!-- 显示商品分类标签 -->
+  <view class="right_tag">
+    <view wx:if="{{good.classify == 1 }}">电子产品</view>
+    <view wx:if="{{good.classify == 2 }}">讲座票</view>
+    <view wx:if="{{good.classify == 3 }}">校园网</view>
+    <view wx:if="{{good.classify == 4 }}">日用品</view>
+    <view wx:if="{{good.classify == 5 }}">书籍</view>
+    <view wx:if="{{good.classify == 6 }}">文具</view>
+    <view wx:if="{{good.classify == 7 }}">美妆</view>
+    <view wx:if="{{good.classify == 8 }}">零食</view>、
+    <view wx:if="{{good.classify == 9 }}">其他</view>
+  </view>
+</view>
+<!-- 价格及标签栏end -->
+
+<!-- 商品标题begin -->
+<text class="goodTitle">{{good.name}}</text>
+<!-- 商品标题end -->
+
+<!-- 商品详情begin -->
+<text class="details">{{good.details}}</text>
+<!-- 商品详情end -->
+
+<!-- 联系方式begin -->
+<view>
+  <view class="detailsTitle">联系方式</view>
+  <view class="details">{{good.contact_information}}</view>
+</view>
+<!-- 联系方式end -->
+
+<!-- 功能按钮begin -->
+<view class="btn-box">
+  <!-- 审核通过按钮 -->
+  <button class="btn" bindtap="approve">通过</button>
+  <!-- 下架按钮 -->
+  <button class="btn" style="margin-left: 10px;" bindtap="reject">下架</button>
+</view>
+<!-- 功能按钮end-->

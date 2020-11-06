@@ -19,25 +19,21 @@ Page({
     },
   },
 
-  /* 收藏按钮事件 */
-  collect: function(e){
-    console.log("收藏该商品，商品id为：" + this.data.id)
+  /* 审核通过按钮事件 */
+  approve: function(e){
+    console.log("审核通过该商品，商品id为：" + this.data.id)
   },
 
-  /* 预订按钮事件 */
-  reserve: function(e){
-    console.log("预订该商品，商品id为：" + this.data.good.cm_id)
+  /* 下架按钮事件 */
+  reject: function(e){
+    console.log("下架该商品，商品id为：" + this.data.good.cm_id)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var id = options.id
 
-    this.setData({
-      id: id
-    })
   },
 
   /**

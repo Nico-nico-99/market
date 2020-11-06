@@ -2,7 +2,7 @@
 <wxs module="filters" src="../../utils/filters.wxs"></wxs>
 
 <template name="goodsListItem3">
-  <view class="goods-box">
+  <view class="goods-box" bindtap="toDetails" data-cmid="{{cm_id}}">
     <view class="img-box">
       <image src="{{picture_url1}}" class="image" mode="aspectFill" lazy-load="true" />
     </view>
