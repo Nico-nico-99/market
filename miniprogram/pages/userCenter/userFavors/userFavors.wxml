@@ -1,7 +1,7 @@
 <!--miniprogram/pages/userCenter/userFavors.wxml-->
 
-<!-- 引入商品模块2 -->
-<import src="../../../templates/goodsListItem2/goodsListItem2.wxml"/>
+<!-- 引入商品模块1 -->
+<import src="../../../templates/goodsListItem1/goodsListItem1.wxml"/>
 
 <!-- 标题栏begin -->
 <view class="title">
@@ -20,7 +20,7 @@
 <!-- 收藏夹商品begin -->
 <view class='goods'>
   <block wx:for='{{goodsList}}' wx:key='this'>
-    <template is='goodsListItem2' data='{{...item}}'></template>
+    <template is='goodsListItem1' data='{{...item}}'></template>
   </block>
 </view>
 <!-- 收藏夹商品end -->

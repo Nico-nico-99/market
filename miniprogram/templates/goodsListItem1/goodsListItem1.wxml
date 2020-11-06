@@ -1,8 +1,9 @@
-<!--miniprogram/templates/goodsListsItem2/goodsListItem2.wxml-->
+<!--miniprogram/templates/goodsListsItem1/goodsListItem1.wxml-->
+<!--横向的商品展示（纯展示）-->
 
 <wxs module="filters" src="../../utils/filters.wxs"></wxs>
 
-<template name="goodsListItem2">
+<template name="goodsListItem1">
 
 <!-- 将导入数据列表放在模板外完成 -->
 <!-- <view class="goods-box2" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cm_id}}"> -->
@@ -26,5 +27,3 @@
     </view>
   </view>
 </template>
-
-<!-- 请调整伸缩盒子使一行显示两个，请调整"filters.toFix2(price)"的使用使保留两位整数[假设需要的话] -->

@@ -1,14 +1,14 @@
-// miniprogram/pages/userCenter/userBoughts/userBoughts.js
+// miniprogram/pages/adminCenter.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    //搜索栏
-    searchInput: '',
+    //当前选项卡内容
+    currentTabIndex:0,
 
-    //预订商品列表
+    //收藏商品列表
     goodsList: [
       {
         "cm_id": 25,
@@ -41,24 +41,20 @@ Page({
   },
 
   /**
-   * 获取输入框内容
+   * 选项卡选择
    */
-  bindSearchInput: function (e) {
-    this.searchInput = e.detail.value
-  },
-
-  /**
-   * 购买记录搜索
-   */
-  gotoSearch: function(e){
-    console.log("购买记录搜索: ", this.searchInput)
+  onTabsItemTap:function(event){
+    let index=event.currentTarget.dataset.index;
+    this.setData({
+      currentTabIndex:index
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**

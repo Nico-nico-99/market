@@ -8,11 +8,11 @@
     <!-- 未授权 -->
     <button class="userLogin userImage" plain="true" 
             wx:if="{{!hasUserInfo}}" style="background-image:url(../../images/userImage.png);"
-            bindtap="mpDialog">
+            bindtap="mpDialog" data-hasUserInfo="{{hasUserInfo}}">
     </button>
     <!-- 已授权 -->
     <button class="userLogin userImage" plain="true" 
-            wx:if="{{hasUserInfo}}" style="background-image:url({{userInfo.avatarUrl}});">
+            wx:if="{{hasUserInfo}}" style="background-image:url({{userImageUrl}});">
     </button>
     <!-- 弹窗确定是否授权 -->
     <mymodal type="getUserInfo" title='微信授权'
@@ -23,7 +23,7 @@
     <!-- 用户昵称 -->
     <view class="userLogin userName">
         <text wx:if="{{!hasUserInfo}}" >点击头像授权登录</text>
-        <text wx:if="{{hasUserInfo}}">{{userInfo.nickName}}</text>
+        <text wx:if="{{hasUserInfo}}">{{nickName}}</text>
     </view>
   </view>
 </view>
@@ -93,9 +93,25 @@
 </view>
 <!-- 个人信息end -->
 
+<!-- 管理员端begin -->
+<view class="admin" bindtap="toAdmin" data-auth="{{isAdmin}}">
+  <!-- 背景图 -->
+  <view class="admin background">
+    <!-- icon -->
+    <image class="admin icon" src="../../images/icons/管理员.png"></image>
+    <!-- text -->
+    <view class="admin text">
+        <text>管理员端</text>
+    </view>
+     <!-- arrow -->
+     <image class="admin arrow" src="../../images/icons/指示箭头(右).png"></image>
+  </view>
+</view>
+<!-- 管理员端end -->
+
 <!-- 退出账号begin -->
 <view class="exit">
   <!-- 退出按钮 -->
-  <button class="exit exitButton" style="width: 100vw;" bindtap="logout">退出账号</button>
+  <button class="exit exitButton" style="width: 100vw;" bindtap="logout" data-hasUserInfo="{{hasUserInfo}}">退出账号</button>
 </view>
 <!-- 退出账号end -->
