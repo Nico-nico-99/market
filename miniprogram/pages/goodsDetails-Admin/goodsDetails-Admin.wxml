@@ -1,7 +1,14 @@
 <!--pages/goodsDetails/goodsDetails.wxml-->
 <!-- 图片begin -->
-<view class="good-img">
-  <image src="{{good.picture_url1}}" class="image" mode="aspectFit" lazy-load="true" />
+<view class="good_img_swiper">
+  <swiper autoplay="true">
+    <swiper-item
+    wx:for="{{good.picture_url_List}}"
+    wx:key="pic_id"
+    >
+      <image mode="widthFix" src="{{item.pic_url}}"></image>
+    </swiper-item>
+  </swiper>
 </view>
 <!-- 图片end -->
 

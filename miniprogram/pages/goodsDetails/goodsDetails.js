@@ -8,7 +8,19 @@ Page({
     "id": -1,
     "good":{
       "cm_id": 25,
-      "picture_url1": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603098830639&di=b44a9d7c9a96fa8446df941aeeea0fba&imgtype=0&src=http%3A%2F%2Fimg.book118.com%2Fsr1%2FM00%2F29%2F3D%2FwKh2AlvnQSiIR2BKABBsKNt0issAAQZFwBMTpgAEGxA391.png",
+      "picture_url_List": [{
+        "pic_id": 1,
+        "pic_url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603098830639&di=b44a9d7c9a96fa8446df941aeeea0fba&imgtype=0&src=http%3A%2F%2Fimg.book118.com%2Fsr1%2FM00%2F29%2F3D%2FwKh2AlvnQSiIR2BKABBsKNt0issAAQZFwBMTpgAEGxA391.png",
+      },
+      {
+        "pic_id": 2,
+        "pic_url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=656939494,2395229563&fm=26&gp=0.jpg",
+      },
+      {
+        "pic_id": 3,
+        "pic_url": "http://img.dahepiao.com/uploads/allimg/191204/104Z4GB-0.jpg",
+      }
+    ],
       "name": "线性代数",
       "price": 25.00,
       "address": 1,
