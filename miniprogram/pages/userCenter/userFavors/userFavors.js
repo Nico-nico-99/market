@@ -55,10 +55,23 @@ Page({
   },
 
   /**
+   * 进入商品详情页
+  */
+  toDetails: function(e){
+    console.log("前往商品详情页")
+
+    var id = e.currentTarget.dataset.cmid;
+    wx.navigateTo({
+      url: '../../goodsDetails/goodsDetails?id=' + id//给商品详情页传递商品id,
+    })
+    console.log("----------------------------------商品详情----------------------------------")  
+  },
+
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log("onLoad()")
   },
 
   /**
@@ -72,7 +85,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("onShow()")
 
+    var app = getApp();
+    var userId = app.globalData.userId;
+    var that = this;
+    
+    wx.request({
+      url: 'http://xx.com/api/userCenter/userFavors.html',//获取商品列表
+      data: {
+        userId: userId,
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取收藏夹商品列表');
+        that.setData({
+          goodsList: res.data.goodsList,
+        })
+      },
+      fail: function(error){
+        console.log("获取收藏夹商品列表失败！");
+      },
+    })
   },
 
   /**

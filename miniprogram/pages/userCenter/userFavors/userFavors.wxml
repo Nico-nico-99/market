@@ -18,9 +18,11 @@
 <!-- 标题栏begin -->
 
 <!-- 收藏夹商品begin -->
-<view class='goods'>
+<view class='goods' >
   <block wx:for='{{goodsList}}' wx:key='this'>
-    <template is='goodsListItem1' data='{{...item}}'></template>
+    <view bindtap="toDetails">
+      <template is='goodsListItem1' data='{{...item}}'></template>
+    </view>
   </block>
 </view>
 <!-- 收藏夹商品end -->
