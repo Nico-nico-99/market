@@ -60,6 +60,55 @@ Page({
    */
   payment: function(e){
     console.log("用户付款")
+
+    var app = getApp()
+    var userId = app.globalData.userId
+    var item = e.currentTarget.dataset.item
+    var cm_id = item.cm_id
+    var price = item.price.toFixed(2)
+    var that = this
+
+    wx.showModal({
+      title: '提示',
+      content: '该商品价格为：'+ price + '元。您是否确定要付款？',
+      success: function (res) {
+        if (res.confirm) {
+          //调用小程序付款接口
+          
+
+          //向后端申请付款
+          wx.request({
+            url: 'http://xx.com/api/userCenter/userBookings/payment.html',//修改商品属性为“已售出”
+            data: {
+              userId: userId,
+              cm_id: cm_id,
+            },
+            header: {
+              'content-type': 'application/json'//要根据后端信息进行修改
+            },
+            success: function (res) {
+              console.log('成功付款');
+              //提示取消成功
+              wx.showToast({
+              title: '付款成功',
+              icon: 'none',
+              })
+            },
+            fail: function(error){
+              console.log("付款失败！");
+              //提示取消成功
+              wx.showToast({
+              title: '付款失败，请重新操作',
+              icon: 'none',        
+              })    
+            },
+          })
+
+          //返回刷新页面
+          that.onShow()
+        }
+      }
+    })
   },
 
   /**
@@ -67,13 +116,72 @@ Page({
    */
   cancelOrder: function(e){
     console.log("用户取消订单")
+
+    var app = getApp()
+    var that = this
+    var userId = app.globalData.userId
+    var item = e.currentTarget.dataset.item
+    var cm_id = item.cm_id
+    console.log(cm_id)
+
+    wx.showModal({
+      title: '提示',
+      content: '取消订单后，该商品将重新进入待售状态。您是否确定要取消该订单？',
+      success: function (res) {
+        if (res.confirm) {
+          //向后端申请取消订单
+          wx.request({
+            url: 'http://xx.com/api/userCenter/userBookings/cancelOrder.html',//修改商品属性为“待售”
+            data: {
+              userId: userId,
+              cm_id: cm_id,
+            },
+            header: {
+              'content-type': 'application/json'//要根据后端信息进行修改
+            },
+            success: function (res) {
+              console.log('成功取消订单');
+              //提示取消成功
+              wx.showToast({
+              title: '订单取消成功',
+              icon: 'none',
+              })
+            },
+            fail: function(error){
+              console.log("取消订单失败！");
+              //提示取消成功
+              wx.showToast({
+              title: '订单取消失败，请重新操作',
+              icon: 'none',        
+              })    
+            },
+          })
+
+          //返回刷新页面
+          that.onShow()
+        }
+      }
+    })
+  },
+
+  /**
+   * 进入商品详情页
+  */
+  toDetails: function(e){
+    console.log("前往商品详情页")
+
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../../goodsDetails/goodsDetails?id=' + id//给商品详情页传递商品id,
+    })
+    console.log("----------------------------------商品详情----------------------------------")  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log("onLoad()")
   },
 
   /**
@@ -87,7 +195,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("onShow()")
 
+    var app = getApp();
+    var userId = app.globalData.userId;
+    var that = this;
+    
+    wx.request({
+      url: 'http://xx.com/api/userCenter/userBookings.html',//获取商品列表
+      data: {
+        userId: userId,
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取订单商品列表');
+        that.setData({
+          goodsList: res.data.goodsList,
+        })
+      },
+      fail: function(error){
+        console.log("获取订单商品列表失败！");
+      },
+    })
   },
 
   /**
