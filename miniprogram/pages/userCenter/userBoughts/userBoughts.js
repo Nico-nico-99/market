@@ -58,7 +58,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log("onLoad()")
   },
 
   /**
@@ -72,7 +72,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("onShow()")
 
+    var app = getApp();
+    var userId = app.globalData.userId;
+    var that = this;
+    
+    wx.request({
+      url: 'http://xx.com/api/userCenter/userBoughts.html',//获取商品列表
+      data: {
+        userId: userId,
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取购买记录商品列表');
+        that.setData({
+          goodsList: res.data.goodsList,
+        })
+      },
+      fail: function(error){
+        console.log("获取购买记录商品列表失败！");
+      },
+    })
   },
 
   /**

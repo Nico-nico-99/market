@@ -17,13 +17,13 @@
 </view>
 <!-- 标题栏begin -->
 
-<!-- 收藏夹商品begin -->
+<!-- 购买记录begin -->
 <view class='goods'>
   <block wx:for='{{goodsList}}' wx:key='this'>
     <template is='goodsListItem1' data='{{...item}}'></template>
   </block>
 </view>
-<!-- 收藏夹商品end -->
+<!-- 购买记录end -->
 
 <!-- 提示语begin -->
 <view class="tipstext">
