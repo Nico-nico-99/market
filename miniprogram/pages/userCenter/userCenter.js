@@ -34,7 +34,8 @@ Page({
       if(!wx.canIUse('button.open-type.getUserInfo')){
         wx.showModal({
           title: '提示',
-          content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+          content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。',
+          showCancel: false,
         })
       }
       else{
@@ -70,6 +71,8 @@ Page({
 
                     //可以把用户id保存到本地缓存，方便以后调用
                     wx.setStorageSync('userId', res.data.userId);
+                    var app = getApp();
+                    app.globalData.userId = res.data.userId;
                   },
                   fail: function(error){
                     wx.hideLoading();
@@ -146,6 +149,7 @@ Page({
 
   /**
    * 前往管理员端
+   * 注：后端连接成功后，请将参数isAdmin删除。isAdmin仅供调试。
    */
   toAdmin: function(e){
     wx.showLoading({
@@ -153,6 +157,7 @@ Page({
     })
     // 检测是否具备管理员资格
     var authority = e.currentTarget.dataset.auth
+    /*
     wx.request({
       url: 'http://xx.com/api/userCenter/getIsAdmin.html',//获取用户id下的管理员权限 //要根据后端信息进行修改
       data: {
@@ -172,8 +177,11 @@ Page({
         console.log("获取用户权限失败！");
       },
     })
-
+    */
     if(authority == '1'){
+      this.setData({
+        isAdmin: authority,
+      })
       console.log("前往管理员端")
       wx.navigateTo({
         url: '../../pages/adminCenter/adminCenter',
@@ -184,7 +192,8 @@ Page({
       console.log("本帐号非管理员")  
       wx.showModal({
         title: '提示',
-        content: '该账号非管理员，无法获取管理员权限。'
+        content: '该账号非管理员，无法获取管理员权限。',
+        showCancel: false,
       })
     }
   },
@@ -224,7 +233,8 @@ Page({
       console.log('当前未登录，无法退出登录')
       wx.showModal({
         title: '提示',
-        content: '当前未登录，无法退出登录。'
+        content: '当前未登录，无法退出登录。',
+        showCancel: false,
       })
     }
   },
