@@ -50,6 +50,18 @@ Page({
     })
   },
 
+  // 跳转至商品详情页面事件
+  toDetails: function(e){
+    var id = e.currentTarget.dataset.cmid;
+    console.log("前往商品详情" + "商品id为" + id)
+    wx.navigateTo({
+      url: '../../pages/goodsDetails-Admin/goodsDetails-Admin?id=' + id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

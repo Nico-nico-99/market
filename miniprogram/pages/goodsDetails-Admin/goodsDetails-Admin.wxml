@@ -1,4 +1,4 @@
-<!--pages/goodsDetails/goodsDetails.wxml-->
+<!--pages/goodsDetails-Admin/goodsDetails-Admin.wxml-->
 <!-- 图片begin -->
 <view class="good_img_swiper">
   <swiper autoplay="true">

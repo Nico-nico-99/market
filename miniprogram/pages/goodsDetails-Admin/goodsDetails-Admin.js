@@ -19,7 +19,8 @@ Page({
       {
         "pic_id": 3,
         "pic_url": "http://img.dahepiao.com/uploads/allimg/191204/104Z4GB-0.jpg",
-      },
+      }
+      ],
       "name": "线性代数",
       "price": 25.00,
       "address": 1,
@@ -44,7 +45,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var id = options.id
 
+    this.setData({
+      id: id
+    })
   },
 
   /**

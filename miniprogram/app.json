@@ -8,6 +8,7 @@
     "pages/searchGoods/searchGoods",
     "pages/userCenter/userCenter",
     "pages/userConsole/userConsole",
+    "pages/adminCenter/adminCenter",
     "pages/index/index",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -19,8 +20,7 @@
     "pages/openapi/callback/callback",
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
-    "pages/im/room/room",
-    "pages/adminCenter/adminCenter"
+    "pages/im/room/room"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
