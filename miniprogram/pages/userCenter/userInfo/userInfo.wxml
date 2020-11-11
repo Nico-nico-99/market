@@ -66,11 +66,11 @@
     <!-- contact -->
       <view class="userContact contact">
         <!-- 非修改状态 -->
-        <input type="text" class="userContact contactInput" placeholder="{{contactInput}}"
+        <input type="text" class="userContact contactInput" placeholder="请输入联系方式" value="{{contactInput}}"
                wx:if="{{!change}}" disabled='{{true}}'
                                    style="color: darkgrey;"/>
         <!-- 修改状态 -->
-        <input type="text" class="userContact contactInput" placeholder="{{contactInput}}"
+        <input type="text" class="userContact contactInput" placeholder="请输入联系方式" value="{{contactInput}}"
                wx:if="{{change}}" disabled='{{false}}'
                                   style="color: black;"
                                   bindinput="bindContactInput"/>
@@ -89,11 +89,11 @@
     <!-- address -->
       <view class="userAddress address">
         <!-- 非修改状态 -->
-        <input type="text" class="userAddress addressInput" placeholder="{{addressInput}}"
+        <input type="text" class="userAddress addressInput" placeholder="请输入收货地址" value="{{addressInput}}"
                wx:if="{{!change}}" disabled='{{true}}'
                                    style="color: darkgrey;"/>
         <!-- 修改状态 -->
-        <input type="text" class="userAddress addressInput" placeholder="{{addressInput}}"
+        <input type="text" class="userAddress addressInput" placeholder="请输入收货地址" value="{{addressInput}}"
                wx:if="{{change}}" disabled='{{false}}'
                                   style="color: black;"
                                   bindinput="bindAddressInput"/>
