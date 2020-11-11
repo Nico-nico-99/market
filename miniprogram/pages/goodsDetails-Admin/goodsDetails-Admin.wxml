@@ -3,10 +3,10 @@
 <view class="good_img_swiper">
   <swiper autoplay="true">
     <swiper-item
-    wx:for="{{good.picture_url_List}}"
-    wx:key="pic_id"
+    wx:for="{{good.urlList}}"
+    wx:key="urlId"
     >
-      <image mode="aspectFit" src="{{item.pic_url}}"></image>
+      <image mode="aspectFit" src="{{item.urlSrc}}"></image>
     </swiper-item>
   </swiper>
 </view>
@@ -24,8 +24,8 @@
   </view>
   <!-- 显示新旧程度标签 -->
   <view class="right_tag">
-    <view wx:if="{{good.is_new == 0 }}">非全新</view>
-    <view wx:if="{{good.is_new == 1 }}">全新</view>
+    <view wx:if="{{good.isNew == 0 }}">非全新</view>
+    <view wx:if="{{good.isNew == 1 }}">全新</view>
   </view>
   <!-- 显示商品分类标签 -->
   <view class="right_tag">
@@ -53,7 +53,7 @@
 <!-- 联系方式begin -->
 <view>
   <view class="detailsTitle">联系方式</view>
-  <view class="details">{{good.contact_information}}</view>
+  <view class="details">{{good.contactInformation}}</view>
 </view>
 <!-- 联系方式end -->
 

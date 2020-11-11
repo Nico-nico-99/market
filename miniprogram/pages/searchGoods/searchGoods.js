@@ -21,20 +21,37 @@ Page({
     // 商品列表
     goods: [
       {
-        "cm_id": 25,
-        "picture_url1": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603098830639&di=b44a9d7c9a96fa8446df941aeeea0fba&imgtype=0&src=http%3A%2F%2Fimg.book118.com%2Fsr1%2FM00%2F29%2F3D%2FwKh2AlvnQSiIR2BKABBsKNt0issAAQZFwBMTpgAEGxA391.png",
-        "name": "全新",
+        "cmId": 1,
+        "name": "全新-讲座票",
+        "details": "不知道给你说啥，买它！",
         "price": 25,
+        "userId": 1,
         "address": 1,
-        "is_new": 1
+        "pictureUrls":[
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603098830639&di=b44a9d7c9a96fa8446df941aeeea0fba&imgtype=0&src=http%3A%2F%2Fimg.book118.com%2Fsr1%2FM00%2F29%2F3D%2FwKh2AlvnQSiIR2BKABBsKNt0issAAQZFwBMTpgAEGxA391.png",
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603099709041&di=cbfa63df06fb032abf3fb9074f180000&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F02%2F20180702073005_nqjxx.jpg"
+        ],
+        "date": "2020-11-11 00:59:59",
+        "isNew": 1,
+        "state": 0,
+        "classify": 2
       },
       {
-        "cm_id": 26,
-        "picture_url1": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603099709041&di=cbfa63df06fb032abf3fb9074f180000&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F02%2F20180702073005_nqjxx.jpg",
-        "name": "非全新",
+        "cmId": 2,
+        "name": "非全新-校园网",
+        "details": "不知道给你说啥，买它！",
         "price": 25,
-        "address": 2,
-        "is_new": 0
+        "userId": 1,
+        "address": 1,
+        "pictureUrls":[
+          "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
+          "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1545201677,662987570&fm=26&gp=0.jpg",
+          "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3629566549,2332772027&fm=26&gp=0.jpg"
+        ],
+        "date": "2020-11-11 00:59:59",
+        "isNew": 0,
+        "state": 0,
+        "classify": 3
       }
     ],
   },
