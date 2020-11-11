@@ -3,7 +3,7 @@
 <view class="good_img_swiper">
   <swiper autoplay="true">
     <swiper-item
-    wx:for="{{good.urlList}}"
+    wx:for="{{urlList}}"
     wx:key="urlId"
     >
       <image mode="aspectFit" src="{{item.urlSrc}}"></image>

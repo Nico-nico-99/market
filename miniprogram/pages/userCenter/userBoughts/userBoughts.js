@@ -53,6 +53,18 @@ Page({
   gotoSearch: function(e){
     console.log("购买记录搜索: ", this.searchInput)
   },
+  
+  /**
+   * 进入商品详情页
+  */
+  toDetails: function(e){
+    console.log("前往商品详情" + "商品id为" + id)
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../../goodsDetails/goodsDetails?id=' + id//给商品详情页传递商品id,
+    })
+    console.log("----------------------------------商品详情----------------------------------")  
+  },
 
   /**
    * 生命周期函数--监听页面加载

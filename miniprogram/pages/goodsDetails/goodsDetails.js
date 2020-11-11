@@ -22,22 +22,22 @@ Page({
       "isNew": 0,
       "state": 0,
       "classify": 3,
-      "contactInformation": 123456789,
-      "urlList":[
-        {
-          "urlSrc":  "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
-          "urlId": 0
-        },
-        {
-          "urlSrc": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1545201677,662987570&fm=26&gp=0.jpg",
-          "urlId": 1
-        },
-        {
-          "urlSrc":  "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3629566549,2332772027&fm=26&gp=0.jpg",
-          "urlId": 2
-        }
-      ]
+      "contactInformation": 123456789
     },
+    "urlList":[
+      {
+        "urlSrc":  "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
+        "urlId": 0
+      },
+      {
+        "urlSrc": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1545201677,662987570&fm=26&gp=0.jpg",
+        "urlId": 1
+      },
+      {
+        "urlSrc":  "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3629566549,2332772027&fm=26&gp=0.jpg",
+        "urlId": 2
+      }
+    ]
   },
 
   /* 收藏按钮事件 */
