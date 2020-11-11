@@ -23,7 +23,7 @@ Page({
     // 商品分类筛选标记
     classify_index: 0,
     // 推荐商品列表
-    goods: [
+    commodityList: [
       {
         "cmId": 1,
         "name": "全新-讲座票",

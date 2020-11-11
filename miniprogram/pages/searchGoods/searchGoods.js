@@ -19,7 +19,7 @@ Page({
     new_index: 2,
 
     // 商品列表
-    goods: [
+    commodityList: [
       {
         "cmId": 1,
         "name": "全新-讲座票",
