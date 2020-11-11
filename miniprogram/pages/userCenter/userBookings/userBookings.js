@@ -78,6 +78,7 @@ Page({
 
           //向后端申请付款
           wx.request({
+            method: "POST",
             url: 'http://xx.com/api/userCenter/userBookings/payment.html',//修改商品属性为“已售出”
             data: {
               userId: userId,
@@ -131,6 +132,7 @@ Page({
         if (res.confirm) {
           //向后端申请取消订单
           wx.request({
+            method: "POST",
             url: 'http://xx.com/api/userCenter/userBookings/cancelOrder.html',//修改商品属性为“待售”
             data: {
               userId: userId,
@@ -202,6 +204,7 @@ Page({
     var that = this;
     
     wx.request({
+      method: "POST",
       url: 'http://xx.com/api/userCenter/userBookings.html',//获取商品列表
       data: {
         userId: userId,
