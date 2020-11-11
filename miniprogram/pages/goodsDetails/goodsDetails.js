@@ -21,6 +21,11 @@ Page({
         "pic_url": "http://img.dahepiao.com/uploads/allimg/191204/104Z4GB-0.jpg",
       }
     ],
+      "pictureUrls": [
+        "https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false&word=%E5%A6%AE%E5%8F%AF&step_word=&hs=2&pn=1&spn=0&di=92730&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=1361732430%2C212114839&os=206663853%2C4243924515&simid=4137785648%2C696703788&adpicid=0&lpn=0&ln=30&fr=&fmq=1605023633041_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=star&bdtype=0&oriquery=&objurl=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201604%2F28%2F20160428231658_c8QST.jpeg&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3B17tpwg2_z%26e3Bv54AzdH3Fks52AzdH3F%3Ft1%3Dcm00c0c9c&gsm=2&rpstart=0&rpnum=0&islist=&querylist=&force=undefined",
+        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605033741380&di=2496711efe5e9aeebe46107f09b519d7&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F1db758ee3d6d55fb57da4c466b224f4a20a4dd56.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2151637998,88685684&fm=26&gp=0.jpg"
+      ],
       "name": "线性代数",
       "price": 25.00,
       "address": 1,

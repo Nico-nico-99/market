@@ -2,11 +2,3 @@
 
 /* 引入商品样式 */
 @import "../../style/goodsDetails.wxss";
-
-/* 轮播图样式 */
-swiper {
-  width: 750rpx;
-}
-.good_img_swiper swiper image {
-  width: 100%;
-}

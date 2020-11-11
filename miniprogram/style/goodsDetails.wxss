@@ -2,6 +2,13 @@
 .good-img{
   background-color: #fff;
 }
+/* 商品图片轮播图样式 */
+swiper {
+  width: 750rpx;
+}
+.good_img_swiper swiper image {
+  width: 100%;
+}
 
 /* 商品价格及标签盒子样式 */
 .box{

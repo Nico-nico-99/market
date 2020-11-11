@@ -6,7 +6,7 @@
     wx:for="{{good.picture_url_List}}"
     wx:key="pic_id"
     >
-      <image mode="widthFix" src="{{item.pic_url}}"></image>
+      <image mode="aspectFit" src="{{item.pic_url}}"></image>
     </swiper-item>
   </swiper>
 </view>
