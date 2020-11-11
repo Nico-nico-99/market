@@ -79,6 +79,7 @@ Page({
     var that = this;
     
     wx.request({
+      method: "POST",
       url: 'http://xx.com/api/userCenter/userBoughts.html',//获取商品列表
       data: {
         userId: userId,
