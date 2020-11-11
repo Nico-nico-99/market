@@ -17,7 +17,7 @@ Page({
 
   toDetailsTap: function (e) {//点击某个商品框，实现页面跳转，到商品详情页
     wx.navigateTo({
-      url: '../goodDetails/goodDetails?goodsId=' + e.currentTarget.dataset.id//给商品详情页传递商品id
+      url: '../goodsDetails-Seller/goodsDetails-Seller?cmId=' + e.currentTarget.dataset.id//给商品详情页传递商品id
     })
   },
   /**
@@ -38,7 +38,42 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          goods: res.data.goodsList
+          //goods: res.data.goodsList
+          goods:[{
+            cm_id:12,
+            pic:"../../images/showExample/书包.jpg",
+            name:"书包",
+            price:55,
+            address:2
+          },{
+              cm_id: 13,
+              pic: "../../images/showExample/表情.jpg",
+              name: "线性代数课本",
+              price: 15,
+              address: 2
+            }, {
+              cm_id: 19,
+              pic: "../../images/showExample/表情.jpg",
+              name: "线性代数课本",
+              price: 6,
+              address: 2
+            },
+             {
+              cm_id: 14,
+              pic: "../../images/showExample/计网课本.jpg",
+              name: "计网课本",
+              price: 15,
+              address: 2
+            },
+            {
+              cm_id: 15,
+              pic: "../../images/showExample/表情.jpg",
+              name: "线性代数课本",
+              price: 6,
+              address: 2
+            }
+
+          ]
         })
       }
     })
