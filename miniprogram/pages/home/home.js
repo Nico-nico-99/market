@@ -28,7 +28,7 @@ Page({
         "cmId": 1,
         "name": "全新-讲座票",
         "details": "不知道给你说啥，买它！",
-        "price": 25,
+        "price": 25.22,
         "userId": 1,
         "address": 1,
         "pictureUrls":[

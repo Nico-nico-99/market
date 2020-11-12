@@ -1,4 +1,8 @@
 <!--pages/goodsDetails/goodsDetails.wxml-->
+
+<!-- 引入filters.wxs保留两位小数 -->
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+
 <!-- 图片begin -->
 <view class="good_img_swiper">
   <swiper autoplay="true">
@@ -14,7 +18,7 @@
 
 <!-- 价格及标签栏begin -->
 <view class="box">
-  <text class="left_price">￥{{good.price}}</text>
+  <text class="left_price">￥{{filters.toFix(good.price)}}</text>
   <!-- 显示地址标签 -->
   <view class="right_tag">
     <view wx:if="{{good.address == 1 }}">大学城</view>

@@ -1,4 +1,5 @@
 <!--miniprogram/templates/commodityList/commodityList.wxml-->
+<!-- 引入filters.wxs保留两位小数 -->
 <wxs module="filters" src="../../utils/filters.wxs"></wxs>
 
 <template name="commodityList">
@@ -8,7 +9,7 @@
     </view>
     <view class="goods-title">{{name}}</view>
     <view style='display:flex;'>
-      <view  class="goods-price">¥<span>{{price}}</span></view>
+      <view  class="goods-price">¥<span>{{filters.toFix(price)}}</span></view>
       <view class="goods-address" wx:if="{{address == 1 }}">大学城</view>
       <view class="goods-address" wx:if="{{address == 2 }}">五山</view>
       <view class="goods-address" wx:if="{{address == 3 }}">国际</view>
