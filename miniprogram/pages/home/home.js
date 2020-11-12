@@ -9,7 +9,7 @@ Page({
     swiperList: [
       {
         img_id: 1,
-        img_src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&   sec=1601404782400&di=47f1cb31a08bffa14c3862d28be96890&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180520%2F326eae8b6b8c4b189c10e15e7fc5f41b.jpeg",
+        img_src: "../../images/pic1.png",
       },
       {
         img_id: 2,
@@ -17,7 +17,7 @@ Page({
       },
       {
         img_id: 3,
-        img_src: "http://img.dahepiao.com/uploads/allimg/191204/104Z4GB-0.jpg",
+        img_src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&   sec=1601404782400&di=47f1cb31a08bffa14c3862d28be96890&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180520%2F326eae8b6b8c4b189c10e15e7fc5f41b.jpeg",
       }
     ],
     // 商品分类筛选标记
