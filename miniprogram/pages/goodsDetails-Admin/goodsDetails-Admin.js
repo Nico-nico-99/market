@@ -47,7 +47,7 @@ Page({
 
   /* 下架按钮事件 */
   reject: function(e){
-    console.log("下架该商品，商品id为：" + this.data.good.cm_id)
+    console.log("下架该商品，商品id为：" + this.data.id)
   },
 
   /**

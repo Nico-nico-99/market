@@ -50,6 +50,7 @@ Page({
             if(!hasUserInfo){
               if (code) {
                 wx.request({
+                  method: "POST",
                   url: 'http://xx.com/api/userCenter/getUserInfo.html',//获取openid //要根据后端信息进行修改
                   data: {
                     code: code,
@@ -159,6 +160,7 @@ Page({
     var authority = e.currentTarget.dataset.auth
     /*
     wx.request({
+      method: "POST",
       url: 'http://xx.com/api/userCenter/getIsAdmin.html',//获取用户id下的管理员权限 //要根据后端信息进行修改
       data: {
         userId: userId,

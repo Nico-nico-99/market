@@ -1,0 +1,119 @@
+<!--miniprogram/pages/modifyGood/modifyGood.wxml-->
+
+<view class="pageContainer">
+  <!-- 商品名 -->
+  <view class="InputContainer">
+    <view class="TitleView">
+      <text>商品名</text>
+    </view>
+    <view class="InputView">
+      <input class="input" value="{{goodBefore.name}}"placeholder="输入商品名字" maxlength="30" bindinput="comNameInput" />
+    </view>
+  </view>
+
+  <view class="gap"></view>
+  <!-- 商品描述 -->
+  <view class="detailInputContainer">
+    <view class="detailTitleView">
+      <text>描述</text>
+    </view>
+
+    <view class="detailInputView">
+      <textarea class="detailText" value="{{goodBefore.details}}"placeholder="输入商品详细信息" maxlength="200" bindblur="comDetail"></textarea>
+    </view>
+  </view>
+
+  <view class="gap"></view>
+
+  <view class="InputContainer">
+    <view class="TitleView">
+      <text>价格</text>
+    </view>
+    <view class="InputView">
+      <input class="input" type="digit" value="{{goodBefore.price}}"placeholder="输入商品价格" bindinput="comPriceInput" />
+    </view>
+  </view>
+
+  <view class="gap"></view>
+
+  <radio-group class="radio-group" bindchange="radioChange">
+    <view class="radioTitleView">
+      <text>是否全新</text>
+    </view>
+
+    <label class="radio" wx:for-items="{{items}}">
+      <radio name="{{item.name}}" checked="{{goodBefore.is_new}}" value="{{item.value}}" />{{item.name}}
+    </label>
+
+  </radio-group>
+
+  <view class="gap"></view>
+
+  <view class="typeSelectContainer">
+    <view class="TitleView">
+      <text>类型</text>
+    </view>
+    <view class="selectBoxcontain">
+      <selectBox class="selectBox" prop-array='{{selectArrayClassify}}' bind:select='selectType' />
+    </view>
+  </view>
+  <view class="gap"></view>
+
+  <view class="typeSelectContainer">
+    <view class="TitleView">
+      <text>发货地</text>
+    </view>
+    <view class="selectBoxcontain">
+      <selectBox  prop-array='{{selectArrayAddress}}' bind:select='selectAddress' />
+    </view>
+  </view>
+
+
+</view>
+
+
+<!-- 加载图片 -->
+<view class="weui-uploader">
+  <!-- 图片展示区 -->
+
+  <view class="gap"></view>
+
+  <!-- 加载图片 -->
+  <view class="weui-uploader">
+
+    <!-- 图片展示区 -->
+    <view class="ImgsContainer" wx:if="{{imgs.length>=1}}" >
+
+      <view class="OneImgsContainer" wx:for="{{imgs}}">
+
+        <image class="imgShow" mode="aspectFill" src="{{item}}" bindtap="previewImg" data-index='{{index}}'>
+        </image>
+        <!-- 图片删除按钮 -->
+
+        <!-- <view class="deleteImg" data-index='0' catchtap="deleteImg">
+          <image class="deleteImg" src="../../images/deleteImg.png"></image>
+        </view> -->
+        <image class="deleteImg" src="../../images/deleteImg.png"data-index='{{index}}' catchtap="deleteImg"></image>
+       
+      </view>
+
+    </view>
+
+    <view class="gap"></view>
+
+    <view class="uploadImgBtn" bindtap="chooseImg" type='primary'>
+      <text>选择图片</text>
+    </view>
+
+
+  </view>
+
+  <view class="gap"></view>
+
+</view>
+
+
+<view class="uploadgood" bindtap="modify">
+  <text>修改商品</text>
+</view>
+<view class="gap"></view>

@@ -47,7 +47,7 @@ Page({
 
   /* 预订按钮事件 */
   reserve: function(e){
-    console.log("预订该商品，商品id为：" + this.data.good.cm_id)
+    console.log("预订该商品，商品id为：" + this.data.id)
   },
 
   /**

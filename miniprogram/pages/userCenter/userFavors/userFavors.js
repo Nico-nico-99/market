@@ -91,6 +91,7 @@ Page({
     var that = this;
     
     wx.request({
+      method: "POST",
       url: 'http://xx.com/api/userCenter/userFavors.html',//获取商品列表
       data: {
         userId: userId,

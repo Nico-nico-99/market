@@ -1,0 +1,2 @@
+/* miniprogram/pages/goodsDetails-Seller/goodsDetails-Seller.wxss */
+@import "../../style/goodsDetails.wxss";

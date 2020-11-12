@@ -1,6 +1,5 @@
 /* miniprogram/pages/searchGoods/searchGoods.wxss */
 /* 引入商品样式 */
-/* miniprogram/templates/goodsListsItem2/goodsListItem2.wxss */
 /*********************** 商品模块样式 ***********************/
 .goods-container {
   display: flex;

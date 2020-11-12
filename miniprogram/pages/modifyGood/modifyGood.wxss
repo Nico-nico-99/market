@@ -1,4 +1,4 @@
-/* pages/addGood/addGood.wxss */
+/* miniprogram/pages/modifyGood/modifyGood.wxss */
 
 .pageContainer{
    display: flex; 
@@ -79,7 +79,7 @@
 }
 
 .selectBoxcontain{
-  width:450rpx;
+  width:550rpx;
 }
 
 

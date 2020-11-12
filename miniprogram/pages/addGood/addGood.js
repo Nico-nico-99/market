@@ -9,31 +9,55 @@ Page({
     is_new: 0,
     classify: 0,
     address: 0,
-    picture_url1: "",
-    picture_url2: "",
-    picture_url3: "",
-    imgs: [],
+    imgs: [],//图片在本地的路径
     imgsUrl: [],//用于在图片上传是暂时保存图片在服务器上的路径
     items: [
       { name: 'True', value: 1 },
       { name: 'False', value: 0, checked: 'true' },
-
     ],
-    selectArrayClassify: [],
-    selectArrayAddress: []
-    //  selectArrayClassify: [{该数组需要是这种类型，index是实际存在数据库里面的值，并且最终会存到classify里面
-    //   index: 0,
-    //   text: "红色"
-    // }, {
-    //   index: 1,
-    //   text: "紫色"
-    // }, {
-    //   index: 2,
-    //   text: "绿色"
-    // }]
-
+    selectArrayClassify: [{
+      index: 1,
+      text: "电子产品"
+    }, {
+      index: 2,
+      text: "讲座票"
+    }, {
+      index: 3,
+      text: "校园网"
+    }, {
+      index: 4,
+      text: "日用品"
+    }, {
+      index: 5,
+      text: "书籍"
+    }, {
+      index: 6,
+      text: "文具"
+    }, {
+      index: 7,
+      text: "美妆"
+    }, {
+      index: 8,
+      text: "零食"
+    }, {
+      index: 9,
+      text: "其他"
+    }
+    ],
+    selectArrayAddress: [{
+      index: 1,
+      text: "大学城"
+    }, {
+      index: 2,
+      text: "五山"
+    }, {
+      index: 3,
+      text: "国际"
+    }, {
+      index: 4,
+      text: "其他"
+    }],
   },
-
 
   comNameInput: function (e) {
     var nametmp = e.detail.value;
@@ -77,10 +101,10 @@ Page({
   chooseImg: function (e) {//选择图片上传
     var that = this;
     var imgs = this.data.imgs;//当前已经选择的图片数组
-    if (imgs.length >= 3) {//如果当前图片数组已经等于三，就不能再选择
+    if (imgs.length >= 9) {//如果当前图片数组已经等于三，就不能再选择
       wx.showModal({
         title: '提示',
-        content: '最多只能上传三张图片',
+        content: '最多只能上传九张图片',
         success: function (res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -96,12 +120,12 @@ Page({
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;
-        var imgs = that.data.imgs;
-        if (tempFilePaths.length + imgs.length > 3) {//如果当前选择的和之前选择的图片相加大于三个
+        var tempFilePaths = res.tempFilePaths;//用户这次选择的图片
+        var imgs = that.data.imgs;//用户在触发该函数前已经选好的图片
+        if (tempFilePaths.length + imgs.length > 9) {//如果当前选择的和之前选择的图片相加大于三个
           wx.showModal({
             title: '提示',
-            content: '最多只能上传三张图片',
+            content: '最多只能上传九张图片',
             success: function (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
@@ -114,6 +138,8 @@ Page({
         } else {
           for (var i = 0; i < tempFilePaths.length; i++) {
             imgs.push(tempFilePaths[i]);
+            //逐个将单张图片上传到服务器，服务器逐个返回图片路径，
+            //将返回的路径储存在imgsUrl: []中
             wx.uploadFile({
               url: 'https://www.easy-mock.com/mock/5f897f414dc90c6644515063/example/uploadImg',//
               filePath: tempFilePaths[i],
@@ -150,11 +176,16 @@ Page({
   // 删除图片
   deleteImg: function (e) {
     var imgs = this.data.imgs;
+    var imgsUrl = this.data.imgsUrl;
     var index = e.currentTarget.dataset.index;
+    //console.log(e)
     imgs.splice(index, 1);
     imgsUrl.splice(index, 1);
+    //待补充，在这里要发送http请求，在服务器上删除对应的图片
+
     this.setData({
-      imgs: imgs
+      imgs: imgs,
+      imgsUrl: imgsUrl
     });
   },
   // 预览图片
@@ -191,9 +222,7 @@ Page({
         is_new: this.data.is_new,
         classify: this.data.classify,
         address: this.data.address,
-        picture_url1: this.data.picture_url1,
-        picture_url2: this.data.picture_url2,
-        picture_url3: this.data.picture_url3,
+        imgsUrl: this.data.imgsUrl
       },
       complete: function (res) {
         console.log(res.data)
@@ -209,56 +238,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      selectArrayClassify: [{
-        index: 0,
-        text: "红色"
-      }, {
-        index: 1,
-        text: "紫色"
-      }, {
-        index: 2,
-        text: "绿色"
-      }]
-    })
-
-
+    
   },
 
-  getClassificationList() {
-    var that = this;
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5f897f414dc90c6644515063/example/getGood',
-      header: {
-        'content-type': 'application/json'
-      },
-      //请求后台数据成功
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          selectArrayClassify: ['红色', '绿色', '紫色', '黑色']
-        })
-      }
-    })
-  },
-
-  getClassificationList() {
-    var that = this;
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5f897f414dc90c6644515063/example/getGood',
-      header: {
-        'content-type': 'application/json'
-      },
-      //请求后台数据成功
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          selectArrayClassify: res.data.goodsList
-        })
-      }
-    })
-  },
-
+ 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

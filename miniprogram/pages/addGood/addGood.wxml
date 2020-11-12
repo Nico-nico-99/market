@@ -69,17 +69,6 @@
   </view>
 
 
-
-
-  <!-- <view class="connectContainer ">
-    <view class="ConnectTitleView">
-      <text>联系方式</text>
-    </view>
-    <view class="InputConnectView">
-      <input class="input" placeholder="输入联系方式" bindinput="listenerPhoneInput" />
-    </view>
-  </view> -->
-
 </view>
 
 
@@ -91,33 +80,29 @@
 
   <!-- 加载图片 -->
   <view class="weui-uploader">
+
     <!-- 图片展示区 -->
-    <view class="ImgsContainer">
-      <image class="imgShow" mode="aspectFill" src="{{imgs.length>=1?imgs[0]:'../../images/noImg.jpg'}}" bindtap="previewImg" data-index='0'>
-      </image>
-      <image class="imgShow" mode="aspectFill" src="{{imgs.length>=2?imgs[1]:'../../images/noImg.jpg'}}" bindtap="previewImg" data-index='1'>
-      </image>
-      <image class="imgShow" mode="aspectFill" src="{{imgs.length==3?imgs[2]:'../../images/noImg.jpg'}}" bindtap="previewImg" data-index='2'>
-      </image>
-    </view>
-    <!-- 图片删除按钮 -->
-    <view class="deleteContainer">
+    <view class="ImgsContainer" wx:if="{{imgs.length>=1}}" >
 
-      <view class="deleteBtn" data-index='0' catchtap="deleteImg">
-        <text>删除</text>
-      </view>
-      <view class="deleteBtn" data-index='1' catchtap="deleteImg">
-        <text>删除</text>
-      </view>
-      <view class="deleteBtn" data-index='2' catchtap="deleteImg">
-        <text>删除</text>
+      <view class="OneImgsContainer" wx:for="{{imgs}}">
+
+        <image class="imgShow" mode="aspectFill" src="{{item}}" bindtap="previewImg" data-index='{{index}}'>
+        </image>
+        <!-- 图片删除按钮 -->
+
+        <!-- <view class="deleteImg" data-index='0' catchtap="deleteImg">
+          <image class="deleteImg" src="../../images/deleteImg.png"></image>
+        </view> -->
+        <image class="deleteImg" src="../../images/deleteImg.png"data-index='{{index}}' catchtap="deleteImg"></image>
+       
       </view>
 
     </view>
+
     <view class="gap"></view>
 
     <view class="uploadImgBtn" bindtap="chooseImg" type='primary'>
-      <text>上传图片</text>
+      <text>选择图片</text>
     </view>
 
 

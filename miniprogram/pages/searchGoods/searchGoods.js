@@ -94,12 +94,15 @@ Page({
     })
   },
 
-  //跳转至商品详情页面事件
+  // 跳转至商品详情页面事件
   toDetails: function(e){
     var id = e.currentTarget.dataset.cmid;
     console.log("前往商品详情" + "商品id为" + id)
     wx.navigateTo({
-      url: '../../pages/goodsDetails/goodsDetails',
+      url: '../../pages/goodsDetails/goodsDetails?id=' + id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
 
@@ -122,7 +125,7 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          goods: res.data.goodsList
+          commodityList: res.data.goodsList
         })
       }
     })
