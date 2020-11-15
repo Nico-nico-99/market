@@ -6,7 +6,7 @@ Page({
    */
   data: {
     "id": -1,
-    "good":{
+    "commodity":{
       "cmId": 2,
       "name": "非全新-校园网",
       "details": "不知道给你说啥，买它！",
@@ -58,6 +58,25 @@ Page({
 
     this.setData({
       id: id
+    })
+
+    // this.getCommodityDetail()
+  },
+
+  getCommodityDetail() {
+    var that = this;
+    wx.request({
+      url: 'http://xx.com/api/home/recommend',
+      header: {
+        'content-type': 'application/json'
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          commodity: res.data.commodityDetail
+        })
+      }
     })
   },
 

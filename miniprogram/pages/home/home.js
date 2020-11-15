@@ -86,13 +86,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getGoodsList()
+    // this.getCommodityList()
   },
 
-  getGoodsList() {
+  getCommodityList() {
     var that = this;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5f897f414dc90c6644515063/example/getGood',
+      url: 'http://xx.com/api/home/recommend',
       header: {
         'content-type': 'application/json'
       },
@@ -100,7 +100,7 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          goods: res.data.goodsList
+          commodityList: res.data.commodityList
         })
       }
     })
