@@ -64,7 +64,7 @@ Page({
       },
       //请求后台数据成功
       success: function (res) {
-        console.log("请求成功" + res.data.commodityList)
+        console.log("推荐商品列表请求成功" + res)
         that.setData({
           commodityList: res.data.commodityList
         })

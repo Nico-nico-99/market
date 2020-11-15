@@ -6,7 +6,11 @@ Page({
    */
   data: {
     "id": -1,
-    "commodity":{
+    // 商品详情信息
+    commodity: {},
+    // 商品图片列表
+    urlList: [],
+    commodity:{
       "cmId": 2,
       "name": "非全新-校园网",
       "details": "不知道给你说啥，买它！",
@@ -24,7 +28,7 @@ Page({
       "classify": 3,
       "contactInformation": 123456789
     },
-    "urlList":[
+    urlList:[
       {
         "urlSrc":  "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
         "urlId": 0
@@ -60,25 +64,26 @@ Page({
       id: id
     })
 
-    // this.getCommodityDetail()
+    this.getCommodityDetail()
   },
 
   getCommodityDetail() {
     var that = this;
     wx.request({
-      url: 'http://xx.com/api/home/recommend',
+      url: 'http://maggiemarket.design:8080/api/commodity/information',
       header: {
         'content-type': 'application/json'
       },
       method: 'POST',
       data:{
-        id: id
+        cmId: this.data.id
       },
       //请求后台数据成功
       success: function (res) {
-        console.log(res)
+        console.log("商品详情请求成功" + res)
         that.setData({
-          commodity: res.data.commodityDetail
+          commodity: res.data.commodityDetail,
+          urlList:  res.data.urlList
         })
       }
     })
