@@ -22,7 +22,8 @@ Page({
     ],
     // 商品分类筛选标记
     classify_index: 0,
-    // 推荐商品列表
+    // 推荐商品列表、
+    commodityList: [],
     commodityList: [
       {
         "cmId": 1,
@@ -86,19 +87,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getCommodityList()
+    this.getCommodityList()
   },
 
   getCommodityList() {
     var that = this;
     wx.request({
-      url: 'http://xx.com/api/home/recommend',
+      url: 'http://maggiemarket.design:8080/api/home/recommend',
       header: {
         'content-type': 'application/json'
       },
       //请求后台数据成功
       success: function (res) {
-        console.log(res)
+        console.log("请求成功" + res.data.commodityList)
         that.setData({
           commodityList: res.data.commodityList
         })
