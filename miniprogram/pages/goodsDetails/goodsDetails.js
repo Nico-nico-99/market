@@ -70,6 +70,10 @@ Page({
       header: {
         'content-type': 'application/json'
       },
+      method: 'POST',
+      data:{
+        id: id
+      },
       //请求后台数据成功
       success: function (res) {
         console.log(res)
