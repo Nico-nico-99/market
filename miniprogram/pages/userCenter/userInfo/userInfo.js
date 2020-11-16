@@ -6,13 +6,13 @@ Page({
    */
   data: {
     //用户头像
-    userImageUrl: '../../../images/userImage.png',//未登录的话默认使用这个图片
+    userImageUrl: '',//未登录的话默认使用这个图片
 
     //用户昵称
-    userName: 'Aurora',
+    userName: '',
 
     //gradePicker
-    gradeArray: ['请选择年级', '2017', '2018', '2019', '2020', '其他'],
+    gradeArray: [],
     gradeIndex: 0,
 
     //contact
@@ -73,37 +73,38 @@ Page({
     })
   },
   editFinish: function(e){    
+    var that = this;
+    var gradeIndex = that.data.gradeIndex
+    var contactInput = that.data.contactInput
+    var addressInput = that.data.addressInput
+
     //判断是否已将信息填满：undefined|为空|全为空格
-    if(this.gradeIndex != undefined && this.gradeIndex != 0 &&
-       this.contactInput != undefined && this.contactInput != "" && this.contactInput.split(' ').join('').length != 0 &&
-       this.addressInput != undefined && this.addressInput != "" && this.addressInput.split(' ').join('').length != 0)
+    if(gradeIndex != undefined && gradeIndex != 0 &&
+       contactInput != undefined && contactInput != "" && contactInput.split(' ').join('').length != 0 &&
+       addressInput != undefined && addressInput != "" && addressInput.split(' ').join('').length != 0)
     {
-      /*
       //传递信息给后端进行数据修改
       wx.request({
         method: "POST",
-        url: 'http://xx.com/api/userCenter/userInfo/infoUpdate.html',
+        url: 'http://maggiemarket.design:8080/api/userCenter/userInfo/infoUpdate',
         data: {
-          gradeIndex: this.gradeIndex,
-          contactInfo: this.contactInput,
-          addressInfo: this.addressInput,
+          gradeIndex: gradeIndex,
+          contactInfo: contactInput,
+          addressInfo: addressInput,
         },
         header: {
           'content-type': 'application/json'//要根据后端信息进行修改
         },
         success: function (res) {
           console.log('成功传递修改信息给后端');
+          console.log(res)
 
           console.log("完成修改")
-          this.setData({
+          that.setData({
             change: false,
           })
       
-          console.log("grade: ", this.gradeIndex)
-          console.log("contact: ", this.contactInput)
-          console.log("address: ", this.addressInput)    
-
-          this.onShow()
+          that.onShow()
           wx.showToast({
             title: '修改成功',
             icon: 'none'
@@ -117,23 +118,6 @@ Page({
             icon: 'none'
           })
         },
-      })
-      */
-
-      //调试用
-      console.log("完成修改")
-      this.setData({
-        change: false,
-      })
-      
-      console.log("grade: ", this.gradeIndex)
-      console.log("contact: ", this.contactInput)
-      console.log("address: ", this.addressInput)    
-
-      this.onShow()
-      wx.showToast({
-        title: '修改成功',
-        icon: 'none'
       })
     }
     else{
@@ -168,24 +152,27 @@ Page({
       change: false,
     })
 
-    /*
     console.log("onShow()")
 
     var app = getApp()
     var userId = app.globalData.userId
+    var userImageUrl = app.globalData.userImageUrl
     var that = this
 
     //获取年级数组
     wx.request({
-      method: "POST",
-      url: 'http://xx.com/api/userCenter/userInfo/gradeArray.html',//获取用户信息
+      method: "GET",
+      url: 'http://maggiemarket.design:8080/api/userCenter/userInfo/gradeArray',//获取年级数组
       header: {
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
         console.log('成功从后端获取年级数组');
+        console.log(res)
+
         that.setData({
           gradeArray: res.data.gradeArray,
+          'gradeArray[0]': "请选择年级",
         })
       },
       fail: function(error){
@@ -196,7 +183,7 @@ Page({
     //根据用户id从后端请求用户信息进行加载
     wx.request({
       method: "POST",
-      url: 'http://xx.com/api/userCenter/userInfo/userInfo.html',//获取用户信息
+      url: 'http://maggiemarket.design:8080/api/userCenter/userInfo/userInfo',//获取用户信息
       data: {
         userId: userId,
       },
@@ -205,19 +192,24 @@ Page({
       },
       success: function (res) {
         console.log('成功从后端获取用户信息');
+        console.log(res)
+
         that.setData({
           userName: res.data.userName,
-          userImageUrl: res.data.userImage,
+          userImageUrl: userImageUrl,
           gradeIndex: res.data.gradeIndex,
           contactInput: res.data.contactInfo,
           addressInput: res.data.addressInfo
         })
+
+        console.log("grade: ", that.data.gradeIndex)
+        console.log("contact: ", that.data.contactInput)
+        console.log("address: ", that.data.addressInput)    
       },
       fail: function(error){
         console.log("获取用户信息失败！");
       },
     })
-    */
   },
 
   /**

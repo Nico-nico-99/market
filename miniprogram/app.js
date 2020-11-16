@@ -16,7 +16,8 @@ App({
     }
 
     this.globalData = {
-      userId: '',
+      userId: '1',
+      userImageUrl: '../../../images/userImage.png',
     }
   }
 })
