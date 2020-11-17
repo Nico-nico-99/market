@@ -10,7 +10,7 @@ Page({
 
     showModal: false,
 
-    isAdmin: 0,
+    isAdmin: undefined,
 
     hasUserInfo: false,
   },
@@ -208,6 +208,8 @@ Page({
    * 注：后端连接成功后，请将参数isAdmin删除。isAdmin仅供调试。
    */
   toAdmin: function(e){
+    var that = this
+
     if(!getApp().globalData.hasUserInfo){
       console.log('当前未登录，无法进入管理员端')
       wx.showModal({
@@ -220,48 +222,49 @@ Page({
       wx.showLoading({
         title: '切换至管理员端中',
       })
-      // 检测是否具备管理员资格
-      var authority = e.currentTarget.dataset.auth
-      /*
+
+      // 检测是否具备管理员资格      
       wx.request({
         method: "POST",
-        url: 'http://xx.com/api/userCenter/getIsAdmin.html',//获取用户id下的管理员权限 //要根据后端信息进行修改
+        url: 'http://maggiemarket.design:8080/api/userCenter/getIsAdmin',//获取用户id下的管理员权限 //要根据后端信息进行修改
         data: {
-          userId: userId,
+          userId: getApp().globalData.userId,
         },
         header: {
           'content-type': 'application/json'//要根据后端信息进行修改
         },
         success: function (res) {
+          console.log(res)
+
           wx.hideLoading();
           console.log('成功从后端获取到用户管理员权限');
 
-          authority = res.data.authority;
+          that.setData({
+            isAdmin: res.data.authority,
+          })
+          console.log("isAdmin: " + that.data.isAdmin)
+
+          if(that.data.isAdmin == '1'){
+            console.log("前往管理员端")
+            wx.navigateTo({
+              url: '../../pages/adminCenter/adminCenter',
+            })
+            console.log("----------------------------------管理员端---------------------------------")  
+          }
+          else{
+            console.log("本帐号非管理员")  
+            wx.showModal({
+              title: '提示',
+              content: '该账号非管理员，无法获取管理员权限。',
+              showCancel: false,
+            })
+          }    
         },
         fail: function(error){
           wx.hideLoading();
           console.log("获取用户权限失败！");
         },
       })
-      */
-      if(authority == '1'){
-        this.setData({
-          isAdmin: authority,
-        })
-        console.log("前往管理员端")
-        wx.navigateTo({
-          url: '../../pages/adminCenter/adminCenter',
-        })
-        console.log("----------------------------------管理员端---------------------------------")  
-      }
-      else{
-        console.log("本帐号非管理员")  
-        wx.showModal({
-          title: '提示',
-          content: '该账号非管理员，无法获取管理员权限。',
-          showCancel: false,
-        })
-      }
     }
   },
 
