@@ -52,22 +52,32 @@ Page({
         wx.login({
           success: function (res) {
             var code = res.code;//发送给服务器的code
+            console.log("code: " + code)
+            console.log("res.code: " + res.code)
+
+            var appid = "wxc4eb5a19612df490";//appid
+            var secret = "82e99a80db3f4558f68881626417ad75";//app secret
 
             if(!app.globalData.hasUserInfo){
               if (code) {
                 wx.request({
                   method: "POST",
-                  url: 'http://xx.com/api/userCenter/getUserInfo.html',//获取openid //要根据后端信息进行修改
+                  url: 'http://maggiemarket.design:8080/api/userCenter/getUserInfo',//获取openid //要根据后端信息进行修改
                   data: {
+                    appid: appid,
+                    secret: secret,
                     code: code,
                   },
                   header: {
                     'content-type': 'application/json'//要根据后端信息进行修改
                   },
                   success: function (res) {
+                    console.log(res)
+
                     wx.hideLoading();
                     console.log('成功从后端获取到用户信息');
 
+                    /*
                     //授权
                     console.log("允许授权")
                     app.globalData.hasUserInfo = true,//表示已获取用户信息  
@@ -78,6 +88,7 @@ Page({
 
                     var app = getApp();
                     app.globalData.userId = res.data.userId;
+                    */
                   },
                   fail: function(error){
                     wx.hideLoading();

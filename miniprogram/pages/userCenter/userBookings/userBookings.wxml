@@ -19,9 +19,9 @@
 <view class='goods'>
   <block wx:for='{{goodsList}}' wx:for-item="item" wx:key='this'>
     <view class="goods-box">
-      <image class="goods-box image" src="{{item.picture_url1}}" mode="aspectFill" lazy-load="true" bindtap="toDetails" data-id="{{item.cm_id}}"/>
+      <image class="goods-box image" src="{{item.pictureUrls[0]}}" mode="aspectFill" lazy-load="true" bindtap="toDetails" data-id="{{item.cmId}}"/>
 
-      <view class='goods-box info' bindtap="toDetails" data-id="{{item.cm_id}}">
+      <view class='goods-box info' bindtap="toDetails" data-id="{{item.cmId}}">
         <!-- title -->
         <view class="goods-box info title">{{item.name}}</view>
 

@@ -30,8 +30,9 @@ Page({
    * 进入商品详情页
   */
  toDetails: function(e){
+  var id = e.currentTarget.dataset.cmid;
+  
   console.log("前往商品详情" + "商品id为" + id)
-  var id = e.currentTarget.dataset.id;
   wx.navigateTo({
     url: '../../goodsDetails/goodsDetails?id=' + id//给商品详情页传递商品id,
   })
@@ -59,7 +60,7 @@ Page({
     console.log("onShow()")
 
     var app = getApp();
-    var userId = app.globalData.userId;
+    var userId = parseInt(app.globalData.userId);
     var that = this;
     
     wx.request({
@@ -76,8 +77,10 @@ Page({
         console.log(res)
         
         that.setData({
-          goodsList: res.data.goodsList,
+          goodsList: res.data.commodityList,
         })
+
+        console.log(that.data.goodsList)
       },
       fail: function(error){
         console.log("获取收藏夹商品列表失败！");

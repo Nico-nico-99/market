@@ -74,7 +74,10 @@ Page({
   },
   editFinish: function(e){    
     var that = this;
-    var gradeIndex = that.data.gradeIndex
+    var app = getApp();
+
+    var userId = parseInt(app.globalData.userId)
+    var gradeIndex = parseInt(that.data.gradeIndex)
     var contactInput = that.data.contactInput
     var addressInput = that.data.addressInput
 
@@ -88,6 +91,7 @@ Page({
         method: "POST",
         url: 'http://maggiemarket.design:8080/api/userCenter/userInfo/infoUpdate',
         data: {
+          userId: userId,
           gradeIndex: gradeIndex,
           contactInfo: contactInput,
           addressInfo: addressInput,

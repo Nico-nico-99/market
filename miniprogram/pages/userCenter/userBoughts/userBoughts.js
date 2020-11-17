@@ -30,8 +30,9 @@ Page({
    * 进入商品详情页
   */
   toDetails: function(e){
+    var id = e.currentTarget.dataset.cmid;
     console.log("前往商品详情" + "商品id为" + id)
-    var id = e.currentTarget.dataset.id;
+
     wx.navigateTo({
       url: '../../goodsDetails/goodsDetails?id=' + id//给商品详情页传递商品id,
     })

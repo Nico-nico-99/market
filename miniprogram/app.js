@@ -16,10 +16,10 @@ App({
     }
 
     this.globalData = {
-      userId: '',//用户id //测试请用“1”
-      userImageUrl: '',//用户头像 //测试请用“../../../images/userImage.png”
+      userId: '2',//用户id //测试请用“1”
+      userImageUrl: '../../../images/userImage.png',//用户头像 //测试请用“../../../images/userImage.png”
 
-      hasUserInfo: false,//用户登陆状态
+      hasUserInfo: true,//用户登陆状态
     }
   }
 })

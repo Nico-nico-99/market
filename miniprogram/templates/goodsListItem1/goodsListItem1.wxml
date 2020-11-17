@@ -6,9 +6,8 @@
 <template name="goodsListItem1">
 
 <!-- 将导入数据列表放在模板外完成 -->
-<!-- <view class="goods-box2" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cm_id}}"> -->
-  <view class="goods-box" bindtap="toDetails" data-cmid="{{cm_id}}">
-    <image class="goods-box image" src="{{picture_url1}}" mode="aspectFill" lazy-load="true" />
+  <view class="goods-box" bindtap="toDetails" data-cmid="{{cmId}}">
+    <image class="goods-box image" src="{{pictureUrls[0]}}" mode="aspectFill" lazy-load="true" />
 
     <view class='goods-box info'>
       <!-- title -->

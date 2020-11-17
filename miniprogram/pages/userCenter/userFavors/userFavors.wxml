@@ -20,9 +20,7 @@
 <!-- 收藏夹商品begin -->
 <view class='goods' >
   <block wx:for='{{goodsList}}' wx:key='this'>
-    <view bindtap="toDetails">
-      <template is='goodsListItem1' data='{{...item}}'></template>
-    </view>
+    <template is='goodsListItem1' data='{{...item}}'></template>
   </block>
 </view>
 <!-- 收藏夹商品end -->
