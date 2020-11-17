@@ -77,7 +77,7 @@ Page({
         console.log(res)
 
         that.setData({
-          goodsList: res.data.goodsList,
+          goodsList: res.data.commodityList,
         })
       },
       fail: function(error){

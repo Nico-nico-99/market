@@ -10,35 +10,7 @@ Page({
     searchInput: '',
 
     //预订商品列表
-    goodsList: [
-      {
-        "cm_id": 25,
-        "name": "线性代数",
-        "picture_url1": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603098830639&di=b44a9d7c9a96fa8446df941aeeea0fba&imgtype=0&src=http%3A%2F%2Fimg.book118.com%2Fsr1%2FM00%2F29%2F3D%2FwKh2AlvnQSiIR2BKABBsKNt0issAAQZFwBMTpgAEGxA391.png",
-        "price": 25.50,
-        "address": 1,
-        "is_new": 0,
-        "classify": 0
-      },
-      {
-        "cm_id": 26,
-        "name": "喵喵喵",
-        "picture_url1": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603099709041&di=cbfa63df06fb032abf3fb9074f180000&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F02%2F20180702073005_nqjxx.jpg",
-        "price": 25.00,
-        "address": 2,
-        "is_new": 0,
-        "classify": 1
-      },
-      {
-        "cm_id": 27,
-        "name": "作业爆炸多",
-        "picture_url1": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1313956600,1942141254&fm=26&gp=0.jpg",
-        "price": 25.00,
-        "address": 3,
-        "is_new": 1,
-        "classify": 2
-      }
-    ],
+    goodsList: [],
     },
 
   /**
@@ -64,9 +36,11 @@ Page({
     var app = getApp()
     var userId = app.globalData.userId
     var item = e.currentTarget.dataset.item
-    var cm_id = item.cm_id
+    var cmId = item.cmId
     var price = item.price.toFixed(2)
     var that = this
+
+    console.log(cmId)
 
     wx.showModal({
       title: '提示',
@@ -82,7 +56,7 @@ Page({
             url: 'http://xx.com/api/userCenter/userBookings/payment.html',//修改商品属性为“已售出”
             data: {
               userId: userId,
-              cm_id: cm_id,
+              cmId: cmId,
             },
             header: {
               'content-type': 'application/json'//要根据后端信息进行修改
@@ -122,8 +96,8 @@ Page({
     var that = this
     var userId = app.globalData.userId
     var item = e.currentTarget.dataset.item
-    var cm_id = item.cm_id
-    console.log(cm_id)
+    var cmId = item.cmId
+    console.log(cmId)
 
     wx.showModal({
       title: '提示',
@@ -136,7 +110,7 @@ Page({
             url: 'http://xx.com/api/userCenter/userBookings/cancelOrder.html',//修改商品属性为“待售”
             data: {
               userId: userId,
-              cm_id: cm_id,
+              cmId: cmId,
             },
             header: {
               'content-type': 'application/json'//要根据后端信息进行修改
@@ -205,7 +179,7 @@ Page({
     
     wx.request({
       method: "POST",
-      url: 'http://xx.com/api/userCenter/userBookings.html',//获取商品列表
+      url: 'http://maggiemarket.design:8080/api/userCenter/userBookings',//获取商品列表
       data: {
         userId: userId,
       },
@@ -214,8 +188,10 @@ Page({
       },
       success: function (res) {
         console.log('成功从后端获取订单商品列表');
+        console.log(res)
+
         that.setData({
-          goodsList: res.data.goodsList,
+          goodsList: res.data.commodityList,
         })
       },
       fail: function(error){
