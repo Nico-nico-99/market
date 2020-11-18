@@ -76,8 +76,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/addGood/addGood",
-					"pathName": "pages/addGood/addGood",
+					"name": "pages/myStore/myStore",
+					"pathName": "pages/myStore/myStore",
 					"query": "",
 					"scene": null
 				}

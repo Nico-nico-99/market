@@ -141,9 +141,10 @@ Page({
             //逐个将单张图片上传到服务器，服务器逐个返回图片路径，
             //将返回的路径储存在imgsUrl: []中
             wx.uploadFile({
-              url: 'https://www.easy-mock.com/mock/5f897f414dc90c6644515063/example/uploadImg',//
+              url: 'http://maggiemarket.design:8080/api/myStore/upload',//
               filePath: tempFilePaths[i],
               name: 'Img',
+              method: "POST",
               header: {
                 'Content-Type': 'multipart/form-data'
               },

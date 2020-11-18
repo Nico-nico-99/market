@@ -30,7 +30,7 @@ Page({
   getGoodsList() {
     var that = this;
     wx.request({
-      url: 'https://www.easy-mock.com/mock/5f897f414dc90c6644515063/example/getGood',
+      url: 'http://maggiemarket.design:8080/api/myStore/getMyGoods',
       header: {
         'content-type': 'application/json'
       },
