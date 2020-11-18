@@ -1,0 +1,264 @@
+/* miniprogram/pages/userCenter/userBoughts/historyOrders/historyOrders.wxss */
+
+/************************* 交易成功栏样式 *************************/
+.successInfo{
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  width: 100vw;
+  height: 40vw;
+
+  background-color: #1296db;
+}
+/* text */
+.successInfo.text{
+  width: 50vw;
+  position: relative;
+  left: 10vw;
+
+  color: white;
+
+  font-size: 4.8vw;
+}
+/* icon */
+.successInfo.icon{
+  position: relative;
+  left: 5vw;
+
+  height: 25vw;
+}
+/***********************************************************/
+
+/*********************** 商品详情样式 ***********************/
+/***************** 商品链接 *****************/
+.goods-box{
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+  top: 2.5vw;
+
+  width: 100vw;
+  height: 31vw;
+
+  background-color: #fff;
+}
+/* image */
+.goods-box.image{
+  position: relative;
+  left: 2.5vw;
+  top: 2.5vw;
+  
+  width: 25vw;
+  height: 25vw;
+
+  border-radius: 10px;
+}
+/* info */
+.goods-box.info{
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  left: 0vw;
+  top: 2.5vw;
+  
+  width: 40vw;
+  height: 25vw;
+
+  background:rgba(1,1,1,0)
+}
+/* titleANDprice */
+.goods-box.info.titleANDprice{
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+  top: 0vw;
+
+  width: 73vw;
+  height: 10vw;
+}
+/* title */
+.goods-box.info.titleANDprice.title{
+  text-align: left;  
+  display: inline-block;
+  
+  position: relative;
+  left: 9vw;
+
+  width: 150vw;
+  height: 7vw;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-size: 5vw;
+
+  color:#000;
+}
+/* price */
+.goods-box.info.titleANDprice.price{
+  overflow: hidden;
+  font-size: 5vw;
+
+  position: relative;
+  left: 10.5vw;
+
+  align-items: center;
+
+  height: 7vw;
+
+  color:black;
+}
+/* address */
+.goods-box.info.address{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  align-items: center;
+
+  position: relative;
+  left: 9vw;
+  top: -1vw;
+
+  width: 15vw;
+  height: 7vw;
+
+  overflow: hidden;
+  font-size: 15px;
+
+  color:black;
+  background-color: rgb(221, 221, 221);
+}
+/*******************************************/
+
+/*************** 商品付款信息 ***************/
+/* background */
+.priceInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: white;
+
+  position: relative;
+  top: 2vw;
+
+  width: 100vw;
+  height: 35vw;
+}
+/* totalPrice*/
+.priceInfo.totalPrice{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 95vw;
+
+  position: relative;
+  left: 2.5vw;
+
+  color: rgb(170, 168, 168);
+  font-size: 3.8vw;
+}
+/* others*/
+.priceInfo.others{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 95vw;
+
+  position: relative;
+  left: 2.5vw;
+  top: 0vw;
+
+  color: rgb(170, 168, 168);
+  font-size: 3.8vw;
+}
+/* account*/
+.priceInfo.account{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 95vw;
+
+  position: relative;
+  left: 2.5vw;
+  top: 1vw;
+
+  color: black;
+  font-size: 3.8vw;
+}
+/* exactPrice*/
+.priceInfo.exactPrice{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 95vw;
+
+  position: relative;
+  left: 2.5vw;
+  top: -1vw;
+
+  font-size: 4.3vw;
+}
+/*******************************************/
+/***********************************************************/
+
+/*********************** 订单信息样式 ***********************/
+.orderInfo{
+  position: relative;
+  top: 4.5vw;
+
+  height: 42vw;
+  width: 100vw;
+
+  background-color: white;
+}
+/* title */
+.orderInfo.title{
+  position: relative;
+  left: 2.5vw;
+  top: 2.5vw;
+
+  font-size: 5vw;
+}
+/* orderId */
+.orderInfo.orderId{
+  height: 9vw;
+
+  position: relative;
+  left: 2.5vw;
+  top: 9vw;
+
+  font-size: 4vw;
+}
+/* orderStart */
+.orderInfo.orderStart{
+  height: 9vw;
+
+  position: relative;
+  left: 2.5vw;
+  top: 9vw;
+
+  font-size: 4vw;
+}
+/* orderEnd */
+.orderInfo.orderEnd{
+  height: 9vw;
+
+  position: relative;
+  left: 2.5vw;
+  top: 9vw;
+
+  font-size: 4vw;
+}
+/***********************************************************/

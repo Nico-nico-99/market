@@ -1,0 +1,81 @@
+<!--miniprogram/pages/userCenter/userBoughts/historyOrders/historyOrders.wxml-->
+
+<!-- 引入商品模块1 -->
+<import src="../../../../templates/goodsListItem1/goodsListItem1.wxml"/>
+
+<wxs module="filters" src="../../../../utils/filters.wxs"></wxs>
+
+<!--交易成功栏begin-->
+<view class="successInfo">
+  <text class="successInfo text">交易成功</text>
+  <image class="successInfo icon" src="../../../../images/icons/交易成功插画.png" mode="aspectFit"></image>
+</view>
+<!--交易成功栏end-->
+
+<!--商品详情begin-->
+<!--商品链接begin-->
+<view class="goods">
+  <block wx:for='{{goodsList}}' wx:key='this' wx:for-item="item">
+    <view class="goods-box" bindtap="toDetails" data-cmid="{{item.cmId}}">
+      <image class="goods-box image" src="{{item.pictureUrls[0]}}" mode="aspectFill" lazy-load="true" />
+
+      <view class='goods-box info'>
+        <view class="goods-box info titleANDprice">
+          <view class="goods-box info titleANDprice title">{{item.name}}</view>
+          <view class="goods-box info titleANDprice price">¥<span>{{filters.toFix(item.price)}}</span></view>
+        </view>
+
+        <view class="goods-box info address" wx:if="{{item.address == 1 }}">大学城</view>
+        <view class="goods-box info address" wx:if="{{item.address == 2 }}">五山</view>
+        <view class="goods-box info address" wx:if="{{item.address == 3 }}">国际</view>
+        <view class="goods-box info address" wx:if="{{item.address == 4 }}">其他</view>
+
+      </view>
+    </view>
+  </block>
+</view>
+<!--商品链接end-->
+
+<!--商品付款信息begin-->
+<view class='priceInfo'>
+  <view class="priceInfo totalPrice">
+    <block wx:for='{{goodsList}}' wx:key='this' wx:for-item="item">
+      <text>商品总价</text>
+      <view>¥<span>{{filters.toFix(item.price)}}</span></view>
+    </block>
+  </view>
+  <view class="priceInfo others">
+    <text>其他相关</text>
+    <view>¥<span>{{filters.toFix(0.00)}}</span></view>
+  </view>
+  <view class="priceInfo account">
+    <text>红包</text>
+    <view>-¥<span>{{filters.toFix(0.00)}}</span></view>
+  </view>
+  <view class="priceInfo exactPrice">
+    <block wx:for='{{goodsList}}' wx:key='this' wx:for-item="item">
+      <text>实付款</text>
+      <view style="color: #1296db;">¥<span>{{filters.toFix(item.price)}}</span></view>
+    </block>
+  </view>
+</view>
+<!--商品付款信息end-->
+<!--商品详情end-->
+
+<!--订单信息begin-->
+<view class="orderInfo">
+  <text class="orderInfo title">订单信息</text>
+  <view class="orderInfo orderId">
+    <text>订单编号：</text>
+    <text style="position:relative; left: 5vw;">{{orderId}}</text>
+  </view>
+  <view class="orderInfo orderStart">
+    <text>创建时间：</text>
+    <text style="position:relative; left: 5vw;">{{reserveTime}}</text>
+  </view>
+  <view class="orderInfo orderEnd">
+    <text>成交时间：</text>
+    <text style="position:relative; left: 5vw;">{{timeOfTransaction}}</text>
+  </view>
+</view>
+<!--订单信息end-->
