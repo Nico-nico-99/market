@@ -8,8 +8,10 @@ Page({
     //当前选项卡内容
     currentTabIndex:0,
 
-    //收藏商品列表
-    goodsList: [],
+    //被举报列表
+    accusedList: [],
+    //待审核列表
+    waitingList: [],
   },
 
   /**
@@ -28,9 +30,6 @@ Page({
     console.log("前往商品详情" + "商品id为" + id)
     wx.navigateTo({
       url: '../../pages/goodsDetails-Admin/goodsDetails-Admin?id=' + id,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
     })
   },
 
@@ -38,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log("onLoad()")
   },
 
   /**
@@ -52,7 +51,57 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("onShow()")
 
+    var that = this;
+    
+    //获取待审核商品列表
+    wx.request({
+      method: "GET",
+      url: 'http://maggiemarket.design:8080/api/admin/waiting',//获取待审核商品列表
+      data: {
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取待审核商品列表');
+        console.log(res)
+        
+        that.setData({
+          waitingList: res.data.commodityList,
+        })
+
+        console.log(that.data.waitingList)
+      },
+      fail: function(error){
+        console.log("获取待审核商品列表失败！");
+      },
+    })
+
+    //获取被举报商品列表
+    wx.request({
+      method: "GET",
+      url: 'http://maggiemarket.design:8080/api/admin/accused',//获取被举报商品列表
+      data: {
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取被举报商品列表');
+        console.log(res)
+        
+        that.setData({
+          accusedList: res.data.commodityList,
+        })
+
+        console.log(that.data.accusedList)
+      },
+      fail: function(error){
+        console.log("获取被举报商品列表失败！");
+      },
+    })
   },
 
   /**

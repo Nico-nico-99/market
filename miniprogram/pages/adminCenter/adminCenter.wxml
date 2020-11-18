@@ -25,7 +25,7 @@
     <view hidden='{{currentTabIndex != 0}}'>
       <!-- 待审核商品begin -->
       <view class='goods'>
-        <block wx:for='{{goodsList}}' wx:key='this'>
+        <block wx:for='{{waitingList}}' wx:key='this'>
           <template is='goodsListItem1' data='{{...item}}'></template>
         </block>
       </view>
@@ -39,7 +39,7 @@
     <view hidden='{{currentTabIndex != 1}}'>
       <!-- 被举报商品begin -->
       <view class='goods'>
-        <block wx:for='{{goodsList}}' wx:key='this'>
+        <block wx:for='{{accusedList}}' wx:key='this'>
           <template is='goodsListItem1' data='{{...item}}'></template>
         </block>
       </view>
