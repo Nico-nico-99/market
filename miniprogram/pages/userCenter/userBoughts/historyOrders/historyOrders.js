@@ -63,7 +63,6 @@ Page({
       success: function (res) {
         console.log("商品详情请求成功")
         console.log(res)
-        
         that.setData({
           commodityInfo: res.data.commodityInfo,
         })

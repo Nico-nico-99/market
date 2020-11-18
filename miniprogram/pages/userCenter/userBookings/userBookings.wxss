@@ -99,22 +99,25 @@
 .goods-box.info.priceANDaddress{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 
   position: relative;
   top: 1.5vw;
   left: 4.5vw;
 
-  width: 65vw;
+  width: 32vw;
   height: 10vw;
 }
 /* price */
 .goods-box.info.priceANDaddress.price{
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow: hidden;
   font-size: 15px;
 
   align-items: center;
 
-  width: 25vw;
+  width: 28vw;
   height: 7vw;
 
   color:#1296db;
@@ -126,9 +129,6 @@
   text-align: center;
 
   align-items: center;
-
-  position: relative;
-  left: -5vw;
 
   width: 15vw;
   height: 7vw;

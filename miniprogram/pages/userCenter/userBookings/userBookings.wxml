@@ -27,7 +27,7 @@
 
         <view class="goods-box info priceANDaddress">
           <!-- price保留两位小数显示: filters.toFix(value) -->
-          <view class="goods-box info priceANDaddress price">¥<span>{{filters.toFix(item.price)}}</span></view>
+          <view class="goods-box info priceANDaddress price">¥{{filters.toFix(item.price)}}</view>
 
           <view class="goods-box info priceANDaddress address" wx:if="{{item.address == 1 }}">大学城</view>
           <view class="goods-box info priceANDaddress address" wx:if="{{item.address == 2 }}">五山</view>

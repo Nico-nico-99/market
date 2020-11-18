@@ -78,6 +78,7 @@
         {
           "name": "pages/userCenter/userBoughts/historyOrders/historyOrders",
           "pathName": "pages/userCenter/userBoughts/historyOrders/historyOrders",
+          "query": "",
           "scene": null
         }
       ]

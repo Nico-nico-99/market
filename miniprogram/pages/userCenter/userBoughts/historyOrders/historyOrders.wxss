@@ -74,7 +74,6 @@
 .goods-box.info.titleANDprice{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   position: relative;
   left: 5vw;
@@ -93,21 +92,23 @@
   white-space: nowrap;
   overflow: hidden;
 
-  width: 150vw;
+  width: 38vw;
 }
 /* price */
 .goods-box.info.titleANDprice.price{
   text-align: right;  
   display: inline-block;
 
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow: hidden;
   font-size: 5vw;
 
   position: relative;
-  left: 48vw;
+  left: 45vw;
   top: -4.8vw;
 
-  width: 20vw;
+  width: 23vw;
 
   color:black;
 }
