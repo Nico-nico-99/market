@@ -8,24 +8,8 @@ Page({
     //商品id
     id: "",
 
-    //商品列表
-    goodsList: [
-      {
-        "cmId": 1,
-            "name": "作业",
-            "classify": 5,
-            "details": "太多了辣",
-            "price": 9.9,
-            "userId": 1,
-            "address": 1,
-            "pictureUrls": [
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605706438112&di=a012f1730bf8bc206d09a6599ac71bb9&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171028%2F802a1fecb96d4238a559a4a2f34b94f4.jpeg"
-            ],
-            "date": "2020-11-10 00:59:59",
-            "isNew": 1,
-            "state": 0
-      },
-    ],
+    //商品详情
+    commodityInfo: [],
 
     //订单列表
     reserveTime: "2020-11-11 11:30:00",
@@ -58,11 +42,33 @@ Page({
       orderId: options.orderId,
     })
 
-    for(item in options.goodsList){
-      if(item.cmId == id){
-        that.data.goodsList.push(item)
+    this.getCommodityDetail()
+  },
+
+  /**
+   * 获取商品详情
+   */
+  getCommodityDetail() {
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/commodity/information',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("商品详情请求成功")
+        console.log(res)
+        
+        that.setData({
+          commodityInfo: res.data.commodityInfo,
+        })
       }
-    }
+    })
   },
 
   /**

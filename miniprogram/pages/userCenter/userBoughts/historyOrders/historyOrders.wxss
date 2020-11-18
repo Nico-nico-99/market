@@ -73,44 +73,41 @@
 /* titleANDprice */
 .goods-box.info.titleANDprice{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
 
   position: relative;
-  top: 0vw;
+  left: 5vw;
 
   width: 73vw;
-  height: 10vw;
+  height: 15vw;
+
+  font-size: 5vw;
 }
 /* title */
 .goods-box.info.titleANDprice.title{
   text-align: left;  
   display: inline-block;
   
-  position: relative;
-  left: 9vw;
-
-  width: 150vw;
-  height: 7vw;
-
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 
-  font-size: 5vw;
-
-  color:#000;
+  width: 150vw;
 }
 /* price */
 .goods-box.info.titleANDprice.price{
+  text-align: right;  
+  display: inline-block;
+
   overflow: hidden;
   font-size: 5vw;
 
   position: relative;
-  left: 10.5vw;
+  left: 48vw;
+  top: -4.8vw;
 
-  align-items: center;
-
-  height: 7vw;
+  width: 20vw;
 
   color:black;
 }
