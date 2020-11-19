@@ -59,3 +59,13 @@
   bottom:30rpx;
   right:20rpx;
 }
+.noCommodityCon{
+  margin-top: 250rpx;
+  width:750rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center ;
+  font-size:40rpx;
+  color: #66ccff;
+
+}

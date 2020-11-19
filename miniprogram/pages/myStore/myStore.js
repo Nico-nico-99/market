@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: []
+    commodityList: []
 
   },
 
@@ -24,7 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getGoodsList()
+    //this.getGoodsList()
   },
 
   getGoodsList() {
@@ -34,48 +34,18 @@ Page({
       header: {
         'content-type': 'application/json'
       },
+      method:'POST',
+      data:{
+        userId:1
+      },
       //请求后台数据成功
       success: function (res) {
         console.log(res)
         that.setData({
-          //goods: res.data.goodsList
-          goods:[{
-            cm_id:12,
-            pic:"../../images/showExample/书包.jpg",
-            name:"书包",
-            price:55,
-            address:2
-          },{
-              cm_id: 13,
-              pic: "../../images/showExample/表情.jpg",
-              name: "线性代数课本",
-              price: 15,
-              address: 2
-            }, {
-              cm_id: 19,
-              pic: "../../images/showExample/表情.jpg",
-              name: "线性代数课本",
-              price: 6,
-              address: 2
-            },
-             {
-              cm_id: 14,
-              pic: "../../images/showExample/计网课本.jpg",
-              name: "计网课本",
-              price: 15,
-              address: 2
-            },
-            {
-              cm_id: 15,
-              pic: "../../images/showExample/表情.jpg",
-              name: "线性代数课本",
-              price: 6,
-              address: 2
-            }
-
-          ]
+          commodityList: res.data.commodityList
         })
       }
+
     })
   },
   /**
