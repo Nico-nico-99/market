@@ -1,90 +1,4 @@
 {
-<<<<<<< Updated upstream
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "packNpmManually": false,
-    "packNpmRelationList": []
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.8.1",
-  "appid": "wxc4eb5a19612df490",
-  "projectname": "Maggie%E7%8E%9B%E5%A5%87",
-  "miniprogramRoot": "miniprogram/",
-  "cloudfunctionRoot": "cloudfunctions/",
-  "cloudfunctionTemplateRoot": "",
-  "watchOptions": {
-    "ignore": []
-  },
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
-        },
-        {
-          "id": 1,
-          "name": "pages/myStore/myStore",
-          "pathName": "pages/myStore/myStore",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/adminCenter/adminCenter",
-          "pathName": "pages/adminCenter/adminCenter",
-          "scene": null
-        }
-      ]
-    }
-  }
-=======
 	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": []
@@ -164,13 +78,12 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/addGood/addGood",
-					"pathName": "pages/addGood/addGood",
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
 					"query": "",
 					"scene": null
 				}
 			]
 		}
 	}
->>>>>>> Stashed changes
 }
