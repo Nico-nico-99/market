@@ -54,7 +54,7 @@
   border-left: 1rpx solid #D2D3D5;
 }
 .wx-modal_diaBtn .wx-modal_cfirbtn{
-  color: #09BB07;
+  color: #27aff6;
 }
 .wx-modal_diaBtn .wx-modal_btn::after{
   border: none;

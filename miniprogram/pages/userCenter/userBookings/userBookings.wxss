@@ -12,7 +12,7 @@
   width: 100vw;
   height: 13vw;
 
-  background-color: #1296db;
+  background-color: #27aff6;
 }
 /* text */
 .title.text{
@@ -123,7 +123,7 @@
   width: 28vw;
   height: 7vw;
 
-  color:#1296db;
+  color:#27aff6;
 }
 /* address */
 .goods-box.info.priceANDaddress.address{
@@ -169,7 +169,7 @@
 
   height: 8vw;
   
-  background-color: #1296db;
+  background-color: #27aff6;
 }
 /*cancelOrder*/
 .goods-box.buttons.cancelOrder{
@@ -179,7 +179,7 @@
 
   height: 8vw;
   
-  background-color: #1296db;
+  background-color: #27aff6;
 }
 /***********************************************************/
 

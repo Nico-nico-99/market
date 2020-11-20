@@ -50,7 +50,7 @@
   </view>
   <view class="priceInfo exactPrice">
       <text>实付款</text>
-      <view style="color: #1296db;">¥<span>{{filters.toFix(commodityInfo.price)}}</span></view>
+      <view style="color: #27aff6;">¥<span>{{filters.toFix(commodityInfo.price)}}</span></view>
   </view>
 </view>
 <!--商品付款信息end-->

@@ -11,7 +11,7 @@
   width: 100vw;
   height: 40vw;
 
-  background-color: #1296db;
+  background-color: #27aff6;
 }
 /* text */
 .successInfo.text{

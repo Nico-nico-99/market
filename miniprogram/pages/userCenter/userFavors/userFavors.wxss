@@ -12,7 +12,7 @@
   width: 100vw;
   height: 13vw;
 
-  background-color: #1296db;
+  background-color: #27aff6;
 }
 /* text */
 .title.text{

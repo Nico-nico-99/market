@@ -52,7 +52,7 @@
   font-size: 24rpx;
   padding: 24rpx 0;
   /*上下是24，左右是0*/
-  color: #66ccff;
+  color: #27aff6;
   margin-left: 24rpx;
 }
 .goods-box .goods-address {
@@ -68,7 +68,7 @@
 .searchBox {
   height: 30px;
   padding: 10px;
-  background-color: #66ccff;
+  background-color: #27aff6;
   /*搜索输入框样式*/
 }
 .searchBox .searchNav {
@@ -97,7 +97,7 @@ swiper {
   flex: 1;
 }
 .Classify_Nav text {
-  color: #66ccff;
+  color: #27aff6;
   flex: 1;
   display: flex;
   justify-content: center;

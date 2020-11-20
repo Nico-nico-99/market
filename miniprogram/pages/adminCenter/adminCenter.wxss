@@ -14,7 +14,7 @@
   width: 100%;
   height: 13vw;
 
-  background-color: #1296db;
+  background-color: #27aff6;
 }
 /* 标题 */
 .title.text{
@@ -38,8 +38,8 @@
     text-align: center
 }
 .tabs-item.selected {
-  color:#1296db;
-  border-bottom:0.3vw solid #1296db;
+  color:#27aff6;
+  border-bottom:0.3vw solid #27aff6;
 }
 .tabs-item {
     width: 50%;

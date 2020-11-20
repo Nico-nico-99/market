@@ -38,6 +38,7 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
+    "selectedColor": "#27aff6",
     "list": [
       {
         "pagePath": "pages/home/home",
