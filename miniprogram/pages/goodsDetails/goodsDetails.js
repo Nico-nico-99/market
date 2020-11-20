@@ -50,6 +50,27 @@ Page({
     ]
   },
 
+  /* 举报按钮事件 */
+  accuse: function(e){
+    console.log("举报该商品，商品id为：" + this.data.id)
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/commodity/accuse',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        userId: this.data.userId
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("举报商品请求" + res.data.errorCode)
+      }
+    })
+  },
+
   /* 收藏按钮事件 */
   collect: function(e){
     console.log("收藏该商品，商品id为：" + this.data.id)
@@ -62,8 +83,7 @@ Page({
       method: 'POST',
       data:{
         cmId: this.data.id,
-        userId: this.data.userId,
-        collect: true
+        userId: this.data.userId
       },
       //请求后台数据成功
       success: function (res) {
@@ -75,15 +95,14 @@ Page({
     console.log("取消收藏该商品，商品id为：" + this.data.id)
     var that = this;
     wx.request({
-      url: 'http://maggiemarket.design:8080/api/commodity/collection',
+      url: 'http://maggiemarket.design:8080/api/commodity/collectionCancel',
       header: {
         'content-type': 'application/json'
       },
       method: 'POST',
       data:{
         cmId: this.data.id,
-        userId: this.data.userId,
-        collect: false
+        userId: this.data.userId
       },
       //请求后台数据成功
       success: function (res) {
@@ -137,7 +156,8 @@ Page({
       },
       method: 'POST',
       data:{
-        cmId: this.data.id
+        cmId: this.data.id,
+        userId: this.data.userId
       },
       //请求后台数据成功
       success: function (res) {
