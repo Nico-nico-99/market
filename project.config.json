@@ -82,6 +82,12 @@
 					"pathName": "pages/myStore/myStore",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/searchGoods/searchGoods",
+					"pathName": "pages/searchGoods/searchGoods",
+					"scene": null
 				}
 			]
 		}

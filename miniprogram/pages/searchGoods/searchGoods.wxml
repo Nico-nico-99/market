@@ -68,7 +68,7 @@
 <!-- 筛选end -->
 
 <!-- 商品列表begin --> 
-<view class="goods-container">
+<view wx:if="{{searchType_index == 0}}" class="goods-container">
   <block wx:for='{{commodityList}}' wx:key='this'> 
     <!-- 显示全部商品 --> 
     <view wx:if="{{new_index == 2 && address_index == 0}}"> 
@@ -89,3 +89,16 @@
   </block> 
 </view> 
 <!-- 商品列表end -->
+
+<!-- 用户列表begin --> 
+<view wx:if="{{searchType_index == 1}}" class="users-container">
+  <block wx:for='{{userList}}' wx:key='this'>
+    <view class="user-box">
+      <text>{{item.nickname}}</text>
+      <text>{{item.contactInformation}}</text>
+      <text>{{item.defaultShippingAddress}}</text>
+      <text>{{item.grade}}</text>
+    </view>
+  </block>
+</view>
+<!-- 用户列表end --> 
