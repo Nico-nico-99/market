@@ -8,7 +8,8 @@ Page({
     nickName: "",
     userImageUrl: "",
 
-    showModal: false,
+    showLogin: false,
+    showLogout: false,
 
     isAdmin: undefined,
 
@@ -21,11 +22,11 @@ Page({
   //弹窗
   mpDialog: function(e){
     this.setData({
-      showModal: true,
+      showLogin: true,
     })
   },
   //准备授权
-  onComplete: function (e) {
+  onComplete_login: function (e) {
     var that = this
     var app = getApp()
 
@@ -72,14 +73,6 @@ Page({
                   userImageUrl: res.userInfo.avatarUrl,
                 })
                 app.globalData.userImageUrl = that.data.userImageUrl
-                console.log("nickName: " + that.data.nickName)
-                console.log("userImageUrl: " + that.data.userImageUrl)
-
-                console.log("code: " + code)
-                console.log("rawData: " + rawData)
-                console.log("signature: " + signature)
-                console.log("encryptedData: " + encryptedData)
-                console.log("iv: " + iv)
 
                 //发送请求
                 if(!app.globalData.hasUserInfo){
@@ -320,47 +313,73 @@ Page({
    * 退出登录
    */
   refreshPageData: function(){
-    this.setData({
-      nickName: "",
-      userImageUrl: "",
-      isAdmin: 0,
-    })
-
     var app = getApp()
     app.globalData.userId = ""
     app.globalData.userImageUrl = ""
     app.globalData.hasUserInfo = false
-  },
 
+    this.setData({
+      nickName: "",
+      userImageUrl: "",
+      isAdmin: 0,
+      hasUserInfo: app.globalData.hasUserInfo
+    })
+  },
   logout: function(e){
     var app = getApp()
-    
-    if(app.globalData.hasUserInfo){
-      console.log("退出登录")
-      wx.showLoading({
-        title: '退出登录中',
-      })
+
+    this.setData({
+      showLogout: true,
+    })
+  },
+  onComplete_logout: function (e) {
+    var app = getApp()
+    var that = this
+
+    //关闭弹窗
+    that.setData({
+      showModal: false,
+    })
+
+    if (e.detail.confirm) {
+      if(app.globalData.hasUserInfo){
+        console.log("退出登录")
+        wx.showLoading({
+          title: '退出登录中',
+        })
+
+        var timeOut = setTimeout(function () {
+          console.log("延迟调用")
+          
+          app.globalData.hasUserInfo = false
   
-      app.globalData.hasUserInfo = false
-
-      if(!app.globalData.hasUserInfo){
-        console.log("成功退出登录")
-
-        //成功退出登陆后
-        wx.hideLoading()
-        this.refreshPageData()
-        this.onShow()  
+          if(!app.globalData.hasUserInfo){
+            console.log("成功退出登录")
+    
+            //成功退出登陆后
+            wx.hideLoading()
+            that.refreshPageData()
+            that.onShow()  
+          }
+          else{
+            console.log("退出登录失败")
+          }    
+      }, 1000)
       }
       else{
-        console.log("退出登录失败")
+        console.log('当前未登录，无法退出登录')
+        wx.showModal({
+          title: '提示',
+          content: '当前处于未登录状态，无法退出登录。',
+          showCancel: false,
+        })
       }  
     }
     else{
-      console.log('当前未登录，无法退出登录')
-      wx.showModal({
-        title: '提示',
-        content: '当前处于未登录状态，无法退出登录。',
-        showCancel: false,
+      console.log("取消退出登录")
+      wx.showToast({
+        title: '您取消了退出登录',
+        icon: 'none'
       })
     }
   },

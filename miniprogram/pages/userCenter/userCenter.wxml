@@ -18,7 +18,7 @@
     <mymodal type="getUserInfo" title='微信授权'
              content='玛奇market申请获得以下权限：\n·获得你的公开信息(头像、昵称等)'
              confirmText='允许授权' confirmColor="#1296db" cancelText="拒绝" 
-             showStatus='{{showModal}}' showCancel="true" bind:complete="onComplete">
+             showStatus='{{showLogin}}' showCancel="true" bind:complete="onComplete_login">
     </mymodal>
     <!-- 用户昵称 -->
     <view class="userLogin userName">
@@ -115,3 +115,9 @@
   <button class="exit exitButton" style="width: 100vw;" bindtap="logout" data-hasUserInfo="{{hasUserInfo}}">退出账号</button>
 </view>
 <!-- 退出账号end -->
+<!-- 弹窗确定是否授权 -->
+<mymodal type="getUserInfo" title='退出登录'
+         content='您是否确定要退出登录？'
+         confirmText='确定' confirmColor="#1296db" cancelText="取消" 
+         showStatus='{{showLogout}}' showCancel="true" bind:complete="onComplete_logout">
+</mymodal>

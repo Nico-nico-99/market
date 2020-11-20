@@ -28,23 +28,22 @@ Page({
   },
 
   /**
-   * 用户付款
+   * 用户确认收货
    */
   payment: function(e){
-    console.log("用户付款")
+    console.log("用户确认收货")
 
     var app = getApp()
     var userId = app.globalData.userId
     var item = e.currentTarget.dataset.item
     var cmId = item.cmId
-    var price = item.price.toFixed(2)
     var that = this
 
     console.log(cmId)
 
     wx.showModal({
       title: '提示',
-      content: '该商品价格为：'+ price + '元。您是否确定要付款？',
+      content: '您是否确定要确认收货？',
       success: function (res) {
         if (res.confirm) {
           //调用小程序付款接口
@@ -53,7 +52,7 @@ Page({
           //向后端申请付款
           wx.request({
             method: "POST",
-            url: 'http://xx.com/api/userCenter/userBookings/payment.html',//修改商品属性为“已售出”
+            url: 'http://maggiemarket.design:8080/api/userCenter/userBookings/payment',//修改商品属性为“已售出”
             data: {
               userId: userId,
               cmId: cmId,
@@ -62,18 +61,28 @@ Page({
               'content-type': 'application/json'//要根据后端信息进行修改
             },
             success: function (res) {
-              console.log('成功付款');
-              //提示取消成功
-              wx.showToast({
-              title: '付款成功',
-              icon: 'none',
-              })
+              if(res.data.success){
+                console.log('成功确认收货');
+                //提示取消成功
+                wx.showToast({
+                title: '确认收货成功',
+                icon: 'none',
+                })
+              }
+              else{
+                console.log("确认收货失败！");
+                //提示取消成功
+                wx.showToast({
+                title: '确认收货失败，请重新操作',
+                icon: 'none',        
+                })    
+              }
             },
             fail: function(error){
-              console.log("付款失败！");
+              console.log("确认收货失败: " + error);
               //提示取消成功
               wx.showToast({
-              title: '付款失败，请重新操作',
+              title: '确认收货失败，请重新操作',
               icon: 'none',        
               })    
             },
@@ -107,7 +116,7 @@ Page({
           //向后端申请取消订单
           wx.request({
             method: "POST",
-            url: 'http://xx.com/api/userCenter/userBookings/cancelOrder.html',//修改商品属性为“待售”
+            url: 'http://maggiemarket.design:8080/api/userCenter/userBookings/cancelOrder',//修改商品属性为“待售”
             data: {
               userId: userId,
               cmId: cmId,
@@ -116,16 +125,26 @@ Page({
               'content-type': 'application/json'//要根据后端信息进行修改
             },
             success: function (res) {
-              console.log('成功取消订单');
-              //提示取消成功
-              wx.showToast({
-              title: '订单取消成功',
-              icon: 'none',
-              })
+              if(res.data.success){
+                console.log('成功取消订单');
+                //提示取消成功
+                wx.showToast({
+                title: '订单取消成功',
+                icon: 'none',
+                })
+              }
+              else{
+                console.log("取消订单失败！");
+                //提示取消失败
+                wx.showToast({
+                title: '订单取消失败，请重新操作',
+                icon: 'none',        
+                })    
+              }
             },
             fail: function(error){
-              console.log("取消订单失败！");
-              //提示取消成功
+              console.log("取消订单失败: " + error);
+              //提示取消失败
               wx.showToast({
               title: '订单取消失败，请重新操作',
               icon: 'none',        
