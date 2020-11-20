@@ -48,65 +48,112 @@ Page({
           title: '登录中',
         })
 
+        var code
+        var rawData
+        var signature
+        var encryptedData
+        var iv
+
         //获取临时凭证，以得到openid获取用户信息
         wx.login({
           success: function (res) {
-            var code = res.code;//发送给服务器的code
-            console.log("code: " + code)
-            console.log("res.code: " + res.code)
+            code = res.code;
 
-            var appid = "wxc4eb5a19612df490";//appid
-            var secret = "82e99a80db3f4558f68881626417ad75";//app secret
+            //获取用户信息，以得到加密的用户数据
+            wx.getUserInfo({
+              success: function(res) {
+                rawData = res.rawData
+                signature = res.signature
+                encryptedData = res.encryptedData
+                iv = res.iv
 
-            if(!app.globalData.hasUserInfo){
-              if (code) {
-                wx.request({
-                  method: "POST",
-                  url: 'http://maggiemarket.design:8080/api/userCenter/getUserInfo',//获取openid //要根据后端信息进行修改
-                  data: {
-                    appid: appid,
-                    secret: secret,
-                    code: code,
-                  },
-                  header: {
-                    'content-type': 'application/json'//要根据后端信息进行修改
-                  },
-                  success: function (res) {
-                    console.log(res)
-
-                    wx.hideLoading();
-                    console.log('成功从后端获取到用户信息');
-
-                    /*
-                    //授权
-                    console.log("允许授权")
-                    app.globalData.hasUserInfo = true,//表示已获取用户信息  
-                    that.setData({
-                      nickName: res.data.nickName,
-                      userImageUrl: res.data.userImageUrl,
-                    })
-
-                    var app = getApp();
-                    app.globalData.userId = res.data.userId;
-                    */
-                  },
-                  fail: function(error){
-                    wx.hideLoading();
-                    console.log("获取用户登录态失败！");
-                  },
+                that.setData({
+                  nickName: res.userInfo.nickName,
+                  userImageUrl: res.userInfo.avatarUrl,
                 })
-              }
-              else {
+                app.globalData.userImageUrl = that.data.userImageUrl
+                console.log("nickName: " + that.data.nickName)
+                console.log("userImageUrl: " + that.data.userImageUrl)
+
+                console.log("code: " + code)
+                console.log("rawData: " + rawData)
+                console.log("signature: " + signature)
+                console.log("encryptedData: " + encryptedData)
+                console.log("iv: " + iv)
+
+                //发送请求
+                if(!app.globalData.hasUserInfo){
+                  if (code && rawData && signature && encryptedData && iv) {
+                    wx.request({
+                      method: "POST",
+                      url: 'http://maggiemarket.design:8080/api/userCenter/login',
+                      data: {
+                        code: code,
+                        rawData: rawData,
+                        signature: signature,
+                        encryptedData: encryptedData,
+                        iv: iv,
+                      },
+                      header: {
+                        'content-type': 'application/json'
+                      },
+                      success: function (res) {
+                        console.log(res)
+          
+                        wx.hideLoading();
+                        console.log('成功从后端获取到loginInfo');
+          
+                        //登录
+                        console.log("登录成功")
+                        app.globalData.hasUserInfo = true,//表示已获取用户信息，显示头像和昵称
+                        app.globalData.userId = res.data.userId;
+                        that.setData({
+                          hasUserInfo: app.globalData.hasUserInfo,
+                        })
+                      },
+                      fail: function(error){
+                        wx.hideLoading();
+                        console.log("获取用户登录态失败：" + error);
+          
+                        wx.showToast({
+                          title: '登录失败',
+                          icon: 'none'
+                        })      
+                      },
+                    })
+                  }
+                  else {
+                    wx.hideLoading();
+                    console.log("用户登录失败");
+
+                    wx.showToast({
+                      title: '登录失败',
+                      icon: 'none'
+                    })  
+                  }    
+                }
+              },
+              fail: function (error) {
                 wx.hideLoading();
-                console.log("用户登陆失败");
+                console.log('wx.getUserInfo() failed ' + error);
+
+                wx.showToast({
+                  title: '登录失败',
+                  icon: 'none'
+                })      
               }
-            }
+            })
           },
           fail: function (error) {
             wx.hideLoading();
-            console.log('login failed ' + error);
+            console.log('wx.login() failed ' + error);
+
+            wx.showToast({
+              title: '登录失败',
+              icon: 'none'
+            })      
           }
-        })        
+        })
       }
     }
     else {
