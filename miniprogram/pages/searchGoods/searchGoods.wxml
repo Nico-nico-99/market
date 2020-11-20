@@ -91,14 +91,20 @@
 <!-- 商品列表end -->
 
 <!-- 用户列表begin --> 
-<view wx:if="{{searchType_index == 1}}" class="users-container">
+<view wx:if="{{searchType_index == 1}}">
   <block wx:for='{{userList}}' wx:key='this'>
     <view class="users-box">
       <!-- 用户名 -->
-      <view class="users-box info title">{{item.nickname}}</view>
-      <text>{{item.contactInformation}}</text>
-      <text>{{item.defaultShippingAddress}}</text>
-      <text>{{item.grade}}</text>
+      <view class="name">{{item.nickname}}</view>
+      <!-- 用户信息 -->
+      <view class="inf">
+        <text class="title">联系方式：</text>
+        <text>{{item.contactInformation}}\n</text>
+        <text class="title">默认地址：</text>
+        <text>{{item.defaultShippingAddress}}\n</text>
+        <text class="title">入学年份：</text>
+        <text>{{item.grade}}</text>
+      </view>
     </view>
   </block>
 </view>

@@ -11,7 +11,7 @@ Page({
       {value: 'shops', name: '店铺'},
     ],
     searchType: ['商品', '用户'],
-    searchType_index: "0",
+    searchType_index: "1",
     sortType:['价格最低', '时间最新', '价格最高', '时间最久'],
     sortType_index: "0",
     address: ['全部', '大学城', '五山', '国际', '其他'],
