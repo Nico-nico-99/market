@@ -14,7 +14,9 @@ Page({
     // 商品图片列表
     urlList: [],
     // 商品联系方式
-    contactInfo: 0,    
+    contactInfo: "",  
+    // 商品收藏状态
+    collected: false,  
     commodity:{
       "cmId": 2,
       "name": "非全新-校园网",
@@ -60,11 +62,32 @@ Page({
       method: 'POST',
       data:{
         cmId: this.data.id,
-        userId: this.data.userId
+        userId: this.data.userId,
+        collect: true
       },
       //请求后台数据成功
       success: function (res) {
         console.log("收藏商品请求" + res.data.errorCode)
+      }
+    })
+  },
+  recollect: function(e){
+    console.log("取消收藏该商品，商品id为：" + this.data.id)
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/commodity/collection',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        userId: this.data.userId,
+        collect: false
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("取消收藏商品请求" + res.data.errorCode)
       }
     })
   },
@@ -121,8 +144,9 @@ Page({
         console.log("商品详情请求成功" + res)
         that.setData({
           commodity: res.data.commodityInfo,
-          urlList:  res.data.urlList,
-          contactInfo: res.data.contactInfo
+          urlList: res.data.urlList,
+          contactInfo: res.data.contactInfo,
+          // collected: res.data.collected
         })
       }
     })

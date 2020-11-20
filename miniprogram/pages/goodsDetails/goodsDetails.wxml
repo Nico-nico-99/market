@@ -65,7 +65,10 @@
   <button class="tip-off" >举报</button>
 <view class="btn-box">
   <!-- 收藏按钮 -->
-  <button class="btn" bindtap="collect">收藏</button>
+    <!-- 未收藏状态 -->
+    <button class="btn" wx:if="{{!collected}}" bindtap="collect">收藏</button>
+    <!-- 收藏状态 -->
+    <button class="btn" wx:if="{{collected}}" bindtap="recollect">取消收藏</button>
   <!-- 预订按钮 -->
   <button class="btn" style="margin-left: 10px;" bindtap="reserve">预订</button>
 </view>
