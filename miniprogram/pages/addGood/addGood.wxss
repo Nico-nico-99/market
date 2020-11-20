@@ -1,5 +1,28 @@
 /* pages/addGood/addGood.wxss */
 
+
+/************************* 标题样式 *************************/
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 背景图 */
+.title.background{
+  width: 100vw;
+  height: 13vw;
+
+  background-color: #1296db;
+}
+/* 标题 */
+.title.text{
+  color: white;
+
+  font-size: 18px;
+  font-weight: bold;
+}
+/***********************************************************/
+
 .pageContainer{
    display: flex; 
    flex-direction: column;
@@ -55,7 +78,6 @@
 } 
 .detailInputView{
     border:  2px solid #4d99c0;
-
     width:550rpx;
 }
 .detailText{
@@ -120,7 +142,7 @@
   border-radius: 20rpx;
   margin-right: 15rpx;
   margin-left:440rpx;
-  background-color: #8fcdec;
+  background-color: #1296db;
   display: flex;
   justify-content:center;
   align-items: center;
@@ -133,9 +155,34 @@
   height:80rpx;
   border-radius: 20rpx;
   margin-left:125rpx;
-  background-color: #8fcdec;
+  background-color: #1296db;
   display: flex;
   justify-content:center;
   align-items: center;
   text-align: center；
 }
+.section{
+  display: flex;
+  flex-direction: row;
+  width:750rpx;
+  
+  justify-content:space-around;
+}
+.picker{
+  background-color: white;
+  width:550rpx;
+  height:50rpx;
+  border:  2px solid #1296db;
+}
+.pickerAddress{
+  margin-right: 16rpx;
+  background-color: white;
+  width:550rpx; 
+  height:50rpx;
+  border:  2px solid #1296db;
+}
+.btnText{
+  color:white
+}
+
+
