@@ -1,16 +1,21 @@
 /* pages/userCenter/userCenter.wxss */
 
 /*********************** 用户登陆样式 ***********************/
-/* 背景图 */
-.userLogin.background{
-  flex-direction: column;
-
-  height: 45vw;
+.userLogin{
+  overflow-x: hidden;
   width: 100vw;
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* 背景图 */
+.userLogin.background{
+
+  height: 45vw;
+  width: 100vw;
 
   background-color: #dfdfdf
 }
@@ -20,17 +25,17 @@
   width: 25vw;
 
   position: relative;
-  bottom: 8px;
+  bottom: 1vw;
 
   background-size: 25vw 25vw;
   border-radius: 50%;
   border: none;
-
-  display: flex;
-  justify-content: center;
 }
 /* 用户昵称 */
 .userLogin.userName{
+  position: relative;
+  top: 1vw;
+
   color: white;
   font-weight: bold;
   font-size: 18px;

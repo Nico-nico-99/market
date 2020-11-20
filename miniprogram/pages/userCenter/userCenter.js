@@ -8,7 +8,8 @@ Page({
     nickName: "",
     userImageUrl: "",
 
-    showModal: false,
+    showLogin: false,
+    showLogout: false,
 
     isAdmin: undefined,
 
@@ -21,11 +22,11 @@ Page({
   //弹窗
   mpDialog: function(e){
     this.setData({
-      showModal: true,
+      showLogin: true,
     })
   },
   //准备授权
-  onComplete: function (e) {
+  onComplete_login: function (e) {
     var that = this
     var app = getApp()
 
@@ -48,65 +49,104 @@ Page({
           title: '登录中',
         })
 
+        var code
+        var rawData
+        var signature
+        var encryptedData
+        var iv
+
         //获取临时凭证，以得到openid获取用户信息
         wx.login({
           success: function (res) {
-            var code = res.code;//发送给服务器的code
-            console.log("code: " + code)
-            console.log("res.code: " + res.code)
+            code = res.code;
 
-            var appid = "wxc4eb5a19612df490";//appid
-            var secret = "82e99a80db3f4558f68881626417ad75";//app secret
+            //获取用户信息，以得到加密的用户数据
+            wx.getUserInfo({
+              success: function(res) {
+                rawData = res.rawData
+                signature = res.signature
+                encryptedData = res.encryptedData
+                iv = res.iv
 
-            if(!app.globalData.hasUserInfo){
-              if (code) {
-                wx.request({
-                  method: "POST",
-                  url: 'http://maggiemarket.design:8080/api/userCenter/getUserInfo',//获取openid //要根据后端信息进行修改
-                  data: {
-                    appid: appid,
-                    secret: secret,
-                    code: code,
-                  },
-                  header: {
-                    'content-type': 'application/json'//要根据后端信息进行修改
-                  },
-                  success: function (res) {
-                    console.log(res)
-
-                    wx.hideLoading();
-                    console.log('成功从后端获取到用户信息');
-
-                    /*
-                    //授权
-                    console.log("允许授权")
-                    app.globalData.hasUserInfo = true,//表示已获取用户信息  
-                    that.setData({
-                      nickName: res.data.nickName,
-                      userImageUrl: res.data.userImageUrl,
-                    })
-
-                    var app = getApp();
-                    app.globalData.userId = res.data.userId;
-                    */
-                  },
-                  fail: function(error){
-                    wx.hideLoading();
-                    console.log("获取用户登录态失败！");
-                  },
+                that.setData({
+                  nickName: res.userInfo.nickName,
+                  userImageUrl: res.userInfo.avatarUrl,
                 })
-              }
-              else {
+                app.globalData.userImageUrl = that.data.userImageUrl
+
+                //发送请求
+                if(!app.globalData.hasUserInfo){
+                  if (code && rawData && signature && encryptedData && iv) {
+                    wx.request({
+                      method: "POST",
+                      url: 'http://maggiemarket.design:8080/api/userCenter/login',
+                      data: {
+                        code: code,
+                        rawData: rawData,
+                        signature: signature,
+                        encryptedData: encryptedData,
+                        iv: iv,
+                      },
+                      header: {
+                        'content-type': 'application/json'
+                      },
+                      success: function (res) {
+                        console.log(res)
+          
+                        wx.hideLoading();
+                        console.log('成功从后端获取到loginInfo');
+          
+                        //登录
+                        console.log("登录成功")
+                        app.globalData.hasUserInfo = true,//表示已获取用户信息，显示头像和昵称
+                        app.globalData.userId = res.data.userId;
+                        that.setData({
+                          hasUserInfo: app.globalData.hasUserInfo,
+                        })
+                      },
+                      fail: function(error){
+                        wx.hideLoading();
+                        console.log("获取用户登录态失败：" + error);
+          
+                        wx.showToast({
+                          title: '登录失败',
+                          icon: 'none'
+                        })      
+                      },
+                    })
+                  }
+                  else {
+                    wx.hideLoading();
+                    console.log("用户登录失败");
+
+                    wx.showToast({
+                      title: '登录失败',
+                      icon: 'none'
+                    })  
+                  }    
+                }
+              },
+              fail: function (error) {
                 wx.hideLoading();
-                console.log("用户登陆失败");
+                console.log('wx.getUserInfo() failed ' + error);
+
+                wx.showToast({
+                  title: '登录失败',
+                  icon: 'none'
+                })      
               }
-            }
+            })
           },
           fail: function (error) {
             wx.hideLoading();
-            console.log('login failed ' + error);
+            console.log('wx.login() failed ' + error);
+
+            wx.showToast({
+              title: '登录失败',
+              icon: 'none'
+            })      
           }
-        })        
+        })
       }
     }
     else {
@@ -273,47 +313,73 @@ Page({
    * 退出登录
    */
   refreshPageData: function(){
-    this.setData({
-      nickName: "",
-      userImageUrl: "",
-      isAdmin: 0,
-    })
-
     var app = getApp()
     app.globalData.userId = ""
     app.globalData.userImageUrl = ""
     app.globalData.hasUserInfo = false
-  },
 
+    this.setData({
+      nickName: "",
+      userImageUrl: "",
+      isAdmin: 0,
+      hasUserInfo: app.globalData.hasUserInfo
+    })
+  },
   logout: function(e){
     var app = getApp()
-    
-    if(app.globalData.hasUserInfo){
-      console.log("退出登录")
-      wx.showLoading({
-        title: '退出登录中',
-      })
+
+    this.setData({
+      showLogout: true,
+    })
+  },
+  onComplete_logout: function (e) {
+    var app = getApp()
+    var that = this
+
+    //关闭弹窗
+    that.setData({
+      showModal: false,
+    })
+
+    if (e.detail.confirm) {
+      if(app.globalData.hasUserInfo){
+        console.log("退出登录")
+        wx.showLoading({
+          title: '退出登录中',
+        })
+
+        var timeOut = setTimeout(function () {
+          console.log("延迟调用")
+          
+          app.globalData.hasUserInfo = false
   
-      app.globalData.hasUserInfo = false
-
-      if(!app.globalData.hasUserInfo){
-        console.log("成功退出登录")
-
-        //成功退出登陆后
-        wx.hideLoading()
-        this.refreshPageData()
-        this.onShow()  
+          if(!app.globalData.hasUserInfo){
+            console.log("成功退出登录")
+    
+            //成功退出登陆后
+            wx.hideLoading()
+            that.refreshPageData()
+            that.onShow()  
+          }
+          else{
+            console.log("退出登录失败")
+          }    
+      }, 1000)
       }
       else{
-        console.log("退出登录失败")
+        console.log('当前未登录，无法退出登录')
+        wx.showModal({
+          title: '提示',
+          content: '当前处于未登录状态，无法退出登录。',
+          showCancel: false,
+        })
       }  
     }
     else{
-      console.log('当前未登录，无法退出登录')
-      wx.showModal({
-        title: '提示',
-        content: '当前处于未登录状态，无法退出登录。',
-        showCancel: false,
+      console.log("取消退出登录")
+      wx.showToast({
+        title: '您取消了退出登录',
+        icon: 'none'
       })
     }
   },
@@ -363,7 +429,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**

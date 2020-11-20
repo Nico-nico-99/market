@@ -38,7 +38,7 @@
       </view>
 
       <view class="goods-box buttons">
-        <view class="goods-box buttons payment" bindtap="payment" data-index="1" data-item="{{item}}">付款</view>
+        <view class="goods-box buttons payment" bindtap="payment" data-index="1" data-item="{{item}}">确认收货</view>
         <view class="goods-box buttons cancelOrder" bindtap="cancelOrder" data-index="2" data-item="{{item}}">取消订单</view>
       </view>
     </view>

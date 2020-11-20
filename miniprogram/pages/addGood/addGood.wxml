@@ -1,5 +1,16 @@
 <!--pages/addGood/addGood.wxml-->
 
+<!-- 标题栏begin -->
+<view class="title">
+  <!-- 背景图 -->
+  <view class="title background">
+    <text class="title text">发布商品</text>
+  </view>
+</view>
+<!-- 标题栏end -->
+
+<view class="gap"></view>
+
 <view class="pageContainer">
   <!-- 商品名 -->
   <view class="InputContainer">
@@ -30,7 +41,7 @@
       <text>价格</text>
     </view>
     <view class="InputView">
-      <input class="input" type="digit" placeholder="输入商品价格" bindinput="comPriceInput" />
+      <input class="input" type="digit" placeholder="输入商品价格" bindinput="inputedit" />
     </view>
   </view>
 
@@ -49,23 +60,23 @@
 
   <view class="gap"></view>
 
-  <view class="typeSelectContainer">
-    <view class="TitleView">
-      <text>类型</text>
-    </view>
-    <view class="selectBoxcontain">
-      <selectBox prop-array='{{selectArrayClassify}}' bind:select='selectType' />
-    </view>
+  <view class="section">
+    <view class="section__title">类型</view>
+    <picker bindchange="bindClassifyPickerChange" value="{{index}}" range="{{selectArrayClassify}}">
+      <view class="picker">
+        {{classcifyShow}}
+      </view>
+    </picker>
   </view>
+
   <view class="gap"></view>
 
-  <view class="typeSelectContainer">
-    <view class="TitleView">
-      <text>发货地</text>
-    </view>
-    <view class="selectBoxcontain">
-      <selectBox prop-array='{{selectArrayAddress}}' bind:select='selectAddress' />
-    </view>
+  <view class="section">
+    <view class="section__title">发货地</view>
+    <picker bindchange="bindAddressPickerChange" value="{{index}}" range="{{selectArrayAddress}}">
+      <view class="pickerAddress">{{addressShow}}
+      </view>
+    </picker>
   </view>
 
 
@@ -82,7 +93,7 @@
   <view class="weui-uploader">
 
     <!-- 图片展示区 -->
-    <view class="ImgsContainer" wx:if="{{imgs.length>=1}}" >
+    <view class="ImgsContainer" wx:if="{{imgs.length>=1}}">
 
       <view class="OneImgsContainer" wx:for="{{imgs}}">
 
@@ -93,8 +104,8 @@
         <!-- <view class="deleteImg" data-index='0' catchtap="deleteImg">
           <image class="deleteImg" src="../../images/deleteImg.png"></image>
         </view> -->
-        <image class="deleteImg" src="../../images/deleteImg.png"data-index='{{index}}' catchtap="deleteImg"></image>
-       
+        <image class="deleteImg" src="../../images/deleteImg.png" data-index='{{index}}' catchtap="deleteImg"></image>
+
       </view>
 
     </view>
@@ -102,7 +113,7 @@
     <view class="gap"></view>
 
     <view class="uploadImgBtn" bindtap="chooseImg" type='primary'>
-      <text>选择图片</text>
+      <text class="btnText">选择图片</text>
     </view>
 
 
@@ -114,6 +125,6 @@
 
 
 <view class="uploadgood" bindtap="upload">
-  <text>发布商品</text>
+  <text class="btnText">发布商品</text>
 </view>
 <view class="gap"></view>

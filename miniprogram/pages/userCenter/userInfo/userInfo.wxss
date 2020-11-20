@@ -5,6 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  overflow-x: hidden;
+  width: 100vw;
 }
 /* 背景图 */
 .title.background{

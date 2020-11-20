@@ -2,6 +2,8 @@
   position: relative;
   left: 5vw;
   top: 5vw;
+
+  overflow-x: hidden;
 }
 .goods-box{
   display: flex;
@@ -45,7 +47,7 @@
   left: 9vw;
   top: 4vw;
 
-  width: 70vw;
+  width: 53vw;
   height: 12vw;
 
   text-overflow: ellipsis;
@@ -65,7 +67,7 @@
   top: 1.5vw;
   left: 4.5vw;
 
-  width: 52vw;
+  width: 48vw;
   height: 10vw;
 }
 /* price */

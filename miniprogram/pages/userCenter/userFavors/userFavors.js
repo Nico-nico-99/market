@@ -9,7 +9,256 @@ Page({
     searchInput: '',
 
     //收藏商品列表
-    goodsList: [],
+    goodsList: [
+      {
+        "cmId": 1,
+        "name": "作业",
+        "classify": 5,
+        "details": "太多了辣",
+        "price": 9.9,
+        "userId": 1,
+        "address": 1,
+        "pictureUrls": [
+            "http://www.baidu.com"
+        ],
+        "date": "2020-11-10 00:59:59",
+        "isNew": 1,
+        "state": 0
+    },
+    {
+        "cmId": 2,
+        "name": "更多的作业",
+        "classify": 5,
+        "details": "我好开心，我开心得眼泪都要流出来了",
+        "price": 9.9,
+        "userId": 1,
+        "address": 1,
+        "pictureUrls": [
+            "http://www.baidu.com",
+            "http://www.google.com"
+        ],
+        "date": "2020-11-11 00:59:59",
+        "isNew": 1,
+        "state": 0
+    },
+    {
+      "cmId": 1,
+      "name": "作业",
+      "classify": 5,
+      "details": "太多了辣",
+      "price": 9.9,
+      "userId": 1,
+      "address": 1,
+      "pictureUrls": [
+          "http://www.baidu.com"
+      ],
+      "date": "2020-11-10 00:59:59",
+      "isNew": 1,
+      "state": 0
+  },
+  {
+      "cmId": 2,
+      "name": "更多的作业",
+      "classify": 5,
+      "details": "我好开心，我开心得眼泪都要流出来了",
+      "price": 9.9,
+      "userId": 1,
+      "address": 1,
+      "pictureUrls": [
+          "http://www.baidu.com",
+          "http://www.google.com"
+      ],
+      "date": "2020-11-11 00:59:59",
+      "isNew": 1,
+      "state": 0
+  },
+  {
+    "cmId": 1,
+    "name": "作业",
+    "classify": 5,
+    "details": "太多了辣",
+    "price": 9.9,
+    "userId": 1,
+    "address": 1,
+    "pictureUrls": [
+        "http://www.baidu.com"
+    ],
+    "date": "2020-11-10 00:59:59",
+    "isNew": 1,
+    "state": 0
+},
+{
+    "cmId": 2,
+    "name": "更多的作业",
+    "classify": 5,
+    "details": "我好开心，我开心得眼泪都要流出来了",
+    "price": 9.9,
+    "userId": 1,
+    "address": 1,
+    "pictureUrls": [
+        "http://www.baidu.com",
+        "http://www.google.com"
+    ],
+    "date": "2020-11-11 00:59:59",
+    "isNew": 1,
+    "state": 0
+},
+{
+  "cmId": 1,
+  "name": "作业",
+  "classify": 5,
+  "details": "太多了辣",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com"
+  ],
+  "date": "2020-11-10 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 2,
+  "name": "更多的作业",
+  "classify": 5,
+  "details": "我好开心，我开心得眼泪都要流出来了",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com",
+      "http://www.google.com"
+  ],
+  "date": "2020-11-11 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 1,
+  "name": "作业",
+  "classify": 5,
+  "details": "太多了辣",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com"
+  ],
+  "date": "2020-11-10 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 2,
+  "name": "更多的作业",
+  "classify": 5,
+  "details": "我好开心，我开心得眼泪都要流出来了",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com",
+      "http://www.google.com"
+  ],
+  "date": "2020-11-11 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 1,
+  "name": "作业",
+  "classify": 5,
+  "details": "太多了辣",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com"
+  ],
+  "date": "2020-11-10 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 2,
+  "name": "更多的作业",
+  "classify": 5,
+  "details": "我好开心，我开心得眼泪都要流出来了",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com",
+      "http://www.google.com"
+  ],
+  "date": "2020-11-11 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 1,
+  "name": "作业",
+  "classify": 5,
+  "details": "太多了辣",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com"
+  ],
+  "date": "2020-11-10 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 2,
+  "name": "更多的作业",
+  "classify": 5,
+  "details": "我好开心，我开心得眼泪都要流出来了",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com",
+      "http://www.google.com"
+  ],
+  "date": "2020-11-11 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 1,
+  "name": "作业",
+  "classify": 5,
+  "details": "太多了辣",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com"
+  ],
+  "date": "2020-11-10 00:59:59",
+  "isNew": 1,
+  "state": 0
+},
+{
+  "cmId": 2,
+  "name": "更多的作业",
+  "classify": 5,
+  "details": "我好开心，我开心得眼泪都要流出来了",
+  "price": 9.9,
+  "userId": 1,
+  "address": 1,
+  "pictureUrls": [
+      "http://www.baidu.com",
+      "http://www.google.com"
+  ],
+  "date": "2020-11-11 00:59:59",
+  "isNew": 1,
+  "state": 0
+}
+    ],
   },
 
   /**
@@ -75,11 +324,11 @@ Page({
       success: function (res) {
         console.log('成功从后端获取收藏夹商品列表');
         console.log(res)
-        
+        /*
         that.setData({
           goodsList: res.data.commodityList,
         })
-
+        */
         console.log(that.data.goodsList)
       },
       fail: function(error){
@@ -106,7 +355,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
 
+    //重新获取列表
+    this.onShow()//如果获取信息在onLoad就写this.onLoad()
+
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
   },
 
   /**
