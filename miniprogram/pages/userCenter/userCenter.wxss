@@ -19,9 +19,6 @@
   height: 25vw;
   width: 25vw;
 
-  position: relative;
-  bottom: 8px;
-
   background-size: 25vw 25vw;
   border-radius: 50%;
   border: none;
@@ -31,6 +28,9 @@
 }
 /* 用户昵称 */
 .userLogin.userName{
+  position: relative;
+  top: 2vw;
+
   color: white;
   font-weight: bold;
   font-size: 18px;
