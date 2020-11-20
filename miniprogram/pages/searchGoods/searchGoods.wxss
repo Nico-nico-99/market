@@ -69,13 +69,45 @@
 /*用户列表样式*/
 .users-container{
   position: relative;
-  left: 5vw;
-  top: 5vw;
+  left: 5rpx;
+  top: 5rpx;
 }
 .users-box{
   display: flex;
   flex-direction: row;
-  width: 90vw;
-  height: 30vw;
+  width: 90rpx;
+  height: 30rpx;
   background-color: #fff;
+}
+.users-box.info{
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  left: 0rpx;
+  top: 2.5rpx;
+  
+  width: 40rpx;
+  height: 25rpx;
+
+  background:rgba(1,1,1,0)
+}
+.users-box.info.title{
+  text-align: left;  
+  display: inline-block;
+  
+  position: relative;
+  left: 9rpx;
+  top: 4rpx;
+
+  width: 53rpx;
+  height: 12rpx;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-size: 18px;
+
+  color:#000;
 }

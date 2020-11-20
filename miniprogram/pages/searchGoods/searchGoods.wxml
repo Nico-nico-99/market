@@ -93,8 +93,9 @@
 <!-- 用户列表begin --> 
 <view wx:if="{{searchType_index == 1}}" class="users-container">
   <block wx:for='{{userList}}' wx:key='this'>
-    <view class="user-box">
-      <text>{{item.nickname}}</text>
+    <view class="users-box">
+      <!-- 用户名 -->
+      <view class="users-box info title">{{item.nickname}}</view>
       <text>{{item.contactInformation}}</text>
       <text>{{item.defaultShippingAddress}}</text>
       <text>{{item.grade}}</text>

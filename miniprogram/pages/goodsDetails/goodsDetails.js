@@ -16,38 +16,9 @@ Page({
     // 商品联系方式
     contactInfo: "",  
     // 商品收藏状态
-    collected: false,  
-    commodity:{
-      "cmId": 2,
-      "name": "非全新-校园网",
-      "details": "不知道给你说啥，买它！",
-      "price": 25,
-      "userId": 1,
-      "address": 1,
-      "pictureUrls":[
-        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
-        "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1545201677,662987570&fm=26&gp=0.jpg",
-        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3629566549,2332772027&fm=26&gp=0.jpg"
-      ],
-      "date": "2020-11-11 00:59:59",
-      "isNew": 0,
-      "state": 0,
-      "classify": 3,
-    },
-    urlList:[
-      {
-        "urlSrc":  "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
-        "urlId": 0
-      },
-      {
-        "urlSrc": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1545201677,662987570&fm=26&gp=0.jpg",
-        "urlId": 1
-      },
-      {
-        "urlSrc":  "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3629566549,2332772027&fm=26&gp=0.jpg",
-        "urlId": 2
-      }
-    ]
+    collected: true,  
+    commodity:{},
+    urlList:[]
   },
 
   /* 举报按钮事件 */
@@ -83,11 +54,14 @@ Page({
       method: 'POST',
       data:{
         cmId: this.data.id,
-        userId: this.data.userId
+        userId: this.data.userId,
       },
       //请求后台数据成功
       success: function (res) {
         console.log("收藏商品请求" + res.data.errorCode)
+        that.setData({
+          collected: true
+        })
       }
     })
   },
@@ -102,11 +76,14 @@ Page({
       method: 'POST',
       data:{
         cmId: this.data.id,
-        userId: this.data.userId
+        userId: this.data.userId,
       },
       //请求后台数据成功
       success: function (res) {
         console.log("取消收藏商品请求" + res.data.errorCode)
+        that.setData({
+          collected: false
+        })
       }
     })
   },
@@ -147,6 +124,7 @@ Page({
     this.getCommodityDetail()
   },
 
+  /* 获取商品详情 */
   getCommodityDetail() {
     var that = this;
     wx.request({
@@ -166,7 +144,7 @@ Page({
           commodity: res.data.commodityInfo,
           urlList: res.data.urlList,
           contactInfo: res.data.contactInfo,
-          // collected: res.data.collected
+          collected: res.data.collected
         })
       }
     })

@@ -81,6 +81,9 @@ Page({
         //请求后台数据成功
         success: function (res) {
           console.log("搜索商品请求" + res.data.errorCode)
+          that.setData({
+            commodityList: res.data.commodityList
+          })
         }
       })
     }
