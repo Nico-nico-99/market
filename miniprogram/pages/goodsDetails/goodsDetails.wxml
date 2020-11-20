@@ -57,11 +57,12 @@
 <!-- 联系方式begin -->
 <view>
   <view class="detailsTitle">联系方式</view>
-  <view class="details">{{commodity.contactInformation}}</view>
+  <view class="details">{{contactInfo}}</view>
 </view>
 <!-- 联系方式end -->
 
 <!-- 功能按钮begin -->
+  <button class="tip-off" >举报</button>
 <view class="btn-box">
   <!-- 收藏按钮 -->
   <button class="btn" bindtap="collect">收藏</button>

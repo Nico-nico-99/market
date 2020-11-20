@@ -5,18 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 筛选排序用
     items: [
       {value: 'goods', name: '商品', checked: 'true'},
       {value: 'shops', name: '店铺'},
     ],
     searchType: ['商品', '用户'],
-    searchType_index: 0,
-    sortType:['价格最低', '时间最新'],
-    sortType_index: 0,
+    searchType_index: "0",
+    sortType:['价格最低', '时间最新', '价格最高', '时间最久'],
+    sortType_index: "0",
     address: ['全部', '大学城', '五山', '国际', '其他'],
     new:['非全新', '全新','全部'],
-    address_index: 0,
-    new_index: 2,
+    address_index: "0",
+    new_index: "2",
 
     // 商品列表
     commodityList: [
@@ -74,7 +75,19 @@ Page({
   formSubmit(e) {
     if(e.detail.value.searchInput!=""){
       console.log('form发生了submit事件，携带数据为：', e.detail.value)
-      this.getGoodsList()
+      var that = this;
+      wx.request({
+        url: 'http://maggiemarket.design:8080/api/home/search',
+        header: {
+          'content-type': 'application/json'
+        },
+        method: 'POST',
+        data: e.detail.value,
+        //请求后台数据成功
+        success: function (res) {
+          console.log("搜索商品请求" + res.data.errorCode)
+        }
+      })
     }
   },
 
@@ -110,25 +123,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 访问模拟接口获取数据
-    // this.getGoodsList()
-  },
-
-  getGoodsList() {
-    var that = this;
-    wx.request({
-      url: 'https://www.easy-mock.com/mock/5f966cd934c55d14fda96d74/home/searchGood',
-      header: {
-        'content-type': 'application/json'
-      },
-      //请求后台数据成功
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          commodityList: res.data.goodsList
-        })
-      }
-    })
   },
 
   /**

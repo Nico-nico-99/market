@@ -5,11 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "id": -1,
+    // 用户id
+    userId : -1,
+    // 商品id
+    id: -1,
     // 商品详情信息
     commodity: {},
     // 商品图片列表
     urlList: [],
+    // 商品联系方式
+    contactInfo: 0,    
     commodity:{
       "cmId": 2,
       "name": "非全新-校园网",
@@ -26,7 +31,6 @@ Page({
       "isNew": 0,
       "state": 0,
       "classify": 3,
-      "contactInformation": 123456789
     },
     urlList:[
       {
@@ -47,11 +51,43 @@ Page({
   /* 收藏按钮事件 */
   collect: function(e){
     console.log("收藏该商品，商品id为：" + this.data.id)
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/commodity/collection',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        userId: this.data.userId
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("收藏商品请求" + res.data.errorCode)
+      }
+    })
   },
 
   /* 预订按钮事件 */
   reserve: function(e){
     console.log("预订该商品，商品id为：" + this.data.id)
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/commodity/reserve',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        userId: this.data.userId
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("预订商品请求" + res.data.errorCode)
+      }
+    })
   },
 
   /**
@@ -59,11 +95,13 @@ Page({
    */
   onLoad: function (options) {
     var id = options.id
-
+    var app = getApp();
+    var userId = app.globalData.userId;
     this.setData({
-      id: id
+      id: id,
+      userId: userId
     })
-
+    console.log("userId" + userId)
     this.getCommodityDetail()
   },
 
@@ -82,8 +120,9 @@ Page({
       success: function (res) {
         console.log("商品详情请求成功" + res)
         that.setData({
-          commodity: res.data.commodityDetail,
-          urlList:  res.data.urlList
+          commodity: res.data.commodityInfo,
+          urlList:  res.data.urlList,
+          contactInfo: res.data.contactInfo
         })
       }
     })
