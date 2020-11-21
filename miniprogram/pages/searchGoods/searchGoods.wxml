@@ -75,7 +75,7 @@
     <template is='commodityList' data='{{...item}}'></template> 
     </view> 
     <!-- 显示筛选新旧程度后的商品 -->
-    <view wx:if="{{item.is_new == new_index && address_index == 0}}">
+    <view wx:if="{{item.isNew == new_index && address_index == 0}}">
       <template is='commodityList' data='{{...item}}'></template>
     </view>
     <!-- 显示筛选发货地后的商品 -->
@@ -83,7 +83,7 @@
       <template is='commodityList' data='{{...item}}'></template>
     </view>
     <!-- 显示双重筛选后的商品 -->
-    <view wx:if="{{item.is_new == new_index && item.address == address_index}}">
+    <view wx:if="{{item.isNew == new_index && item.address == address_index}}">
       <template is='commodityList' data='{{...item}}'></template>
     </view>
   </block> 

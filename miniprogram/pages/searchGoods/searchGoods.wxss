@@ -13,6 +13,7 @@
 .searchBox .left_select {
   flex: 2;
   padding-right: 10rpx;
+  font-size: 12px;
 }
 .searchBox .left_select picker {
   background-color: #fff;

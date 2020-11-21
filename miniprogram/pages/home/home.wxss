@@ -41,6 +41,7 @@ swiper {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
 }
 /* 提示词样式 */
 .tipstext {

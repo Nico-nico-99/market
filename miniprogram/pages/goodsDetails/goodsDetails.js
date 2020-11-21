@@ -17,9 +17,9 @@ Page({
     contactInfo: "",  
     // 商品收藏状态
     collected: true,
-    // 商品状态
-    state: -1,  
+    // 商品信息
     commodity:{},
+    // 商品轮播图信息
     urlList:[]
   },
 
