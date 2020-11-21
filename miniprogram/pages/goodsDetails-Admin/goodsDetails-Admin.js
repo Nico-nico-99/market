@@ -5,49 +5,64 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "id": -1,
-    "good":{
-      "cmId": 2,
-      "name": "非全新-校园网",
-      "details": "不知道给你说啥，买它！",
-      "price": 25,
-      "userId": 1,
-      "address": 1,
-      "pictureUrls":[
-        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
-        "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1545201677,662987570&fm=26&gp=0.jpg",
-        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3629566549,2332772027&fm=26&gp=0.jpg"
-      ],
-      "date": "2020-11-11 00:59:59",
-      "isNew": 0,
-      "state": 0,
-      "classify": 3,
-      "contactInformation": 123456789,
-      "urlList":[
-        {
-          "urlSrc":  "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2148463798,4021744086&fm=26&gp=0.jpg",
-          "urlId": 0
-        },
-        {
-          "urlSrc": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1545201677,662987570&fm=26&gp=0.jpg",
-          "urlId": 1
-        },
-        {
-          "urlSrc":  "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3629566549,2332772027&fm=26&gp=0.jpg",
-          "urlId": 2
-        }
-      ]
-    },
+    // 用户id
+    userId : -1,
+    // 商品id
+    id: -1,
+    // 商品详情信息
+    commodity: {},
+    // 商品图片列表
+    urlList: [],
+    // 商品联系方式
+    contactInfo: "",  
+    // 商品收藏状态
+    collected: true,
+    // 商品状态
+    state: -1,  
+    commodity:{},
+    urlList:[]
   },
 
   /* 审核通过按钮事件 */
   approve: function(e){
     console.log("审核通过该商品，商品id为：" + this.data.id)
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/userCenter/Admin/changeState',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        toState: 2,
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("审核通过商品请求" + res.data.errorCode)
+      }
+    })
   },
 
   /* 下架按钮事件 */
   reject: function(e){
     console.log("下架该商品，商品id为：" + this.data.id)
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/userCenter/Admin/changeState',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        toState: 3,
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("审核下架商品请求" + res.data.errorCode)
+      }
+    })
   },
 
   /**
@@ -58,6 +73,33 @@ Page({
 
     this.setData({
       id: id
+    })
+
+    this.getCommodityDetail()
+  },
+
+  /* 获取商品详情 */
+  getCommodityDetail() {
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/commodity/information',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        userId: this.data.userId
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("商品详情请求成功" + res)
+        that.setData({
+          commodity: res.data.commodityInfo,
+          urlList: res.data.urlList,
+          contactInfo: res.data.contactInfo,
+        })
+      }
     })
   },
 

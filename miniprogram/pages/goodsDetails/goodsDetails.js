@@ -171,7 +171,6 @@ Page({
       id: id,
       userId: userId
     })
-    console.log("userId" + userId)
     this.getCommodityDetail()
   },
 
