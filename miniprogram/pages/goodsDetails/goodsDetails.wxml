@@ -74,7 +74,7 @@
     <!-- 收藏状态 -->
     <button class="btn" wx:if="{{collected}}" bindtap="collectCancel">取消收藏</button>
   <!-- 预订按钮 -->
-  <button class="btn"  wx:if="{{commodity.state != 4 && commodity.state != 5 }}" style="margin-left: 10px;" bindtap="reserve">预订</button>
-  <button class="btn"  wx:if="{{commodity.state == 4 && commodity.state == 5 }}" style="margin-left: 10px;" bindtap="reserveCancel">取消预订</button>
+  <button class="btn"  wx:if="{{!reserved}}" style="margin-left: 10px;" bindtap="reserve">预订</button>
+  <button class="btn"  wx:if="{{reserved}}" style="margin-left: 10px;" bindtap="reserveCancel">取消预订</button>
 </view>
 <!-- 功能按钮end-->

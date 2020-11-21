@@ -17,6 +17,8 @@ Page({
     contactInfo: "",  
     // 商品收藏状态
     collected: true,
+    // 商品预订状态
+    reserved: false,
     // 商品信息
     commodity:{},
     // 商品轮播图信息
@@ -136,6 +138,9 @@ Page({
         //请求后台数据成功
         success: function (res) {
           console.log("预订商品请求" + res.data.errorCode)
+          that.setData({
+            reserved: true,
+          })
         }
       })
     }
@@ -156,6 +161,9 @@ Page({
       //请求后台数据成功
       success: function (res) {
         console.log("取消预订商品请求" + res.data.errorCode)
+        that.setData({
+          reserved: false
+        })
       }
     })
   },
@@ -194,8 +202,13 @@ Page({
           commodity: res.data.commodityInfo,
           urlList: res.data.urlList,
           contactInfo: res.data.contactInfo,
-          collected: res.data.collected,
+          collected: res.data.collected
         })
+        if(res.data.commodityInfo.state == 4){
+          that.setData({
+            reserved: true
+          })          
+        }
       }
     })
   },
