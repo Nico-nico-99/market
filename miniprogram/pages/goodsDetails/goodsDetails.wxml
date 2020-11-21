@@ -67,7 +67,6 @@
 <!-- 举报按钮or提示end -->
 
 <!-- 功能按钮begin -->
-  <button class="tip-off" bindtap="accuse">举报</button>
 <view class="btn-box">
   <!-- 收藏按钮 -->
     <!-- 未收藏状态 -->
