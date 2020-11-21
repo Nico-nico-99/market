@@ -53,7 +53,9 @@
     </view>
 
     <label class="radio" wx:for-items="{{items}}">
-      <radio name="{{item.name}}" checked="{{item.checked}}" value="{{item.value}}" />{{item.name}}
+
+      <radio name="{{item.name}}" checked="{{item.checked}}" value="{{item.value}}" color="#27aff6"/>{{item.name}}
+
     </label>
 
   </radio-group>

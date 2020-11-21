@@ -16,6 +16,7 @@ Page({
   },
 
   toDetailsTap: function (e) {//点击某个商品框，实现页面跳转，到商品详情页
+    console.log(e.currentTarget.dataset)
     wx.navigateTo({
       url: '../goodsDetails-Seller/goodsDetails-Seller?cmId=' + e.currentTarget.dataset.id//给商品详情页传递商品id
     })
@@ -59,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getGoodsList()
   },
 
   /**
@@ -80,6 +81,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading()//在标题栏中显示加载
+    //重新获取列表
+    this.getGoodsList()
+    
+    wx.hideNavigationBarLoading()//完成停止加载
+    wx.stopPullDownRefresh()//停止下拉刷新
+    
 
   },
 

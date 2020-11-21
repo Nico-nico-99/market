@@ -12,7 +12,7 @@ Page({
     commodityInfo: [],
 
     //订单列表
-    reserveTime: "2020-11-11 11:30:00",
+    timeOfReserve: "2020-11-11 11:30:00",
     timeOfTransaction: "2020-11-11 14:00:00",
     orderId: 1,
   },
@@ -40,6 +40,7 @@ Page({
       id: options.id,
       timeOfTransaction: options.timeOfTransaction,
       orderId: options.orderId,
+      timeOfReserve: options.timeOfReserve,
     })
 
     this.getCommodityDetail()
@@ -57,7 +58,8 @@ Page({
       },
       method: 'POST',
       data:{
-        cmId: this.data.id
+        cmId: this.data.id,
+        userId: getApp().globalData.userId
       },
       //请求后台数据成功
       success: function (res) {

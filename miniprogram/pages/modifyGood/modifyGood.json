@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "selectBox": "../../components/selectBox/selectBox"
-  }
+  },
+  "enablePullDownRefresh": false
 }

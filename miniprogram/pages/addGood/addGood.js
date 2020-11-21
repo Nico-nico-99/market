@@ -3,6 +3,7 @@ Page({
 
   data: {
     //newCmId:-1,
+    isPublish:0,//判断用户是否发布了一个新的商品，用于辅助图片删除
     classcifyShow:"选择分类",
     addressShow:"选择地址",
     moneyNum: null,
@@ -25,18 +26,20 @@ Page({
   
   bindClassifyPickerChange: function (e) {
     var that=this;
+    var index = parseInt(e.detail.value)
     this.setData({
-      address: e.detail.value,
-      classcifyShow: that.data.selectArrayClassify[e.detail.value]
+      address: index,
+      classcifyShow: that.data.selectArrayClassify[index]
     })
   
   },
 
   bindAddressPickerChange: function (e) {
     var that = this;
+    var index = parseInt(e.detail.value)
     this.setData({
-      classify: e.detail.value,
-      addressShow: that.data.selectArrayAddress[e.detail.value]
+      classify: index,
+      addressShow: that.data.selectArrayAddress[index]
     })
     
   },
@@ -243,6 +246,7 @@ Page({
         } 
       }
     })
+     return false;
    } else if (this.data.price ==0){
      wx.showModal({
        title: "温馨提示", // 提示的标题
@@ -259,6 +263,7 @@ Page({
          }
        }
      })
+     return false;
    } else if (this.data.price >50000){
      wx.showModal({
        title: "温馨提示", // 提示的标题
@@ -275,12 +280,15 @@ Page({
          }
        }
      })
+     return false;
    }
    //检验无误后将商品价格转化为字符串
+    var priceToFixed=this.data.price.toFixed(2)
     this.setData({
-      price: this.data.price.toFixed(2),
+      price: priceToFixed,
     });
-   
+    console.log(this.data)
+
     wx.request({
       url: "http://maggiemarket.design:8080/api/myStore/publish",
       // header: {
@@ -298,7 +306,8 @@ Page({
         isNew: this.data.is_new
       },
       success:function(res){
-        //console.log(res.data)
+        console.log(res)
+        this.data.isPublish=1;
         wx.showModal({
           title: "温馨提示", // 提示的标题
           content: "发布商品成功", // 提示的内容
@@ -308,15 +317,30 @@ Page({
           confirmText: "确定", // 确认按钮的文字，最多4个字符
           confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
           success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              wx.navigateBack({
+                delta: 2
+              })
+           }
           }
         })
-
       },
-      complete: function (res) {
+      fail: function (res) {
         if (res == null || res.data == null) {
           console.error('网络请求失败');
           return;
         }
+        wx.showModal({
+          title: "发布失败", // 提示的标题
+          content: "请检查网络", // 提示的内容
+          showCancel: false, // 是否显示取消按钮，默认true
+          //cancelText: "取消", // 取消按钮的文字，最多4个字符
+          //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+          confirmText: "确定", // 确认按钮的文字，最多4个字符
+          confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+          
+        })
       }
     })
     
@@ -357,7 +381,24 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log(this.data.isPublish);
+    console.log("我卸载啦");
+    //删除用户没有发布商品却上传到服务器上的图片
+    if (this.data.isPublish==0){
+      var pictureUrls = this.data.pictureUrls;
+      console.log(pictureUrls)
+      //在这里要发送http请求，在服务器上删除对应的图片
+      wx.request({
+        url: "http://maggiemarket.design:8080/api/myStore/deleteImgs",
+        method: "POST",
+        data: {
+          url: pictureUrls
+        },
+        success: function (res) {
+          console.log(res)
+        },
+      })
+    }
   },
 
   /**

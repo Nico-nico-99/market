@@ -29,5 +29,5 @@
   </view>
 
   <view bindtap='to_addGood'>
-    <image class="add_goods_btn" src='/images/add.png'></image>
+    <image class="add_goods_btn" src='http://119.29.33.219:8081/picture/images/add.png'></image>
   </view>

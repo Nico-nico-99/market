@@ -78,8 +78,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/home/home",
-					"pathName": "pages/home/home",
+					"name": "pages/myStore/myStore",
+					"pathName": "pages/myStore/myStore",
 					"query": "",
 					"scene": null
 				},

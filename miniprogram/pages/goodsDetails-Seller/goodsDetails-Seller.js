@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "id": -1,//商品id
-    "picture_url_List": [],//urlId: 0  urlSrc:.....
+    cmId: -1,//商品id
+    picture_url_List: [],//urlId: 0  urlSrc:.....
     commodityInfo:{},
     contactInfo:""
 
@@ -25,19 +25,38 @@ Page({
 
   /* 下架按钮事件 */
   reject: function (e) {
-    console.log("下架该商品，商品id为：" + this.data.good.cm_id)
+    //var that=this
+    var cmIdNum = parseInt(this.data.cmId)
+    //console.log(typeof (this.data.cmId))
+    console.log("下架该商品，商品id为：" + this.data.cmId)
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/myStore/withdraw',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data: {
+        cmId: cmIdNum,
+        userId: 1
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log(res)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {//在这里根据id请求相关数据用于展示，并赋值id到页面的变量id
-    this.getCertainComInfo()
     var id = options.cmId
     console.log(id)
     this.setData({
-      id: 1
+      cmId: id
     })
+    //请求详情数据
+    this.getCertainComInfo()
   },
 
   getCertainComInfo:function(){
@@ -49,16 +68,16 @@ Page({
       },
       method: 'POST',
       data: {
-        cmId: 1
+        cmId: this.data.cmId,
+        userId:1
       },
       //请求后台数据成功
       success: function (res) {
-        console.log(res)
         that.setData({
           picture_url_List:res.data.urlList,
           commodityInfo: res.data.commodityInfo,
           contactInfo: res.data.contactInfo
-        })
+         })
       }
 
     })

@@ -18,14 +18,43 @@ Page({
    * 获取输入框内容
    */
   bindSearchInput: function (e) {
-    this.searchInput = e.detail.value
+    this.setData({
+      searchInput: e.detail.value
+    })
   },
 
   /**
    * 购买记录搜索
    */
   gotoSearch: function(e){
-    console.log("购买记录搜索: ", this.searchInput)
+    console.log("购买记录搜索: ", this.data.searchInput)
+
+    var app = getApp()
+    var that = this
+    var userId = app.globalData.userId
+
+    wx.request({
+      method: "POST",
+      url: 'http://maggiemarket.design:8080/api/userCenter/userBoughts/search',//获取搜索结果
+      data: {
+        userId: userId,
+        search: that.data.searchInput
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取搜索结果');
+        console.log(res)
+ 
+        that.setData({
+          goodsList: res.data.commodityList,
+        })        
+      },
+      fail: function(error){
+        console.log("获取搜索结果失败！");
+      },
+    })
   },
   
   /**
@@ -37,18 +66,18 @@ Page({
 
     var timeOfTransaction;
     var orderId;
+    var timeOfReserve;
 
     this.data.orderList.forEach(function(c){
       if(c['cmId'] == id){
         timeOfTransaction = c['timeOfTransaction']
         orderId = c['orderId']
+        timeOfReserve = c['timeOfReserve']
       }
     })
-    console.log("订单id为" + orderId)
-    console.log("商品交易时间为" + timeOfTransaction)
 
     wx.navigateTo({
-      url: 'historyOrders/historyOrders?id=' + id + '&timeOfTransaction=' + timeOfTransaction + '&orderId=' + orderId//给订单详情页传递商品id,
+      url: 'historyOrders/historyOrders?id=' + id + '&timeOfTransaction=' + timeOfTransaction + '&orderId=' + orderId + '&timeOfReserve=' + timeOfReserve//给订单详情页传递商品id,
     })
     console.log("----------------------------------订单详情----------------------------------")  
   },

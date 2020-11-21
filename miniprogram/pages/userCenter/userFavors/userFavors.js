@@ -16,14 +16,43 @@ Page({
    * 获取输入框内容
    */
   bindSearchInput: function (e) {
-    this.searchInput = e.detail.value
+    this.setData({
+      searchInput: e.detail.value
+    })
   },
 
   /**
    * 收藏夹搜索
    */
   gotoSearch: function(e){
-    console.log("收藏夹搜索: ", this.searchInput)
+    console.log("收藏夹搜索: ", this.data.searchInput)
+
+    var app = getApp()
+    var that = this
+    var userId = app.globalData.userId
+
+    wx.request({
+      method: "POST",
+      url: 'http://maggiemarket.design:8080/api/userCenter/userFavors/search',//获取搜索结果
+      data: {
+        userId: userId,
+        search: that.data.searchInput
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取搜索结果');
+        console.log(res)
+ 
+        that.setData({
+          goodsList: res.data.commodityList,
+        })        
+      },
+      fail: function(error){
+        console.log("获取搜索结果失败！");
+      },
+    })
   },
 
   /**

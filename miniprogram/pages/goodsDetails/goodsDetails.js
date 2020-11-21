@@ -44,27 +44,6 @@ Page({
     })
   },
 
-  /* 举报按钮事件 */
-  accuse: function(e){
-    console.log("举报该商品，商品id为：" + this.data.id)
-    var that = this;
-    wx.request({
-      url: 'http://maggiemarket.design:8080/api/commodity/accuse',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: 'POST',
-      data:{
-        cmId: this.data.id,
-        userId: this.data.userId
-      },
-      //请求后台数据成功
-      success: function (res) {
-        console.log("举报商品请求" + res.data.errorCode)
-      }
-    })
-  },
-
   /* 收藏按钮事件 */
   collect: function(e){
     console.log("收藏该商品，商品id为：" + this.data.id)

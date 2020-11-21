@@ -17,14 +17,43 @@ Page({
    * 获取输入框内容
    */
   bindSearchInput: function (e) {
-    this.searchInput = e.detail.value
+    this.setData({
+      searchInput: e.detail.value
+    })
   },
-
+ 
   /**
    * 预订商品搜索
    */
   gotoSearch: function(e){
-    console.log("预订商品搜索: ", this.searchInput)
+    console.log("预订商品搜索: ", this.data.searchInput)
+
+    var app = getApp()
+    var that = this
+    var userId = app.globalData.userId
+
+    wx.request({
+      method: "POST",
+      url: 'http://maggiemarket.design:8080/api/userCenter/userBookings/search',//获取搜索结果
+      data: {
+        userId: userId,
+        search: that.data.searchInput
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('成功从后端获取搜索结果');
+        console.log(res)
+ 
+        that.setData({
+          goodsList: res.data.commodityList,
+        })        
+      },
+      fail: function(error){
+        console.log("获取搜索结果失败！");
+      },
+    })
   },
 
   /**
@@ -63,7 +92,7 @@ Page({
             success: function (res) {
               if(res.data.success){
                 console.log('成功确认收货');
-                //提示取消成功
+                //提示收货成功
                 wx.showToast({
                 title: '确认收货成功',
                 icon: 'none',
@@ -71,7 +100,7 @@ Page({
               }
               else{
                 console.log("确认收货失败！");
-                //提示取消成功
+                //提示收货失败
                 wx.showToast({
                 title: '确认收货失败，请重新操作',
                 icon: 'none',        
@@ -80,7 +109,7 @@ Page({
             },
             fail: function(error){
               console.log("确认收货失败: " + error);
-              //提示取消成功
+              //提示收货失败
               wx.showToast({
               title: '确认收货失败，请重新操作',
               icon: 'none',        
