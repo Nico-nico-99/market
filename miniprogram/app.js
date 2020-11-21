@@ -20,8 +20,8 @@ App({
       userImageUrl: '../../../images/userImage.png',//用户头像 //测试请用“../../../images/userImage.png”
 
       hasUserInfo: false,//用户登陆状态，测试登录功能请用“false”，测试其他请用“true”    
-
-      themeColor: "#27aff6",
+      
+      themeColor: "#27aff6",//主题色
     }
   }
 })
