@@ -10,12 +10,26 @@ Page({
     // 卖家商品列表
     commodityList: [],
     // 筛选类型及下标
-    sortType:['价格最低', '时间最新', '价格最高', '时间最久'],
-    sortType_index: "0",
     address: ['全部', '大学城', '五山', '国际', '其他'],
     new:['非全新', '全新','全部'],
     address_index: "0",
     new_index: "2",
+  },
+
+  // 发货地选择器改变事件
+  addressPickerChange: function(e) {
+    console.log('发货地picker发生选择改变，携带值为', e.detail.value)
+    this.setData({
+      address_index: e.detail.value
+    })
+  },
+
+  // 新旧程度选择器改变事件
+  newPickerChange: function(e) {
+    console.log('新旧程度picker发生选择改变，携带值为', e.detail.value)
+    this.setData({
+      new_index: e.detail.value
+    })
   },
 
   /**

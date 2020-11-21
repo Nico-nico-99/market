@@ -15,9 +15,11 @@ Page({
     searchType: ['商品', '用户'],
     searchType_index: "0",
     
-    // 筛选类型及下标
+    // 排序类型及下标
     sortType:['价格最低', '时间最新', '价格最高', '时间最久'],
     sortType_index: "0",
+
+    // 筛选类型及下标
     address: ['全部', '大学城', '五山', '国际', '其他'],
     new:['非全新', '全新','全部'],
     address_index: "0",
@@ -36,11 +38,29 @@ Page({
       searchType_index: e.detail.value
     })
   },
+
   // 排序类型选择器改变事件
   sortPickerChange: function(e) {
     console.log('排序类型picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       sortType_index: e.detail.value
+    })
+  },
+
+  // 筛选类型选择器改变事件
+  // 发货地
+  addressPickerChange: function(e) {
+    console.log('发货地picker发生选择改变，携带值为', e.detail.value)
+    this.setData({
+      address_index: e.detail.value
+    })
+  },
+
+  // 新旧程度
+  newPickerChange: function(e) {
+    console.log('新旧程度picker发生选择改变，携带值为', e.detail.value)
+    this.setData({
+      new_index: e.detail.value
     })
   },
 
@@ -73,22 +93,6 @@ Page({
         }
       })
     }
-  },
-
-  // 发货地选择器改变事件
-  addressPickerChange: function(e) {
-    console.log('发货地picker发生选择改变，携带值为', e.detail.value)
-    this.setData({
-      address_index: e.detail.value
-    })
-  },
-
-  // 新旧程度选择器改变事件
-  newPickerChange: function(e) {
-    console.log('新旧程度picker发生选择改变，携带值为', e.detail.value)
-    this.setData({
-      new_index: e.detail.value
-    })
   },
 
   // 跳转至商品详情页面事件
