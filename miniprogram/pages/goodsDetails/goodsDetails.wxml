@@ -61,15 +61,20 @@
 </view>
 <!-- 联系方式end -->
 
+<!-- 举报按钮or提示begin -->
+<button class="tip-off" wx:if="{{commodity.state != 6}}" bindtap="accuse">举报</button>
+<text class="tip-off" wx:if="{{commodity.state == 6}}">该商品曾被举报过，请谨慎购买</text>
+<!-- 举报按钮or提示end -->
+
 <!-- 功能按钮begin -->
-  <button class="tip-off" bindtap="accuse">举报</button>
 <view class="btn-box">
   <!-- 收藏按钮 -->
     <!-- 未收藏状态 -->
     <button class="btn" wx:if="{{!collected}}" bindtap="collect">收藏</button>
     <!-- 收藏状态 -->
-    <button class="btn" wx:if="{{collected}}" bindtap="recollect">取消收藏</button>
+    <button class="btn" wx:if="{{collected}}" bindtap="collectCancel">取消收藏</button>
   <!-- 预订按钮 -->
-  <button class="btn" style="margin-left: 10px;" bindtap="reserve">预订</button>
+  <button class="btn"  wx:if="{{commodity.state != 4 && commodity.state != 5 }}" style="margin-left: 10px;" bindtap="reserve">预订</button>
+  <button class="btn"  wx:if="{{commodity.state == 4 && commodity.state == 5 }}" style="margin-left: 10px;" bindtap="reserveCancel">取消预订</button>
 </view>
 <!-- 功能按钮end-->

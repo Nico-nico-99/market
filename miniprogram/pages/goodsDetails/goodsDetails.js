@@ -16,7 +16,9 @@ Page({
     // 商品联系方式
     contactInfo: "",  
     // 商品收藏状态
-    collected: true,  
+    collected: true,
+    // 商品状态
+    state: -1,  
     commodity:{},
     urlList:[]
   },
@@ -67,6 +69,9 @@ Page({
   collect: function(e){
     console.log("收藏该商品，商品id为：" + this.data.id)
     var that = this;
+    if(userId == -1){
+      console.log("未登录")
+    }
     wx.request({
       url: 'http://maggiemarket.design:8080/api/commodity/collection',
       header: {
@@ -86,7 +91,7 @@ Page({
       }
     })
   },
-  recollect: function(e){
+  collectCancel: function(e){
     console.log("取消收藏该商品，商品id为：" + this.data.id)
     var that = this;
     wx.request({
@@ -129,6 +134,25 @@ Page({
       }
     })
   },
+  reserveCancel: function(e){
+    console.log("取消预订该商品，商品id为：" + this.data.id)
+    var that = this;
+    wx.request({
+      url: 'http://maggiemarket.design:8080/api/commodity/reserveCancel',
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      data:{
+        cmId: this.data.id,
+        userId: this.data.userId
+      },
+      //请求后台数据成功
+      success: function (res) {
+        console.log("取消预订商品请求" + res.data.errorCode)
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -165,7 +189,7 @@ Page({
           commodity: res.data.commodityInfo,
           urlList: res.data.urlList,
           contactInfo: res.data.contactInfo,
-          collected: res.data.collected
+          collected: res.data.collected,
         })
       }
     })
