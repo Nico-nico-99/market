@@ -13,7 +13,7 @@ Page({
 
     // 搜索类型及下标
     searchType: ['商品', '用户'],
-    searchType_index: "1",
+    searchType_index: "0",
     
     // 筛选类型及下标
     sortType:['价格最低', '时间最新', '价格最高', '时间最久'],
@@ -28,32 +28,6 @@ Page({
 
     // 用户列表
     userList: [],
-    userList: [
-      {
-        "userId": 1,
-        "contactInformation": "12345678901",
-        "nickname": "Jerry",
-        "defaultShippingAddress": "wushan",
-        "grade": 2018,
-        "authority": 1
-      },
-      {
-          "userId": 4,
-          "contactInformation": "12345678904",
-          "nickname": "Begin",
-          "defaultShippingAddress": "guangzhou",
-          "grade": 2019,
-          "authority": 0
-      },
-      {
-          "userId": 5,
-          "contactInformation": "12345678905",
-          "nickname": "Beyond",
-          "defaultShippingAddress": "beijing",
-          "grade": 2018,
-          "authority": 0
-      }
-    ]
   },
   // 搜索类型选择器改变事件
   typePickerChange: function(e) {
@@ -75,6 +49,7 @@ Page({
     if(e.detail.value.searchInput!=""){
       console.log('form发生了submit事件，携带数据为：', e.detail.value)
       var that = this;
+      var type = this.data.searchType_index;
       wx.request({
         url: 'http://maggiemarket.design:8080/api/home/search',
         header: {
@@ -84,10 +59,17 @@ Page({
         data: e.detail.value,
         //请求后台数据成功
         success: function (res) {
-          console.log("搜索商品请求" + res.data.errorCode)
-          that.setData({
-            commodityList: res.data.commodityList
-          })
+          console.log("搜索请求" + res.data.errorCode)
+          if(type == "0"){
+            that.setData({
+              commodityList: res.data.commodityList
+            })
+          }
+          else{
+            that.setData({
+              userList: res.data.userList
+            })       
+          }
         }
       })
     }

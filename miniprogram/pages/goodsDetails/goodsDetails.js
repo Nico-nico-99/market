@@ -166,8 +166,7 @@ Page({
   onLoad: function (options) {
     var id = options.id
     var app = getApp();
-    // var userId = app.globalData.userId;
-    var userId = -1;  // test
+    var userId = app.globalData.userId;
     this.setData({
       id: id,
       userId: userId

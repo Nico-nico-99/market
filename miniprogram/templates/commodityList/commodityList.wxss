@@ -1,4 +1,4 @@
-/* miniprogram/templates/goodsListsItem3/goodsListItem3.wxss */
+/* miniprogram/templates/commodityList/commodityList.wxss */
 
 /*********************** 商品模块样式 ***********************/
 .goods-container{
