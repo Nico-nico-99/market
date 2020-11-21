@@ -93,7 +93,7 @@
 <!-- 用户列表begin --> 
 <view wx:if="{{searchType_index == 1}}">
   <block wx:for='{{userList}}' wx:key='this'>
-    <view class="users-box">
+    <view class="users-box" bindtap="toUserStore" data-userid="{{item.userId}}">
       <!-- 用户名 -->
       <view class="name">{{item.nickname}}</view>
       <!-- 用户信息 -->

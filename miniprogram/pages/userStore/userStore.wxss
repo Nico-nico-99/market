@@ -1,0 +1,32 @@
+/* pages/userStore/userStore.wxss */
+
+/* 引入商品样式 */
+@import "../../templates/commodityList/commodityList.wxss";
+
+/*筛选方式样式*/
+.filter_area {
+  float: right;
+  background-color: #79d3ff;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter_area .title {
+  padding: 10px;
+  color: #fff;
+  font-size: large;
+}
+.filter_area text {
+  padding: 5px;
+}
+.filter_area picker {
+  background-color: #fff;
+  color: #0082bf;
+  height: 30px;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140rpx;
+}

@@ -13,6 +13,7 @@
     "pages/userCenter/userCenter",
     "pages/userConsole/userConsole",
     "pages/adminCenter/adminCenter",
+    "pages/userStore/userStore",
     "pages/index/index",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",

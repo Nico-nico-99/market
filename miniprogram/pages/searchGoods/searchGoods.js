@@ -10,8 +10,12 @@ Page({
       {value: 'goods', name: '商品', checked: 'true'},
       {value: 'shops', name: '店铺'},
     ],
+
+    // 搜索类型及下标
     searchType: ['商品', '用户'],
     searchType_index: "1",
+    
+    // 筛选类型及下标
     sortType:['价格最低', '时间最新', '价格最高', '时间最久'],
     sortType_index: "0",
     address: ['全部', '大学城', '五山', '国际', '其他'],
@@ -111,6 +115,18 @@ Page({
     console.log("前往商品详情" + "商品id为" + id)
     wx.navigateTo({
       url: '../../pages/goodsDetails/goodsDetails?id=' + id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+
+  // 跳转至用户详情页面事件
+  toUserStore: function(e){
+    var sellerId = e.currentTarget.dataset.userid;
+    console.log("前往用户详情" + "用户id为" + sellerId)
+    wx.navigateTo({
+      url: '../../pages/userStore/userStore?sellerId=' + sellerId,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

@@ -1,0 +1,38 @@
+<!--pages/userStore/userStore.wxml-->
+<!-- 引入商品模板 -->
+<import src="../../templates/commodityList/commodityList.wxml"/>
+
+<!-- 筛选begin -->
+<view class="filter_area">
+<text class="title">筛选</text>
+  <!-- 发货地picker -->
+  <text>发货地</text>
+  <picker bindchange="addressPickerChange" value="{{address_index}}" range="{{address}}" name="address">
+    <view>
+    {{address[address_index]}}
+    </view>
+  </picker>
+  <!-- 新旧程度picker -->
+  <text>新旧程度</text>
+  <picker bindchange="newPickerChange" value="{{new_index}}" range="{{new}}" name="new">
+    <view>
+    {{new[new_index]}}
+    </view>
+  </picker>
+</view>
+<!-- 筛选end -->
+
+<!-- 卖家商品begin -->
+<view class="goods-container">
+  <block wx:for='{{commodityList}}' wx:key='this'> 
+    <!-- 显示全部商品 --> 
+    <view wx:if="{{classify_index == 0}}"> 
+      <template is='commodityList' data='{{...item}}'></template>
+    </view> 
+    <!-- 显示筛选分类后的商品 -->
+    <view wx:if="{{item.classify == classify_index}}">
+      <template is='commodityList' data='{{...item}}'></template>
+    </view> 
+  </block>
+</view>
+<!-- 卖家商品end -->
