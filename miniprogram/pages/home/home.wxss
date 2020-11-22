@@ -36,7 +36,7 @@ swiper {
   flex: 1;
 }
 .Classify_Nav text {
-  color: #27aff6;
+  color: #666;
   flex: 1;
   display: flex;
   justify-content: center;
