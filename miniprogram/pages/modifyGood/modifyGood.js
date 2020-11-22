@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId:-1,
     isModify: 0,
    //用来保存修改后商品信息的变量
     classcifyShow: "选择分类",
@@ -34,6 +35,8 @@ Page({
    */
   onLoad: function (options) {
     //从上个页面传递过来的参数，得到商品基本信息
+    var app = getApp()
+    var userId = app.globalData.userId
     var good = JSON.parse(decodeURIComponent(options.good))
     console.log(good)
     if(good.isNew==1){//商品全新
@@ -41,7 +44,8 @@ Page({
       this.data.items[1].check = 'False'
     }
     this.setData({
-      goodBefore:good
+      goodBefore:good,
+      userId: userId
       //classcifyShow: good.,
       //addressShow: "选择地址",
     })
@@ -134,6 +138,7 @@ Page({
   chooseImg: function (e) {//选择图片上传
     var that = this;
     var imgs = this.data.imgs;//当前已经选择的图片数组
+    var userId=this.data.userId;
     var pictureUrls = that.data.pictureUrls
     if (imgs.length >= 9) {//如果当前图片数组已经等于三，就不能再选择
       wx.showModal({
@@ -184,7 +189,7 @@ Page({
               //   'Content-Type': 'multipart/form-data'
               // },
               formData: {
-                'userId': 1
+                'userId': userId
               },
               success: function (res) {//在这里获取图片在服务器上的url，进一步给数组imgsURL赋值，代码待补充
                 //console.log(res) //接口返回网络路径
@@ -265,6 +270,7 @@ Page({
   },
 
   modify: function (e) {//点击发布商品按钮
+    var userId=this.data.userId;
     var that=this;
     //在这里带上商品id未参数，请求修改商品信息
     if (this.data.price == -1) {
@@ -338,7 +344,7 @@ Page({
         classify: this.data.classify,
         details: this.data.details,
         price: this.data.price,
-        userId: 1,
+        userId: userId,
         address: this.data.address,
         pictureUrls: this.data.pictureUrls,
         isNew: this.data.is_new

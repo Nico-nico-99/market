@@ -51,6 +51,38 @@
   color:#000;
   margin-left: 24rpx;
 }
+.add_goods_btn{
+  position:fixed;
+  width:120rpx; 
+  height:120rpx;
+  border-radius: 50%;
+  bottom:30rpx;
+  right:20rpx;
+}
+.noCommodityCon{
+  margin-top: 250rpx;
+  width:750rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center ;
+  font-size:40rpx;
+  color: #27aff6;
+
+}
+
+/************************* 提示语样式 ***********************/
+.tipstext{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  position: relative;
+  top: 10vw;
+
+  font-size: 13px;
+  color: darkgray;
+}
+/***********************************************************/
 .button{
   position:fixed;
   bottom:50rpx;
@@ -66,15 +98,3 @@
 .add_goods_btn_hover{
   opacity: 1;
 }
-.noCommodityCon{
-  margin-top: 250rpx;
-  width:750rpx;
-  display:flex;
-  flex-direction:column;
-  align-items:center ;
-  font-size:40rpx;
-  color: #27aff6;
-
-}
-
-

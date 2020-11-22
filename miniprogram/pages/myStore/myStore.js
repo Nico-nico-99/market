@@ -6,11 +6,10 @@ Page({
    */
   data: {
     commodityList: [],
-
-    hover: false,
+    hasUserInfo:false
   },
 
-  to_addGood: function() {//跳转到发布商品页面
+  to_addGood: function () {//跳转到发布商品页面
     wx.navigateTo({
       url: '../addGood/addGood',
     })
@@ -26,10 +25,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var app = getApp()
+    var hasUserInfo = app.globalData.hasUserInfo
+    console.log(hasUserInfo)
+    this.setData({
+      hasUserInfo: hasUserInfo
+    })
+    if (this.data.hasUserInfo){
     this.getGoodsList()
+    }
   },
 
   getGoodsList() {
+    var app = getApp()
+    var userId = app.globalData.userId
     var that = this;
     wx.request({
       url: 'http://maggiemarket.design:8080/api/myStore/getMyGoods',
@@ -38,7 +47,7 @@ Page({
       },
       method:'POST',
       data:{
-        userId:1
+        userId: userId
       },
       //请求后台数据成功
       success: function (res) {
@@ -61,7 +70,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getGoodsList()
+    var app = getApp()
+    var hasUserInfo = app.globalData.hasUserInfo
+    console.log(hasUserInfo)
+    this.setData({
+      hasUserInfo: hasUserInfo
+    })
+    if (this.data.hasUserInfo) {
+      this.getGoodsList()
+    }
   },
 
   /**
@@ -84,7 +101,15 @@ Page({
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading()//在标题栏中显示加载
     //重新获取列表
-    this.getGoodsList()
+    var app = getApp()
+    var hasUserInfo = app.globalData.hasUserInfo
+    console.log(hasUserInfo)
+    this.setData({
+      hasUserInfo: hasUserInfo
+    })
+    if (this.data.hasUserInfo) {
+      this.getGoodsList()
+    }
     
     wx.hideNavigationBarLoading()//完成停止加载
     wx.stopPullDownRefresh()//停止下拉刷新

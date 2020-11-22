@@ -6,6 +6,7 @@ Page({
    */
   data: {
     cmId: -1,//商品id
+    userId:-1,
     picture_url_List: [],//urlId: 0  urlSrc:.....
     commodityInfo:{},
     contactInfo:""
@@ -25,23 +26,40 @@ Page({
 
   /* 下架按钮事件 */
   reject: function (e) {
-    //var that=this
-    var cmIdNum = parseInt(this.data.cmId)
-    //console.log(typeof (this.data.cmId))
-    console.log("下架该商品，商品id为：" + this.data.cmId)
-    wx.request({
-      url: 'http://maggiemarket.design:8080/api/myStore/withdraw',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: 'POST',
-      data: {
-        cmId: cmIdNum,
-        userId: 1
-      },
-      //请求后台数据成功
+    var that=this
+    wx.showModal({
+      title: "温馨提示", // 提示的标题
+      content: "您确定要下架该商品吗？", // 提示的内容
+      showCancel: true, // 是否显示取消按钮，默认true
+      cancelText: "取消", // 取消按钮的文字，最多4个字符
+      cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+      confirmText: "确定", // 确认按钮的文字，最多4个字符
+      confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
       success: function (res) {
-        console.log(res)
+        if (res.confirm) {
+          console.log('用户点击确定')
+          var cmIdNum = parseInt(that.data.cmId)
+          //console.log(typeof (this.data.cmId))
+          console.log("下架该商品，商品id为：" + that.data.cmId)
+          wx.request({
+            url: 'http://maggiemarket.design:8080/api/myStore/withdraw',
+            header: {
+              'content-type': 'application/json'
+            },
+            method: 'POST',
+            data: {
+              cmId: cmIdNum,
+              userId: that.data.userId
+            },
+            //请求后台数据成功
+            success: function (res) {
+              console.log(res)
+              wx.navigateBack({
+                delta: 2
+              })
+            }
+          })
+        }
       }
     })
   },
@@ -50,10 +68,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {//在这里根据id请求相关数据用于展示，并赋值id到页面的变量id
+    var app = getApp()
+    var userId = app.globalData.userId
     var id = options.cmId
     console.log(id)
     this.setData({
-      cmId: id
+      cmId: id,
+      userId: userId
     })
     //请求详情数据
     this.getCertainComInfo()
@@ -69,7 +90,7 @@ Page({
       method: 'POST',
       data: {
         cmId: this.data.cmId,
-        userId:1
+        userId: this.data.userId
       },
       //请求后台数据成功
       success: function (res) {

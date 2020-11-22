@@ -3,9 +3,9 @@ Page({
 
   data: {
     //newCmId:-1,
-    isPublish:0,//判断用户是否发布了一个新的商品，用于辅助图片删除
-    classcifyShow:"选择分类",
-    addressShow:"选择地址",
+    isPublish: 0,//判断用户是否发布了一个新的商品，用于辅助图片删除
+    classcifyShow: "选择分类",
+    addressShow: "选择地址",
     moneyNum: null,
     name: " ",
     details: " ",
@@ -21,17 +21,17 @@ Page({
       { name: 'False', value: 0, checked: 'true' },
     ],
     selectArrayClassify: ["选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
-    selectArrayAddress: ["选择地址", "大学城", "五山", "国际","其他"]
+    selectArrayAddress: ["选择地址", "大学城", "五山", "国际", "其他"]
   },
-  
+
   bindClassifyPickerChange: function (e) {
-    var that=this;
+    var that = this;
     var index = parseInt(e.detail.value)
     this.setData({
       address: index,
       classcifyShow: that.data.selectArrayClassify[index]
     })
-  
+
   },
 
   bindAddressPickerChange: function (e) {
@@ -41,7 +41,7 @@ Page({
       classify: index,
       addressShow: that.data.selectArrayAddress[index]
     })
-    
+
   },
 
 
@@ -87,11 +87,12 @@ Page({
     }
     return num
   },
-   
+
 
   radioChange: function (e) {//是否全新函数
+    var num = parseInt(e.detail.value)
     this.setData({
-      is_new: e.detail.value
+      is_new: num
     })
   },
 
@@ -154,8 +155,8 @@ Page({
               success: function (res) {//在这里获取图片在服务器上的url，进一步给数组imgsURL赋值，代码待补充
                 //console.log(res) //接口返回网络路径
                 console.log(res.data)
-                var dataStr=res.data
-                var begin = dataStr.indexOf("u")+6;
+                var dataStr = res.data
+                var begin = dataStr.indexOf("u") + 6;
                 dataStr = dataStr.slice(begin, -2)
                 pictureUrls.push(dataStr);
                 //console.log(pictureUrls)
@@ -168,10 +169,10 @@ Page({
         }
         //  console.log(imgs);
         that.setData({
-          imgs:imgs,
+          imgs: imgs,
           pictureUrls: pictureUrls
         });
-        
+
       }
     });
 
@@ -192,7 +193,7 @@ Page({
       data: {
         url: [ImgToDelete]
       },
-      success:function(res){
+      success: function (res) {
         //console.log(res)
       },
       complete: function (res) {
@@ -205,7 +206,7 @@ Page({
     })
     this.setData({
       imgs: imgs,
-      pictureUrls: pictureUrls 
+      pictureUrls: pictureUrls
     });
   },
   // 预览图片
@@ -229,63 +230,63 @@ Page({
   },
 
   upload: function (e) {//点击发布商品按钮
-    var that = this
-
-   //判断金额填写范围是否合法
-   if(this.data.price==-1){
-    wx.showModal({
-      title: "温馨提示", // 提示的标题
-      content: "请输入商品价格", // 提示的内容
-      showCancel: false, // 是否显示取消按钮，默认true
-      //cancelText: "取消", // 取消按钮的文字，最多4个字符
-      //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
-      confirmText: "确定", // 确认按钮的文字，最多4个字符
-      confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
-      success: function (res) {
-        console.log("接口调用成功的回调函数");
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } 
-      }
-    })
-     return false;
-   } else if (this.data.price ==0){
-     wx.showModal({
-       title: "温馨提示", // 提示的标题
-       content: "请输入大于零的价格", // 提示的内容
-       showCancel: false, // 是否显示取消按钮，默认true
-       //cancelText: "取消", // 取消按钮的文字，最多4个字符
-       //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
-       confirmText: "确定", // 确认按钮的文字，最多4个字符
-       confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
-       success: function (res) {
-         console.log("接口调用成功的回调函数");
-         if (res.confirm) {
-           console.log('用户点击确定')
-         }
-       }
-     })
-     return false;
-   } else if (this.data.price >50000){
-     wx.showModal({
-       title: "温馨提示", // 提示的标题
-       content: "请输入小于50000的商品价格", // 提示的内容
-       showCancel: false, // 是否显示取消按钮，默认true
-       //cancelText: "取消", // 取消按钮的文字，最多4个字符
-       //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
-       confirmText: "确定", // 确认按钮的文字，最多4个字符
-       confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
-       success: function (res) {
-         console.log("接口调用成功的回调函数");
-         if (res.confirm) {
-           console.log('用户点击确定')
-         }
-       }
-     })
-     return false;
-   }
-   //检验无误后将商品价格转化为字符串
-    var priceToFixed = parseFloat(this.data.price).toFixed(2)
+    var that = this;
+    //判断金额填写范围是否合法
+    if (this.data.price == -1) {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请输入商品价格", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if (this.data.price == 0) {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请输入大于零的价格", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if (this.data.price > 50000) {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请输入小于50000的商品价格", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    }
+    //检验无误后将商品价格转化为字符串
+    var priceFloat = parseFloat(this.data.price)
+    var priceToFixed = priceFloat.toFixed(2)
     this.setData({
       price: priceToFixed,
     });
@@ -302,14 +303,14 @@ Page({
         classify: this.data.classify,
         details: this.data.details,
         price: this.data.price,
-        userId:1,
+        userId: 1,
         address: this.data.address,
         pictureUrls: this.data.pictureUrls,
         isNew: this.data.is_new
       },
-      success:function(res){
+      success: function (res) {
         console.log(res)
-        that.data.isPublish=1;
+        that.data.isPublish = 1;
         wx.showModal({
           title: "温馨提示", // 提示的标题
           content: "发布商品成功", // 提示的内容
@@ -324,12 +325,12 @@ Page({
               wx.navigateBack({
                 delta: 2
               })
-           }
+            }
           }
         })
       },
       fail: function (res) {
-        if (res == null || res.data == null) {
+        if (res == null || res == null) {
           console.error('网络请求失败');
           return;
         }
@@ -341,12 +342,12 @@ Page({
           //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
           confirmText: "确定", // 确认按钮的文字，最多4个字符
           confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
-          
+
         })
       }
     })
-    
-    
+
+
 
   },
 
@@ -354,10 +355,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
- 
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -386,7 +387,7 @@ Page({
     console.log(this.data.isPublish);
     console.log("我卸载啦");
     //删除用户没有发布商品却上传到服务器上的图片
-    if (this.data.isPublish==0){
+    if (this.data.isPublish == 0) {
       var pictureUrls = this.data.pictureUrls;
       console.log(pictureUrls)
       //在这里要发送http请求，在服务器上删除对应的图片

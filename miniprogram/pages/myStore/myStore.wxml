@@ -2,11 +2,13 @@
 <wxs module="filters" src="../../utils/addmul.wxs"></wxs>
 <!-- 为了保留两位小数显示数字，引入文件 -->
 
-<view class ="noCommodityCon"wx:if="{{commodityList.length==0}}">
-<text>您还没有发布任何商品哦</text>
-<text>点击右下角发布商品吧！</text>
+<view class="tipstext" wx:if="{{hasUserInfo==false}}">
+--您还没有登录哦，请到用户中心登录--
 </view>
 
+<view class="tipstext" wx:elif="{{commodityList.length==0}}">
+--您还没有发布商品哦，点击右下角发布--
+</view>
 
  <view class="goods-container"  wx:else>
     <view class="goods-box" wx:for="{{commodityList}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cmId}}">
@@ -28,7 +30,9 @@
     </view>
   </view>
 
-  <view bindtap='to_addGood'
+
+    <view bindtap='to_addGood'
         class="add_goods_btn" hover-class="add_goods_btn_hover">
     <image src='http://119.29.33.219:8081/picture/images/add.png' class="button"></image>
+
   </view>
