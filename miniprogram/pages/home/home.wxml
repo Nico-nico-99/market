@@ -26,11 +26,11 @@
 
 <!-- 分类导航栏begin -->
 <view class="Classify_Nav">
-  <image src="../../images/classify/所有分类.png" mode="aspectFit"  bindtap="classify" data-classify="0"/>
-  <image src="../../images/classify/电子产品.png" mode="aspectFit" bindtap="classify" data-classify="1"/> 
-  <image src="../../images/classify/讲座票.png" mode="aspectFit" bindtap="classify" data-classify="2"/>     
-  <image src="../../images/classify/校园网.png" mode="aspectFit" bindtap="classify" data-classify="3"/>
-  <image src="../../images/classify/日用品.png" mode="aspectFit" bindtap="classify" data-classify="4"/>   
+  <image src="http://119.29.33.219:8081/picture/images/classify/all.png" mode="aspectFit"  bindtap="classify" data-classify="0"/>
+  <image src="http://119.29.33.219:8081/picture/images/classify/eletricCommodities.png" mode="aspectFit" bindtap="classify" data-classify="1"/> 
+  <image src="http://119.29.33.219:8081/picture/images/classify/lectureTickets.png" mode="aspectFit" bindtap="classify" data-classify="2"/>     
+  <image src="http://119.29.33.219:8081/picture/images/classify/schoolWIFI.png" mode="aspectFit" bindtap="classify" data-classify="3"/>
+  <image src="http://119.29.33.219:8081/picture/images/classify/dailySupplies.png" mode="aspectFit" bindtap="classify" data-classify="4"/>   
 </view>
 <view class="Classify_Nav">
   <text bindtap="classify" data-classify="0">所有分类</text>
@@ -40,11 +40,11 @@
   <text bindtap="classify" data-classify="4">日用品</text>
 </view>
 <view class="Classify_Nav">
-  <image src="../../images/classify/书籍.png" mode="aspectFit" bindtap="classify" data-classify="5"/> 
-  <image src="../../images/classify/文具.png" mode="aspectFit" bindtap="classify" data-classify="6"/>
-  <image src="../../images/classify/美妆.png" mode="aspectFit" bindtap="classify" data-classify="7"/> 
-  <image src="../../images/classify/零食.png" mode="aspectFit" bindtap="classify" data-classify="8"/>
-  <image src="../../images/classify/其他.png" mode="aspectFit" bindtap="classify" data-classify="9"/>
+  <image src="http://119.29.33.219:8081/picture/images/classify/books.png" mode="aspectFit" bindtap="classify" data-classify="5"/> 
+  <image src="http://119.29.33.219:8081/picture/images/classify/stationary.png" mode="aspectFit" bindtap="classify" data-classify="6"/>
+  <image src="http://119.29.33.219:8081/picture/images/classify/makeups.png" mode="aspectFit" bindtap="classify" data-classify="7"/> 
+  <image src="http://119.29.33.219:8081/picture/images/classify/snakes.png" mode="aspectFit" bindtap="classify" data-classify="8"/>
+  <image src="http://119.29.33.219:8081/picture/images/classify/others.png" mode="aspectFit" bindtap="classify" data-classify="9"/>
 </view>
 <view class="Classify_Nav">
   <text bindtap="classify" data-classify="5">书籍</text> 
