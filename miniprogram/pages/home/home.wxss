@@ -28,7 +28,7 @@ swiper {
 }
 /* 分类导航栏样式 */
 .Classify_Nav {
-  padding: 10px;
+  padding: 6px;
   display: flex;
 }
 .Classify_Nav image {
@@ -37,11 +37,16 @@ swiper {
 }
 .Classify_Nav text {
   color: #666;
+  
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+
+  position: relative;
+  top: -1.8vw;
+
+  font-size: 3.89vw;
 }
 /* 提示词样式 */
 .tipstext {

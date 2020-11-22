@@ -51,13 +51,20 @@
   color:#000;
   margin-left: 24rpx;
 }
-.add_goods_btn{
+.button{
   position:fixed;
-  width:120rpx; 
-  height:120rpx;
+  bottom:50rpx;
+  right:15rpx;
+
+  width:100rpx; 
+  height:100rpx;
   border-radius: 50%;
-  bottom:30rpx;
-  right:20rpx;
+}
+.add_goods_btn{
+  opacity: 0.3;
+}
+.add_goods_btn_hover{
+  opacity: 1;
 }
 .noCommodityCon{
   margin-top: 250rpx;

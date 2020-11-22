@@ -5,11 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    commodityList: []
+    commodityList: [],
 
+    hover: false,
   },
 
-  to_addGood: function () {//跳转到发布商品页面
+  to_addGood: function() {//跳转到发布商品页面
     wx.navigateTo({
       url: '../addGood/addGood',
     })
