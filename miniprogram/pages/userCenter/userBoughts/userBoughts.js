@@ -15,18 +15,13 @@ Page({
   },
 
   /**
-   * 获取输入框内容
-   */
-  bindSearchInput: function (e) {
-    this.setData({
-      searchInput: e.detail.value
-    })
-  },
-
-  /**
    * 购买记录搜索
    */
   gotoSearch: function(e){
+    this.setData({
+      searchInput: e.detail.value
+    })
+
     console.log("购买记录搜索: ", this.data.searchInput)
 
     var app = getApp()
@@ -44,15 +39,17 @@ Page({
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
+        console.log('---------------------------------------------------------------------')
         console.log('成功从后端获取搜索结果');
         console.log(res)
- 
+        console.log('---------------------------------------------------------------------')
+
         that.setData({
           goodsList: res.data.commodityList,
         })        
       },
       fail: function(error){
-        console.log("获取搜索结果失败！");
+        console.log("获取搜索结果失败: " + error);
       },
     })
   },
@@ -76,6 +73,8 @@ Page({
       }
     })
 
+    console.log("timeOfReserve: " + timeOfReserve)
+    
     wx.navigateTo({
       url: 'historyOrders/historyOrders?id=' + id + '&timeOfTransaction=' + timeOfTransaction + '&orderId=' + orderId + '&timeOfReserve=' + timeOfReserve//给订单详情页传递商品id,
     })
@@ -116,8 +115,10 @@ Page({
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
+        console.log('---------------------------------------------------------------------')
         console.log('成功从后端获取购买记录商品列表');
         console.log(res)
+        console.log('---------------------------------------------------------------------')
 
         that.setData({
           goodsList: res.data.commodityList,
@@ -125,7 +126,7 @@ Page({
         })
       },
       fail: function(error){
-        console.log("获取购买记录商品列表失败！");
+        console.log("获取购买记录商品列表失败: " + error);
       },
     })
   },

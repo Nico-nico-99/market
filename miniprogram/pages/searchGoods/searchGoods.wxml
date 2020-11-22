@@ -30,7 +30,7 @@
 
   <!-- 搜索输入框begin -->
   <view class="centre_input">
-  <input type="text" name="searchInput" placeholder="请输入想要搜索的内容"></input>
+  <input type="text" name="searchInput" placeholder="请输入想要搜索的内容" focus="true" confirm-type="search" adjust-position="false" bindconfirm="gotoSearch"></input>
   </view>
   <!-- 搜索输入框end -->
 

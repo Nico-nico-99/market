@@ -2,15 +2,15 @@
 
 /************************* 标题样式 *************************/
 .title{
-  align-items: center;
-
   overflow-x: hidden;
+  overflow-y: hidden;
+
   width: 100vw;
+  height: 13vw;
 }
 /* 背景图 */
 .title.background{
   width: 100vw;
-  height: 13vw;
 
   background-color: #27aff6;
 }
@@ -18,24 +18,25 @@
 .title.text{
   position: relative;
   left:4vw;
-  top: 2.5vw;
 
   height: 8vw;
   width: 85vw;
+
+  position: relative;
+  top: 2.5vw;
 
   background-color: white;
   border-radius: 10rpx;
 }
 /* button */
 .title.button{
-  position: relative;
-  left: 59vw;
-  top: -6vw;
-}
-/* search */
-.title.search{
-  height: 5vw;
+  display: flex;
+  align-items: center;
   width: 5vw;
+
+  position: relative;
+  right: -92vw;
+  top: -8vw;
 }
 /***********************************************************/
 
@@ -62,7 +63,7 @@
   width: 25vw;
   height: 25vw;
 
-  border-radius: 10px;
+  border-radius: 20rpx;
 }
 /* info */
 .goods-box.info{
@@ -94,7 +95,7 @@
   white-space: nowrap;
   overflow: hidden;
 
-  font-size: 18px;
+  font-size: 5vw;
 
   color:#000;
 }
@@ -116,7 +117,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 3.895vw;
 
   align-items: center;
 
@@ -137,7 +138,7 @@
   height: 7vw;
 
   overflow: hidden;
-  font-size: 15px;
+  font-size: 3.895vw;
 
   color:black;
   background-color: rgb(221, 221, 221);
@@ -155,7 +156,7 @@
   width: 16vw;
   height: 20vw;
 
-  border-radius: 5px;
+  border-radius: 10rpx;
 
   font-size: 3.5vw;
   font-weight: 700;
@@ -191,7 +192,7 @@
   position: relative;
   top: 10vw;
 
-  font-size: 13px;
+  font-size: 3.88vw;
   color: darkgray;
 }
 /***********************************************************/

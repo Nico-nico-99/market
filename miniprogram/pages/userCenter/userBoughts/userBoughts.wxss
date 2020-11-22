@@ -2,15 +2,15 @@
 
 /************************* 标题样式 *************************/
 .title{
-  align-items: center;
-
   overflow-x: hidden;
+  overflow-y: hidden;
+
   width: 100vw;
+  height: 13vw;
 }
 /* 背景图 */
 .title.background{
   width: 100vw;
-  height: 13vw;
 
   background-color: #27aff6;
 }
@@ -18,24 +18,25 @@
 .title.text{
   position: relative;
   left:4vw;
-  top: 2.5vw;
 
   height: 8vw;
   width: 85vw;
+
+  position: relative;
+  top: 2.5vw;
 
   background-color: white;
   border-radius: 10rpx;
 }
 /* button */
 .title.button{
-  position: relative;
-  left: 59vw;
-  top: -6vw;
-}
-/* search */
-.title.search{
-  height: 5vw;
+  display: flex;
+  align-items: center;
   width: 5vw;
+
+  position: relative;
+  right: -92vw;
+  top: -8vw;
 }
 /***********************************************************/
 
@@ -51,7 +52,7 @@
   position: relative;
   top: 10vw;
 
-  font-size: 13px;
+  font-size: 3.88vw;
   color: darkgray;
 }
 /***********************************************************/

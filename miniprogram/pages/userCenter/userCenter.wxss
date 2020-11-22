@@ -38,7 +38,7 @@
 
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 5vw;
 }
 /***********************************************************/
 
@@ -48,13 +48,14 @@
   flex-direction: row;
 
   position: relative;
-  top: 10px;
+  top: 3vw;
 
   height: 15vw;
   width: 100vw;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background-color: white;
 }
@@ -68,14 +69,14 @@
 /* text */
 .userFavors.text{
   position: relative;
-  left: 7.8vw;
+  left: -26.7vw;
 
-  font-size: 14px;
+  font-size: 3.89vw;
 }
 /* arrow */
 .userFavors.arrow{
   position: relative;
-  left: 69.6vw;
+  right: 4vw;
   height: 5vw;
   width: 5vw;
 }
@@ -87,13 +88,14 @@
   flex-direction: row;
 
   position: relative;
-  top: 13px;
+  top: 4vw;
 
   height: 15vw;
   width: 100vw;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background-color: white;
 }
@@ -107,14 +109,14 @@
 /* text */
 .userBookings.text{
   position: relative;
-  left: 9.7vw;
+  left: -25.7vw;
 
-  font-size: 14px;
+  font-size: 3.89vw;
 }
 /* arrow */
 .userBookings.arrow{
   position: relative;
-  left: 71.4vw;
+  right: 4vw;
   height: 5vw;
   width: 5vw;
 }
@@ -126,13 +128,14 @@
   flex-direction: row;
 
   position: relative;
-  top: 16px;
+  top: 5vw;
 
   height: 15vw;
   width: 100vw;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background-color: white;
 }
@@ -146,14 +149,14 @@
 /* text */
 .userBoughts.text{
   position: relative;
-  left: 8.5vw;
+  left: -26.2vw;
 
-  font-size: 14px;
+  font-size: 3.89vw;
 }
 /* arrow */
 .userBoughts.arrow{
   position: relative;
-  left: 70.5vw;
+  right: 4vw;
   height: 5vw;
   width: 5vw;
 }
@@ -165,13 +168,14 @@
   flex-direction: row;
 
   position: relative;
-  top: 25px;
+  top: 8vw;
 
   height: 15vw;
   width: 100vw;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background-color: white;
 }
@@ -185,14 +189,14 @@
 /* text */
 .userInfo.text{
   position: relative;
-  left: 9.5vw;
+  left: -25.7vw;
 
-  font-size: 14px;
+  font-size: 3.89vw;
 }
 /* arrow */
 .userInfo.arrow{
   position: relative;
-  left: 71.6vw;
+  right: 4vw;
   height: 5vw;
   width: 5vw;
 }
@@ -204,13 +208,14 @@
   flex-direction: row;
 
   position: relative;
-  top: 34px;
+  top: 11vw;
 
   height: 15vw;
   width: 100vw;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background-color: white;
 }
@@ -224,14 +229,14 @@
 /* text */
 .admin.text{
   position: relative;
-  left: 9.5vw;
+  left: -26vw;
 
-  font-size: 14px;
+  font-size: 3.89vw;
 }
 /* arrow */
 .admin.arrow{
   position: relative;
-  left: 71.6vw;
+  right: 4vw;
   height: 5vw;
   width: 5vw;
 }
@@ -239,12 +244,16 @@
 
 /*********************** 退出按钮样式 ***********************/
 .exit.exitButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: relative;
-  top: 50px;
+  top: 18vw;
 
   color: white;
 
-  font-size: 16px;
+  font-size: 4.5vw;
 
   background-color: #27aff6;
 }

@@ -103,6 +103,11 @@ Page({
                         that.setData({
                           hasUserInfo: app.globalData.hasUserInfo,
                         })
+
+                        wx.showToast({
+                          title: '登录成功',
+                          icon: 'none'
+                        })
                       },
                       fail: function(error){
                         wx.hideLoading();
@@ -168,6 +173,7 @@ Page({
         title: '提示',
         content: '当前处于未登录状态，无法进入我的收藏页面。',
         showCancel: false,
+        confirmColor: getApp().globalData.themeColor,
       })
     }
     else{
@@ -189,6 +195,7 @@ Page({
         title: '提示',
         content: '当前处于未登录状态，无法进入我预订的页面。',
         showCancel: false,
+        confirmColor: getApp().globalData.themeColor,
       })
     }
     else{
@@ -210,6 +217,7 @@ Page({
         title: '提示',
         content: '当前处于未登录状态，无法进入我买到的页面。',
         showCancel: false,
+        confirmColor: getApp().globalData.themeColor,
       })
     }
     else{
@@ -231,6 +239,7 @@ Page({
         title: '提示',
         content: '当前处于未登录状态，无法进入个人信息页面。',
         showCancel: false,
+        confirmColor: getApp().globalData.themeColor,
       })
     }
     else{
@@ -256,6 +265,7 @@ Page({
         title: '提示',
         content: '当前处于未登录状态，无法进入管理员端。',
         showCancel: false,
+        confirmColor: getApp().globalData.themeColor,
       })
     }
     else{
@@ -297,6 +307,7 @@ Page({
               title: '提示',
               content: '该账号非管理员，无法获取管理员权限。',
               showCancel: false,
+              confirmColor: getApp().globalData.themeColor,
             })
           }    
         },
@@ -356,6 +367,11 @@ Page({
           if(!app.globalData.hasUserInfo){
             console.log("成功退出登录")
     
+            wx.showToast({
+              title: '退出帐号成功',
+              icon: 'none'
+            })
+      
             //成功退出登陆后
             wx.hideLoading()
             that.refreshPageData()
@@ -372,6 +388,7 @@ Page({
           title: '提示',
           content: '当前处于未登录状态，无法退出登录。',
           showCancel: false,
+          confirmColor: getApp().globalData.themeColor,
         })
       }  
     }

@@ -20,7 +20,7 @@
 .title.text{
   color: white;
 
-  font-size: 18px;
+  font-size: 5vw;
   font-weight: bold;
 }
 /***********************************************************/
@@ -60,7 +60,7 @@
   position: relative;
   top: 10vw;
 
-  font-size: 13px;
+  font-size: 3.88vw;
   color: darkgray;
 }
 /***********************************************************/

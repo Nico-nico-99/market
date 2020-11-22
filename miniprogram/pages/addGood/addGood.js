@@ -229,6 +229,8 @@ Page({
   },
 
   upload: function (e) {//点击发布商品按钮
+    var that = this
+
    //判断金额填写范围是否合法
    if(this.data.price==-1){
     wx.showModal({
@@ -283,7 +285,7 @@ Page({
      return false;
    }
    //检验无误后将商品价格转化为字符串
-    var priceToFixed=this.data.price.toFixed(2)
+    var priceToFixed = parseFloat(this.data.price).toFixed(2)
     this.setData({
       price: priceToFixed,
     });
@@ -307,7 +309,7 @@ Page({
       },
       success:function(res){
         console.log(res)
-        this.data.isPublish=1;
+        that.data.isPublish=1;
         wx.showModal({
           title: "温馨提示", // 提示的标题
           content: "发布商品成功", // 提示的内容

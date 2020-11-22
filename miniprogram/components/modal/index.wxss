@@ -24,19 +24,19 @@
 }
 .wx-modal_dialog .wx-modal_title{
   color: #000;
-  font-size: 36rpx;
+  font-size: 4.5vw;
   font-weight: bold; 
   padding-top: 20rpx;
   text-align: center;
 }
 .wx-modal_dialog .wx-modal_content{
-  font-size: 15px;
+  font-size: 3.89vw;
   text-align: center;
   padding: 35rpx 58rpx;
   border-bottom: 1rpx solid #D2D3D5;
 }
 .wx-modal_dialog .wx-modal_prompt{
-  font-size: 15px;
+  font-size: 3.9vw;
   text-align: left;
   padding: 35rpx 58rpx;
   border-bottom: 1rpx solid #D2D3D5;
@@ -54,7 +54,17 @@
   border-left: 1rpx solid #D2D3D5;
 }
 .wx-modal_diaBtn .wx-modal_cfirbtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #27aff6;
+  font-size: 3.9vw;
+}
+.wx-modal_diaBtn .wx-modal_celbtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.9vw;
 }
 .wx-modal_diaBtn .wx-modal_btn::after{
   border: none;

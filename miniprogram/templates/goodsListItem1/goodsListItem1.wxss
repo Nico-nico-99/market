@@ -22,7 +22,7 @@
   width: 25vw;
   height: 25vw;
 
-  border-radius: 10px;
+  border-radius: 20rpx;
 }
 /* info */
 .goods-box.info{
@@ -54,7 +54,7 @@
   white-space: nowrap;
   overflow: hidden;
 
-  font-size: 18px;
+  font-size: 5vw;
 
   color:#000;
 }
@@ -74,7 +74,7 @@
 .goods-box.info.priceANDaddress.price{
   text-overflow: ellipsis;
   white-space: nowrap;overflow: hidden;
-  font-size: 15px;
+  font-size: 3.895vw;
 
   align-items: center;
 
@@ -98,7 +98,7 @@
   height: 7vw;
 
   overflow: hidden;
-  font-size: 15px;
+  font-size: 3.895vw;
 
   color:black;
   background-color: rgb(221, 221, 221);

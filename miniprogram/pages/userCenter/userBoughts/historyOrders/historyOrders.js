@@ -43,6 +43,8 @@ Page({
       timeOfReserve: options.timeOfReserve,
     })
 
+    console.log("timeOfReserve: " + that.data.timeOfReserve)
+
     this.getCommodityDetail()
   },
 
@@ -63,8 +65,11 @@ Page({
       },
       //请求后台数据成功
       success: function (res) {
+        console.log('---------------------------------------------------------------------')
         console.log("商品详情请求成功")
         console.log(res)
+        console.log('---------------------------------------------------------------------')
+
         that.setData({
           commodityInfo: res.data.commodityInfo,
         })

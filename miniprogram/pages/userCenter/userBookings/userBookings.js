@@ -14,18 +14,13 @@ Page({
     },
 
   /**
-   * 获取输入框内容
-   */
-  bindSearchInput: function (e) {
-    this.setData({
-      searchInput: e.detail.value
-    })
-  },
- 
-  /**
    * 预订商品搜索
    */
   gotoSearch: function(e){
+    this.setData({
+      searchInput: e.detail.value
+    })
+
     console.log("预订商品搜索: ", this.data.searchInput)
 
     var app = getApp()
@@ -89,21 +84,39 @@ Page({
             header: {
               'content-type': 'application/json'//要根据后端信息进行修改
             },
-            success: function (res) {
+            success: function (res) {              
               if(res.data.success){
+                console.log('---------------------------------------------------------------------')
                 console.log('成功确认收货');
+                console.log(res)
+                console.log('---------------------------------------------------------------------')
+
                 //提示收货成功
                 wx.showToast({
-                title: '确认收货成功',
-                icon: 'none',
+                  title: '收货成功',
+                  icon: 'none',
+
+                  complete: function(){
+                    //返回刷新页面
+                    that.onShow()
+                  }
                 })
               }
               else{
+                console.log('---------------------------------------------------------------------')
                 console.log("确认收货失败！");
+                console.log(res)
+                console.log('---------------------------------------------------------------------')
+
                 //提示收货失败
                 wx.showToast({
-                title: '确认收货失败，请重新操作',
-                icon: 'none',        
+                  title: '收货失败，请重新操作',
+                  icon: 'none',        
+                  
+                  complete: function(){
+                    //返回刷新页面
+                    that.onShow()
+                  }
                 })    
               }
             },
@@ -111,14 +124,16 @@ Page({
               console.log("确认收货失败: " + error);
               //提示收货失败
               wx.showToast({
-              title: '确认收货失败，请重新操作',
-              icon: 'none',        
+                title: '收货失败，请重新操作',
+                icon: 'none', 
+                
+                complete: function(){
+                  //返回刷新页面
+                  that.onShow()
+                }
               })    
             },
           })
-
-          //返回刷新页面
-          that.onShow()
         }
       }
     })
@@ -155,19 +170,37 @@ Page({
             },
             success: function (res) {
               if(res.data.success){
+                console.log('---------------------------------------------------------------------')
                 console.log('成功取消订单');
+                console.log(res)
+                console.log('---------------------------------------------------------------------')
+
                 //提示取消成功
                 wx.showToast({
-                title: '订单取消成功',
-                icon: 'none',
+                  title: '订单取消成功',
+                  icon: 'none',
+
+                  complete: function(){
+                    //返回刷新页面
+                    that.onShow()
+                  }
                 })
               }
               else{
+                console.log('---------------------------------------------------------------------')
                 console.log("取消订单失败！");
+                console.log(res)
+                console.log('---------------------------------------------------------------------')
+
                 //提示取消失败
                 wx.showToast({
-                title: '订单取消失败，请重新操作',
-                icon: 'none',        
+                  title: '订单取消失败，请重新操作',
+                  icon: 'none',    
+                  
+                  complete: function(){
+                    //返回刷新页面
+                    that.onShow()
+                  }
                 })    
               }
             },
@@ -175,14 +208,16 @@ Page({
               console.log("取消订单失败: " + error);
               //提示取消失败
               wx.showToast({
-              title: '订单取消失败，请重新操作',
-              icon: 'none',        
+                title: '订单取消失败，请重新操作',
+                icon: 'none',        
+              
+                complete: function(){
+                  //返回刷新页面
+                  that.onShow()
+                }
               })    
             },
           })
-
-          //返回刷新页面
-          that.onShow()
         }
       }
     })
@@ -235,15 +270,17 @@ Page({
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
+        console.log('---------------------------------------------------------------------')
         console.log('成功从后端获取订单商品列表');
         console.log(res)
+        console.log('---------------------------------------------------------------------')
 
         that.setData({
           goodsList: res.data.commodityList,
         })
       },
       fail: function(error){
-        console.log("获取订单商品列表失败！");
+        console.log("获取订单商品列表失败: " + error);
       },
     })
   },
