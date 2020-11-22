@@ -106,7 +106,7 @@
         <!-- <view class="deleteImg" data-index='0' catchtap="deleteImg">
           <image class="deleteImg" src="../../images/deleteImg.png"></image>
         </view> -->
-        <image class="deleteImg" src="../../images/deleteImg.png" data-index='{{index}}' catchtap="deleteImg"></image>
+        <image class="deleteImg" src="http://119.29.33.219:8081/picture/images/deleteImg.png" data-index='{{index}}' catchtap="deleteImg"></image>
 
       </view>
 

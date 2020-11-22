@@ -326,7 +326,7 @@ Page({
       return false;
     }
     //检验无误后将商品价格转化为字符串
-    var priceToFixed = this.data.price.toFixed(2)
+    var priceToFixed = parseFloat(this.data.price).toFixed(2)
     this.setData({
       price: priceToFixed,
     });

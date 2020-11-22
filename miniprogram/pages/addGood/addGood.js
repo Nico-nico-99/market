@@ -285,13 +285,15 @@ Page({
       return false;
     }
     //检验无误后将商品价格转化为字符串
-    var priceFloat = parseFloat(this.data.price)
-    var priceToFixed = priceFloat.toFixed(2)
+    var priceToFixed = parseFloat(this.data.price).toFixed(2)
     this.setData({
       price: priceToFixed,
     });
     console.log(this.data)
 
+    wx.showLoading({
+      title: '上传中',
+    })
     wx.request({
       url: "http://maggiemarket.design:8080/api/myStore/publish",
       // header: {
@@ -310,6 +312,8 @@ Page({
       },
       success: function (res) {
         console.log(res)
+
+        wx.hideLoading()
         that.data.isPublish = 1;
         wx.showModal({
           title: "温馨提示", // 提示的标题
