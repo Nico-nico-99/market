@@ -38,7 +38,7 @@
   <view class="right_btn">
   <button class="default" size="mini" formType="submit"
     hover-class="button-hover" hover-stop-propagation="false">
-    <cover-image class="" src="../../images/search.png">
+    <cover-image class="" src="http://119.29.33.219:8081/picture/images/search.png">
     </cover-image>
   </button>
   </view>

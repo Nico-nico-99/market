@@ -9,7 +9,7 @@ Page({
     swiperList: [
       {
         img_id: 1,
-        img_src: "../../images/pic1.png",
+        img_src: "http://119.29.33.219:8081/picture/images/pic1.png",
       },
       {
         img_id: 2,
