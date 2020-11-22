@@ -95,6 +95,42 @@ Page({
     }
   },
   gotoSearch: function(e) {
+    var searchInput = e.detail.value
+
+    if(searchInput != ""){
+      console.log('搜索：', searchInput)
+      var that = this;
+      var type = this.data.searchType_index;
+
+      wx.request({
+        url: 'http://maggiemarket.design:8080/api/home/search',
+        header: {
+          'content-type': 'application/json'
+        },
+        method: 'POST',
+        data: {
+          searchInput: searchInput,
+          searchType: that.data.searchType_index,
+          sortType: that.data.sortType_index,
+        },
+        //请求后台数据成功
+        success: function (res) {
+          console.log("搜索请求" + res.data.errorCode)
+          console.log(res)
+
+          if(type == "0"){
+            that.setData({
+              commodityList: res.data.commodityList
+            })
+          }
+          else{
+            that.setData({
+              userList: res.data.userList
+            })       
+          }
+        }
+      })
+    }
   },
 
   // 跳转至商品详情页面事件
