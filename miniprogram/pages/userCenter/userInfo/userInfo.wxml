@@ -74,7 +74,7 @@
                confirm-type="next" adjust-position="false"
                wx:if="{{change}}" disabled='{{false}}'
                                   style="color: black;"
-                                  bindconfirm="bindContactInput"/>
+                                  bindblur="bindContactInput"/>
       </view>
   </view>
 </view>
@@ -98,7 +98,8 @@
                confirm-type="done" adjust-position="false" 
                wx:if="{{change}}" disabled='{{false}}'
                                   style="color: black;"
-                                  bindconfirm="bindAddressInput"/>
+                                  bindconfirm="bindAddressInput"
+                                  bindblur="bindAddressInput"/>
       </view>
   </view>
 </view>
