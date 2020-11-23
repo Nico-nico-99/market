@@ -21,9 +21,9 @@ Page({
 
     // 筛选类型及下标
     address: ['全部', '大学城', '五山', '国际', '其他'],
-    new:['全部', '非全新', '全新'],
+    new:['非全新', '全新', '全部'],
     address_index: "0",
-    new_index: "0",
+    new_index: "2",
 
     // 商品列表
     commodityList: [],
