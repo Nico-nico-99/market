@@ -7,8 +7,8 @@ Page({
     classcifyShow: "选择分类",
     addressShow: "选择地址",
     moneyNum: null,
-    name: " ",
-    details: " ",
+    name: "",
+    details: "",
     price: -1,
     is_new: 0,
     classify: 0,
@@ -28,7 +28,7 @@ Page({
     var that = this;
     var index = parseInt(e.detail.value)
     this.setData({
-      address: index,
+      classify: index,
       classcifyShow: that.data.selectArrayClassify[index]
     })
 
@@ -38,7 +38,7 @@ Page({
     var that = this;
     var index = parseInt(e.detail.value)
     this.setData({
-      classify: index,
+      address: index,
       addressShow: that.data.selectArrayAddress[index]
     })
 
@@ -46,7 +46,7 @@ Page({
 
 
   comNameInput: function (e) {
-    var nametmp = e.detail.value;
+    var nametmp = e.detail.value.replace(/\s+/g, '');
     this.setData({
       name: nametmp
     })
@@ -54,7 +54,7 @@ Page({
 
   comDetail: function (e) {
     this.setData({
-      details: e.detail.value
+      details: e.detail.value.replace(/\s+/g, '')
     })
   },
 
@@ -95,9 +95,6 @@ Page({
       is_new: num
     })
   },
-
-
-
   chooseImg: function (e) {//选择图片上传
     var that = this;
     var imgs = this.data.imgs;//当前已经选择的图片数组
@@ -159,7 +156,13 @@ Page({
                 var begin = dataStr.indexOf("u") + 6;
                 dataStr = dataStr.slice(begin, -2)
                 pictureUrls.push(dataStr);
-                //console.log(pictureUrls)
+                console.log(pictureUrls);
+                that.setData({
+                  imgs: imgs,
+                  pictureUrls: pictureUrls
+                });
+                console.log(that.data.imgs);
+                console.log(that.data.pictureUrls);
               },
               fail: function (res) {
                 console.log(res);
@@ -167,15 +170,8 @@ Page({
             })
           }
         }
-        //  console.log(imgs);
-        that.setData({
-          imgs: imgs,
-          pictureUrls: pictureUrls
-        });
-
       }
     });
-
   },
   // 删除图片
   deleteImg: function (e) {
@@ -231,6 +227,41 @@ Page({
 
   upload: function (e) {//点击发布商品按钮
     var that = this;
+    if (this.data.name == "") {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "商品名不能为空", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if (this.data.details == "") {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "商品描述不能为空", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } 
     //判断金额填写范围是否合法
     if (this.data.price == -1) {
       wx.showModal({
@@ -284,13 +315,67 @@ Page({
       })
       return false;
     }
+
     //检验无误后将商品价格转化为字符串
     var priceToFixed = parseFloat(this.data.price).toFixed(2)
     this.setData({
       price: priceToFixed,
     });
-    console.log(this.data)
+    //判断是否输入了完整的信息
+    if(this.data.classify==0){
 
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请选择商品分类", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if(this.data.address == 0){
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请选择商品发货地址", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if (!(this.data.pictureUrls.length >0)) {
+      
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请选择至少一张图片", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    }
     wx.showLoading({
       title: '上传中',
     })
