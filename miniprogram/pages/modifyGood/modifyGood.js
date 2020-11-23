@@ -19,11 +19,11 @@ Page({
     address: 0,
     imgs: [],//图片在本地的路径
     pictureUrls: [],//用于在图片上传是暂时保存图片在服务器上的路径
-
     items: [
-      { name: 'True', value: 1 ,chaeck:'false'},
-      { name: 'False', value: 0, checked: 'true' },
+      { name: 'True', value: 1 ,checked:false},
+      { name: 'False', value: 0, checked: true},
     ],
+
     selectArrayClassify: ["选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
     selectArrayAddress: ["选择地址", "大学城", "五山", "国际", "其他"],
     //原商品信息
@@ -37,15 +37,24 @@ Page({
     //从上个页面传递过来的参数，得到商品基本信息
     var app = getApp()
     var userId = parseInt(app.globalData.userId)
+    var that=this;
     var good = JSON.parse(decodeURIComponent(options.good))
     console.log(good)
+    console.log(this.data.items[0].checked)
     if(good.isNew==1){//商品全新
-      this.data.items[0].check='true'
-      this.data.items[1].check = 'False'
+    
+      this.setData({
+        items: [
+          { name: 'True', value: 1, checked: true },
+          { name: 'False', value: 0, checked: false },
+        ],
+      })
+    
     }
+
     this.setData({
       goodBefore:good,
-      userId: userId
+      userId: userId,
       
     })
     this.setDataToPage()
@@ -58,6 +67,8 @@ Page({
       price: this.data.goodBefore.price,
       details: this.data.goodBefore.details,
       is_new: this.data.goodBefore.isNew,
+      
+
       classify: this.data.goodBefore.classify,
       address: this.data.goodBefore.address,
       classcifyShow: this.data.selectArrayClassify[this.data.goodBefore.classify],
@@ -112,10 +123,12 @@ Page({
   },
 
   radioChange: function (e) {//是否全新函数
+    //console.log(e.detail.value)
     this.setData({
-      is_new: e.detail.value
+      is_new: parseInt(e.detail.value)
     })
   },
+
 
   bindClassifyPickerChange: function (e) {
     var that = this;
@@ -424,9 +437,11 @@ Page({
       })
       return false;
     }
+   // console.log(this.data)
     wx.showLoading({
       title: '上传中',
     })
+    console.log("this.data.is_new" + this.data.is_new),
     wx.request({
       url: "http://maggiemarket.design:8080/api/myStore/modify",
       // header: {
@@ -445,7 +460,7 @@ Page({
         isNew: this.data.is_new
       },
       success: function (res) {
-        //console.log(res)
+        console.log(res)
         that.data.isModify = 1;
         wx.hideLoading();
         wx.showModal({
@@ -459,7 +474,7 @@ Page({
           success: function (res) {
             
             if (res.confirm) {
-              console.log('用户点击确定')
+              //console.log('用户点击确定')
               wx.navigateBack({
                 delta: 2
               })

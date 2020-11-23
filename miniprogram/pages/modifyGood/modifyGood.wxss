@@ -92,8 +92,20 @@
  
 }
 
+.radioGroupCon{
+  width:750rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.radioGroup{
+  width:500rpx;
+  display: flex;
+  flex-direction: row;
+
+}
 .radioTitleView{
-  width:250rpx;
+  width:280rpx;
   display: flex;
   align-items: center;
   justify-content: center;
