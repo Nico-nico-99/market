@@ -69,7 +69,7 @@ Page({
    */
   onLoad: function (options) {//在这里根据id请求相关数据用于展示，并赋值id到页面的变量id
     var app = getApp()
-    var userId = app.globalData.userId
+    var userId = parseInt(app.globalData.userId)
     var id = options.cmId
     console.log(id)
     this.setData({
