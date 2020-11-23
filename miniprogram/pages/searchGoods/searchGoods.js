@@ -16,14 +16,14 @@ Page({
     searchType_index: "0",
     
     // 排序类型及下标
-    sortType:['价格最低', '时间最新', '价格最高', '时间最久'],
+    sortType:['价格最低', '价格最高', '时间最新', '时间最久'],
     sortType_index: "0",
 
     // 筛选类型及下标
     address: ['全部', '大学城', '五山', '国际', '其他'],
-    new:['非全新', '全新','全部'],
+    new:['全部', '非全新', '全新'],
     address_index: "0",
-    new_index: "2",
+    new_index: "0",
 
     // 商品列表
     commodityList: [],
@@ -213,7 +213,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    //重新获取列表
+    this.onShow()
 
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
   },
 
   /**
