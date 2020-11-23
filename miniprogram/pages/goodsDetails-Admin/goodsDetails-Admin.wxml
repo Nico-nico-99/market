@@ -40,7 +40,7 @@
     <view wx:if="{{commodity.classify == 5 }}">书籍</view>
     <view wx:if="{{commodity.classify == 6 }}">文具</view>
     <view wx:if="{{commodity.classify == 7 }}">美妆</view>
-    <view wx:if="{{commodity.classify == 8 }}">零食</view>、
+    <view wx:if="{{commodity.classify == 8 }}">零食</view>
     <view wx:if="{{commodity.classify == 9 }}">其他</view>
   </view>
 </view>
