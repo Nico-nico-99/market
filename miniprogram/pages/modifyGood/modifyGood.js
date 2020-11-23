@@ -285,7 +285,7 @@ Page({
         confirmText: "确定", // 确认按钮的文字，最多4个字符
         confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
         success: function (res) {
-          console.log("接口调用成功的回调函数");
+          //console.log("接口调用成功的回调函数");
           if (res.confirm) {
             console.log('用户点击确定')
           }
@@ -381,7 +381,7 @@ Page({
         confirmText: "确定", // 确认按钮的文字，最多4个字符
         confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
         success: function (res) {
-          console.log("接口调用成功的回调函数");
+          //console.log("接口调用成功的回调函数");
           if (res.confirm) {
             console.log('用户点击确定')
           }
@@ -445,7 +445,7 @@ Page({
         isNew: this.data.is_new
       },
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         that.data.isModify = 1;
         wx.hideLoading();
         wx.showModal({
