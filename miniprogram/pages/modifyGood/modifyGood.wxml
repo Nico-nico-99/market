@@ -82,10 +82,9 @@
   </view>
 
 </view>
-
+ 
 <view class="gap"></view>
 
-<!-- 选择新的图片展示区 -->
 <!-- 加载图片 -->
 <view class="weui-uploader">
   <!-- 图片展示区 -->
@@ -107,7 +106,7 @@
         <!-- <view class="deleteImg" data-index='0' catchtap="deleteImg">
           <image class="deleteImg" src="../../images/deleteImg.png"></image>
         </view> -->
-        <image class="deleteImg" src="../../images/deleteImg.png"data-index='{{index}}' catchtap="deleteImg"></image>
+        <image class="deleteImg" src="http://119.29.33.219:8081/picture/images/deleteImg.png"data-index='{{index}}' catchtap="deleteImg"></image>
        
       </view>
 

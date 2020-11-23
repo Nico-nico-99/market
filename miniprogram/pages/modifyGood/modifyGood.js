@@ -36,7 +36,7 @@ Page({
   onLoad: function (options) {
     //从上个页面传递过来的参数，得到商品基本信息
     var app = getApp()
-    var userId = app.globalData.userId
+    var userId = parseInt(app.globalData.userId)
     var good = JSON.parse(decodeURIComponent(options.good))
     console.log(good)
     if(good.isNew==1){//商品全新
@@ -46,8 +46,7 @@ Page({
     this.setData({
       goodBefore:good,
       userId: userId
-      //classcifyShow: good.,
-      //addressShow: "选择地址",
+      
     })
     this.setDataToPage()
   },
@@ -63,6 +62,9 @@ Page({
       address: this.data.goodBefore.address,
       classcifyShow: this.data.selectArrayClassify[this.data.goodBefore.classify],
       addressShow: this.data.selectArrayAddress[this.data.goodBefore.address],
+      //
+      imgs:this.data.goodBefore.pictureUrls,//图片在本地的路径,实际上这里包含了一部分线上的路径
+      pictureUrls: this.data.goodBefore.pictureUrls,//用于在图片上传是暂时保存图片在服务器上的路径
     })
   },
 
@@ -273,6 +275,42 @@ Page({
     var userId=this.data.userId;
     var that=this;
     //在这里带上商品id未参数，请求修改商品信息
+    if (this.data.name == "") {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "商品名不能为空", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if (this.data.details == "") {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "商品描述不能为空", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    }
+    //判断金额填写范围是否合法
     if (this.data.price == -1) {
       wx.showModal({
         title: "温馨提示", // 提示的标题
@@ -325,13 +363,70 @@ Page({
       })
       return false;
     }
+
     //检验无误后将商品价格转化为字符串
     var priceToFixed = parseFloat(this.data.price).toFixed(2)
     this.setData({
       price: priceToFixed,
     });
-    console.log(that.data)
+    //判断是否输入了完整的信息
+    if (this.data.classify == 0) {
 
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请选择商品分类", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if (this.data.address == 0) {
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请选择商品发货地址", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    } else if (!(this.data.pictureUrls.length > 0)) {
+
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请选择至少一张图片", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        //cancelText: "取消", // 取消按钮的文字，最多4个字符
+        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
+    }
+    wx.showLoading({
+      title: '上传中',
+    })
     wx.request({
       url: "http://maggiemarket.design:8080/api/myStore/modify",
       // header: {
@@ -352,6 +447,7 @@ Page({
       success: function (res) {
         console.log(res)
         that.data.isModify = 1;
+        wx.hideLoading();
         wx.showModal({
           title: "温馨提示", // 提示的标题
           content: "修改商品成功", // 提示的内容
@@ -361,6 +457,7 @@ Page({
           confirmText: "确定", // 确认按钮的文字，最多4个字符
           confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
           success: function (res) {
+            
             if (res.confirm) {
               console.log('用户点击确定')
               wx.navigateBack({
