@@ -30,9 +30,8 @@
     </view>
   </view>
 
-
-    <view bindtap='to_addGood'
-        class="add_goods_btn" hover-class="add_goods_btn_hover">
+  <view bindtap='to_addGood'
+        class="add_goods_btn" hover-class="add_goods_btn_hover"wx:if="{{hasUserInfo==true}}">
     <image src='http://119.29.33.219:8081/picture/images/add.png' class="button"></image>
 
   </view>
