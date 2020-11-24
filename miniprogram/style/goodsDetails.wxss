@@ -11,6 +11,22 @@ swiper {
   width: 100%;
 }
 
+/* 背景样式 */
+.background{
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* 商品标题样式 */
+.goodTitle{
+  font-weight: bolder;
+  font-size: 50rpx;
+  line-height: 90rpx;
+  margin: 10rpx;
+  padding-left: 30rpx;
+}
+
 /* 商品价格及标签盒子样式 */
 .box{
   height: 30px;
@@ -21,8 +37,9 @@ swiper {
 .left_price{
   flex: 1;
   padding-right: 20rpx;
-  color: #66ccff;
-  align-items: center;
+  color: #27aff6;
+  text-align: left;
+  line-height: 30px;
   font-size: 40rpx;
 }
 /* 商品标签样式 */
@@ -31,38 +48,44 @@ swiper {
   margin-left: 10px;
   width: auto;
   text-align: center;
-  background-color: rgba(15, 1, 1, 0.205);
+  background-color: rgba(221,221,221);
+  border-radius: 5px;
 }
 
-/* 商品标题样式 */
-.goodTitle{
+/* 商品详情内容小标题样式 */
+.title{
   margin: 20rpx;
-  font-size: 50rpx;
+  font-size: 40rpx;
+  font-weight: bolder;
 }
 
 /* 商品详情样式 */
+.detailsTitle{
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: small;
+  padding: 10rpx;
+}
 .details{
-  margin: 0rpx 20rpx;
-  word-wrap:break-word;
-  word-break:normal;
-  text-align:justify;
+  margin: 20rpx;
+  display: block;
 }
 
-/* 联系方式标题样式 */
-.detailsTitle{
-  margin: 20rpx;
-  font-size: 40rpx;
-}
 /* 联系方式样式 */
-.details{
+.contactInfo{
   margin: 20rpx;
 }
 
 /* 举报小按钮样式 */
 .tip-off{
-  margin: 0rpx;
-  color: rgba(42, 30, 30, 0.404);
-  font-size: 10px;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: small;
+  padding: 10rpx;
 }
 
 /* 按钮样式 */
@@ -72,7 +95,7 @@ swiper {
 }
 .btn-box .btn{
   flex: 1;
-  background-color: #1296db;
+  background-color: #27aff6;
   color: white;
   font-size: 16px;
 }

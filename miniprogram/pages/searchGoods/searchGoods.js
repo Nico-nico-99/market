@@ -25,6 +25,9 @@ Page({
     address_index: "0",
     new_index: "0",
 
+    // 用户上次输入内容
+    user_input: "",
+
     // 商品列表
     commodityList: [],
 
@@ -64,9 +67,10 @@ Page({
     })
   },
 
-  // 搜索按钮表单提交事件
+  // 点击搜索按钮表单提交事件
   formSubmit(e) {
-    if(e.detail.value.searchInput!=""){
+    var input = e.detail.value.searchInput;
+    if(input != ""){
       console.log('form发生了submit事件，携带数据为：', e.detail.value)
       var that = this;
       var type = this.data.searchType_index;
@@ -82,21 +86,21 @@ Page({
           console.log("搜索请求" + res.data.errorCode)
           if(type == "0"){
             that.setData({
-              commodityList: res.data.commodityList
+              commodityList: res.data.commodityList,
             })
           }
           else{
             that.setData({
-              userList: res.data.userList
+              userList: res.data.userList,
             })       
           }
         }
       })
     }
   },
+  // 输入框回车提交表单函数
   gotoSearch: function(e) {
     var searchInput = e.detail.value
-
     if(searchInput != ""){
       console.log('搜索：', searchInput)
       var that = this;
