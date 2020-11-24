@@ -35,7 +35,7 @@
 
   background-color: #fff;
   border-radius: 15rpx;
-  color: #666;
+  color: black;
 
   font-size: 4vw;
 }

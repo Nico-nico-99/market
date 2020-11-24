@@ -27,6 +27,11 @@ Page({
   approve: function(e){
     console.log("审核通过该商品，商品id为：" + this.data.id)
     var that = this;
+
+    wx.showLoading({
+      title: '审核中',
+    })
+
     wx.request({
       url: 'http://maggiemarket.design:8080/api/admin/changeState',
       header: {
@@ -41,6 +46,24 @@ Page({
       success: function (res) {
         console.log(res)
         console.log("审核通过商品请求" + res.data.errorCode)
+
+        wx.hideLoading()
+        wx.showToast({
+          title: '审核成功',
+          icon: 'none'
+        })
+
+        //返回主页
+        wx.navigateTo({
+          url: '../adminCenter/adminCenter',
+        })    
+      },
+      fail: function(error) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '审核失败，请重新审核',
+          icon: 'none'
+        })
       }
     })
   },
@@ -49,6 +72,10 @@ Page({
   reject: function(e){
     console.log("下架该商品，商品id为：" + this.data.id)
     var that = this;
+    wx.showLoading({
+      title: '审核中',
+    })
+
     wx.request({
       url: 'http://maggiemarket.design:8080/api/admin/changeState',
       header: {
@@ -61,7 +88,25 @@ Page({
       },
       //请求后台数据成功
       success: function (res) {
+        console.log(res)
         console.log("审核下架商品请求" + res.data.errorCode)
+        wx.hideLoading()
+        wx.showToast({
+          title: '审核成功',
+          icon: 'none'
+        })
+
+        //返回主页
+        wx.navigateTo({
+          url: '../adminCenter/adminCenter',
+        })    
+      },
+      fail: function(error) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '审核失败，请重新审核',
+          icon: 'none'
+        })
       }
     })
   },

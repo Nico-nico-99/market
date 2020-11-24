@@ -174,7 +174,7 @@ Page({
   onLoad: function (options) {
     var id = options.id
     var app = getApp();
-    var isLogin =  app.hasuserInfo;
+    var isLogin =  app.globalData.hasUserInfo;
     if(isLogin == true){
       var userId = app.globalData.userId;
     }
