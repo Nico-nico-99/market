@@ -16,6 +16,11 @@
 </view>
 <!-- 图片end -->
 
+<view class="background">
+<!-- 商品标题begin -->
+<text class="goodTitle">{{commodity.name}}</text>
+<!-- 商品标题end -->
+
 <!-- 价格及标签栏begin -->
 <view class="box">
   <text class="left_price">￥{{filters.toFix(commodity.price)}}</text>
@@ -45,19 +50,20 @@
   </view>
 </view>
 <!-- 价格及标签栏end -->
-
-<!-- 商品标题begin -->
-<text class="goodTitle">{{commodity.name}}</text>
-<!-- 商品标题end -->
+</view>
 
 <!-- 商品详情begin -->
+<text class="detailsTitle">--商品详情--</text>
+<view class="background">
+<view class="title">商品说明</view>
 <text class="details">{{commodity.details}}</text>
+</view>
 <!-- 商品详情end -->
 
 <!-- 联系方式begin -->
-<view>
-  <view class="detailsTitle">联系方式</view>
-  <view class="details">{{contactInfo}}</view>
+<view class="background">
+  <view class="title">联系方式</view>
+  <view class="contactInfo">{{contactInfo}}</view>
 </view>
 <!-- 联系方式end -->
 
