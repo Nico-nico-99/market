@@ -174,11 +174,18 @@ Page({
   onLoad: function (options) {
     var id = options.id
     var app = getApp();
-    var userId = app.globalData.userId;
+    var isLogin =  app.hasuserInfo;
+    if(isLogin == true){
+      var userId = app.globalData.userId;
+    }
+    else{
+      userId = -1;
+    }
     this.setData({
       id: id,
       userId: userId
     })
+    console.log(userId);
     this.getCommodityDetail()
   },
 
