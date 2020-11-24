@@ -128,6 +128,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '年级/联系方式/收货地址为必填，不可为空，请重新填写。',
+        confirmColor: '#27aff6',
         showCancel: false,
       })
     }

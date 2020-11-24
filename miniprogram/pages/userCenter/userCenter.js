@@ -41,6 +41,7 @@ Page({
         wx.showModal({
           title: '提示',
           content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。',
+          confirmColor: '#27aff6',
           showCancel: false,
         })
       }
@@ -173,7 +174,7 @@ Page({
         title: '提示',
         content: '当前处于未登录状态，无法进入我的收藏页面。',
         showCancel: false,
-        confirmColor: getApp().globalData.themeColor,
+        confirmColor: '#27aff6',
       })
     }
     else{
@@ -195,7 +196,7 @@ Page({
         title: '提示',
         content: '当前处于未登录状态，无法进入我预订的页面。',
         showCancel: false,
-        confirmColor: getApp().globalData.themeColor,
+        confirmColor: '#27aff6',
       })
     }
     else{

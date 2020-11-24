@@ -175,6 +175,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '最多只能上传九张图片',
+        confirmColor: '#27aff6',
         success: function (res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -197,6 +198,7 @@ Page({
           wx.showModal({
             title: '提示',
             content: '最多只能上传九张图片',
+            confirmColor: '#27aff6',
             success: function (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
@@ -309,10 +311,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "商品名不能为空", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           //console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -326,10 +326,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "商品描述不能为空", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -345,10 +343,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "请输入商品价格", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -362,10 +358,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "请输入大于零的价格", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -379,10 +373,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "请输入小于50000的商品价格", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -405,10 +397,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "请选择商品分类", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           //console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -422,10 +412,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "请选择商品发货地址", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -440,10 +428,8 @@ Page({
         title: "温馨提示", // 提示的标题
         content: "请选择至少一张图片", // 提示的内容
         showCancel: false, // 是否显示取消按钮，默认true
-        //cancelText: "取消", // 取消按钮的文字，最多4个字符
-        //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
         confirmText: "确定", // 确认按钮的文字，最多4个字符
-        confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+        confirmColor: '#27aff6',
         success: function (res) {
           console.log("接口调用成功的回调函数");
           if (res.confirm) {
@@ -483,10 +469,8 @@ Page({
           title: "温馨提示", // 提示的标题
           content: "修改商品成功", // 提示的内容
           showCancel: false, // 是否显示取消按钮，默认true
-          //cancelText: "取消", // 取消按钮的文字，最多4个字符
-          //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
           confirmText: "确定", // 确认按钮的文字，最多4个字符
-          confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+          confirmColor: '#27aff6',
           success: function (res) {
             
             if (res.confirm) {
@@ -507,10 +491,8 @@ Page({
           title: "修改失败", // 提示的标题
           content: "请检查网络", // 提示的内容
           showCancel: false, // 是否显示取消按钮，默认true
-          //cancelText: "取消", // 取消按钮的文字，最多4个字符
-          //cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
           confirmText: "确定", // 确认按钮的文字，最多4个字符
-          confirmColor: "#576B95", // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+          confirmColor: '#27aff6',
         })
       }
     })

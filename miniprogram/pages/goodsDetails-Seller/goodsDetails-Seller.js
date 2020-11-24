@@ -51,7 +51,7 @@ Page({
       cancelText: "取消", // 取消按钮的文字，最多4个字符
       cancelColor: "#000000", // 取消按钮的文字颜色，必须是16进制格式的颜色字符串
       confirmText: "确定", // 确认按钮的文字，最多4个字符
-      confirmColor: getApp().globalData.themeColor, // 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串
+      confirmColor: '#27aff6',
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')

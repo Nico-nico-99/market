@@ -19,8 +19,6 @@ Page({
     collected: true,
     // 商品预订状态
     reserved: false,
-    // 商品信息
-    commodity:{},
     // 商品轮播图信息
     urlList:[]
   },
@@ -45,12 +43,12 @@ Page({
   /* 举报按钮事件 */
   accuse: function(e){
     console.log("举报该商品，商品id为：" + this.data.id)
-    var that = this;
     if(this.data.userId == -1){
       console.log("未登录")
       wx.showModal({
         title: '提示',
         content: '当前处于未登录状态，无法进行举报。',
+        confirmColor: '#27aff6',
         showCancel: false,
       })
     }
@@ -82,6 +80,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '当前处于未登录状态，无法进行收藏。',
+        confirmColor: '#27aff6',
         showCancel: false,
       })
     }
@@ -138,29 +137,31 @@ Page({
       wx.showModal({
         title: '提示',
         content: '当前处于未登录状态，无法进行预订。',
+        confirmColor: '#27aff6',
         showCancel: false,
       })
     }
     else{
-      wx.request({
-        url: 'http://maggiemarket.design:8080/api/commodity/reserve',
-        header: {
-          'content-type': 'application/json'
-        },
-        method: 'POST',
-        data:{
-          cmId: this.data.id,
-          userId: this.data.userId
-        },
-        //请求后台数据成功
-        success: function (res) {
-          console.log("预订商品请求" + res.data.errorCode)
-          that.setData({
-            reserved: true,
-          })
-        }
-      })
+            wx.request({
+              url: 'http://maggiemarket.design:8080/api/commodity/reserve',
+              header: {
+                'content-type': 'application/json'
+              },
+              method: 'POST',
+              data:{
+                cmId: this.data.id,
+                userId: this.data.userId
+              },
+              //请求后台数据成功
+              success: function (res) {
+                console.log("预订商品请求" + res.data.errorCode)
+                that.setData({
+                  reserved: true,
+                })
+              }
+            })
     }
+    
   },
   reserveCancel: function(e){
     console.log("取消预订该商品，商品id为：" + this.data.id)
