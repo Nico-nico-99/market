@@ -65,7 +65,7 @@
 
   <view class="section">
     <view class="section__title">类型</view>
-    <picker bindchange="bindClassifyPickerChange" value="{{index}}" range="{{selectArrayClassify}}">
+    <picker bindchange="bindClassifyPickerChange" value="{{classify}}" range="{{selectArrayClassify}}">
       <view class="picker">
         {{classcifyShow}}
       </view>
@@ -76,7 +76,7 @@
 
   <view class="section">
     <view class="section__title">发货地</view>
-    <picker bindchange="bindAddressPickerChange" value="{{index}}" range="{{selectArrayAddress}}">
+    <picker bindchange="bindAddressPickerChange" value="{{address}}" range="{{selectArrayAddress}}">
       <view class="pickerAddress">{{addressShow}}
       </view>
     </picker>

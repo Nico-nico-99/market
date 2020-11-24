@@ -18,7 +18,7 @@
       <text>商品名</text>
     </view>
     <view class="InputView">
-      <input class="input" placeholder="输入商品名称" maxlength="30" bindinput="comNameInput" />
+      <input class="input" placeholder="输入商品名称" maxlength="30" bindblur="comNameInput" bindconfirm="comNameInput"/>
     </view>
   </view>
 
@@ -30,7 +30,7 @@
     </view>
 
     <view class="detailInputView">
-      <textarea class="detailText" placeholder="输入商品描述（少于200字）" maxlength="200" bindblur="comDetail"></textarea>
+      <textarea class="detailText" placeholder="输入商品描述（少于200字）" maxlength="200" bindblur="comDetail" bindconfirm="comDetail"></textarea>
     </view>
   </view>
 
@@ -41,7 +41,7 @@
       <text>价格</text>
     </view>
     <view class="InputView">
-      <input class="input" type="digit" placeholder="输入商品价格" bindinput="inputedit" />
+      <input class="input" type="digit" placeholder="输入商品价格" bindblur="inputedit" />
     </view>
   </view>
 

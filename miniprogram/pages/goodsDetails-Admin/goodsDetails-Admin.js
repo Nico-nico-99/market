@@ -28,7 +28,7 @@ Page({
     console.log("审核通过该商品，商品id为：" + this.data.id)
     var that = this;
     wx.request({
-      url: 'http://maggiemarket.design:8080/api/userCenter/Admin/changeState',
+      url: 'http://maggiemarket.design:8080/api/userCenter/admin/changeState',
       header: {
         'content-type': 'application/json'
       },
@@ -39,6 +39,7 @@ Page({
       },
       //请求后台数据成功
       success: function (res) {
+        console.log(res)
         console.log("审核通过商品请求" + res.data.errorCode)
       }
     })
@@ -49,7 +50,7 @@ Page({
     console.log("下架该商品，商品id为：" + this.data.id)
     var that = this;
     wx.request({
-      url: 'http://maggiemarket.design:8080/api/userCenter/Admin/changeState',
+      url: 'http://maggiemarket.design:8080/api/userCenter/admin/changeState',
       header: {
         'content-type': 'application/json'
       },

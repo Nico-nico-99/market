@@ -9,14 +9,14 @@ Page({
     isModify: 0,
    //用来保存修改后商品信息的变量
     classcifyShow: "选择分类",
+    classify: 0,
     addressShow: "选择地址",
+    address: 0,
     moneyNum: null,
     name: " ",
     details: " ",
     price: -1,
     is_new: 0,
-    classify: 0,
-    address: 0,
     imgs: [],//图片在本地的路径
     pictureUrls: [],//用于在图片上传是暂时保存图片在服务器上的路径
     items: [
@@ -60,7 +60,9 @@ Page({
     this.setDataToPage()
   },
 
-  //用商品原信息给当前页面的变量赋值
+  /**
+   * 原信息赋值
+   */
   setDataToPage:function(){
     this.setData({
       name: this.data.goodBefore.name,
@@ -79,7 +81,10 @@ Page({
     })
   },
 
- 
+  /**
+   * 
+   * 商品名称输入
+   */
   comNameInput: function (e) {
     var nametmp = e.detail.value;
     this.setData({
@@ -87,6 +92,10 @@ Page({
     })
   },
 
+  /**
+   * 
+   * 商品详情输入
+   */
   comDetail: function (e) {
     this.setData({
       details: e.detail.value
@@ -122,32 +131,39 @@ Page({
     return num
   },
 
-  radioChange: function (e) {//是否全新函数
+  /**
+   * 
+   * 是否全新显示
+   */
+  radioChange: function (e) {
     //console.log(e.detail.value)
     this.setData({
       is_new: parseInt(e.detail.value)
     })
   },
 
-
+  /**
+   * 
+   * 类别选择器
+   */
   bindClassifyPickerChange: function (e) {
-    var that = this;
-    var index = parseInt(e.detail.value)
     this.setData({
-      address: index,
-      classcifyShow: that.data.selectArrayClassify[index]
+      classify: e.detail.value,
+      classcifyShow: that.data.selectArrayClassify[e.detail.value]
     })
-
+    this.classify = e.detail.value
   },
 
+  /**
+   * 
+   * 年级选择器
+   */
   bindAddressPickerChange: function (e) {
-    var that = this;
-    var index = parseInt(e.detail.value)
     this.setData({
-      classify: index,
-      addressShow: that.data.selectArrayAddress[index]
+      address: e.detail.value,
+      addressShow: that.data.selectArrayAddress[e.detail.value]
     })
-
+    this.address = e.detail.value
   },
 
   chooseImg: function (e) {//选择图片上传

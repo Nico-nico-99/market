@@ -10,7 +10,7 @@ Page({
     name: "",
     details: "",
     price: -1,
-    is_new: 0,
+    is_new: 1,
     classify: 0,
     address: 0,
     imgs: [],//图片在本地的路径
@@ -20,10 +20,14 @@ Page({
       { name: 'True', value: 1 },
       { name: 'False', value: 0, checked: 'true' },
     ],
-    selectArrayClassify: ["选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
-    selectArrayAddress: ["选择地址", "大学城", "五山", "国际", "其他"]
+    selectArrayClassify: ["请选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
+    selectArrayAddress: ["请选择地址", "大学城", "五山", "国际", "其他"]
   },
 
+  /**
+   * 
+   * 类别选择器
+   */
   bindClassifyPickerChange: function (e) {
     var that = this;
     var index = parseInt(e.detail.value)
@@ -34,6 +38,10 @@ Page({
 
   },
 
+  /**
+   * 
+   * 地址选择器
+   */
   bindAddressPickerChange: function (e) {
     var that = this;
     var index = parseInt(e.detail.value)
@@ -44,7 +52,10 @@ Page({
 
   },
 
-
+  /**
+   * 
+   * 商品名称输入
+   */
   comNameInput: function (e) {
     var nametmp = e.detail.value.replace(/\s+/g, '');
     this.setData({
