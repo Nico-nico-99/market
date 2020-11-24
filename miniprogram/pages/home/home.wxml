@@ -18,7 +18,7 @@
     wx:for="{{swiperList}}"
     wx:key="img_id"
     >
-      <image mode="widthFix" src="{{item.img_src}}"></image>
+      <image mode="widthFix" bindtap="handlePreviewImage" data-url="{{item.img_src}}" src="{{item.img_src}}"></image>
     </swiper-item>
   </swiper>
 </view>

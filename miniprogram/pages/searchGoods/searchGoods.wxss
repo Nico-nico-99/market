@@ -35,7 +35,7 @@
 
   background-color: #fff;
   border-radius: 15rpx;
-  color: #666;
+  color: black;
 
   font-size: 4vw;
 }
@@ -70,7 +70,7 @@
 }
 .filter_area picker {
   background-color: #fff;
-  color: #0082bf;
+  color: #0080c5;
   height: 8vw;
   border-radius: 15rpx;
   display: flex;
@@ -87,19 +87,39 @@
 .users-box{
   background-color: #fff;
   padding: 10rpx;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 28vw;
 }
 /*用户昵称样式*/
 .users-box .name{
+  position: relative;
+  left: 2vw;
+
   text-align: left;  
-  font-size: 18px;
+  font-size: 5.5vw;
+  font-weight: 550;
 }
 /*用户信息样式*/
 .users-box .inf{
+  width: 94vw;
+
   text-align: left;  
   font-size: 14px;
+
+  position: relative;
+  top: 2vw;
+  left: 2vw;
 }
-.users-box .inf .title{
+.users-box .inf .titleBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.users-box .inf .titleBox text{
   text-align: left;  
-  font-size: 14px;
-  color: #0082bf;
+  font-size: 4vw;
+  color: rgb(168, 168, 168);
 }

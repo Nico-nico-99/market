@@ -149,7 +149,7 @@ Page({
   bindClassifyPickerChange: function (e) {
     this.setData({
       classify: e.detail.value,
-      classcifyShow: that.data.selectArrayClassify[e.detail.value]
+      classcifyShow: this.data.selectArrayClassify[e.detail.value]
     })
     this.classify = e.detail.value
   },
@@ -161,7 +161,7 @@ Page({
   bindAddressPickerChange: function (e) {
     this.setData({
       address: e.detail.value,
-      addressShow: that.data.selectArrayAddress[e.detail.value]
+      addressShow: this.data.selectArrayAddress[e.detail.value]
     })
     this.address = e.detail.value
   },
@@ -465,13 +465,13 @@ Page({
       // },
       method: "POST",
       data: {
-        cmId: this.data.goodBefore.cmId,
+        cmId: parseInt(this.data.goodBefore.cmId),
         name: this.data.name,
-        classify: this.data.classify,
+        classify: parseInt(this.data.classify),
         details: this.data.details,
         price: this.data.price,
         userId: userId,
-        address: this.data.address,
+        address: parseInt(this.data.address),
         pictureUrls: this.data.pictureUrls,
         isNew: this.data.is_new
       },

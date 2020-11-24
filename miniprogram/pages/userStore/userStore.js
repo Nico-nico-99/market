@@ -11,10 +11,22 @@ Page({
     commodityList: [],
     // 筛选类型及下标
     address: ['全部', '大学城', '五山', '国际', '其他'],
-    new:['非全新', '全新','全部'],
+    new:['全部', '非全新', '全新'],
     address_index: "0",
-    new_index: "2",
+    new_index: "0",
   },
+
+    // 跳转至商品详情页面事件
+    toDetails: function(e){
+      var id = e.currentTarget.dataset.cmid;
+      console.log("前往商品详情" + "商品id为" + id)
+      wx.navigateTo({
+        url: '../../pages/goodsDetails/goodsDetails?id=' + id,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    },  
 
   // 发货地选择器改变事件
   addressPickerChange: function(e) {
@@ -98,7 +110,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    //重新获取列表
+    this.onLoad()
 
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
   },
 
   /**

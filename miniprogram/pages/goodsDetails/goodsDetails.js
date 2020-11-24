@@ -25,6 +25,23 @@ Page({
     urlList:[]
   },
 
+  /**
+   * 轮播图的点击预览大图
+   */
+  handlePreviewImage: function(e){
+    var urls = new Array();
+    for (var i = 0; i < this.data.urlList.length; i++) {
+      urls[i] = this.data.urlList[i].urlSrc;
+    }
+    const current = e.currentTarget.dataset.url
+    console.log(current)
+
+    wx.previewImage({
+      urls: urls,
+      current: current
+    })
+  },
+
   /* 举报按钮事件 */
   accuse: function(e){
     console.log("举报该商品，商品id为：" + this.data.id)
@@ -174,7 +191,7 @@ Page({
   onLoad: function (options) {
     var id = options.id
     var app = getApp();
-    var isLogin =  app.hasuserInfo;
+    var isLogin =  app.globalData.hasUserInfo;
     if(isLogin == true){
       var userId = app.globalData.userId;
     }
@@ -252,7 +269,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**

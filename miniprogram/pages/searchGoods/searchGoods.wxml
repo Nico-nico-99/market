@@ -98,12 +98,18 @@
       <view class="name">{{item.nickname}}</view>
       <!-- 用户信息 -->
       <view class="inf">
-        <text class="title">联系方式：</text>
-        <text>{{item.contactInformation}}\n</text>
-        <text class="title">默认地址：</text>
-        <text>{{item.defaultShippingAddress}}\n</text>
-        <text class="title">入学年份：</text>
-        <text>{{item.grade}}</text>
+        <view class="titleBox">
+          <text>联系方式</text>
+          <text>{{item.contactInformation}}</text>
+        </view>
+        <view class="titleBox">
+          <text>默认地址</text>
+          <text>{{item.defaultShippingAddress}}</text>
+        </view>
+        <view class="titleBox">
+          <text>入学年份</text>
+          <text>{{item.grade}}</text>
+        </view>
       </view>
     </view>
   </block>
