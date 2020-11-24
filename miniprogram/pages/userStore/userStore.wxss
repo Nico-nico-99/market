@@ -6,27 +6,34 @@
 /*筛选方式样式*/
 .filter_area {
   float: right;
-  background-color: #79d3ff;
+  background-color: #66c6fa;
   height: 35px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
 }
 .filter_area .title {
   padding: 10px;
   color: #fff;
-  font-size: large;
+  font-size: 5vw;
+  font-weight: 600vw;
 }
 .filter_area text {
   padding: 5px;
+  font-size: 4vw;
 }
 .filter_area picker {
   background-color: #fff;
-  color: #0082bf;
-  height: 30px;
+  color: #0080c5;
+  height: 8vw;
   border-radius: 15rpx;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 140rpx;
+  width: 15vw;
+  font-size: 3.85vw;
+
+  position: relative;
+  right: 3vw;
 }
