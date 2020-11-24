@@ -23,6 +23,23 @@ Page({
     urlList:[]
   },
 
+    /**
+   * 轮播图的点击预览大图
+   */
+  handlePreviewImage: function(e){
+    var urls = new Array();
+    for (var i = 0; i < this.data.urlList.length; i++) {
+      urls[i] = this.data.urlList[i].urlSrc;
+    }
+    const current = e.currentTarget.dataset.url
+    console.log(current)
+
+    wx.previewImage({
+      urls: urls,
+      current: current
+    })
+  },
+
   /* 审核通过按钮事件 */
   approve: function(e){
     console.log("审核通过该商品，商品id为：" + this.data.id)

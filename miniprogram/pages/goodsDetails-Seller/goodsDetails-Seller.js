@@ -13,6 +13,23 @@ Page({
 
   },
 
+    /**
+   * 轮播图的点击预览大图
+   */
+  handlePreviewImage: function(e){
+    var urls = new Array();
+    for (var i = 0; i < this.data.picture_url_List.length; i++) {
+      urls[i] = this.data.picture_url_List[i].urlSrc;
+    }
+    const current = e.currentTarget.dataset.url
+    console.log(current)
+
+    wx.previewImage({
+      urls: urls,
+      current: current
+    })
+  },
+
   /* 修改商品按钮事件 */
   modify: function (e) {
     var commodityInfo = JSON.stringify(this.data.commodityInfo);//将对象信息变成字符串传递

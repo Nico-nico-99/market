@@ -26,6 +26,23 @@ Page({
     commodityList: [],
   },
 
+    /**
+   * 轮播图的点击预览大图
+   */
+  handlePreviewImage: function(e){
+    var urls = new Array();
+    for (var i = 0; i < this.data.swiperList.length; i++) {
+      urls[i] = this.data.swiperList[i].img_src;
+    }
+    const current = e.currentTarget.dataset.url
+    console.log(current)
+
+    wx.previewImage({
+      urls: urls,
+      current: current
+    })
+  },
+
   // 分类icon事件
   classify: function(e){
     var classify = e.currentTarget.dataset.classify;

@@ -10,7 +10,7 @@
     wx:for="{{urlList}}"
     wx:key="urlId"
     >
-      <image mode="aspectFill" src="{{item.urlSrc}}"></image>
+      <image mode="aspectFill" bindtap="handlePreviewImage" data-url="{{item.urlSrc}}" src="{{item.urlSrc}}"></image>
     </swiper-item>
   </swiper>
 </view>

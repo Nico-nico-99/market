@@ -16,6 +16,18 @@ Page({
     new_index: "0",
   },
 
+    // 跳转至商品详情页面事件
+    toDetails: function(e){
+      var id = e.currentTarget.dataset.cmid;
+      console.log("前往商品详情" + "商品id为" + id)
+      wx.navigateTo({
+        url: '../../pages/goodsDetails/goodsDetails?id=' + id,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    },  
+
   // 发货地选择器改变事件
   addressPickerChange: function(e) {
     console.log('发货地picker发生选择改变，携带值为', e.detail.value)
