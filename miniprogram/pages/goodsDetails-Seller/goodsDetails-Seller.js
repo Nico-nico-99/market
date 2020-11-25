@@ -132,6 +132,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {//在这里根据id请求相关数据用于展示，并赋值id到页面的变量id
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var app = getApp()
     var userId = parseInt(app.globalData.userId)
     var id = options.cmId
@@ -143,7 +156,6 @@ Page({
     //请求详情数据
     this.getCertainComInfo()
   },
-
   getCertainComInfo:function(){
     var that=this
     wx.request({
@@ -166,19 +178,6 @@ Page({
       }
 
     })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**

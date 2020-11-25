@@ -48,6 +48,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var sellerId = options.sellerId
     this.setData({
       sellerId: sellerId
@@ -55,7 +68,6 @@ Page({
     console.log("此页面的卖家Id为" + sellerId)
     this.getSellerCommodityList()
   },
-
   /* 获取卖家商品列表 */
   getSellerCommodityList() {
     var that = this;
@@ -76,20 +88,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
