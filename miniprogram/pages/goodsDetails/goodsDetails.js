@@ -141,7 +141,26 @@ Page({
         showCancel: false,
       })
     }
-    else{
+    else if(this.data.commodity.state == "4"){
+      wx.showModal({
+        title: '提示',
+        content: '当前商品已被预订，无法再进行预订。',
+        confirmColor: '#27aff6',
+        showCancel: false,
+      })
+    }
+    else if(this.data.commodity.state == "5"){
+      wx.showModal({
+        title: '提示',
+        content: '当前商品已被购买，无法进行预订。',
+        confirmColor: '#27aff6',
+        showCancel: false,
+      }) 
+    }
+    else {
+      wx.showLoading({
+        title: '预订中',
+      })
             wx.request({
               url: 'http://maggiemarket.design:8080/api/commodity/reserve',
               header: {
@@ -154,10 +173,18 @@ Page({
               },
               //请求后台数据成功
               success: function (res) {
+                wx.hideLoading()
                 console.log("预订商品请求" + res.data.errorCode)
                 that.setData({
                   reserved: true,
                 })
+
+                wx.showModal({
+                  title: '提示',
+                  content: '预订成功，请尽快联系卖家沟通取货时间。',
+                  confirmColor: '#27aff6',
+                  showCancel: false,
+                }) 
               }
             })
     }
