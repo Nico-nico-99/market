@@ -27,6 +27,8 @@
 
   background-color: white;
   border-radius: 15rpx;
+
+  font-size: 4.5vw;
 }
 /* button */
 .title.button{

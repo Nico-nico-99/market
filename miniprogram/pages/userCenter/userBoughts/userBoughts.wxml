@@ -8,7 +8,7 @@
   <!-- 背景图 -->
   <view class="title background">
     <!-- text -->
-    <input class="title text" type="text" placeholder="请输入想要搜索的购买记录" bindconfirm="gotoSearch"  confirm-type="search" adjust-position="false"></input>
+    <input class="title text" type="text" placeholder="请输入想要搜索的购买记录" bindblur="bindSearchInput" bindconfirm="confirmGotoSearch"  confirm-type="search" adjust-position="false"></input>
     <!-- search -->
     <view class="title button" bindtap="gotoSearch">
       <image src="http://119.29.33.219:8081/picture/images/search.png" mode="aspectFit"></image>

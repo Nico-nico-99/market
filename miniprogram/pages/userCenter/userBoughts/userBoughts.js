@@ -17,11 +17,12 @@ Page({
   /**
    * 购买记录搜索
    */
-  gotoSearch: function(e){
+  bindSearchInput: function(e){
     this.setData({
       searchInput: e.detail.value
     })
-
+  },
+  gotoSearch: function(e){
     console.log("购买记录搜索: ", this.data.searchInput)
 
     var app = getApp()
@@ -32,7 +33,7 @@ Page({
       method: "POST",
       url: 'http://maggiemarket.design:8080/api/userCenter/userBoughts/search',//获取搜索结果
       data: {
-        userId: userId,
+        userId: parseInt(userId),
         search: that.data.searchInput
       },
       header: {
@@ -53,7 +54,43 @@ Page({
       },
     })
   },
-  
+  confirmGotoSearch: function(e){
+    this.setData({
+      searchInput: e.detail.value
+    })
+
+    console.log("收藏夹搜索: ", this.data.searchInput)
+
+    var app = getApp()
+    var that = this
+    var userId = app.globalData.userId
+
+    wx.request({
+      method: "POST",
+      url: 'http://maggiemarket.design:8080/api/userCenter/userBoughts/search',//获取搜索结果
+      data: {
+        userId: parseInt(userId),
+        search: that.data.searchInput
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
+      },
+      success: function (res) {
+        console.log('---------------------------------------------------------------------')
+        console.log('成功从后端获取搜索结果');
+        console.log(res)
+        console.log('---------------------------------------------------------------------')
+
+        that.setData({
+          goodsList: res.data.commodityList,
+        })        
+      },
+      fail: function(error){
+        console.log("获取搜索结果失败: " + error);
+      },
+    })
+  },
+
   /**
    * 进入商品详情页
   */

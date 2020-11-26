@@ -10,78 +10,81 @@
 <!-- 标题栏end -->
 
 <view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
 
 <view class="pageContainer">
   <!-- 商品名 -->
-  <view class="InputContainer">
-    <view class="TitleView">
-      <text>商品名</text>
-    </view>
-    <view class="InputView">
-      <input class="input" placeholder="输入商品名称" maxlength="30" bindblur="comNameInput" bindconfirm="comNameInput"/>
+  <view class="titleContainer">
+    <view class="titleContainer background">
+      <text class="titleContainer TitleView">商品名</text>
+      <input class="titleContainer titleInputView" placeholder="请输入商品名称" maxlength="30" focus="{{titleFocus}}"
+             confirm-type="next" bindblur="comNameInput" bindconfirm="comNameInput"/>
     </view>
   </view>
 
   <view class="gap"></view>
+  <view class="gap"></view>
+
   <!-- 商品描述 -->
   <view class="detailInputContainer">
-    <view class="detailTitleView">
-      <text>描述</text>
-    </view>
-
-    <view class="detailInputView">
-      <textarea class="detailText" placeholder="输入商品描述（少于200字）" maxlength="200" bindblur="comDetail" bindconfirm="comDetail"></textarea>
+    <view class="detailInputContainer background">
+      <text class="detailInputContainer detailTitleView">描述</text>
+      <view class="detailInputContainer detail">
+        <textarea class="detailInputContainer detailText" placeholder="请输入商品描述(少于200字)" maxlength="200" focus="{{detailFocus}}"
+                  confirm-type="next" bindblur="comDetail" bindconfirm="comDetail"></textarea>
+      </view>
     </view>
   </view>
 
   <view class="gap"></view>
+  <view class="gap"></view>
 
-  <view class="InputContainer">
-    <view class="TitleView">
-      <text>价格</text>
-    </view>
-    <view class="InputView">
-      <input class="input" type="digit" placeholder="输入商品价格" bindblur="inputedit" />
+  <!-- 商品价格 -->
+  <view class="priceContainer">
+    <view class="priceContainer background">
+      <text class="priceContainer priceView">价格</text>
+      <input class="priceContainer priceInputView" placeholder="请输入商品价格" maxlength="30" type="digit" focus="{{priceFocus}}"
+             confirm-type="done" bindblur="inputedit" bindconfirm="inputedit"/>
     </view>
   </view>
 
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
   <view class="gap"></view>
 
   <radio-group class="radio-group" bindchange="radioChange">
-    <view class="radioTitleView">
-      <text>是否全新</text>
-    </view>
-
+    <text class="radio-group radioTitleView">是否全新</text>
     <label class="radio" wx:for-items="{{items}}">
-
       <radio name="{{item.name}}" checked="{{item.checked}}" value="{{item.value}}" color="#27aff6"/>{{item.name}}
-
     </label>
-
   </radio-group>
 
   <view class="gap"></view>
+  <view class="gap"></view>
 
   <view class="section">
-    <view class="section__title">类型</view>
-    <picker bindchange="bindClassifyPickerChange" value="{{index}}" range="{{selectArrayClassify}}">
-      <view class="picker">
-        {{classcifyShow}}
-      </view>
+    <!-- text -->
+    <text class="section section_title">商品类型</text>
+    <!-- type -->
+    <picker bindchange="bindClassifyPickerChange" value="{{classify}}" range="{{selectArrayClassify}}">
+      <view class="section pickerText">{{selectArrayClassify[classify]}}</view>
     </picker>
   </view>
 
   <view class="gap"></view>
+  <view class="gap"></view>
 
   <view class="section">
-    <view class="section__title">发货地</view>
-    <picker bindchange="bindAddressPickerChange" value="{{index}}" range="{{selectArrayAddress}}">
-      <view class="pickerAddress">{{addressShow}}
-      </view>
+    <view class="section section_title">发货地</view>
+    <picker bindchange="bindAddressPickerChange" value="{{address}}" range="{{selectArrayAddress}}">
+      <view class="section pickerText">{{selectArrayAddress[address]}}</view>
     </picker>
   </view>
-
-
 </view>
 
 

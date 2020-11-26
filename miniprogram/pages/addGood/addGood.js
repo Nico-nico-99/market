@@ -16,6 +16,10 @@ Page({
     imgs: [],//图片在本地的路径
     pictureUrls: [],//用于在图片上传是暂时保存图片在服务器上的路径
 
+    titleFocus: true,
+    detailFocus: false,
+    priceFocus: false,
+
     items: [
       { name: 'True', value: 1 },
       { name: 'False', value: 0, checked: 'true' },
@@ -59,13 +63,17 @@ Page({
   comNameInput: function (e) {
     var nametmp = e.detail.value.replace(/\s+/g, '');
     this.setData({
-      name: nametmp
+      name: nametmp,
+      detailFocus: true,
+      titleFocus: false,
     })
   },
 
   comDetail: function (e) {
     this.setData({
-      details: e.detail.value.replace(/\s+/g, '')
+      details: e.detail.value.replace(/\s+/g, ''),
+      priceFocus: true,
+      detailFocus: false,
     })
   },
 
@@ -76,7 +84,8 @@ Page({
    */
   inputedit: function (event) {
     this.setData({
-      price: this.money(event.detail.value)  //money匹配金额输入规则，返回输入值
+      price: this.money(event.detail.value),  //money匹配金额输入规则，返回输入值
+      priceFocus: false,
     });
     return this.data.price
   },
