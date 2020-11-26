@@ -132,6 +132,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {//在这里根据id请求相关数据用于展示，并赋值id到页面的变量id
+    var app = getApp()
+    var userId = parseInt(app.globalData.userId)
+    var id = options.cmId
+    console.log(id)
+    this.setData({
+      cmId: id,
+      userId: userId
+    })
   },
 
   /**
@@ -145,14 +153,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var app = getApp()
-    var userId = parseInt(app.globalData.userId)
-    var id = options.cmId
-    console.log(id)
-    this.setData({
-      cmId: id,
-      userId: userId
-    })
     //请求详情数据
     this.getCertainComInfo()
   },
