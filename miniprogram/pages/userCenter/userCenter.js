@@ -92,28 +92,46 @@ Page({
                         'content-type': 'application/json'
                       },
                       success: function (res) {
+                        console.log('---------------------------------------------------------------------')
                         console.log(res)
-          
-                        wx.hideLoading();
-                        console.log('成功从后端获取到loginInfo');
-          
-                        //登录
-                        console.log("登录成功")
-                        app.globalData.hasUserInfo = true,//表示已获取用户信息，显示头像和昵称
-                        app.globalData.userId = res.data.userId;
-                        that.setData({
-                          hasUserInfo: app.globalData.hasUserInfo,
-                        })
+                        
+                        if(res.data.errorCode != 1){
+                          wx.hideLoading();
+                          console.log('成功从后端获取到loginInfo');
+                          console.log('---------------------------------------------------------------------')
 
-                        wx.showToast({
-                          title: '登录成功',
-                          icon: 'none'
-                        })
+                          //登录
+                          console.log("登录成功")
+                          app.globalData.hasUserInfo = true,//表示已获取用户信息，显示头像和昵称
+                          console.log("userId:" + app.globalData.userId)
+                          app.globalData.userId = res.data.userId;
+                          console.log("userId:" + app.globalData.userId)
+                          that.setData({
+                            hasUserInfo: app.globalData.hasUserInfo,
+                          })
+  
+                          wx.showToast({
+                            title: '登录成功',
+                            icon: 'none'
+                          })
+                        }
+                        else{
+                          wx.hideLoading();
+                          console.log("获取用户登录态失败");
+                          console.log('---------------------------------------------------------------------')
+
+                          wx.showToast({
+                            title: '登录失败',
+                            icon: 'none'
+                          })      
+                        }
                       },
                       fail: function(error){
                         wx.hideLoading();
+                        console.log('---------------------------------------------------------------------')
                         console.log("获取用户登录态失败：" + error);
-          
+                        console.log('---------------------------------------------------------------------')
+
                         wx.showToast({
                           title: '登录失败',
                           icon: 'none'
@@ -123,7 +141,9 @@ Page({
                   }
                   else {
                     wx.hideLoading();
+                    console.log('---------------------------------------------------------------------')
                     console.log("用户登录失败");
+                    console.log('---------------------------------------------------------------------')
 
                     wx.showToast({
                       title: '登录失败',
@@ -134,7 +154,9 @@ Page({
               },
               fail: function (error) {
                 wx.hideLoading();
-                console.log('wx.getUserInfo() failed ' + error);
+                console.log('---------------------------------------------------------------------')
+                console.log('wx.getUserInfo()失败: ' + error);
+                console.log('---------------------------------------------------------------------')
 
                 wx.showToast({
                   title: '登录失败',
@@ -145,7 +167,9 @@ Page({
           },
           fail: function (error) {
             wx.hideLoading();
-            console.log('wx.login() failed ' + error);
+            console.log('---------------------------------------------------------------------')
+            console.log('wx.login()失败: ' + error);
+            console.log('---------------------------------------------------------------------')
 
             wx.showToast({
               title: '登录失败',
@@ -285,36 +309,47 @@ Page({
           'content-type': 'application/json'//要根据后端信息进行修改
         },
         success: function (res) {
+          console.log('---------------------------------------------------------------------')
           console.log(res)
 
-          wx.hideLoading();
-          console.log('成功从后端获取到用户管理员权限');
+          if(res.data.errorCode != 1){
+            wx.hideLoading();
+            console.log('成功从后端获取到用户管理员权限');
+            console.log('---------------------------------------------------------------------')
 
-          that.setData({
-            isAdmin: res.data.authority,
-          })
-          console.log("isAdmin: " + that.data.isAdmin)
-
-          if(that.data.isAdmin == '1'){
-            console.log("前往管理员端")
-            wx.navigateTo({
-              url: '../../pages/adminCenter/adminCenter',
+            that.setData({
+              isAdmin: res.data.authority,
             })
-            console.log("----------------------------------管理员端---------------------------------")  
+            console.log("isAdmin: " + that.data.isAdmin)
+  
+            if(that.data.isAdmin == '1'){
+              console.log("前往管理员端")
+              wx.navigateTo({
+                url: '../../pages/adminCenter/adminCenter',
+              })
+              console.log("----------------------------------管理员端---------------------------------")  
+            }
+            else{
+              console.log("本帐号非管理员")  
+              wx.showModal({
+                title: '提示',
+                content: '该账号非管理员，无法获取管理员权限。',
+                showCancel: false,
+                confirmColor: getApp().globalData.themeColor,
+              })
+            }    
           }
           else{
-            console.log("本帐号非管理员")  
-            wx.showModal({
-              title: '提示',
-              content: '该账号非管理员，无法获取管理员权限。',
-              showCancel: false,
-              confirmColor: getApp().globalData.themeColor,
-            })
-          }    
+            wx.hideLoading();
+            console.log("获取用户权限失败！");
+            console.log('---------------------------------------------------------------------')
+          }
         },
         fail: function(error){
           wx.hideLoading();
-          console.log("获取用户权限失败！");
+          console.log('---------------------------------------------------------------------')
+          console.log("获取用户权限失败: " + error);
+          console.log('---------------------------------------------------------------------')
         },
       })
     }

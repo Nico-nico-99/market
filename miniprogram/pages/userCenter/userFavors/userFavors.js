@@ -39,16 +39,25 @@ Page({
       },
       success: function (res) {
         console.log('---------------------------------------------------------------------')
-        console.log('成功从后端获取搜索结果');
         console.log(res)
-        console.log('---------------------------------------------------------------------')
 
-        that.setData({
-          goodsList: res.data.commodityList,
-        })        
+        if(res.data.errorCode != 1){
+          console.log('成功从后端获取搜索结果');
+          console.log('---------------------------------------------------------------------')
+  
+          that.setData({
+            goodsList: res.data.commodityList,
+          })          
+        }
+        else{
+          console.log("获取搜索结果失败")
+          console.log('---------------------------------------------------------------------')
+        }
       },
       fail: function(error){
+        console.log('---------------------------------------------------------------------')
         console.log("获取搜索结果失败: " + error);
+        console.log('---------------------------------------------------------------------')
       },
     })
   },
@@ -137,18 +146,27 @@ Page({
       },
       success: function (res) {
         console.log('---------------------------------------------------------------------')
-        console.log('成功从后端获取收藏夹商品列表');
         console.log(res)
-        console.log('---------------------------------------------------------------------')
-
-        that.setData({
-          goodsList: res.data.commodityList,
-        })
         
-        console.log(that.data.goodsList)
+        if(rs.data.errorCode != 1){
+          console.log('成功从后端获取收藏夹商品列表');
+          console.log('---------------------------------------------------------------------')
+  
+          that.setData({
+            goodsList: res.data.commodityList,
+          })
+          
+          console.log(that.data.goodsList)
+        }
+        else{
+          console.log("获取收藏夹商品列表失败")
+          console.log('---------------------------------------------------------------------')
+        }
       },
       fail: function(error){
+        console.log('---------------------------------------------------------------------')
         console.log("获取收藏夹商品列表失败: " + error);
+        console.log('---------------------------------------------------------------------')
       },
     })
   },

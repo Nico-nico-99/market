@@ -65,17 +65,29 @@ Page({
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
-        console.log('成功从后端获取待审核商品列表');
+        console.log('---------------------------------------------------------------------')
         console.log(res)
         
-        that.setData({
-          waitingList: res.data.commodityList,
-        })
-
-        console.log(that.data.waitingList)
+        if(res.data.errorCode != 1){
+          console.log('成功从后端获取待审核商品列表');
+          console.log('---------------------------------------------------------------------')
+  
+          that.setData({
+            waitingList: res.data.commodityList,
+          })
+  
+          console.log(that.data.waitingList)  
+        }
+        else{
+          console.log('---------------------------------------------------------------------')
+          console.log("获取待审核商品列表失败！");
+          console.log('---------------------------------------------------------------------')
+        }
       },
       fail: function(error){
-        console.log("获取待审核商品列表失败！");
+        console.log('---------------------------------------------------------------------')
+        console.log("获取待审核商品列表失败: " + error);
+        console.log('---------------------------------------------------------------------')
       },
     })
 
@@ -89,17 +101,28 @@ Page({
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
-        console.log('成功从后端获取被举报商品列表');
+        console.log('---------------------------------------------------------------------')
         console.log(res)
         
-        that.setData({
-          accusedList: res.data.commodityList,
-        })
-
-        console.log(that.data.accusedList)
+        if(res.data.errorCode != 1){
+          console.log('成功从后端获取被举报商品列表');
+          console.log('---------------------------------------------------------------------')
+  
+          that.setData({
+            accusedList: res.data.commodityList,
+          })
+  
+          console.log(that.data.accusedList)  
+        }
+        else{
+          console.log("获取被举报商品列表失败！");
+          console.log('---------------------------------------------------------------------')  
+        }
       },
       fail: function(error){
-        console.log("获取被举报商品列表失败！");
+        console.log('---------------------------------------------------------------------')
+        console.log("获取被举报商品列表失败: " + error);
+        console.log('---------------------------------------------------------------------')
       },
     })
   },

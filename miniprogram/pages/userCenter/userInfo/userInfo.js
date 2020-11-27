@@ -100,22 +100,33 @@ Page({
           'content-type': 'application/json'//要根据后端信息进行修改
         },
         success: function (res) {
-          console.log('成功传递修改信息给后端');
+          console.log('---------------------------------------------------------------------')
           console.log(res)
 
-          console.log("完成修改")
-          that.setData({
-            change: false,
-          })
-      
-          that.onShow()
-          wx.showToast({
-            title: '修改成功',
-            icon: 'none'
-          })
+          if(res.data.errorCode != 1){
+            console.log('成功传递修改信息给后端');
+            console.log("完成修改")
+            console.log('---------------------------------------------------------------------')
+            
+            that.setData({
+              change: false,
+            })
+        
+            that.onShow()
+            wx.showToast({
+              title: '修改成功',
+              icon: 'none'
+            })  
+          }
+          else{
+            console.log("传递修改信息失败！");
+            console.log('---------------------------------------------------------------------')
+          }
         },
         fail: function(error){
-          console.log("传递修改信息失败！");
+          console.log('---------------------------------------------------------------------')
+          console.log("传递修改信息失败: " + error);
+          console.log('---------------------------------------------------------------------')
 
           wx.showToast({
             title: '修改失败，请重新修改',
@@ -172,16 +183,27 @@ Page({
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
-        console.log('成功从后端获取年级数组');
+        console.log('---------------------------------------------------------------------')
         console.log(res)
 
-        that.setData({
-          gradeArray: res.data.gradeArray,
-          'gradeArray[0]': "请选择年级",
-        })
+        if(res.data.errorCode != 1){
+          console.log('成功从后端获取年级数组');
+          console.log('---------------------------------------------------------------------')
+
+          that.setData({
+            gradeArray: res.data.gradeArray,
+            'gradeArray[0]': "请选择年级",
+          })  
+        }
+        else{
+          console.log("获取年级数组失败");
+          console.log('---------------------------------------------------------------------')  
+        }
       },
       fail: function(error){
-        console.log("获取年级数组失败！");
+        console.log('---------------------------------------------------------------------')
+        console.log("获取年级数组失败: " + error);
+        console.log('---------------------------------------------------------------------')
       },
     })
     
@@ -196,23 +218,34 @@ Page({
         'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
-        console.log('成功从后端获取用户信息');
+        console.log('---------------------------------------------------------------------')
         console.log(res)
 
-        that.setData({
-          userName: res.data.userName,
-          userImageUrl: userImageUrl,
-          gradeIndex: res.data.gradeIndex,
-          contactInput: res.data.contactInfo,
-          addressInput: res.data.addressInfo
-        })
-
-        console.log("grade: ", that.data.gradeIndex)
-        console.log("contact: ", that.data.contactInput)
-        console.log("address: ", that.data.addressInput)    
+        if(res.data.errorCode != 1){
+          console.log('成功从后端获取用户信息');
+          console.log('---------------------------------------------------------------------')
+          
+          that.setData({
+            userName: res.data.userName,
+            userImageUrl: userImageUrl,
+            gradeIndex: res.data.gradeIndex,
+            contactInput: res.data.contactInfo,
+            addressInput: res.data.addressInfo
+          })
+  
+          console.log("grade: ", that.data.gradeIndex)
+          console.log("contact: ", that.data.contactInput)
+          console.log("address: ", that.data.addressInput)    
+        }
+        else{
+          console.log("获取用户信息失败！");
+          console.log('---------------------------------------------------------------------')
+        }
       },
       fail: function(error){
-        console.log("获取用户信息失败！");
+        console.log('---------------------------------------------------------------------')
+        console.log("获取用户信息失败: " + error);
+        console.log('---------------------------------------------------------------------')
       },
     })
   },

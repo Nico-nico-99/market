@@ -66,13 +66,25 @@ Page({
       //请求后台数据成功
       success: function (res) {
         console.log('---------------------------------------------------------------------')
-        console.log("商品详情请求成功")
         console.log(res)
+        
+        if(res.data.errorCode != 1){
+          console.log("商品详情请求成功")
+          console.log('---------------------------------------------------------------------')
+  
+          that.setData({
+            commodityInfo: res.data.commodityInfo,
+          })
+        }
+        else{
+          console.log("商品详情请求失败")
+          console.log('---------------------------------------------------------------------')
+        }
+      },
+      fail: function(error){
         console.log('---------------------------------------------------------------------')
-
-        that.setData({
-          commodityInfo: res.data.commodityInfo,
-        })
+        console.log("商品详情请求失败")
+        console.log('---------------------------------------------------------------------')
       }
     })
   },
