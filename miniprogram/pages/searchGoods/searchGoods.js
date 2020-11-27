@@ -21,7 +21,7 @@ Page({
 
     // 筛选类型及下标
     address: ['全部', '大学城', '五山', '国际', '其他'],
-    new:['非全新', '全新', '全部'],
+    new:['非全新', '全新', '全部'],   // 商品isNew属性【"0-非全新"，"1-全新"】
     address_index: "0",
     new_index: "2",
 
@@ -81,18 +81,22 @@ Page({
         },
         method: 'POST',
         data: e.detail.value,
-        //请求后台数据成功
         success: function (res) {
-          console.log("搜索请求" + res.data.errorCode)
-          if(type == "0"){
-            that.setData({
-              commodityList: res.data.commodityList,
-            })
-          }
-          else{
-            that.setData({
-              userList: res.data.userList,
-            })       
+          //请求后台数据成功
+          if(res.data.errorCode == 0){
+            console.log("搜索请求" + res)
+            // 搜索商品
+            if(type == "0"){
+              that.setData({
+                commodityList: res.data.commodityList,
+              })
+            }
+            // 搜索卖家
+            else{
+              that.setData({
+                userList: res.data.userList,
+              })       
+            }
           }
         }
       })
@@ -117,20 +121,21 @@ Page({
           searchType: that.data.searchType_index,
           sortType: that.data.sortType_index,
         },
-        //请求后台数据成功
         success: function (res) {
-          console.log("搜索请求" + res.data.errorCode)
-          console.log(res)
+          //请求后台数据成功
+          if(res.data.errorCode == 0){
+            console.log("搜索请求" + res)
 
-          if(type == "0"){
-            that.setData({
-              commodityList: res.data.commodityList
-            })
-          }
-          else{
-            that.setData({
-              userList: res.data.userList
-            })       
+            if(type == "0"){
+              that.setData({
+                commodityList: res.data.commodityList
+              })
+            }
+            else{
+              that.setData({
+                userList: res.data.userList
+              })       
+            }
           }
         }
       })
@@ -187,8 +192,8 @@ Page({
       header: {
         'content-type': 'application/json'
       },
-      //请求后台数据成功
       success: function (res) {
+        //请求后台数据成功
         if(res.data.errorCode == 0){
           console.log("推荐商品列表请求成功" + res)
           that.setData({

@@ -260,9 +260,9 @@ Page({
         cmId: this.data.id,
         userId: this.data.userId
       },
-      //请求后台数据成功
       success: function (res) {
         if(res.data.errorCode == 0){
+          //请求后台数据成功
           console.log("商品详情请求成功" + res)
           that.setData({
             commodity: res.data.commodityInfo,
@@ -275,9 +275,6 @@ Page({
               reserved: true
             })          
           }
-        }
-        else{
-          console.log("商品详情请求失败" + res.data.errorMsg)
         }
       }
     })

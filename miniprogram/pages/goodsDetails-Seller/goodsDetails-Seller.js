@@ -168,15 +168,16 @@ Page({
         cmId: this.data.cmId,
         userId: this.data.userId
       },
-      //请求后台数据成功
       success: function (res) {
-        that.setData({
-          picture_url_List:res.data.urlList,
-          commodityInfo: res.data.commodityInfo,
-          contactInfo: res.data.contactInfo
-         })
+        //请求后台数据成功
+        if(res.data.errorCode == 0){
+          that.setData({
+            picture_url_List:res.data.urlList,
+            commodityInfo: res.data.commodityInfo,
+            contactInfo: res.data.contactInfo
+           })
+        }
       }
-
     })
   },
 

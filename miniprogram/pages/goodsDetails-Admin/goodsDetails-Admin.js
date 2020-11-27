@@ -165,14 +165,16 @@ Page({
         cmId: this.data.id,
         userId: this.data.userId
       },
-      //请求后台数据成功
       success: function (res) {
-        console.log("商品详情请求成功" + res)
-        that.setData({
-          commodity: res.data.commodityInfo,
-          urlList: res.data.urlList,
-          contactInfo: res.data.contactInfo,
-        })
+        //请求后台数据成功
+        if(res.data.errorCode == 0){
+          console.log("商品详情请求成功" + res)
+          that.setData({
+            commodity: res.data.commodityInfo,
+            urlList: res.data.urlList,
+            contactInfo: res.data.contactInfo,
+          })
+        }
       }
     })
   },
