@@ -61,6 +61,8 @@
   position: relative;
   left: 5vw;
 
+  width: 20vw;
+
   font-size: 3.89vw;
 }
 /* titleInput */
@@ -68,8 +70,8 @@
   position: relative;
   left: -5vw;
 
-  height: 28px;
-  width: 50vw;
+  height: 15vw;
+  width: 57.5vw;
   line-height: 28px;
 
   font-size: 3.89vw;
@@ -154,6 +156,7 @@
 
   position: relative;
   left: 5vw;
+  width: 20vw;
 
   font-size: 3.89vw;
 }
@@ -162,8 +165,8 @@
   position: relative;
   left: -5vw;
 
-  height: 28px;
-  width: 50vw;
+  height: 15vw;
+  width: 57.5vw;
   line-height: 28px;
 
   font-size: 3.89vw;

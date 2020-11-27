@@ -10,80 +10,87 @@
 <!-- 标题栏end -->
 
 <view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
 
 <view class="pageContainer">
-  <!-- 商品名 -->
-  <view class="InputContainer">
-    <view class="TitleView">
-      <text>商品名</text>
-    </view>
-    <view class="InputView">
-      <input class="input" value="{{goodBefore.name}}"placeholder="输入商品名字" maxlength="30" bindinput="comNameInput" />
-    </view>
-  </view>
-
-  <view class="gap"></view>
-  <!-- 商品描述 -->
-  <view class="detailInputContainer">
-    <view class="detailTitleView">
-      <text>描述</text>
-    </view>
-
-    <view class="detailInputView">
-      <textarea class="detailText" value="{{goodBefore.details}}"placeholder="输入商品详细信息" maxlength="200" bindblur="comDetail"></textarea>
+    <!-- 商品名 -->
+    <view class="titleContainer">
+    <view class="titleContainer background">
+      <text class="titleContainer TitleView">商品名</text>
+      <input class="titleContainer titleInputView" placeholder="请输入商品名称" maxlength="30" value="{{goodBefore.name}}"
+             confirm-type="done" bindblur="comNameInput" bindconfirm="comNameInput"/>
     </view>
   </view>
 
   <view class="gap"></view>
+  <view class="gap"></view>
 
-  <view class="InputContainer">
-    <view class="TitleView">
-      <text>价格</text>
-    </view>
-    <view class="InputView">
-      <input class="input" type="digit" value="{{goodBefore.price}}"placeholder="输入商品价格" bindinput="inputedit" />
+    <!-- 商品描述 -->
+    <view class="detailInputContainer">
+    <view class="detailInputContainer background">
+      <text class="detailInputContainer detailTitleView">描述</text>
+      <view class="detailInputContainer detail">
+        <textarea class="detailInputContainer detailText" placeholder="请输入商品描述(少于200字)" maxlength="200" value="{{goodBefore.details}}"
+                  confirm-type="done" bindblur="comDetail" bindconfirm="comDetail"></textarea>
+      </view>
     </view>
   </view>
 
   <view class="gap"></view>
+  <view class="gap"></view>
 
-  <radio-group class="radio-group" bindchange="radioChange">
-    <view class="radioTitleView">
-      <text>是否全新</text>
+  <!-- 商品价格 -->
+  <view class="priceContainer">
+    <view class="priceContainer background">
+      <text class="priceContainer priceView">价格</text>
+      <input class="priceContainer priceInputView" placeholder="请输入商品价格" maxlength="30" type="digit" value="{{goodBefore.price}}"
+             confirm-type="done" bindblur="inputedit" bindconfirm="inputedit"/>
     </view>
+  </view>
 
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+
+    <!-- 是否全新 -->
+    <radio-group class="radio-group" bindchange="radioChange">
+    <text class="radio-group radioTitleView">是否全新</text>
     <label class="radio" wx:for-items="{{items}}">
       <radio name="{{item.name}}" checked="{{item.checked}}" value="{{item.value}}" color="#27aff6"/>{{item.name}}
     </label>
-
   </radio-group>
 
-<view class="gap"></view>
-
-  
+  <view class="gap"></view>
   <view class="gap"></view>
 
+  <!-- 商品类型 -->
   <view class="section">
-    <view class="section__title">类型</view>
+    <!-- text -->
+    <text class="section section_title">商品类型</text>
+    <!-- type -->
     <picker bindchange="bindClassifyPickerChange" value="{{classify}}" range="{{selectArrayClassify}}">
-      <view class="picker">
-        {{classcifyShow}}
-      </view>
+      <view class="section pickerText">{{selectArrayClassify[classify]}}</view>
     </picker>
   </view>
 
   <view class="gap"></view>
+  <view class="gap"></view>
 
+  <!-- 商品发货地 -->
   <view class="section">
-    <view class="section__title">发货地</view>
+    <view class="section section_title">发货地</view>
     <picker bindchange="bindAddressPickerChange" value="{{address}}" range="{{selectArrayAddress}}">
-      <view class="pickerAddress">{{addressShow}}
-      </view>
+      <view class="section pickerText">{{selectArrayAddress[address]}}</view>
     </picker>
   </view>
 
 </view>
- 
+
 <view class="gap"></view>
 
 <!-- 加载图片 -->

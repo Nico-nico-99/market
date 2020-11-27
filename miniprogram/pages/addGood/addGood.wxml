@@ -21,7 +21,7 @@
     <view class="titleContainer background">
       <text class="titleContainer TitleView">商品名</text>
       <input class="titleContainer titleInputView" placeholder="请输入商品名称" maxlength="30" focus="{{titleFocus}}"
-             confirm-type="next" bindblur="comNameInput" bindconfirm="comNameInput"/>
+             confirm-type="done" bindblur="comNameInput" bindconfirm="comNameInput"/>
     </view>
   </view>
 
@@ -34,7 +34,7 @@
       <text class="detailInputContainer detailTitleView">描述</text>
       <view class="detailInputContainer detail">
         <textarea class="detailInputContainer detailText" placeholder="请输入商品描述(少于200字)" maxlength="200" focus="{{detailFocus}}"
-                  confirm-type="next" bindblur="comDetail" bindconfirm="comDetail"></textarea>
+                  confirm-type="done" bindblur="comDetail" bindconfirm="comDetail"></textarea>
       </view>
     </view>
   </view>
@@ -57,6 +57,7 @@
   <view class="gap"></view>
   <view class="gap"></view>
 
+  <!-- 是否全新 -->
   <radio-group class="radio-group" bindchange="radioChange">
     <text class="radio-group radioTitleView">是否全新</text>
     <label class="radio" wx:for-items="{{items}}">
@@ -67,6 +68,7 @@
   <view class="gap"></view>
   <view class="gap"></view>
 
+  <!-- 商品类型 -->
   <view class="section">
     <!-- text -->
     <text class="section section_title">商品类型</text>
@@ -79,14 +81,17 @@
   <view class="gap"></view>
   <view class="gap"></view>
 
+  <!-- 商品发货地 -->
   <view class="section">
     <view class="section section_title">发货地</view>
     <picker bindchange="bindAddressPickerChange" value="{{address}}" range="{{selectArrayAddress}}">
       <view class="section pickerText">{{selectArrayAddress[address]}}</view>
     </picker>
   </view>
+  
 </view>
 
+<view class="gap"></view>
 
 <!-- 加载图片 -->
 <view class="weui-uploader">

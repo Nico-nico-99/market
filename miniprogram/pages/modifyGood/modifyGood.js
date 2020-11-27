@@ -24,8 +24,8 @@ Page({
       { name: 'False', value: 0, checked: true},
     ],
 
-    selectArrayClassify: ["选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
-    selectArrayAddress: ["选择地址", "大学城", "五山", "国际", "其他"],
+    selectArrayClassify: ["请选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
+    selectArrayAddress: ["请选择地址", "大学城", "五山", "国际", "其他"],
     //原商品信息
     goodBefore:{},
   },
