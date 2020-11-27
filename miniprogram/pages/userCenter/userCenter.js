@@ -155,7 +155,8 @@ Page({
               fail: function (error) {
                 wx.hideLoading();
                 console.log('---------------------------------------------------------------------')
-                console.log('wx.getUserInfo()失败: ' + error);
+                console.log('wx.getUserInfo()失败: ');
+                console.log(error)
                 console.log('---------------------------------------------------------------------')
 
                 wx.showToast({
@@ -168,7 +169,8 @@ Page({
           fail: function (error) {
             wx.hideLoading();
             console.log('---------------------------------------------------------------------')
-            console.log('wx.login()失败: ' + error);
+            console.log('wx.login()失败: ');
+            console.log(error)
             console.log('---------------------------------------------------------------------')
 
             wx.showToast({
@@ -348,7 +350,8 @@ Page({
         fail: function(error){
           wx.hideLoading();
           console.log('---------------------------------------------------------------------')
-          console.log("获取用户权限失败: " + error);
+          console.log("获取用户权限失败: ");
+          console.log(error)
           console.log('---------------------------------------------------------------------')
         },
       })
