@@ -21,9 +21,9 @@ Page({
 
     // 筛选类型及下标
     address: ['全部', '大学城', '五山', '国际', '其他'],
-    new:['全部', '非全新', '全新'],
+    new:['非全新', '全新', '全部'],
     address_index: "0",
-    new_index: "0",
+    new_index: "2",
 
     // 用户上次输入内容
     user_input: "",
@@ -189,10 +189,12 @@ Page({
       },
       //请求后台数据成功
       success: function (res) {
-        console.log("推荐商品列表请求成功" + res)
-        that.setData({
-          commodityList: res.data.commodityList
-        })
+        if(res.data.errorCode == 0){
+          console.log("推荐商品列表请求成功" + res)
+          that.setData({
+            commodityList: res.data.commodityList
+          })
+        }
       }
     })
   },

@@ -230,7 +230,6 @@ Page({
       id: id,
       userId: userId
     })
-    console.log(userId);
   },
 
   /**
@@ -249,6 +248,8 @@ Page({
   /* 获取商品详情 */
   getCommodityDetail() {
     var that = this;
+    console.log("请求商品详情，cmId：" + this.data.id)
+    console.log("请求商品详情，userId：" + this.data.userId)  
     wx.request({
       url: 'http://maggiemarket.design:8080/api/commodity/information',
       header: {
@@ -261,17 +262,22 @@ Page({
       },
       //请求后台数据成功
       success: function (res) {
-        console.log("商品详情请求成功" + res)
-        that.setData({
-          commodity: res.data.commodityInfo,
-          urlList: res.data.urlList,
-          contactInfo: res.data.contactInfo,
-          collected: res.data.collected
-        })
-        if(res.data.commodityInfo.state == 4){
+        if(res.data.errorCode == 0){
+          console.log("商品详情请求成功" + res)
           that.setData({
-            reserved: true
-          })          
+            commodity: res.data.commodityInfo,
+            urlList: res.data.urlList,
+            contactInfo: res.data.contactInfo,
+            collected: res.data.collected
+          })
+          if(res.data.commodityInfo.state == 4){
+            that.setData({
+              reserved: true
+            })          
+          }
+        }
+        else{
+          console.log("商品详情请求失败" + res.data.errorMsg)
         }
       }
     })
