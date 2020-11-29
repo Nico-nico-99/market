@@ -79,6 +79,9 @@ Page({
       imgs:this.data.goodBefore.pictureUrls,//图片在本地的路径,实际上这里包含了一部分线上的路径
       pictureUrls: this.data.goodBefore.pictureUrls,//用于在图片上传是暂时保存图片在服务器上的路径
     })
+    console.log("原商品信息赋值到本地,打印imgs 和pictureUrls ");
+    console.log(this.data.imgs);
+    console.log(this.data.pictureUrls);
   },
 
   /**
@@ -168,10 +171,19 @@ Page({
 
   chooseImg: function (e) {//选择图片上传
     var that = this;
-    var imgs = this.data.imgs;//当前已经选择的图片数组
+    var imgs = that.data.imgs;//当前已经选择的图片数组
     var userId=this.data.userId;
     var pictureUrls = that.data.pictureUrls
-    if (imgs.length >= 9) {//如果当前图片数组已经等于三，就不能再选择
+
+    console.log("本页面信息赋值到函数内,打印imgs 和pictureUrls ");
+    console.log(imgs);
+    console.log(pictureUrls);
+
+    console.log("赋值变量到函数内后,打印全局的imgs 和pictureUrls ");
+    console.log(that.data.imgs);
+    console.log(that.data.pictureUrls);
+
+    if (imgs.length >= 9) {//如果当前图片数组已经等于9，就不能再选择
       wx.showModal({
         title: '提示',
         content: '最多只能上传九张图片',
@@ -186,31 +198,37 @@ Page({
       })
       return false;
     }
-
+    
+    var leftCount = 9 - imgs.length ;
+    var tempFilePaths;//用来保存用户本次选择图片的本地路径
     wx.chooseImage({
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;//用户这次选择的图片
-        var imgs = that.data.imgs;//用户在触发该函数前已经选好的图片
-        if (tempFilePaths.length + imgs.length > 9) {//如果当前选择的和之前选择的图片相加大于三个
-          wx.showModal({
-            title: '提示',
-            content: '最多只能上传九张图片',
-            confirmColor: '#27aff6',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
-            }
-          })
-          return false;
-        } else {
+      count: leftCount,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        console.log("执行success");
+        // tempFilePath可以作为img标签的src属性显示图片
+        //在这里先赋值
+        tempFilePaths = res.tempFilePaths
+      },
+      complete:function(){
+        console.log("打印tempFilePaths ");
+        console.log(tempFilePaths==null);
+        
+        if (tempFilePaths!=null){
+          // console.log("打印tempFilePaths");
+          // console.log(tempFilePaths);
+
           for (var i = 0; i < tempFilePaths.length; i++) {
+            // console.log("循环进行一次");
+            // console.log("打印数组");
+            // console.log(tempFilePaths[i]);
+            // console.log("局部变量imgs赋值前");
+            // console.log(imgs);
+            // console.log("局部变量imgs赋值后");
             imgs.push(tempFilePaths[i]);
+            ///console.log(imgs);
+            //console.log(imgs.length);
             // 逐个将单张图片上传到服务器，服务器逐个返回图片路径，
             // 将返回的路径储存在pictureUrls: []中
             wx.uploadFile({
@@ -231,21 +249,51 @@ Page({
                 var begin = dataStr.indexOf("u") + 6;
                 dataStr = dataStr.slice(begin, -2)
                 pictureUrls.push(dataStr);
-                //console.log(pictureUrls)
+                //console.log("局部变量pictureUrls赋值后");
+                //console.log(pictureUrls);
+                //console.log(that.data.pictureUrls);
+                //赋值到该页面的变量
+                
+                for (var i = 0; i < pictureUrls.length; i++) {
+                  var ifTmp = imgs[i].indexOf("tmp");
+                  // console.log("函数内页面变量pictureUrls");
+                  // console.log(pictureUrls);
+                  // console.log("函数内页面变量imgs");
+                  // console.log(imgs);
+                  // console.log(ifTmp);
+                  if (ifTmp != -1) {
+                    //imgs.splice(i, 1);
+                    pictureUrls.splice(i, 1);
+                  }
+                }
+
+                // console.log("页面变量pictureUrls");
+                // console.log(pictureUrls);
+                // console.log("页面变量imgs");
+                // console.log(imgs);
+
+                that.setData({
+                  imgs: imgs,
+                  pictureUrls: pictureUrls
+                });
+                // console.log("赋值到页面变量全局变量pictureUrls");
+                // console.log(that.data.pictureUrls);
+                // console.log("全局变量imgs");
+                // console.log(that.data.imgs);
               },
               fail: function (res) {
                 console.log(res);
               }
             })
+            
+
           }
         }
-        //  console.log(imgs);
-        that.setData({
-          imgs: imgs,
-          pictureUrls: pictureUrls
-        });
-      }
-    });
+        else{
+          console.log("用户没有选择图片")
+        }
+      }  
+    })
   },
 
   
@@ -516,10 +564,18 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log(this.data.isPublish);
-    console.log("我卸载啦");
+    //console.log(this.data.isModify);
+    //console.log("我卸载啦");
     //删除用户没有发布商品却上传到服务器上的图片
     if (this.data.isModify == 0) {
+      
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "如果在修改商品中删除了某张图片，放弃修改会导致商品图片显示异常哦", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: '#27aff6',
+      })
       var pictureUrls = this.data.pictureUrls;
       console.log(pictureUrls)
       //在这里要发送http请求，在服务器上删除对应的图片
