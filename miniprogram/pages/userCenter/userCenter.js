@@ -445,13 +445,18 @@ Page({
    */
   onLoad: function (options) {
     console.log("onLoad()")
+  
+    var app = getApp()
+
+    this.setData({
+      hasUserInfo: app.globalData.hasUserInfo,
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
@@ -459,12 +464,6 @@ Page({
    */
   onShow: function () {
     console.log("onShow()")
-
-    var app = getApp()
-
-    this.setData({
-      hasUserInfo: app.globalData.hasUserInfo,
-    })
   },
 
   /**

@@ -405,7 +405,7 @@ Page({
 
         var timeOut = setTimeout(function () {
           wx.navigateBack({
-            delta: 2
+            delta: 1
           })  
         }, 1000)
 

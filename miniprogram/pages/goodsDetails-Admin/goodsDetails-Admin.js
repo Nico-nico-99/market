@@ -71,9 +71,9 @@ Page({
         })
 
         //返回主页
-        wx.navigateTo({
-          url: '../adminCenter/adminCenter',
-        })    
+        wx.navigateBack({
+          delta: 1,
+        })   
       },
       fail: function(error) {
         wx.hideLoading()
@@ -114,9 +114,9 @@ Page({
         })
 
         //返回主页
-        wx.navigateTo({
-          url: '../adminCenter/adminCenter',
-        })    
+        wx.navigateBack({
+          delta: 1,
+        })   
       },
       fail: function(error) {
         wx.hideLoading()
