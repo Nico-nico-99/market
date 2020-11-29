@@ -464,22 +464,16 @@ Page({
         console.log(res)
         that.data.isModify = 1;
         wx.hideLoading();
-        wx.showModal({
-          title: "温馨提示", // 提示的标题
-          content: "修改商品成功", // 提示的内容
-          showCancel: false, // 是否显示取消按钮，默认true
-          confirmText: "确定", // 确认按钮的文字，最多4个字符
-          confirmColor: '#27aff6',
-          success: function (res) {
-            
-            if (res.confirm) {
-              //console.log('用户点击确定')
-              wx.navigateBack({
-                delta: 2
-              })
-            }
-          }
+        wx.showToast({
+          title: '修改成功',
+          icon: 'none',
         })
+
+        var timeOut = setTimeout(function () {
+          wx.navigateBack({
+            delta: 2
+          })  
+        }, 1000)
       },
       fail: function (res) {
         if (res == null || res.data == null) {

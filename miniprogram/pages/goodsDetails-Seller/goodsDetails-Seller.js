@@ -75,9 +75,16 @@ Page({
                 console.log(res)
                 wx.hideLoading()
   
-                wx.navigateBack({
-                  delta: 2
+                wx.showToast({
+                  title: '下架成功',
+                  icon: 'none',
                 })
+        
+                var timeOut = setTimeout(function () {
+                  wx.navigateBack({
+                    delta: 2
+                  })  
+                }, 1000)
               }
             })  
           }
@@ -118,9 +125,16 @@ Page({
                 console.log(res)
                 wx.hideLoading()
 
-                wx.navigateBack({
-                  delta: 2
+                wx.showToast({
+                  title: '下架成功',
+                  icon: 'none',
                 })
+        
+                var timeOut = setTimeout(function () {
+                  wx.navigateBack({
+                    delta: 2
+                  })  
+                }, 1000)
               }
             })
           }

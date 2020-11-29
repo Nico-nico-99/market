@@ -66,6 +66,11 @@ Page({
         //请求后台数据成功
         success: function (res) {
           console.log("举报商品请求" + res.data.errorCode)
+
+          wx.showToast({
+            title: '举报成功',
+            icon: 'none',
+          })
         }
       })
     }
