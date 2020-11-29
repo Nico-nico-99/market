@@ -5,7 +5,7 @@
 
 <!-- 图片begin -->
 <view class="good_img_swiper">
-  <swiper autoplay="true">
+  <swiper autoplay="false">
     <swiper-item
     wx:for="{{picture_url_List}}"
     wx:key="urlId"
