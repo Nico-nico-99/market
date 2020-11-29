@@ -9,7 +9,8 @@ Page({
     userId:-1,
     picture_url_List: [],//urlId: 0  urlSrc:.....
     commodityInfo:{},
-    contactInfo:""
+    contactInfo:"",
+    reservedTime:""
 
   },
 
@@ -170,13 +171,20 @@ Page({
       },
       success: function (res) {
         //请求后台数据成功
+        console.log(res)
+        console.log(res.data.reservedTime)
         if(res.data.errorCode == 0){
           that.setData({
             picture_url_List:res.data.urlList,
             commodityInfo: res.data.commodityInfo,
-            contactInfo: res.data.contactInfo
+            contactInfo: res.data.contactInfo,//一个联系电话
+            reservedTime: res.data.reservedTime
+            
            })
         }
+        if (res.data.commodityInfo)
+        console.log(that.data)
+
       }
     })
   },

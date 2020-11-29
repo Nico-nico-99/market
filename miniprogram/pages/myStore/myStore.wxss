@@ -8,6 +8,7 @@
   background-color: #F2f2f2;
 }
 .goods-box{
+  position: relative;
   width: 339rpx;
   height: 472rpx;
   background-color: #fff;
@@ -50,6 +51,15 @@
   padding: 24rpx 0;
   color:#000;
   margin-left: 24rpx;
+}
+
+.goods-box .goods-state{
+  width:90rpx;
+  height:90rpx;
+  position: absolute; 
+  right: 10rpx;    
+  left: auto;
+  top: 10rpx;
 }
 .add_goods_btn{
   position:fixed;

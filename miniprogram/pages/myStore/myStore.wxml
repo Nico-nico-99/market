@@ -14,8 +14,14 @@
     <view class="goods-box" wx:for="{{commodityList}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.cmId}}">
 
       <view class="img-box">
+
         <image src="{{item.pictureUrls[0]}}" class="image" mode="aspectFill" lazy-load="true" />
       </view>
+
+      <image class='goods-state' src="http://119.29.33.219:8081/picture/images/stateIcon/saled.png" wx:if="{{item.state == 5}}"></image>
+      <image class='goods-state' src="http://119.29.33.219:8081/picture/images/stateIcon/reserved.png" wx:if="{{item.state == 4}}"></image>
+      <image class='goods-state' src="http://119.29.33.219:8081/picture/images/stateIcon/reject.png" wx:if="{{item.state == 3}}"></image>
+      <image class='goods-state' src="http://119.29.33.219:8081/picture/images/stateIcon/processing.png" wx:if="{{item.state == 1||item.state == 6}}"></image>
 
       <view class="goods-title">{{item.name}}</view>
 

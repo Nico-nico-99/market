@@ -1,90 +1,90 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "bundle": false
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.8.1",
-  "appid": "wxc4eb5a19612df490",
-  "projectname": "Maggie%E7%8E%9B%E5%A5%87",
-  "miniprogramRoot": "miniprogram/",
-  "cloudfunctionRoot": "cloudfunctions/",
-  "cloudfunctionTemplateRoot": "",
-  "watchOptions": {
-    "ignore": []
-  },
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
-        },
-        {
-          "id": 1,
-          "name": "pages/myStore/myStore",
-          "pathName": "pages/myStore/myStore",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/addGood/addGood",
-          "pathName": "pages/addGood/addGood",
-          "query": "",
-          "scene": null
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"useMultiFrameRuntime": false,
+		"useApiHook": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"userConfirmedBundleSwitch": false,
+		"packNpmManually": false,
+		"packNpmRelationList": [],
+		"minifyWXSS": true,
+		"bundle": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.1",
+	"appid": "wxc4eb5a19612df490",
+	"projectname": "Maggie%E7%8E%9B%E5%A5%87",
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"cloudfunctionTemplateRoot": "",
+	"watchOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"plugin": {
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"list": []
+		},
+		"miniprogram": {
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "pages/myStore/myStore",
+					"pathName": "pages/myStore/myStore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "pages/addGood/addGood",
+					"pathName": "pages/addGood/addGood",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
 }

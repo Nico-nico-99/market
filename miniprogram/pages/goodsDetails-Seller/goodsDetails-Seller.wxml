@@ -67,6 +67,45 @@
 </view>
 <!-- 联系方式end -->
 
+<!-- 如果商品状态不为2，即审核通过，显示这个提示 -->
+<text class="detailsTitle" wx:if="{{commodityInfo.state!= 2}}">--商品状态--</text>
+
+<!-- 如果商品状态为4，即被预定，应显示预定买家联系信息 -->
+<view class="background" wx:if="{{commodityInfo.state == 4}}">
+<view class="title">商品已被预定</view>
+<text class="details">买家联系方式：{{contactInfo}}</text>
+<text class="details">预定时间：{{reservedTime}}</text>
+</view>
+<!-- 商品状态end -->
+
+<!-- 如果商品状态为4，即被预定，应显示预定买家联系信息 -->
+<view class="background" wx:if="{{commodityInfo.state == 1}}">
+<view class="title">商品等待管理员审核中......</view>
+</view>
+<!-- 商品状态end -->
+
+<!-- 如果商品状态为3，即审核不通过， -->
+<view class="background" wx:if="{{commodityInfo.state == 3}}">
+<view class="title">商品审核不通过</view>
+<text class="details">很遗憾,请检查商品内容,下架该商品,重新发布</text>
+</view>
+<!-- 商品状态end -->
+
+<!-- 如果商品状态为5，即已售出， -->
+<view class="background" wx:if="{{commodityInfo.state == 5}}">
+<view class="title">商品已被售出</view>
+</view>
+<!-- 商品状态end -->
+
+<!-- 如果商品状态为6，即被举报， -->
+<view class="background" wx:if="{{commodityInfo.state == 6}}">
+<view class="title">商品被举报了</view>
+<text class="details">管理员正在审核该商品，请及时检查商品内容</text>
+</view>
+<!-- 商品状态end -->
+
+
+
 <!-- 功能按钮begin -->
 <view class="btn-box">
   <!-- 审核通过按钮 -->
