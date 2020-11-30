@@ -10,8 +10,8 @@ Page({
     picture_url_List: [],//urlId: 0  urlSrc:.....
     commodityInfo:{},
     contactInfo:"",
-    reservedTime:""
-
+    buyerContactInfo: "",
+    reserveTime:""
   },
 
     /**
@@ -186,14 +186,14 @@ Page({
       success: function (res) {
         //请求后台数据成功
         console.log(res)
-        console.log(res.data.reservedTime)
+
         if(res.data.errorCode == 0){
           that.setData({
             picture_url_List:res.data.urlList,
             commodityInfo: res.data.commodityInfo,
             contactInfo: res.data.contactInfo,//一个联系电话
-            reservedTime: res.data.reservedTime
-            
+            buyerContactInfo: res.data.buyerContactInfo,
+            reserveTime: res.data.reserveTime
            })
         }
         if (res.data.commodityInfo)

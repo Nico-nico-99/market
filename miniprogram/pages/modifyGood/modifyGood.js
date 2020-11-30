@@ -89,7 +89,7 @@ Page({
    * 商品名称输入
    */
   comNameInput: function (e) {
-    var nametmp = e.detail.value;
+    var nametmp = e.detail.value.trim();
     this.setData({
       name: nametmp
     })
@@ -101,7 +101,7 @@ Page({
    */
   comDetail: function (e) {
     this.setData({
-      details: e.detail.value
+      details: e.detail.value.trim()
     })
   },
 

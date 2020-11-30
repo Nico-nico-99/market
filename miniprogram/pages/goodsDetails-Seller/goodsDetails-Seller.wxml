@@ -73,8 +73,8 @@
 <!-- 如果商品状态为4，即被预定，应显示预定买家联系信息 -->
 <view class="background" wx:if="{{commodityInfo.state == 4}}">
 <view class="title">商品已被预定</view>
-<text class="details">买家联系方式：{{contactInfo}}</text>
-<text class="details">预定时间：{{reservedTime}}</text>
+<text class="details">买家联系方式：{{buyerContactInfo}}</text>
+<text class="details">预定时间：{{reserveTime}}</text>
 </view>
 <!-- 商品状态end -->
 

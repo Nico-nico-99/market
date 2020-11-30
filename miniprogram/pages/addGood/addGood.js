@@ -10,7 +10,7 @@ Page({
     name: "",
     details: "",
     price: -1,
-    is_new: 1,
+    is_new: 0,
     classify: 0,
     address: 0,
     imgs: [],//图片在本地的路径
@@ -57,7 +57,7 @@ Page({
    * 商品名称输入
    */
   comNameInput: function (e) {
-    var nametmp = e.detail.value.replace(/\s+/g, '');
+    var nametmp = e.detail.value.trim();
     this.setData({
       name: nametmp,
     })
@@ -65,7 +65,7 @@ Page({
 
   comDetail: function (e) {
     this.setData({
-      details: e.detail.value.replace(/\s+/g, ''),
+      details: e.detail.value.trim(),
     })
   },
 
