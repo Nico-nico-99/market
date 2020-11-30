@@ -387,7 +387,7 @@ Page({
         classify: this.data.classify,
         details: this.data.details,
         price: this.data.price,
-        userId: 1,
+        userId: getApp().globalData.userId,
         address: this.data.address,
         pictureUrls: this.data.pictureUrls,
         isNew: this.data.is_new
