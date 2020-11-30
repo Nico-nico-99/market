@@ -48,18 +48,18 @@
 </form>
 
 <!-- 筛选begin -->
-<view class="filter_area">
-<text class="title">筛选</text>
+<view class="{{search?'hide':'filter_area'}}">
+  <text class="title">筛选</text>
   <!-- 发货地picker -->
-  <text>发货地</text>
-  <picker bindchange="addressPickerChange" value="{{address_index}}" range="{{address}}" name="address">
+  <text class="text">发货地</text>
+  <picker class="picker" bindchange="addressPickerChange" value="{{address_index}}" range="{{address}}" name="address">
     <view>
     {{address[address_index]}}
     </view>
   </picker>
   <!-- 新旧程度picker -->
-  <text>新旧程度</text>
-  <picker bindchange="newPickerChange" value="{{new_index}}" range="{{new}}" name="new">
+  <text class="text">新旧程度</text>
+  <picker class="picker" bindchange="newPickerChange" value="{{new_index}}" range="{{new}}" name="new">
     <view>
     {{new[new_index]}}
     </view>

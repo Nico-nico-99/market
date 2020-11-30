@@ -49,6 +49,9 @@
 }
 
 /*筛选方式样式*/
+.hide{
+  display: none;
+}
 .filter_area {
   float: right;
   background-color: #66c6fa;
@@ -64,11 +67,11 @@
   font-size: 5vw;
   font-weight: 600vw;
 }
-.filter_area text {
+.filter_area .text {
   padding: 5px;
   font-size: 4vw;
 }
-.filter_area picker {
+.filter_area .picker {
   background-color: #fff;
   color: #0080c5;
   height: 8vw;
