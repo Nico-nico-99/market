@@ -192,7 +192,7 @@ Page({
             picture_url_List:res.data.urlList,
             commodityInfo: res.data.commodityInfo,
             contactInfo: res.data.contactInfo,//一个联系电话
-            buyerContactInfo: res.data.buyerContactInfo,
+            buyerContactInfo: res.data.reservoirInfo,
             reserveTime: res.data.reserveTime
            })
         }
