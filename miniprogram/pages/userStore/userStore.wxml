@@ -25,24 +25,23 @@
 <!-- 卖家商品begin -->
 <view class="goods-container">
   <block wx:for='{{commodityList}}' wx:key='this'> 
-    <!-- 显示全部在售商品 -->
-    <view wx:if="{{item.state == 2 || item.state == 6}}">  
-      <view wx:if="{{new_index == 2 && address_index == 0}}"> 
+    <!-- 筛选在售状态商品 -->
+      <!-- 显示全部在售商品 -->
+      <view wx:if="{{new_index == 2 && address_index == 0 && (item.state == 2 || item.state == 6)}}"> 
       <template is='commodityList' data='{{...item}}'></template> 
       </view> 
       <!-- 显示筛选新旧程度后的商品 -->
-      <view wx:if="{{item.isNew == new_index && address_index == 0}}">
+      <view wx:if="{{item.isNew == new_index && address_index == 0 && (item.state == 2 || item.state == 6)}}">
         <template is='commodityList' data='{{...item}}'></template>
       </view>
       <!-- 显示筛选发货地后的商品 -->
-      <view wx:if="{{new_index == 2  && item.address == address_index}}">
+      <view wx:if="{{new_index == 2  && item.address == address_index && (item.state == 2 || item.state == 6)}}">
         <template is='commodityList' data='{{...item}}'></template>
       </view>
       <!-- 显示双重筛选后的商品 -->
-      <view wx:if="{{item.isNew == new_index && item.address == address_index}}">
+      <view wx:if="{{item.isNew == new_index && item.address == address_index && (item.state == 2 || item.state == 6)}}">
         <template is='commodityList' data='{{...item}}'></template>
       </view>
-    </view>
   </block>
 </view>
 <!-- 卖家商品end -->

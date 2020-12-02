@@ -11,9 +11,9 @@ Page({
     commodityList: [],
     // 筛选类型及下标
     address: ['全部', '大学城', '五山', '国际', '其他'],
-    new:['全部', '非全新', '全新'],
+    new:['非全新', '全新', '全部'],   // 商品isNew属性【"0-非全新"，"1-全新"】
     address_index: "0",
-    new_index: "0",
+    new_index: "2",
   },
 
     // 跳转至商品详情页面事件
@@ -48,6 +48,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var sellerId = options.sellerId
+    this.setData({
+      sellerId: sellerId
+    })
+    console.log("此页面的卖家Id为" + sellerId)
   },
 
   /**
@@ -61,11 +66,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var sellerId = options.sellerId
-    this.setData({
-      sellerId: sellerId
-    })
-    console.log("此页面的卖家Id为" + sellerId)
     this.getSellerCommodityList()
   },
   /* 获取卖家商品列表 */
@@ -82,7 +82,8 @@ Page({
       },
       //请求后台数据成功
       success: function (res) {
-        console.log("商品详情请求成功" + res)
+        console.log("商品详情请求成功")
+        console.log(res)
         that.setData({
           commodityList: res.data.commodityList
         })
