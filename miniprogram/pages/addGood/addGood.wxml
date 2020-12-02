@@ -28,20 +28,6 @@
   <view class="gap"></view>
   <view class="gap"></view>
 
-  <!-- 商品描述 -->
-  <view class="detailInputContainer">
-    <view class="detailInputContainer background">
-      <text class="detailInputContainer detailTitleView">描述</text>
-      <view class="detailInputContainer detail">
-        <textarea class="detailInputContainer detailText" placeholder="请输入商品描述(少于200字)" maxlength="200" focus="{{detailFocus}}"
-                  confirm-type="done" bindblur="comDetail" bindconfirm="comDetail"></textarea>
-      </view>
-    </view>
-  </view>
-
-  <view class="gap"></view>
-  <view class="gap"></view>
-
   <!-- 商品价格 -->
   <view class="priceContainer">
     <view class="priceContainer background">
@@ -61,7 +47,7 @@
   <radio-group class="radio-group" bindchange="radioChange">
     <text class="radio-group radioTitleView">是否全新</text>
     <label class="radio" wx:for-items="{{items}}">
-      <radio name="{{item.name}}" checked="{{item.checked}}" value="{{item.value}}" color="#27aff6"/>{{item.name}}
+      <radio name="{{item.name}}" value="{{item.value}}" color="#27aff6"/>{{item.name}}
     </label>
   </radio-group>
 
@@ -88,9 +74,50 @@
       <view class="section pickerText">{{selectArrayAddress[address]}}</view>
     </picker>
   </view>
-  
+
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+
+    <!-- 商品描述 -->
+  <view class="detailInputContainer">
+    <view class="detailInputContainer background">
+      <text class="detailInputContainer detailTitleView">描述</text>
+      <view class="detailInputContainer detail">
+        <textarea class="detailInputContainer detailText" placeholder="请输入商品描述(少于200字)" maxlength="200" focus="{{detailFocus}}"
+                  confirm-type="done" bindblur="comDetail" bindconfirm="comDetail"></textarea>
+      </view>
+    </view>
+  </view>  
 </view>
 
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
 <view class="gap"></view>
 
 <!-- 加载图片 -->
@@ -129,6 +156,9 @@
 
   </view>
 
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
   <view class="gap"></view>
 
 </view>

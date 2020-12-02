@@ -28,20 +28,6 @@
   <view class="gap"></view>
   <view class="gap"></view>
 
-    <!-- 商品描述 -->
-    <view class="detailInputContainer">
-    <view class="detailInputContainer background">
-      <text class="detailInputContainer detailTitleView">描述</text>
-      <view class="detailInputContainer detail">
-        <textarea class="detailInputContainer detailText" placeholder="请输入商品描述(少于200字)" maxlength="200" value="{{goodBefore.details}}"
-                  confirm-type="done" bindblur="comDetail" bindconfirm="comDetail"></textarea>
-      </view>
-    </view>
-  </view>
-
-  <view class="gap"></view>
-  <view class="gap"></view>
-
   <!-- 商品价格 -->
   <view class="priceContainer">
     <view class="priceContainer background">
@@ -89,8 +75,49 @@
     </picker>
   </view>
 
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+  <view class="gap"></view>
+
+    <!-- 商品描述 -->
+    <view class="detailInputContainer">
+    <view class="detailInputContainer background">
+      <text class="detailInputContainer detailTitleView">描述</text>
+      <view class="detailInputContainer detail">
+        <textarea class="detailInputContainer detailText" placeholder="请输入商品描述(少于200字)" maxlength="200" value="{{goodBefore.details}}"
+                  confirm-type="done" bindblur="comDetail" bindconfirm="comDetail"></textarea>
+      </view>
+    </view>
+  </view>
 </view>
 
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
+<view class="gap"></view>
 <view class="gap"></view>
 
 <!-- 加载图片 -->

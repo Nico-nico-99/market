@@ -10,7 +10,7 @@ Page({
     name: "",
     details: "",
     price: -1,
-    is_new: 0,
+    is_new: undefined,
     classify: 0,
     address: 0,
     imgs: [],//图片在本地的路径
@@ -18,7 +18,7 @@ Page({
 
     items: [
       { name: 'True', value: 1 },
-      { name: 'False', value: 0, checked: 'true' },
+      { name: 'False', value: 0 },
     ],
     selectArrayClassify: ["请选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
     selectArrayAddress: ["请选择地址", "大学城", "五山", "国际", "其他"]
@@ -372,62 +372,111 @@ Page({
         }
       })
       return false;
+    } else if(this.data.is_new == "" || this.data.is_new == undefined){
+      wx.showModal({
+        title: "温馨提示", // 提示的标题
+        content: "请选择商品是否为新", // 提示的内容
+        showCancel: false, // 是否显示取消按钮，默认true
+        confirmText: "确定", // 确认按钮的文字，最多4个字符
+        confirmColor: '#27aff6',
+        success: function (res) {
+          console.log("接口调用成功的回调函数");
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+      return false;
     }
-    wx.showLoading({
-      title: '上传中',
-    })
+
+    //检查联系方式是否存在
     wx.request({
-      url: "http://maggiemarket.design:8080/api/myStore/publish",
-      // header: {
-      //   "Content-Type": "application/x-www-form-urlencoded"
-      // },
       method: "POST",
+      url: 'http://maggiemarket.design:8080/api/userCenter/userInfo/userInfo',//获取用户信息
       data: {
-        name: this.data.name,
-        classify: this.data.classify,
-        details: this.data.details,
-        price: this.data.price,
         userId: getApp().globalData.userId,
-        address: this.data.address,
-        pictureUrls: this.data.pictureUrls,
-        isNew: this.data.is_new
+      },
+      header: {
+        'content-type': 'application/json'//要根据后端信息进行修改
       },
       success: function (res) {
+        console.log("成功获取卖家联系方式")
         console.log(res)
 
-        wx.hideLoading()
-        that.data.isPublish = 1;
-
-        wx.showToast({
-          title: '发布成功',
-          icon: 'none',
-        })
-
-        var timeOut = setTimeout(function () {
-          wx.navigateBack({
-            delta: 1
-          })  
-        }, 1000)
-
-      },
-      fail: function (res) {
-        if (res == null || res == null) {
-          console.error('网络请求失败');
-          return;
+        if(res.data.contactInfo == undefined || res.data.contactInfo == ""){
+          wx.showModal({
+            title: '提示',
+            content: '您尚未填写联系方式，请前往【个人资料】进行填写。若联系方式为空，商品将无法成功发布。',
+            showCancel: false,
+            confirmColor: '#27aff6',
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '../userCenter/userInfo/userInfo',
+                })
+              }
+           },
+          })
         }
-        wx.showModal({
-          title: "发布失败", // 提示的标题
-          content: "请检查网络", // 提示的内容
-          showCancel: false, // 是否显示取消按钮，默认true
-          confirmText: "确定", // 确认按钮的文字，最多4个字符
-          confirmColor: '#27aff6',
-
-        })
+        else{
+          wx.showLoading({
+            title: '上传中',
+          })
+          wx.request({
+            url: "http://maggiemarket.design:8080/api/myStore/publish",
+            // header: {
+            //   "Content-Type": "application/x-www-form-urlencoded"
+            // },
+            method: "POST",
+            data: {
+              name: that.data.name,
+              classify: that.data.classify,
+              details: that.data.details,
+              price: that.data.price,
+              userId:  parseInt(getApp().globalData.userId),
+              address: that.data.address,
+              pictureUrls: that.data.pictureUrls,
+              isNew: parseInt(that.data.is_new)
+            },
+            success: function (res) {
+              console.log(res)
+      
+              wx.hideLoading()
+              that.data.isPublish = 1;
+      
+              wx.showToast({
+                title: '发布成功',
+                icon: 'none',
+              })
+      
+              var timeOut = setTimeout(function () {
+                wx.reLaunch({
+                  url: '../myStore/myStore',
+                })
+              }, 1000)
+      
+            },
+            fail: function (res) {
+              if (res == null || res == null) {
+                console.error('网络请求失败');
+                return;
+              }
+              wx.showModal({
+                title: "发布失败", // 提示的标题
+                content: "请检查网络", // 提示的内容
+                showCancel: false, // 是否显示取消按钮，默认true
+                confirmText: "确定", // 确认按钮的文字，最多4个字符
+                confirmColor: '#27aff6',
+      
+              })
+            }
+          })  
+        }
+      },
+      fail: function(error){
+        console.log("获取卖家联系方式失败")
       }
     })
-
-
-
   },
 
   /**

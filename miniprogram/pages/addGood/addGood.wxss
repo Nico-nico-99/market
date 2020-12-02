@@ -82,18 +82,18 @@
 
 /************************* 商品描述 *************************/
 .detailInputContainer{
-  height: 42vw;
+  height: 50vw;
   width: 90vw;
 }
 .detailInputContainer.background{
-  flex-direction: row;
+  flex-direction: column;
 
-  height: 42vw;
+  height: 62vw;
   width: 90vw;
 
   display: flex;
+  align-items: left;
   justify-content: space-between;
-  align-items: center;
 
   background-color: white;
   border-radius: 10rpx;
@@ -112,10 +112,11 @@
 /* detail */
 .detailInputContainer.detail{
   position: relative;
-  left: -1.5vw;
+  left: 2.5vw;
+  bottom: 2.6vw;
 
-  width: 63vw;
-  height: 38vw;
+  width: 84vw;
+  height: 48vw;
 
   border-radius: 10rpx;
   border: 0.4vw solid rgb(240, 240, 240);
@@ -123,10 +124,11 @@
 .detailInputContainer.detailText{
   position: relative;
   top: 1vw;
+  left: 2.3vw;
 
-  width: 60vw;
+  width: 80vw;
   font-size: 3.89vw;
-  text-align: right;
+  text-align: left;
 }
 /***********************************************************/
 
@@ -191,6 +193,7 @@
   background-color: white;
 
   font-size: 3.89vw;
+  border-radius: 10rpx;
 }
 .radio-group.radioTitleView{
   display: flex;
@@ -300,7 +303,7 @@
   text-align: center;
 
   position: relative;
-  right: -7.5vw;
+  top: 3vw;
 
   width:200rpx;
   height:80rpx;
@@ -321,7 +324,10 @@
   display: flex;
   justify-content:center;
   align-items: center;
-  text-align: center；
+  text-align: center;
+
+  position: relative;
+  top: 3vw;
 }
 .btnText{
   color:white;
