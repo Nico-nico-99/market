@@ -68,7 +68,7 @@ Page({
                 signature = res.signature
                 encryptedData = res.encryptedData
                 iv = res.iv
-
+                console.log("res:" + res)
                 that.setData({
                   nickName: res.userInfo.nickName,
                   userImageUrl: res.userInfo.avatarUrl,

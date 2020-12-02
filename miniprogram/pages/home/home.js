@@ -13,11 +13,15 @@ Page({
       },
       {
         img_id: 2,
-        img_src: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=656939494,2395229563&fm=26&gp=0.jpg",
+        img_src: "http://119.29.33.219:8081/picture/images/pic4.png",
       },
       {
         img_id: 3,
-        img_src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&   sec=1601404782400&di=47f1cb31a08bffa14c3862d28be96890&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180520%2F326eae8b6b8c4b189c10e15e7fc5f41b.jpeg",
+        img_src: "http://119.29.33.219:8081/picture/images/pic2.jpg",
+      },
+      {
+        img_id: 4,
+        img_src: "http://119.29.33.219:8081/picture/images/pic3.jpg",
       }
     ],
     // 商品分类筛选标记
