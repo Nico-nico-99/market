@@ -14,6 +14,7 @@ Page({
     // 搜索类型及下标
     searchType: ['商品', '用户'],
     searchType_index: "0",
+    search: false,
     
     // 排序类型及下标
     sortType:['价格最低', '价格最高', '时间最新', '时间最久'],
@@ -37,9 +38,12 @@ Page({
   // 搜索类型选择器改变事件
   typePickerChange: function(e) {
     console.log('搜索类型picker发送选择改变，携带值为', e.detail.value)
+
     this.setData({
-      searchType_index: e.detail.value
+      searchType_index: e.detail.value,
+      search: (!this.data.search)
     })
+    console.log('search: ' + this.data.search)
   },
 
   // 排序类型选择器改变事件
