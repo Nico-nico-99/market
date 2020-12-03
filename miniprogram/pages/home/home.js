@@ -73,6 +73,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
   },
 
 
@@ -98,6 +99,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
+        console.log(res)
         //请求后台数据成功
         if(res.data.errorCode == 0){
           console.log("推荐商品列表请求成功" + res)        

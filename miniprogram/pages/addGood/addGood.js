@@ -18,7 +18,7 @@ Page({
 
     items: [
       { name: 'True', value: 1 },
-      { name: 'False', value: 0 },
+      { name: 'False', value: 0},
     ],
     selectArrayClassify: ["请选择分类", "电子产品", "讲座票", "校园网", "日用品", "书籍", "文具", "美妆", "零食", "其他"],
     selectArrayAddress: ["请选择地址", "大学城", "五山", "国际", "其他"]
@@ -105,6 +105,7 @@ Page({
     this.setData({
       is_new: num,
     })
+   console.log(this.data.is_new)
   },
   chooseImg: function (e) {//选择图片上传
     var that = this;
@@ -372,7 +373,7 @@ Page({
         }
       })
       return false;
-    } else if(this.data.is_new == "" || this.data.is_new == undefined){
+    } else if(this.data.is_new == undefined){
       wx.showModal({
         title: "温馨提示", // 提示的标题
         content: "请选择商品是否为新", // 提示的内容
